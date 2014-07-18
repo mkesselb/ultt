@@ -1,0 +1,31 @@
+Allgemein:
+um den server zum laufen zu kriegen, sind folgende schritte notwendig:
+
+	zuerst auf der cmd
+		npm install
+	aufrufen, um die benötigten libraries über node zu installieren (ist vielleicht nicht notwendig, schadet aber nicht)
+	
+	dann ist noch ein mysql datenbankserver notwendig -> ich hab mal XAMPP verwendet, um den einfach zu starten (und über phpmyadmin zu verwalten)
+		dort das script ultt.sql einfügen, um die tabelle zum testen zu machen
+	
+	danach kann der server eigentlich gestartet werden, mit (ins \server verzeichnis wechseln)
+		node server.ts
+		(nicht vergessen, apache zu beenden, server hört nämlich auf port 80)
+			(oder natürlich den port verändern)
+			
+	bei navigation zu localhost wird die index.html seite zurückgegeben, welche einen kleinen db-test darstellt
+		es können mit submit die daten in die db gespeichert werden,
+		und mit refresh alle rows aus der db-tabelle gefetcht werden
+		ziel des unity-prototypen soll es nun sein, auch diese funktionalität bereitzustellen
+		
+
+weiters die drei endpoints des servers, welche für unity-anbindung wichting sind.
+navigation auf /unity soll die unity-seite zurückgeben (ist wohl eine .html seite mit embedded unity -> falls ich da falsch liege, bitte im server.ts ändern).
+
+unterstützt wird ein GET auf /unity/db, welches die rows aus der tabelle holt und returnt
+	(wie auf die werte zugegriffen wird, bitte im server.ts auschecken)
+	(das kommende JSON kann man auch im browser anschauen
+
+und ein POST auf /unity/db, welches daten im folgenden format erwartet (nur deswegen, weil ajax-calls die daten so geliefert haben, können wir gg. noc anpassen):
+	name=abc&age=123
+diese daten werden über ein prepared sql-statement in die db eingefügt

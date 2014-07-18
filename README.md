@@ -1,4 +1,4 @@
 ultt
 ====
 
-Ultimate learning and teaching tool
+Ultimate learning and teaching tool repository.

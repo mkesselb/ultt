@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<head>
+		<title>ULTT prototype</title>
+	</head>
+	<body>
+		<h1>ULTT prototype</h1>
+		<form action="/db/" method="POST" name="dbForm">
+		<p><label for="name">Name</label>
+		<input type="text" name="name" id="name"></p>
+		<p><label for="age">Age</label>
+		<input type="number" name="age" id="age"></p>
+		<input value="Submit" type="submit" onclick="submitform()">
+		</form>
+		
+		<script type="text/javascript">
+			function submitform(){
+				var formData = {
+					"name": $('#name').val(),
+					"age": $('#age').val()
+				}
+				$.ajax({
+					type: "POST",
+					url: '/db',
+					data: JSON.stringify(formData),
+					success: function(){
+						alert('successful inserted')},
+					datatype: "json",
+					contentType: "application/json"
+				});
+			}
+		</script>
+		
+		<div id="refreshList"></div>
+		<button class="db">Refresh from server</button>
+		<script>
+			$(".db").click(function(){
+				$.ajax({
+					type: "GET",
+					url: '/db',
+					data: '',
+					success: function(response){
+						//create paragraph list of database entries
+						s = "";
+						for(i = 0; i < response.length; i++){
+							s += "<p>" + response[i].name + " " + response[i].age + "<p>";
+						};
+						$( "#refreshList" ).html(s);
+					},
+					datytype: "json",
+					contentType: "application/json"
+				});
+			});
+		</script>
+   </body>
+</html>
