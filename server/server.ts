@@ -1,5 +1,5 @@
 /* logging framework approach still needed */
-declare function require(name:string);
+//declare function require(name:string);
 var express = require('express');
 var mysql = require('mysql');
 var fs = require('fs');
@@ -36,15 +36,16 @@ var server = ultt.listen(80, function(err){
 
 
 /* defining routes */
+
 /* get routes */
 ultt.get('/', function(req, res){
 	console.log('serving request to /');
 	fs.createReadStream('index.html').pipe(res);
 });
 
-ultt.get('/unity', function(req, res){
-	console.log('serving request to /unity');
-	fs.createReadStream('unity.html').pipe(res);
+ultt.get('/ultt.html', function(req, res){
+	console.log('serving request to /ultt.html');
+	fs.createReadStream('ultt.html').pipe(res);
 });
 
 ultt.get('/info', function(req, res){
@@ -72,6 +73,8 @@ ultt.get('/db', function(req, res){
 	
 });
 
+//maybe, only post requests from unity with wwwform, where specifying with a parameter if 
+//it is actually a post or get
 ultt.get('/unity/db', function(req, res){
 	//todo: fill in db handling module
 	console.log('serving request to /unity/db');
@@ -123,6 +126,7 @@ ultt.post('/unity/db', function(req, res){
 	console.log('serving post to /unity/db');
 	var body = [];
 	req.on('data', function(data){
+		console.log("received data: " + data.toString());
 		var s = data.toString().split('&');
 		for(var i = 0; i < s.length; i++){
 			body.push(s[i].split('=')[1]);
@@ -131,13 +135,14 @@ ultt.post('/unity/db', function(req, res){
 	req.on('end', function(){
 		//todo: fill in db handling module
 		var person = {name: body[0], age: body[1]};
+		console.log("person received: " + person.name + ";" + person.age);
 		connection.query('insert into persons set ?', person, function(err, result){
 			if(err){
 				console.log('error inserting rows');
 				throw err;
 			}
 			console.log('inserted: ' + person.name + ";" + person.age);
-			fs.createReadStream('unity.html').pipe(res);
+			//fs.createReadStream('ultt.html').pipe(res);
 		});
 	});
 });
