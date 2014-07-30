@@ -1,4 +1,5 @@
 /* logging framework approach still needed */
+declare function require(name:string);
 var express = require('express');
 var mysql = require('mysql');
 var fs = require('fs');
@@ -61,7 +62,7 @@ ultt.get('/db', function(req, res){
 			throw err;
 		}
 		
-		for(i = 0; i < rows.length; i++){
+		for(var i = 0; i < rows.length; i++){
 			console.log(rows[i].id + ";" + rows[i].name + ";" + rows[i].age);
 		}
 		
@@ -81,7 +82,7 @@ ultt.get('/unity/db', function(req, res){
 			throw err;
 		}
 		
-		for(i = 0; i < rows.length; i++){
+		for(var i = 0; i < rows.length; i++){
 			console.log(rows[i].id + ";" + rows[i].name + ";" + rows[i].age);
 		}
 		
@@ -99,7 +100,7 @@ ultt.post('/db', function(req, res){
 	var body = [];
 	req.on('data', function(data){
 		var s = data.toString().split('&');
-		for(i = 0; i < s.length; i++){
+		for(var i = 0; i < s.length; i++){
 			body.push(s[i].split('=')[1]);
 		}
 	});
@@ -123,7 +124,7 @@ ultt.post('/unity/db', function(req, res){
 	var body = [];
 	req.on('data', function(data){
 		var s = data.toString().split('&');
-		for(i = 0; i < s.length; i++){
+		for(var i = 0; i < s.length; i++){
 			body.push(s[i].split('=')[1]);
 		}
 	});
