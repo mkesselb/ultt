@@ -18,14 +18,34 @@ um den server zum laufen zu kriegen, sind folgende schritte notwendig:
 		und mit refresh alle rows aus der db-tabelle gefetcht werden
 		ziel des unity-prototypen soll es nun sein, auch diese funktionalität bereitzustellen
 		
+Update:
+die routen des servers wurden nun zusammengekürzt, wie folgt:
+	die default route '/' liefert nun das unity.html file zurück, welches die webplayer-unity datei nachlädt
+	unity soll auf '/unity/db' WWWForm Daten post-en, um mit der Datenbank zu kommunizieren (siehe weiter unten)
+die restlichen routen wurden entfernt
 
-weiters die drei endpoints des servers, welche für unity-anbindung wichting sind.
-navigation auf /unity soll die unity-seite zurückgeben (ist wohl eine .html seite mit embedded unity -> falls ich da falsch liege, bitte im server.ts ändern).
+logging wird über das logging-module ./logging/logging.ts abgehandelt, welches dann über .log(logLevel, logMessage) aufgerufen wird (siehe code für beispiele)
 
-unterstützt wird ein GET auf /unity/db, welches die rows aus der tabelle holt und returnt
-	(wie auf die werte zugegriffen wird, bitte im server.ts auschecken)
-	(das kommende JSON kann man auch im browser anschauen
-
-und ein POST auf /unity/db, welches daten im folgenden format erwartet (nur deswegen, weil ajax-calls die daten so geliefert haben, können wir gg. noc anpassen):
-	name=abc&age=123
-diese daten werden über ein prepared sql-statement in die db eingefügt
+db kommunikation läuft wie folgt ab:
+	jegliche db kommunikation ist als schicken einer WWWForm mit passenden daten konzipiert.
+	für ein schreiben zur datenbank sind folgende form-felder nötig:
+		purpose = "post"
+		table 	= "tableX" (die table, in die geschrieben werden soll)
+		field1 	= "value1"
+		..
+		fieldn	= "valuen" (die felder in der reihenfolge der datenbank-spalten mit den zu schreibenden werten)
+		
+	für ein fetching aus der db sind folgende form-felder nötig:
+		purpose = "get"
+		table 	= "tableX" (die table, von welcher gefetcht werden soll)
+		field1	= "value1"
+		..
+		fieldk	= "valuek" (k felder mit values, auf welche in der table gematched werden soll)
+		field n	= "null"
+		..
+		field m	= "null" (o felder mit value "null", welche gefetcht werden sollen, und in dieser reihenfolge returned werden)
+	die lösung mit den "null" werten ist nicht optimal (sie verhindert zB, dass "null" ein zulässiger wert eines feldes ist), aber die einfachste lösung, die mir eingefallen ist
+	
+	update ist zur zeit noch nicht implementiert
+	
+	siehe unity .cs datei für beispielhafte db kommunikation

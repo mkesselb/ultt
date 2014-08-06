@@ -1,8 +1,9 @@
-/* logging framework approach still needed */
 //declare function require(name:string);
 var express = require('express');
 var mysql = require('mysql');
 var fs = require('fs');
+var db = require('./db/db.ts');
+var logger = require('./logging/logging.ts');
 
 
 /* building db connection */
@@ -14,12 +15,12 @@ var connection = mysql.createConnection({
 	database : 'ultt'
 });
 connection.connect(function(err){
-	if (err) {
-		console.error('error connecting: ' + err.toString());
+	if (err){
+		logger.log(logger.logLevels["error"], "error connecting to db: " + err.toString());
 		throw err;
 	}
 
-	console.log('connected to db');
+	logger.log(logger.logLevels["info"], "connected to db");
 });
 
 
@@ -27,122 +28,54 @@ connection.connect(function(err){
 var ultt = express();
 var server = ultt.listen(80, function(err){
 	if(err){
-		console.log("error listening: " + err.toString());
+		logger.log(logger.logLevels["error"], "error listening on port "
+				+ server.address().port + ": " + err.toString());
 		throw err;
 	}
 	
-	console.log('Listening on port ' + server.address().port);
+	logger.log(logger.logLevels["info"], "Listening on port " + server.address().port);
 });
 
 
 /* defining routes */
 
+
 /* get routes */
 ultt.get('/', function(req, res){
-	console.log('serving request to /');
-	fs.createReadStream('index.html').pipe(res);
-});
-
-ultt.get('/ultt.html', function(req, res){
-	console.log('serving request to /ultt.html');
+	logger.log(logger.logLevels["info"], "serving request to /");
 	fs.createReadStream('ultt.html').pipe(res);
 });
 
+ultt.get('/ultt.unity3d', function(req, res){
+	logger.log(logger.logLevels["info"], "serving request to /ultt.unity3d");
+	fs.createReadStream('ultt.unity3d').pipe(res);
+});
+
 ultt.get('/info', function(req, res){
-	console.log('serving request to /info');
+	logger.log(logger.logLevels["info"], "serving request to /info");
 	res.send('sp mkesselb, comoessl, stoffl1024');
-});
-
-ultt.get('/db', function(req, res){
-	//todo: fill in db handling module
-	console.log('serving request to /db');
-	
-	connection.query('select id, name, age from persons;', function(err, rows){
-		if(err){
-			res.send(["error connecting", err.toString()]);
-			throw err;
-		}
-		
-		for(var i = 0; i < rows.length; i++){
-			console.log(rows[i].id + ";" + rows[i].name + ";" + rows[i].age);
-		}
-		
-		res.send(rows);
-	});
-	
-	
-});
-
-//maybe, only post requests from unity with wwwform, where specifying with a parameter if 
-//it is actually a post or get
-ultt.get('/unity/db', function(req, res){
-	//todo: fill in db handling module
-	console.log('serving request to /unity/db');
-	
-	connection.query('select id, name, age from persons;', function(err, rows){
-		if(err){
-			res.send(["error connecting", err.toString()]);
-			throw err;
-		}
-		
-		for(var i = 0; i < rows.length; i++){
-			console.log(rows[i].id + ";" + rows[i].name + ";" + rows[i].age);
-		}
-		
-		res.send(rows);
-	});
-	
-	
 });
 
 
 /* post routes */
-ultt.post('/db', function(req, res){
-	//todo: fill in db handling module
-	console.log('serving post to /db');
-	var body = [];
-	req.on('data', function(data){
-		var s = data.toString().split('&');
-		for(var i = 0; i < s.length; i++){
-			body.push(s[i].split('=')[1]);
-		}
-	});
-	req.on('end', function(){
-		//todo: fill in db handling module
-		var person = {name: body[0], age: body[1]};
-		connection.query('insert into persons set ?', person, function(err, result){
-			if(err){
-				console.log('error inserting rows');
-				throw err;
-			}
-			console.log('inserted: ' + person.name + ";" + person.age);
-			fs.createReadStream('index.html').pipe(res);
-		});
-	});
-});
-
 ultt.post('/unity/db', function(req, res){
 	//todo: fill in db handling module
-	console.log('serving post to /unity/db');
+	logger.log(logger.logLevels["info"], "serving post to /unity/db");
 	var body = [];
 	req.on('data', function(data){
-		console.log("received data: " + data.toString());
+		logger.log(logger.logLevels["debug"], "received data: " + data.toString());
 		var s = data.toString().split('&');
 		for(var i = 0; i < s.length; i++){
-			body.push(s[i].split('=')[1]);
+			body.push(s[i]);
 		}
 	});
 	req.on('end', function(){
-		//todo: fill in db handling module
-		var person = {name: body[0], age: body[1]};
-		console.log("person received: " + person.name + ";" + person.age);
-		connection.query('insert into persons set ?', person, function(err, result){
+		db(connection, body, function(err, result){
 			if(err){
-				console.log('error inserting rows');
+				logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
 				throw err;
 			}
-			console.log('inserted: ' + person.name + ";" + person.age);
-			//fs.createReadStream('ultt.html').pipe(res);
+			res.send(result);
 		});
 	});
 });

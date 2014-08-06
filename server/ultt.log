@@ -1,0 +1,44 @@
+[2014-08-06 13:05:27.012] [INFO] ultt - Wed Aug 06 2014 13:05:27 GMT+0200 (Mitteleuropäische Sommerzeit) - 2: Listening on port 80
+[2014-08-06 13:05:46.254] [INFO] ultt - Wed Aug 06 2014 13:05:46 GMT+0200 (Mitteleuropäische Sommerzeit) - 2: Listening on port 80
+[2014-08-06 13:10:02.952] [INFO] ultt - 2: Listening on port 80
+[2014-08-06 13:23:29.488] [INFO] ultt - Listening on port 80
+[2014-08-06 13:23:59.450] [INFO] ultt - Listening on port 80
+[2014-08-06 13:24:56.282] [INFO] ultt - Listening on port 80
+[2014-08-06 14:14:12.264] [INFO] ultt - Listening on port 80
+[2014-08-06 14:14:12.274] [INFO] ultt - connected to db
+[2014-08-06 14:14:43.874] [INFO] ultt - serving post to /unity/db
+[2014-08-06 14:14:43.874] [DEBUG] ultt - received data: purpose=get&table=persons&id=name&age=null
+[2014-08-06 14:14:43.874] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"persons","id":"name","age":"null"}
+[2014-08-06 14:14:43.874] [DEBUG] ultt - db fetch query: select age from persons where id='name';
+[2014-08-06 14:14:44.024] [INFO] ultt - successful db fetching
+[2014-08-06 14:14:44.024] [DEBUG] ultt - fetch result: []
+[2014-08-06 14:14:58.736] [INFO] ultt - serving post to /unity/db
+[2014-08-06 14:14:58.736] [DEBUG] ultt - received data: purpose=get&table=persons&id=5&age=null
+[2014-08-06 14:14:58.736] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"persons","id":"5","age":"null"}
+[2014-08-06 14:14:58.736] [DEBUG] ultt - db fetch query: select age from persons where id=5;
+[2014-08-06 14:14:58.746] [INFO] ultt - successful db fetching
+[2014-08-06 14:14:58.746] [DEBUG] ultt - fetch result: [{"age":45}]
+[2014-08-06 14:15:32.966] [INFO] ultt - serving post to /unity/db
+[2014-08-06 14:15:32.966] [DEBUG] ultt - received data: purpose=get&table=persons&name=m&age=null
+[2014-08-06 14:15:32.966] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"persons","name":"m","age":"null"}
+[2014-08-06 14:15:32.966] [DEBUG] ultt - db fetch query: select age from persons where name='m';
+[2014-08-06 14:15:32.986] [INFO] ultt - successful db fetching
+[2014-08-06 14:15:32.986] [DEBUG] ultt - fetch result: [{"age":44}]
+[2014-08-06 14:15:39.466] [INFO] ultt - serving post to /unity/db
+[2014-08-06 14:15:39.466] [DEBUG] ultt - received data: purpose=post&table=persons&name=maa&age=34
+[2014-08-06 14:15:39.466] [DEBUG] ultt - full data received on db: {"purpose":"post","table":"persons","name":"maa","age":"34"}
+[2014-08-06 14:15:39.466] [DEBUG] ultt - db insert data: {"name":"maa","age":"34"}, in table: persons
+[2014-08-06 14:15:39.526] [INFO] ultt - successful db insert
+[2014-08-06 14:15:48.488] [INFO] ultt - serving post to /unity/db
+[2014-08-06 14:15:48.488] [DEBUG] ultt - received data: purpose=get&table=persons&name=maa&age=null
+[2014-08-06 14:15:48.488] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"persons","name":"maa","age":"null"}
+[2014-08-06 14:15:48.488] [DEBUG] ultt - db fetch query: select age from persons where name='maa';
+[2014-08-06 14:15:48.488] [INFO] ultt - successful db fetching
+[2014-08-06 14:15:48.488] [DEBUG] ultt - fetch result: [{"age":34}]
+[2014-08-06 14:16:53.181] [INFO] ultt - serving request to /
+[2014-08-06 14:17:18.239] [INFO] ultt - serving request to /
+[2014-08-06 14:17:18.452] [INFO] ultt - serving request to /ultt.unity3d
+[2014-08-06 14:37:31.994] [INFO] ultt - Listening on port 80
+[2014-08-06 14:37:31.994] [INFO] ultt - connected to db
+[2014-08-06 14:37:37.093] [INFO] ultt - serving request to /
+[2014-08-06 14:37:37.288] [INFO] ultt - serving request to /ultt.unity3d
