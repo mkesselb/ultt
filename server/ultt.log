@@ -42,3 +42,140 @@
 [2014-08-06 14:37:31.994] [INFO] ultt - connected to db
 [2014-08-06 14:37:37.093] [INFO] ultt - serving request to /
 [2014-08-06 14:37:37.288] [INFO] ultt - serving request to /ultt.unity3d
+[2014-08-27 20:19:39.115] [INFO] ultt - Listening on port 80
+[2014-08-27 20:19:39.125] [INFO] ultt - connected to db
+[2014-08-27 20:19:48.315] [INFO] ultt - serving post to /login
+[2014-08-27 20:19:48.315] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:19:48.315] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-08-27 20:19:48.315] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:19:48.315] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:19:48.315] [INFO] ultt - successful db fetching
+[2014-08-27 20:19:48.315] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:19:48.315] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:25:08.115] [INFO] ultt - Listening on port 80
+[2014-08-27 20:25:08.125] [INFO] ultt - connected to db
+[2014-08-27 20:25:13.205] [INFO] ultt - serving post to /login
+[2014-08-27 20:25:13.205] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:26:34.969] [INFO] ultt - Listening on port 80
+[2014-08-27 20:26:34.979] [INFO] ultt - connected to db
+[2014-08-27 20:26:38.439] [INFO] ultt - serving post to /login
+[2014-08-27 20:26:38.439] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:26:38.439] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-08-27 20:26:38.449] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:26:38.449] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:26:38.449] [INFO] ultt - successful db fetching
+[2014-08-27 20:26:38.449] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:26:38.449] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:26:38.449] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:27:38.281] [INFO] ultt - serving post to /login
+[2014-08-27 20:27:38.281] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:27:38.281] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-08-27 20:27:38.281] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:27:38.281] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:27:38.281] [INFO] ultt - successful db fetching
+[2014-08-27 20:27:38.281] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:27:38.281] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:27:38.281] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:28:31.811] [INFO] ultt - Listening on port 80
+[2014-08-27 20:28:31.811] [INFO] ultt - connected to db
+[2014-08-27 20:28:36.613] [INFO] ultt - serving post to /login
+[2014-08-27 20:28:36.613] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:28:36.613] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-08-27 20:28:36.613] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:28:36.613] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:28:36.613] [INFO] ultt - successful db fetching
+[2014-08-27 20:28:36.623] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:28:36.623] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:28:36.623] [DEBUG] ultt - pw: undefined
+[2014-08-27 20:28:36.623] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:32:06.500] [INFO] ultt - Listening on port 80
+[2014-08-27 20:32:06.500] [INFO] ultt - connected to db
+[2014-08-27 20:32:11.640] [INFO] ultt - serving post to /login
+[2014-08-27 20:32:11.640] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:32:11.650] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-08-27 20:32:11.650] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:32:11.650] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:32:11.650] [INFO] ultt - successful db fetching
+[2014-08-27 20:32:11.660] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:32:11.660] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:32:11.660] [DEBUG] ultt - pw: password
+[2014-08-27 20:32:11.660] [DEBUG] ultt - input password did match db password, returning success
+[2014-08-27 20:32:21.380] [INFO] ultt - serving post to /login
+[2014-08-27 20:32:21.380] [DEBUG] ultt - received login data: username=mkesse&password=passwor
+[2014-08-27 20:32:21.380] [DEBUG] ultt - user data received: {"username":"mkesse","password":"passwor"}
+[2014-08-27 20:32:21.380] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:32:21.380] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:32:21.380] [INFO] ultt - successful db fetching
+[2014-08-27 20:32:21.380] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:32:21.380] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:32:21.380] [DEBUG] ultt - pw: password
+[2014-08-27 20:32:21.380] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:32:24.000] [INFO] ultt - serving post to /login
+[2014-08-27 20:32:24.000] [DEBUG] ultt - received login data: username=mkess&password=passwor
+[2014-08-27 20:32:24.000] [DEBUG] ultt - user data received: {"username":"mkess","password":"passwor"}
+[2014-08-27 20:32:24.000] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkess","password":"null"}
+[2014-08-27 20:33:35.742] [INFO] ultt - Listening on port 80
+[2014-08-27 20:33:35.742] [INFO] ultt - connected to db
+[2014-08-27 20:33:39.812] [INFO] ultt - serving post to /login
+[2014-08-27 20:33:39.812] [DEBUG] ultt - received login data: username=mkess&password=passwor
+[2014-08-27 20:34:01.778] [INFO] ultt - Listening on port 80
+[2014-08-27 20:34:01.783] [INFO] ultt - connected to db
+[2014-08-27 20:34:04.118] [INFO] ultt - serving post to /login
+[2014-08-27 20:34:04.120] [DEBUG] ultt - received login data: username=mkess&password=passwor
+[2014-08-27 20:34:04.122] [DEBUG] ultt - user data received: {"username":"mkess","password":"passwor"}
+[2014-08-27 20:34:04.124] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkess","password":"null"}
+[2014-08-27 20:34:04.125] [DEBUG] ultt - db fetch query: select password from user where username='mkess';
+[2014-08-27 20:34:04.129] [INFO] ultt - successful db fetching
+[2014-08-27 20:34:04.130] [DEBUG] ultt - fetch result: []
+[2014-08-27 20:34:04.131] [DEBUG] ultt - password fetched: []
+[2014-08-27 20:34:04.132] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-08-27 20:35:22.701] [INFO] ultt - serving post to /login
+[2014-08-27 20:35:22.703] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-08-27 20:35:22.704] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-08-27 20:35:22.705] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:35:22.706] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:35:22.709] [INFO] ultt - successful db fetching
+[2014-08-27 20:35:22.710] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:35:22.711] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:35:22.712] [DEBUG] ultt - pw: password
+[2014-08-27 20:35:22.712] [DEBUG] ultt - input password did match db password, returning success
+[2014-08-27 20:38:00.327] [INFO] ultt - serving post to /login
+[2014-08-27 20:38:00.327] [DEBUG] ultt - received login data: username=mkesse&password=
+[2014-08-27 20:38:00.327] [DEBUG] ultt - user data received: {"username":"mkesse","password":""}
+[2014-08-27 20:38:00.327] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:38:00.327] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:38:00.327] [INFO] ultt - successful db fetching
+[2014-08-27 20:38:00.327] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:38:00.327] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:38:00.327] [DEBUG] ultt - pw: password
+[2014-08-27 20:38:00.327] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:38:02.007] [INFO] ultt - serving post to /login
+[2014-08-27 20:38:02.007] [DEBUG] ultt - received login data: username=mkesse&password=+
+[2014-08-27 20:38:02.007] [DEBUG] ultt - user data received: {"username":"mkesse","password":"+"}
+[2014-08-27 20:38:02.007] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:38:02.007] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:38:02.007] [INFO] ultt - successful db fetching
+[2014-08-27 20:38:02.007] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:38:02.007] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:38:02.017] [DEBUG] ultt - pw: password
+[2014-08-27 20:38:02.017] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:38:17.347] [INFO] ultt - serving post to /login
+[2014-08-27 20:38:17.347] [DEBUG] ultt - received login data: username=mkesse&password=%21%22%c2%a7%24%25%26%2f()%3d%3f%5e1234567890%c3%9f%c2%b4%c2%b0%c2%b4%60%2b%23%c3%bc%c3%a4%c3%b6*%c3%9c%27%c3%84%c3%96%3c%3e%7c%40%e2%82%ac%c2%b5%2c.-%3b%3a_
+[2014-08-27 20:38:17.347] [DEBUG] ultt - user data received: {"username":"mkesse","password":"%21%22%c2%a7%24%25%26%2f()%3d%3f%5e1234567890%c3%9f%c2%b4%c2%b0%c2%b4%60%2b%23%c3%bc%c3%a4%c3%b6*%c3%9c%27%c3%84%c3%96%3c%3e%7c%40%e2%82%ac%c2%b5%2c.-%3b%3a_"}
+[2014-08-27 20:38:17.347] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:38:17.347] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:38:17.347] [INFO] ultt - successful db fetching
+[2014-08-27 20:38:17.347] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:38:17.347] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:38:17.357] [DEBUG] ultt - pw: password
+[2014-08-27 20:38:17.357] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-08-27 20:39:44.489] [INFO] ultt - serving post to /login
+[2014-08-27 20:39:44.489] [DEBUG] ultt - received login data: username=mkesse&password=1234567890%c3%9f
+[2014-08-27 20:39:44.489] [DEBUG] ultt - user data received: {"username":"mkesse","password":"1234567890%c3%9f"}
+[2014-08-27 20:39:44.489] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null"}
+[2014-08-27 20:39:44.489] [DEBUG] ultt - db fetch query: select password from user where username='mkesse';
+[2014-08-27 20:39:44.489] [INFO] ultt - successful db fetching
+[2014-08-27 20:39:44.489] [DEBUG] ultt - fetch result: [{"password":"password"}]
+[2014-08-27 20:39:44.489] [DEBUG] ultt - password fetched: [{"password":"password"}]
+[2014-08-27 20:39:44.489] [DEBUG] ultt - pw: password
+[2014-08-27 20:39:44.499] [DEBUG] ultt - input password did not match db password, returning failure

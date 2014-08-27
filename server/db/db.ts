@@ -5,10 +5,11 @@
 
 //logging utility
 var logger = require('../logging/logging.ts');
+var parser = require('../utility/jsonparser.ts');
 
 module.exports = function(dbConnection, dbData, callback){
 	//parsing the dbdata, and deciding which purpose is the sent
-	var parsedDbData = parseDbData(dbData);
+	var parsedDbData = parser(dbData);
 	logger.log(logger.logLevels["debug"], "full data received on db: " + JSON.stringify(parsedDbData));
 	
 	//deciding on route
@@ -135,16 +136,4 @@ function get(dbConnection, dbData, callback){
 
 function update(dbConnection, dbData, callback){
 	//TODO: update db data
-}
-
-function parseDbData(dbData){
-	var parsedDbData = {};
-	dbData.forEach(function(data){
-		var d = {
-				key : data.split("=")[0],
-				value : data.split("=")[1]
-		};
-		parsedDbData[d.key] = d.value;
-	});
-	return parsedDbData;
 }

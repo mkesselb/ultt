@@ -49,3 +49,15 @@ db kommunikation läuft wie folgt ab:
 	update ist zur zeit noch nicht implementiert
 	
 	siehe unity .cs datei für beispielhafte db kommunikation
+	
+zum login:
+	als login soll ein post auf '/login' geschickt werden, mit folgenden daten:
+		username = "theUserName"
+		password = "thePassword"
+	als response kommt dann ein
+		"success" für erfolgreiches Einloggen
+		"failure" fur nicht erfolgreiches Einloggen
+	beispielhafte Rückmeldung an den User könnte dann sein: "username or password was incorrect"
+	bitte zum testen einen test-user mit password anlegen
+	das password ist nun noch plain gespeichert, im nächsten Sprint möcht ich das angehen und hashen+salten mitnehmen
+	

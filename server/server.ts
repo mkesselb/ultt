@@ -3,6 +3,7 @@ var express = require('express');
 var mysql = require('mysql');
 var fs = require('fs');
 var db = require('./db/db.ts');
+var login = require('./login/login.ts');
 var logger = require('./logging/logging.ts');
 
 
@@ -58,8 +59,8 @@ ultt.get('/info', function(req, res){
 
 
 /* post routes */
+//full db handling is done in this post route
 ultt.post('/unity/db', function(req, res){
-	//todo: fill in db handling module
 	logger.log(logger.logLevels["info"], "serving post to /unity/db");
 	var body = [];
 	req.on('data', function(data){
@@ -73,6 +74,30 @@ ultt.post('/unity/db', function(req, res){
 		db(connection, body, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
+				throw err;
+			}
+			res.send(result);
+		});
+	});
+});
+
+//login handling -> checking whether the entered user data can be found in db and returning result
+ultt.post('/login', function(req, res){
+	logger.log(logger.logLevels["info"], "serving post to /login");
+	
+	var body = [];
+	req.on('data', function(data){
+		logger.log(logger.logLevels["debug"], "received login data: " + data.toString());
+		var s = data.toString().split('&');
+		for(var i = 0; i < s.length; i++){
+			body.push(s[i]);
+		}
+	});
+	req.on('end', function(){
+		//login module shall be invoked, and response shall be sent
+		login(connection, body, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error checking login data: " + err.toString());
 				throw err;
 			}
 			res.send(result);
