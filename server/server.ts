@@ -4,6 +4,7 @@ var mysql = require('mysql');
 var fs = require('fs');
 var db = require('./db/db.ts');
 var login = require('./login/login.ts');
+var register = require('./login/register.ts');
 var logger = require('./logging/logging.ts');
 
 
@@ -18,7 +19,7 @@ var connection = mysql.createConnection({
 connection.connect(function(err){
 	if (err){
 		logger.log(logger.logLevels["error"], "error connecting to db: " + err.toString());
-		throw err;
+		//throw err;
 	}
 
 	logger.log(logger.logLevels["info"], "connected to db");
@@ -31,7 +32,7 @@ var server = ultt.listen(80, function(err){
 	if(err){
 		logger.log(logger.logLevels["error"], "error listening on port "
 				+ server.address().port + ": " + err.toString());
-		throw err;
+		//throw err;
 	}
 	
 	logger.log(logger.logLevels["info"], "Listening on port " + server.address().port);
@@ -74,7 +75,8 @@ ultt.post('/unity/db', function(req, res){
 		db(connection, body, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
-				throw err;
+				res.send([]);
+				//throw err;
 			}
 			res.send(result);
 		});
@@ -98,7 +100,32 @@ ultt.post('/login', function(req, res){
 		login(connection, body, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error checking login data: " + err.toString());
-				throw err;
+				res.send("error");
+				//throw err;
+			}
+			res.send(result);
+		});
+	});
+});
+
+ultt.post('/register', function(req, res){
+	logger.log(logger.logLevels["info"], "serving post to /register");
+	
+	var body = [];
+	req.on('data', function(data){
+		logger.log(logger.logLevels["debug"], "received register data: " + data.toString());
+		var s = data.toString().split('&');
+		for(var i = 0; i < s.length; i++){
+			body.push(s[i]);
+		}
+	});
+	req.on('end', function(){
+		//login module shall be invoked, and response shall be sent
+		register(connection, body, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error checking register data: " + err.toString());
+				res.send("error");
+				//throw err;
 			}
 			res.send(result);
 		});

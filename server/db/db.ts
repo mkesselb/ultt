@@ -6,12 +6,49 @@
 //logging utility
 var logger = require('../logging/logging.ts');
 var parser = require('../utility/jsonparser.ts');
+var userlink = require('./userlink.ts');
+var classlink = require('./classlink.ts');
+
 
 module.exports = function(dbConnection, dbData, callback){
 	//parsing the dbdata, and deciding which purpose is the sent
 	var parsedDbData = parser(dbData);
 	logger.log(logger.logLevels["debug"], "full data received on db: " + JSON.stringify(parsedDbData));
 	
+	//deciding on route
+	/* userlink */
+	if(parsedDbData.method === "getUser"){
+		userlink.getUser(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getUser");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "getUserClasses"){
+		userlink.getUserClasses(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getUserClasses");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	/* classlink */
+	if(parsedDbData.method === "getClassUsers"){
+		classlink.getClassUsers(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getClassUsers");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	//---deprecated, but maybe preferable for getting / posting single values---
 	//deciding on route
 	if(parsedDbData.purpose === "post"){
 		post(dbConnection, parsedDbData, function(err, result){
@@ -42,6 +79,7 @@ module.exports = function(dbConnection, dbData, callback){
 	}
 };
 
+//---deprecated---
 function post(dbConnection, dbData, callback){
 	/*
 	 * 	in the dbData json, the following data is important:
@@ -71,11 +109,11 @@ function post(dbConnection, dbData, callback){
 			return callback(err);
 		}
 		logger.log(logger.logLevels["info"], "successful db insert");
-		var response = {status : "success"};
-		callback(null, response);
+		callback(null, "success");
 	});
 }
 
+//---deprecated---
 function get(dbConnection, dbData, callback){
 	/*
 	 * 	in the dbData json, the following data is important:
@@ -134,6 +172,7 @@ function get(dbConnection, dbData, callback){
 	});
 }
 
+//---deprecated---
 function update(dbConnection, dbData, callback){
 	//TODO: update db data
 }

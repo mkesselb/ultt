@@ -179,3 +179,127 @@
 [2014-08-27 20:39:44.489] [DEBUG] ultt - password fetched: [{"password":"password"}]
 [2014-08-27 20:39:44.489] [DEBUG] ultt - pw: password
 [2014-08-27 20:39:44.499] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-09-03 00:25:54.385] [INFO] ultt - Listening on port 80
+[2014-09-03 00:25:55.385] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-09-03 00:26:19.577] [INFO] ultt - Listening on port 80
+[2014-09-03 00:26:19.607] [INFO] ultt - connected to db
+[2014-09-03 00:29:59.335] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:29:59.335] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-09-03 00:29:59.335] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-09-03 00:29:59.335] [DEBUG] ultt - get user with id: 1
+[2014-09-03 00:29:59.535] [INFO] ultt - successful user fetching
+[2014-09-03 00:29:59.535] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
+[2014-09-03 00:30:35.985] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:30:35.985] [DEBUG] ultt - received data: method=getUser&user_id=11111
+[2014-09-03 00:30:35.985] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"11111"}
+[2014-09-03 00:30:35.985] [DEBUG] ultt - get user with id: 11111
+[2014-09-03 00:30:35.985] [INFO] ultt - successful user fetching
+[2014-09-03 00:30:35.985] [DEBUG] ultt - fetch result: []
+[2014-09-03 00:30:44.886] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:30:44.886] [DEBUG] ultt - received data: method=getUser&user_id=
+[2014-09-03 00:30:44.886] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
+[2014-09-03 00:30:44.886] [DEBUG] ultt - get user with id: 
+[2014-09-03 00:30:44.886] [ERROR] ultt - error on method getUser
+[2014-09-03 00:31:27.828] [INFO] ultt - Listening on port 80
+[2014-09-03 00:31:27.838] [INFO] ultt - connected to db
+[2014-09-03 00:31:30.548] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:33:04.560] [INFO] ultt - Listening on port 80
+[2014-09-03 00:33:04.560] [INFO] ultt - connected to db
+[2014-09-03 00:33:07.720] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:33:07.720] [DEBUG] ultt - received data: method=getUser&user_id=
+[2014-09-03 00:33:07.720] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
+[2014-09-03 00:33:07.720] [ERROR] ultt - error on method getUser
+[2014-09-03 00:33:07.720] [ERROR] ultt - error posting to db: malformed user id: 
+[2014-09-03 00:34:38.472] [INFO] ultt - Listening on port 80
+[2014-09-03 00:34:38.482] [INFO] ultt - connected to db
+[2014-09-03 00:34:41.232] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:34:41.232] [DEBUG] ultt - received data: method=getUser&user_id=
+[2014-09-03 00:34:41.232] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
+[2014-09-03 00:34:41.232] [ERROR] ultt - error on method getUser
+[2014-09-03 00:34:41.232] [ERROR] ultt - error posting to db: malformed user id: 
+[2014-09-03 00:34:51.122] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:34:51.122] [DEBUG] ultt - received data: method=getUser&user_id=abc
+[2014-09-03 00:34:51.122] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"abc"}
+[2014-09-03 00:34:51.122] [ERROR] ultt - error on method getUser
+[2014-09-03 00:34:51.122] [ERROR] ultt - error posting to db: malformed user id: abc
+[2014-09-03 00:44:09.080] [INFO] ultt - Listening on port 80
+[2014-09-03 00:44:09.080] [INFO] ultt - connected to db
+[2014-09-03 00:44:11.650] [INFO] ultt - Listening on port 80
+[2014-09-03 00:44:11.660] [INFO] ultt - connected to db
+[2014-09-03 00:44:30.840] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:44:30.840] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-03 00:44:30.840] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-03 00:44:30.840] [ERROR] ultt - error on method getUserClasses
+[2014-09-03 00:44:30.840] [ERROR] ultt - error posting to db: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '. u.accepted from class c, user_is_in_class u where u.user_id = 1 and u.class_id' at line 1
+[2014-09-03 00:47:05.343] [INFO] ultt - Listening on port 80
+[2014-09-03 00:47:05.348] [INFO] ultt - connected to db
+[2014-09-03 00:47:10.276] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:47:10.278] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-03 00:47:10.278] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-03 00:47:34.091] [INFO] ultt - Listening on port 80
+[2014-09-03 00:47:34.096] [INFO] ultt - connected to db
+[2014-09-03 00:47:37.723] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:47:37.723] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-03 00:47:37.723] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-03 00:47:51.393] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:47:51.393] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-03 00:47:51.393] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-03 00:47:54.363] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:47:54.363] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-03 00:47:54.363] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-03 00:47:56.113] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:47:56.113] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
+[2014-09-03 00:47:56.113] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
+[2014-09-03 00:48:47.873] [INFO] ultt - Listening on port 80
+[2014-09-03 00:48:47.873] [INFO] ultt - connected to db
+[2014-09-03 00:48:50.303] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:48:50.303] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
+[2014-09-03 00:48:50.303] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
+[2014-09-03 00:48:50.303] [DEBUG] ultt - fetch result: []
+[2014-09-03 00:48:56.753] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:48:56.753] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-03 00:48:56.753] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-03 00:48:56.753] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_id":1,"accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"rxtzjdsjmm","subject_id":2,"accepted":0}]
+[2014-09-03 00:49:00.593] [INFO] ultt - serving post to /unity/db
+[2014-09-03 00:49:00.593] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-03 00:49:00.593] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-03 00:49:00.593] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_id":1,"accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"rxtzjdsjmm","subject_id":2,"accepted":1}]
+[2014-09-03 01:07:56.317] [INFO] ultt - Listening on port 80
+[2014-09-03 01:07:56.317] [INFO] ultt - connected to db
+[2014-09-03 01:08:27.777] [INFO] ultt - serving post to /unity/db
+[2014-09-03 01:08:27.777] [DEBUG] ultt - received data: method=getClassUsers&user_id=1
+[2014-09-03 01:08:27.777] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","user_id":"1"}
+[2014-09-03 01:08:27.777] [ERROR] ultt - error on method getClassUsers
+[2014-09-03 01:08:27.777] [ERROR] ultt - error posting to db: malformed class id: undefined
+[2014-09-03 01:08:57.618] [INFO] ultt - serving post to /unity/db
+[2014-09-03 01:08:57.618] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
+[2014-09-03 01:08:57.618] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
+[2014-09-03 01:08:57.618] [DEBUG] ultt - get users of class with id: 1
+[2014-09-03 01:08:57.668] [INFO] ultt - successful users fetching
+[2014-09-03 01:08:57.668] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1}]
+[2014-09-03 01:09:14.380] [INFO] ultt - serving post to /unity/db
+[2014-09-03 01:09:14.380] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
+[2014-09-03 01:09:14.380] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
+[2014-09-03 01:09:14.380] [DEBUG] ultt - get users of class with id: 2
+[2014-09-03 01:09:14.380] [INFO] ultt - successful users fetching
+[2014-09-03 01:09:14.380] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":0},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":0}]
+[2014-09-03 01:10:28.014] [INFO] ultt - Listening on port 80
+[2014-09-03 01:10:28.019] [INFO] ultt - connected to db
+[2014-09-03 01:10:30.375] [INFO] ultt - serving post to /unity/db
+[2014-09-03 01:10:30.376] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
+[2014-09-03 01:10:30.377] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
+[2014-09-03 01:10:30.378] [DEBUG] ultt - get users of class with id: 2
+[2014-09-03 01:10:30.380] [INFO] ultt - successful users fetching
+[2014-09-03 01:10:30.380] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":0}]
+[2014-09-03 01:10:33.077] [INFO] ultt - serving post to /unity/db
+[2014-09-03 01:10:33.078] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
+[2014-09-03 01:10:33.078] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
+[2014-09-03 01:10:33.079] [DEBUG] ultt - get users of class with id: 2
+[2014-09-03 01:10:33.080] [INFO] ultt - successful users fetching
+[2014-09-03 01:10:33.080] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":0}]
+[2014-09-03 01:10:39.553] [INFO] ultt - serving post to /unity/db
+[2014-09-03 01:10:39.554] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
+[2014-09-03 01:10:39.554] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
+[2014-09-03 01:10:39.554] [DEBUG] ultt - get users of class with id: 1
+[2014-09-03 01:10:39.555] [INFO] ultt - successful users fetching
+[2014-09-03 01:10:39.556] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1}]
