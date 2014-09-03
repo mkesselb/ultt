@@ -1,5 +1,5 @@
-/* module handling the login sequence, which consists of:
- * 	-	receiving the username and password from the user input
+/* module handling the login sequence, which consists of: */
+/* 	-	receiving the username and password from the user input
  * 	-	invoking the db module to find the appropriate user if exists
  * 	-	if found, the input password has to be checked against the saved password,
  * 			preferably with salt and hash to be secure and state-of-the-art

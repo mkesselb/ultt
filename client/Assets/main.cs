@@ -1,70 +1,119 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 
-public class main : MonoBehaviour {
+public class Main : MonoBehaviour {
 	
-	private string url = "127.0.0.1/unity/db", name = "name", age = "age", data = "name                   age\n\nCorinna                19\nPatze                   37";
+	private DBInterface dbinterface;
+	
+	
+	//LogIn Screen
+	private GameObject panelLogInScreen;
+	public Text inputUsername, inputPassword;
+	
+	//Profile Screen
+	private GameObject panelProfile;
+	public Text fieldUserData;
+	
+	//Courses Screen
+	private GameObject panelMyCourses;
+	
+	//Objects
+	User user;
+	
+	
+	void Start(){
+		dbinterface = gameObject.GetComponent<DBInterface>();
 		
-	void OnGUI() {
-		url = GUI.TextArea(new Rect((Screen.width-300)/2,60,300,30),url);
-		name = GUI.TextArea(new Rect((Screen.width-100)/2,100,100,30),name);
-		age = GUI.TextArea(new Rect((Screen.width-50)/2,140,100,30),age);
+		inputUsername = GameObject.Find("inputUsername/Text").GetComponent<Text>();	
+		inputPassword = GameObject.Find("inputPassword/Text").GetComponent<Text>();	
+		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
-		GUI.TextArea (new Rect((Screen.width-300)/2,240,300,200),data);	
+		panelLogInScreen = GameObject.Find("panelLogInScreen");
+		panelProfile = GameObject.Find ("panelProfile");
+		panelMyCourses = GameObject.Find("panelMyCourses");
 		
-		if(GUI.Button (new Rect((Screen.width-140)/2,200,60,30), "save")) {
-			WWWForm form = new WWWForm();
-			form.AddField("purpose", "post");
-			form.AddField("table", "persons");
-	        form.AddField("name", name);
-			form.AddField("age", age);
-	        WWW www = new WWW(url, form);
-			StartCoroutine(WaitForRequest(www, false));
-		}
+		panelProfile.SetActive(false);
+		panelLogInScreen.SetActive(true);
+		panelMyCourses.SetActive(false);
 		
-		if(GUI.Button (new Rect((Screen.width+20)/2,200,60,30), "show")) {
-			WWWForm form = new WWWForm();
-			form.AddField("purpose", "get");
-			form.AddField("table", "persons");
-			form.AddField("name", name);
-			form.AddField("age", "null");
-			WWW www = new WWW(url, form);
-			StartCoroutine(WaitForRequest(www, true));
-		}
-
-		if(GUI.Button (new Rect((Screen.width+200)/2,200,60,30), "login")) {
-			WWWForm form = new WWWForm();
-			form.AddField("username", name);
-			form.AddField("password", age);
-			WWW www = new WWW(url, form);
-			StartCoroutine(WaitForRequestLogin(www));
-		}
-	}
-
-	IEnumerator WaitForRequestLogin(WWW www)
-	{
-		yield return www;
-		if (www.error == null) {
-				Debug.Log ("WWW Ok!: " + www.data);
-		} else {
-				Debug.Log ("WWW Error: " + www.error);
-		}
-		data = www.text;
+		
+		
 	}
 	
-	IEnumerator WaitForRequest(WWW www, bool get)
-    {
-        yield return www;
-        if (www.error == null) { Debug.Log("WWW Ok!: " + www.data); }
-		else { Debug.Log("WWW Error: "+ www.error); }    
-		if(get){
-			data = www.text;
+	
+	
+		
+	//called by dbinterface when received www form contains valid data (= no error)
+	public void dbInputHandler(string target, string data){
+		switch(target){	
+		case "logInData": 	Debug.Log ("data: "+data); 
+							if(data == "success"){
+								panelLogInScreen.SetActive(false);
+								prepareProfileScreen(data);
+								panelProfile.SetActive(true);
+							} else {
+								inputUsername.text = data;
+							}
+							break;
+		case "myCourses":	Debug.Log ("data: "+data);
+							panelProfile.SetActive(false);		
+							panelMyCourses.SetActive(true);
+							break;
+			
 		}
-    }    
+	}
+	
+	//called by dbinterface when received www form contains an error
+	public void dbErrorHandler(string target, string errortext){
+		switch(target){	
+		case "logInData": 	Debug.Log ("error: "+errortext); break;
+		case "myCourses":	Debug.Log ("error: "+errortext); break;	
+			
+		}
+	}
+	
+	
+	public void prepareProfileScreen(string data){
+		Debug.Log("prepare Profile");
+		user = new User(parseJSON(data));
+		fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
+		
+	}
+	
+	
+	
+	//funtions called by BUTTONS
+	public void clickedBtnLogIn(){
+		Debug.Log("Button clicked");
+		dbinterface.sendLogInData("logInData", inputUsername.text, inputPassword.text);	
+	}
+	
+	public void clickedBtnMyCourses(){
+		Debug.Log ("Button clicked");
+		dbinterface.GetMyCourses("myCourses", user.getUserId());	
+	}
+	
 
-	//TODO: json parsing module, maybe parsing the json strings in classes for better access to the parsed fields
+	//TODO change delimiters
+	//TODO delete empty fields in array
 	private string[] parseJSON(string json){
-		return Regex.Split(json, "},{");
+		Debug.Log ("call parse");
+		string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]" };
+        string[] temp = new string[30];
+		Debug.Log ("try start parse");
+		temp = json.Split(delimiters,System.StringSplitOptions.RemoveEmptyEntries);
+		Debug.Log ("parse finished");
+	
+		for (int i = 0; i< 14; i++){
+			Debug.Log ("data "+ i + ": "+ temp[i]);
+
+		}
+		
+		return temp;
 	}
+	
 }
+
+

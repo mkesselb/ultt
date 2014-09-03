@@ -179,127 +179,155 @@
 [2014-08-27 20:39:44.489] [DEBUG] ultt - password fetched: [{"password":"password"}]
 [2014-08-27 20:39:44.489] [DEBUG] ultt - pw: password
 [2014-08-27 20:39:44.499] [DEBUG] ultt - input password did not match db password, returning failure
-[2014-09-03 00:25:54.385] [INFO] ultt - Listening on port 80
-[2014-09-03 00:25:55.385] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
-[2014-09-03 00:26:19.577] [INFO] ultt - Listening on port 80
-[2014-09-03 00:26:19.607] [INFO] ultt - connected to db
-[2014-09-03 00:29:59.335] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:29:59.335] [DEBUG] ultt - received data: method=getUser&user_id=1
-[2014-09-03 00:29:59.335] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
-[2014-09-03 00:29:59.335] [DEBUG] ultt - get user with id: 1
-[2014-09-03 00:29:59.535] [INFO] ultt - successful user fetching
-[2014-09-03 00:29:59.535] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
-[2014-09-03 00:30:35.985] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:30:35.985] [DEBUG] ultt - received data: method=getUser&user_id=11111
-[2014-09-03 00:30:35.985] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"11111"}
-[2014-09-03 00:30:35.985] [DEBUG] ultt - get user with id: 11111
-[2014-09-03 00:30:35.985] [INFO] ultt - successful user fetching
-[2014-09-03 00:30:35.985] [DEBUG] ultt - fetch result: []
-[2014-09-03 00:30:44.886] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:30:44.886] [DEBUG] ultt - received data: method=getUser&user_id=
-[2014-09-03 00:30:44.886] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
-[2014-09-03 00:30:44.886] [DEBUG] ultt - get user with id: 
-[2014-09-03 00:30:44.886] [ERROR] ultt - error on method getUser
-[2014-09-03 00:31:27.828] [INFO] ultt - Listening on port 80
-[2014-09-03 00:31:27.838] [INFO] ultt - connected to db
-[2014-09-03 00:31:30.548] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:33:04.560] [INFO] ultt - Listening on port 80
-[2014-09-03 00:33:04.560] [INFO] ultt - connected to db
-[2014-09-03 00:33:07.720] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:33:07.720] [DEBUG] ultt - received data: method=getUser&user_id=
-[2014-09-03 00:33:07.720] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
-[2014-09-03 00:33:07.720] [ERROR] ultt - error on method getUser
-[2014-09-03 00:33:07.720] [ERROR] ultt - error posting to db: malformed user id: 
-[2014-09-03 00:34:38.472] [INFO] ultt - Listening on port 80
-[2014-09-03 00:34:38.482] [INFO] ultt - connected to db
-[2014-09-03 00:34:41.232] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:34:41.232] [DEBUG] ultt - received data: method=getUser&user_id=
-[2014-09-03 00:34:41.232] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
-[2014-09-03 00:34:41.232] [ERROR] ultt - error on method getUser
-[2014-09-03 00:34:41.232] [ERROR] ultt - error posting to db: malformed user id: 
-[2014-09-03 00:34:51.122] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:34:51.122] [DEBUG] ultt - received data: method=getUser&user_id=abc
-[2014-09-03 00:34:51.122] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"abc"}
-[2014-09-03 00:34:51.122] [ERROR] ultt - error on method getUser
-[2014-09-03 00:34:51.122] [ERROR] ultt - error posting to db: malformed user id: abc
-[2014-09-03 00:44:09.080] [INFO] ultt - Listening on port 80
-[2014-09-03 00:44:09.080] [INFO] ultt - connected to db
-[2014-09-03 00:44:11.650] [INFO] ultt - Listening on port 80
-[2014-09-03 00:44:11.660] [INFO] ultt - connected to db
-[2014-09-03 00:44:30.840] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:44:30.840] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
-[2014-09-03 00:44:30.840] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
-[2014-09-03 00:44:30.840] [ERROR] ultt - error on method getUserClasses
-[2014-09-03 00:44:30.840] [ERROR] ultt - error posting to db: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '. u.accepted from class c, user_is_in_class u where u.user_id = 1 and u.class_id' at line 1
-[2014-09-03 00:47:05.343] [INFO] ultt - Listening on port 80
-[2014-09-03 00:47:05.348] [INFO] ultt - connected to db
-[2014-09-03 00:47:10.276] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:47:10.278] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
-[2014-09-03 00:47:10.278] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
-[2014-09-03 00:47:34.091] [INFO] ultt - Listening on port 80
-[2014-09-03 00:47:34.096] [INFO] ultt - connected to db
-[2014-09-03 00:47:37.723] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:47:37.723] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
-[2014-09-03 00:47:37.723] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
-[2014-09-03 00:47:51.393] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:47:51.393] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
-[2014-09-03 00:47:51.393] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
-[2014-09-03 00:47:54.363] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:47:54.363] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
-[2014-09-03 00:47:54.363] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
-[2014-09-03 00:47:56.113] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:47:56.113] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
-[2014-09-03 00:47:56.113] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
-[2014-09-03 00:48:47.873] [INFO] ultt - Listening on port 80
-[2014-09-03 00:48:47.873] [INFO] ultt - connected to db
-[2014-09-03 00:48:50.303] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:48:50.303] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
-[2014-09-03 00:48:50.303] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
-[2014-09-03 00:48:50.303] [DEBUG] ultt - fetch result: []
-[2014-09-03 00:48:56.753] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:48:56.753] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
-[2014-09-03 00:48:56.753] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
-[2014-09-03 00:48:56.753] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_id":1,"accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"rxtzjdsjmm","subject_id":2,"accepted":0}]
-[2014-09-03 00:49:00.593] [INFO] ultt - serving post to /unity/db
-[2014-09-03 00:49:00.593] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
-[2014-09-03 00:49:00.593] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
-[2014-09-03 00:49:00.593] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_id":1,"accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"user_id":1,"school_year":2014,"classcode":"rxtzjdsjmm","subject_id":2,"accepted":1}]
-[2014-09-03 01:07:56.317] [INFO] ultt - Listening on port 80
-[2014-09-03 01:07:56.317] [INFO] ultt - connected to db
-[2014-09-03 01:08:27.777] [INFO] ultt - serving post to /unity/db
-[2014-09-03 01:08:27.777] [DEBUG] ultt - received data: method=getClassUsers&user_id=1
-[2014-09-03 01:08:27.777] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","user_id":"1"}
-[2014-09-03 01:08:27.777] [ERROR] ultt - error on method getClassUsers
-[2014-09-03 01:08:27.777] [ERROR] ultt - error posting to db: malformed class id: undefined
-[2014-09-03 01:08:57.618] [INFO] ultt - serving post to /unity/db
-[2014-09-03 01:08:57.618] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
-[2014-09-03 01:08:57.618] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
-[2014-09-03 01:08:57.618] [DEBUG] ultt - get users of class with id: 1
-[2014-09-03 01:08:57.668] [INFO] ultt - successful users fetching
-[2014-09-03 01:08:57.668] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1}]
-[2014-09-03 01:09:14.380] [INFO] ultt - serving post to /unity/db
-[2014-09-03 01:09:14.380] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
-[2014-09-03 01:09:14.380] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
-[2014-09-03 01:09:14.380] [DEBUG] ultt - get users of class with id: 2
-[2014-09-03 01:09:14.380] [INFO] ultt - successful users fetching
-[2014-09-03 01:09:14.380] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":0},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":0}]
-[2014-09-03 01:10:28.014] [INFO] ultt - Listening on port 80
-[2014-09-03 01:10:28.019] [INFO] ultt - connected to db
-[2014-09-03 01:10:30.375] [INFO] ultt - serving post to /unity/db
-[2014-09-03 01:10:30.376] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
-[2014-09-03 01:10:30.377] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
-[2014-09-03 01:10:30.378] [DEBUG] ultt - get users of class with id: 2
-[2014-09-03 01:10:30.380] [INFO] ultt - successful users fetching
-[2014-09-03 01:10:30.380] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":0}]
-[2014-09-03 01:10:33.077] [INFO] ultt - serving post to /unity/db
-[2014-09-03 01:10:33.078] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
-[2014-09-03 01:10:33.078] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
-[2014-09-03 01:10:33.079] [DEBUG] ultt - get users of class with id: 2
-[2014-09-03 01:10:33.080] [INFO] ultt - successful users fetching
-[2014-09-03 01:10:33.080] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":0}]
-[2014-09-03 01:10:39.553] [INFO] ultt - serving post to /unity/db
-[2014-09-03 01:10:39.554] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
-[2014-09-03 01:10:39.554] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
-[2014-09-03 01:10:39.554] [DEBUG] ultt - get users of class with id: 1
-[2014-09-03 01:10:39.555] [INFO] ultt - successful users fetching
-[2014-09-03 01:10:39.556] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1}]
+[2014-08-28 14:57:57.206] [INFO] ultt - Listening on port 80
+[2014-08-28 14:57:57.238] [INFO] ultt - connected to db
+[2014-08-28 14:58:20.762] [INFO] ultt - serving post to /unity/db
+[2014-08-28 14:58:20.766] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 14:58:20.770] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 14:58:20.773] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 14:58:20.830] [INFO] ultt - successful db fetching
+[2014-08-28 14:58:20.834] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 14:58:46.153] [INFO] ultt - serving post to /unity/db
+[2014-08-28 14:58:46.157] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 14:58:46.161] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 14:58:46.165] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 14:58:46.172] [INFO] ultt - successful db fetching
+[2014-08-28 14:58:46.174] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:14:28.569] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:14:28.572] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:14:28.575] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:14:28.577] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:14:28.594] [INFO] ultt - successful db fetching
+[2014-08-28 15:14:28.599] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:15:13.167] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:15:13.178] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:15:13.181] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:15:13.184] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:15:13.190] [INFO] ultt - successful db fetching
+[2014-08-28 15:15:13.193] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:17:12.937] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:17:12.940] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:17:12.942] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:17:12.946] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:17:12.952] [INFO] ultt - successful db fetching
+[2014-08-28 15:17:12.954] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:24:38.791] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:24:38.795] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:24:38.799] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:24:38.801] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:24:38.806] [INFO] ultt - successful db fetching
+[2014-08-28 15:24:38.809] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:25:31.979] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:25:31.983] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:25:31.986] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:25:31.989] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:25:32.000] [INFO] ultt - successful db fetching
+[2014-08-28 15:25:32.003] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:26:37.654] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:26:37.656] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:26:37.659] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:26:37.662] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:26:37.672] [INFO] ultt - successful db fetching
+[2014-08-28 15:26:37.675] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:27:24.357] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:27:24.360] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:27:24.366] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:27:24.369] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:27:24.378] [INFO] ultt - successful db fetching
+[2014-08-28 15:27:24.381] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:28:01.878] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:28:01.890] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:28:01.893] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:28:01.895] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:28:01.904] [INFO] ultt - successful db fetching
+[2014-08-28 15:28:01.908] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:29:33.848] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:29:33.853] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:29:33.858] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:29:33.864] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:29:33.876] [INFO] ultt - successful db fetching
+[2014-08-28 15:29:33.881] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:31:52.460] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:31:52.463] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:31:52.466] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:31:52.470] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:31:52.479] [INFO] ultt - successful db fetching
+[2014-08-28 15:31:52.502] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:32:37.514] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:32:37.516] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:32:37.520] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:32:37.524] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:32:37.531] [INFO] ultt - successful db fetching
+[2014-08-28 15:32:37.536] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:33:48.788] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:33:48.791] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:33:48.798] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:33:48.801] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:33:48.808] [INFO] ultt - successful db fetching
+[2014-08-28 15:33:48.814] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:34:43.610] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:34:43.613] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:34:43.617] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:34:43.619] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:34:43.633] [INFO] ultt - successful db fetching
+[2014-08-28 15:34:43.637] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:35:34.807] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:35:34.809] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:35:34.817] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:35:34.820] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:35:34.826] [INFO] ultt - successful db fetching
+[2014-08-28 15:35:34.828] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:37:07.290] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:37:07.294] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:37:07.297] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:37:07.301] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:37:07.309] [INFO] ultt - successful db fetching
+[2014-08-28 15:37:07.311] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:38:06.838] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:38:06.845] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:38:06.847] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:38:06.849] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:38:06.857] [INFO] ultt - successful db fetching
+[2014-08-28 15:38:06.861] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:39:01.647] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:39:01.651] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:39:01.654] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:39:01.658] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:39:01.669] [INFO] ultt - successful db fetching
+[2014-08-28 15:39:01.673] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:41:58.452] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:41:58.454] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:41:58.457] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:41:58.458] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:41:58.464] [INFO] ultt - successful db fetching
+[2014-08-28 15:41:58.467] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:43:45.933] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:43:45.936] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:43:45.943] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:43:45.946] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:43:45.953] [INFO] ultt - successful db fetching
+[2014-08-28 15:43:45.955] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:51:31.804] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:51:31.808] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:51:31.810] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:51:31.813] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:51:31.821] [INFO] ultt - successful db fetching
+[2014-08-28 15:51:31.824] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:56:03.625] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:56:03.628] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:56:03.629] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:56:03.630] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:56:03.636] [INFO] ultt - successful db fetching
+[2014-08-28 15:56:03.637] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:57:05.566] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:57:05.568] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:57:05.570] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:57:05.571] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:57:05.579] [INFO] ultt - successful db fetching
+[2014-08-28 15:57:05.581] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
+[2014-08-28 15:58:56.655] [INFO] ultt - serving post to /unity/db
+[2014-08-28 15:58:56.656] [DEBUG] ultt - received data: purpose=get&table=user&user_id=null&token=null&username=patze&password=gfgsd&name_first=null&name_last=null&email_id=null&created_at=null&school_id=null
+[2014-08-28 15:58:56.658] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","user_id":"null","token":"null","username":"patze","password":"gfgsd","name_first":"null","name_last":"null","email_id":"null","created_at":"null","school_id":"null"}
+[2014-08-28 15:58:56.660] [DEBUG] ultt - db fetch query: select user_id,token,name_first,name_last,email_id,created_at,school_id from user where username='patze' and password='gfgsd';
+[2014-08-28 15:58:56.665] [INFO] ultt - successful db fetching
+[2014-08-28 15:58:56.668] [DEBUG] ultt - fetch result: [{"user_id":1,"token":3,"name_first":"Patrick","name_last":"Olmat","email_id":"patze@uni.com","created_at":"2014-08-26T18:07:44.000Z","school_id":"zuhause"}]
