@@ -41,7 +41,7 @@ DROP TABLE IF EXISTS `ultt`.`subject` ;
 
 CREATE TABLE IF NOT EXISTS `ultt`.`subject` (
   `subject_id` INT NOT NULL,
-  `sibject_name` VARCHAR(45) NOT NULL,
+  `subject_name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`subject_id`))
 ENGINE = InnoDB;
 

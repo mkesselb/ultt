@@ -303,3 +303,164 @@
 [2014-09-03 01:10:39.554] [DEBUG] ultt - get users of class with id: 1
 [2014-09-03 01:10:39.555] [INFO] ultt - successful users fetching
 [2014-09-03 01:10:39.556] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","password":"password","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10","accepted":1},{"user_id":2,"token":22,"username":"test","password":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test","accepted":1}]
+[2014-09-06 16:02:23.638] [INFO] ultt - Listening on port 80
+[2014-09-06 16:02:23.643] [INFO] ultt - connected to db
+[2014-09-06 16:05:34.524] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:05:34.524] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-09-06 16:05:34.524] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-09-06 16:05:34.524] [DEBUG] ultt - get user with id: 1
+[2014-09-06 16:05:34.524] [INFO] ultt - successful user fetching
+[2014-09-06 16:05:34.524] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
+[2014-09-06 16:05:52.024] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:05:52.024] [DEBUG] ultt - received data: method=getUser&user_id=2
+[2014-09-06 16:05:52.024] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"2"}
+[2014-09-06 16:05:52.024] [DEBUG] ultt - get user with id: 2
+[2014-09-06 16:05:52.024] [INFO] ultt - successful user fetching
+[2014-09-06 16:05:52.024] [DEBUG] ultt - fetch result: [{"user_id":2,"token":22,"username":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test"}]
+[2014-09-06 16:05:55.584] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:05:55.584] [DEBUG] ultt - received data: method=getUser&user_id=3
+[2014-09-06 16:05:55.584] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"3"}
+[2014-09-06 16:05:55.584] [DEBUG] ultt - get user with id: 3
+[2014-09-06 16:05:55.594] [INFO] ultt - successful user fetching
+[2014-09-06 16:05:55.594] [DEBUG] ultt - fetch result: []
+[2014-09-06 16:06:00.004] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:06:00.004] [DEBUG] ultt - received data: method=getUser&user_id=-1
+[2014-09-06 16:06:00.004] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"-1"}
+[2014-09-06 16:06:00.004] [DEBUG] ultt - get user with id: -1
+[2014-09-06 16:06:00.004] [INFO] ultt - successful user fetching
+[2014-09-06 16:06:00.004] [DEBUG] ultt - fetch result: []
+[2014-09-06 16:06:03.024] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:06:03.024] [DEBUG] ultt - received data: method=getUser&user_id=*1
+[2014-09-06 16:06:03.024] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"*1"}
+[2014-09-06 16:06:03.024] [ERROR] ultt - error on method getUser
+[2014-09-06 16:06:03.024] [ERROR] ultt - error posting to db: [object Object]
+[2014-09-06 16:06:27.947] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:06:27.947] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-09-06 16:06:27.947] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-09-06 16:06:27.947] [DEBUG] ultt - get user with id: 1
+[2014-09-06 16:06:27.947] [INFO] ultt - successful user fetching
+[2014-09-06 16:06:27.957] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
+[2014-09-06 16:06:45.526] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:06:45.526] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-06 16:06:45.526] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-06 16:06:45.526] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-06 16:06:45.526] [ERROR] ultt - error on method getTeacherClasses
+[2014-09-06 16:06:45.526] [ERROR] ultt - error posting to db: Error: ER_BAD_FIELD_ERROR: Unknown column 's.subject_name' in 'field list'
+[2014-09-06 16:08:08.917] [INFO] ultt - Listening on port 80
+[2014-09-06 16:08:08.922] [INFO] ultt - connected to db
+[2014-09-06 16:08:12.320] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:08:12.322] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-06 16:08:12.323] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-06 16:08:12.324] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-06 16:08:12.338] [INFO] ultt - successful teacher classes fetching
+[2014-09-06 16:08:12.340] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-09-06 16:08:41.416] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:08:41.417] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-06 16:08:41.418] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-06 16:08:41.419] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-06 16:08:41.421] [INFO] ultt - successful teacher classes fetching
+[2014-09-06 16:08:41.422] [DEBUG] ultt - fetch result: []
+[2014-09-06 16:08:45.341] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:08:45.342] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=0
+[2014-09-06 16:08:45.343] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"0"}
+[2014-09-06 16:08:45.344] [DEBUG] ultt - get classes of teacher user with id: 0
+[2014-09-06 16:08:45.347] [INFO] ultt - successful teacher classes fetching
+[2014-09-06 16:08:45.347] [DEBUG] ultt - fetch result: []
+[2014-09-06 16:08:47.619] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:08:47.621] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=sdf
+[2014-09-06 16:08:47.622] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"sdf"}
+[2014-09-06 16:08:47.622] [ERROR] ultt - error on method getTeacherClasses
+[2014-09-06 16:08:47.623] [ERROR] ultt - error posting to db: [object Object]
+[2014-09-06 16:10:10.952] [INFO] ultt - Listening on port 80
+[2014-09-06 16:10:10.952] [INFO] ultt - connected to db
+[2014-09-06 16:10:13.464] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:10:13.464] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=sdf
+[2014-09-06 16:10:13.474] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"sdf"}
+[2014-09-06 16:10:13.474] [ERROR] ultt - error on method getTeacherClasses
+[2014-09-06 16:10:13.474] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-06 16:10:30.134] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:10:30.134] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=sdf
+[2014-09-06 16:10:30.134] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"sdf"}
+[2014-09-06 16:10:30.134] [ERROR] ultt - error on method getTeacherClasses
+[2014-09-06 16:10:30.134] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-06 16:10:31.654] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:10:31.654] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-06 16:10:31.654] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-06 16:10:31.654] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-06 16:10:31.664] [INFO] ultt - successful teacher classes fetching
+[2014-09-06 16:10:31.664] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-09-06 16:11:08.198] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:11:08.198] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-06 16:11:08.199] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-06 16:11:08.199] [DEBUG] ultt - get classes of user with id: 1
+[2014-09-06 16:11:08.252] [INFO] ultt - successful classes fetching
+[2014-09-06 16:11:08.253] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":1}]
+[2014-09-06 16:12:05.541] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:12:05.543] [DEBUG] ultt - received data: method=getUserClasses&user_id=12
+[2014-09-06 16:12:05.544] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"12"}
+[2014-09-06 16:12:05.545] [DEBUG] ultt - get classes of user with id: 12
+[2014-09-06 16:12:05.548] [INFO] ultt - successful classes fetching
+[2014-09-06 16:12:05.549] [DEBUG] ultt - fetch result: []
+[2014-09-06 16:12:07.126] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:12:07.127] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-06 16:12:07.128] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-06 16:12:07.128] [DEBUG] ultt - get classes of user with id: 2
+[2014-09-06 16:12:07.130] [INFO] ultt - successful classes fetching
+[2014-09-06 16:12:07.130] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":0}]
+[2014-09-06 16:13:06.549] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:06.549] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
+[2014-09-06 16:13:06.549] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
+[2014-09-06 16:13:06.549] [DEBUG] ultt - get users of class with id: 1
+[2014-09-06 16:13:06.549] [INFO] ultt - successful users fetching
+[2014-09-06 16:13:06.549] [DEBUG] ultt - fetch result: [{"user_id":1,"username":"mkesse","accepted":1},{"user_id":2,"username":"test","accepted":1}]
+[2014-09-06 16:13:17.499] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:17.499] [DEBUG] ultt - received data: method=getClassUsers&class_id=2
+[2014-09-06 16:13:17.499] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"2"}
+[2014-09-06 16:13:17.499] [DEBUG] ultt - get users of class with id: 2
+[2014-09-06 16:13:17.499] [INFO] ultt - successful users fetching
+[2014-09-06 16:13:17.509] [DEBUG] ultt - fetch result: [{"user_id":1,"username":"mkesse","accepted":1},{"user_id":2,"username":"test","accepted":0}]
+[2014-09-06 16:13:19.419] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:19.419] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
+[2014-09-06 16:13:19.419] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
+[2014-09-06 16:13:19.419] [DEBUG] ultt - get users of class with id: 1
+[2014-09-06 16:13:19.419] [INFO] ultt - successful users fetching
+[2014-09-06 16:13:19.419] [DEBUG] ultt - fetch result: [{"user_id":1,"username":"mkesse","accepted":1},{"user_id":2,"username":"test","accepted":1}]
+[2014-09-06 16:13:21.149] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:21.149] [DEBUG] ultt - received data: method=getClassUsers&class_id=0
+[2014-09-06 16:13:21.149] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"0"}
+[2014-09-06 16:13:21.149] [DEBUG] ultt - get users of class with id: 0
+[2014-09-06 16:13:21.149] [INFO] ultt - successful users fetching
+[2014-09-06 16:13:21.149] [DEBUG] ultt - fetch result: []
+[2014-09-06 16:13:22.869] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:22.869] [DEBUG] ultt - received data: method=getClassUsers&class_id=
+[2014-09-06 16:13:22.869] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":""}
+[2014-09-06 16:13:22.869] [ERROR] ultt - error on method getClassUsers
+[2014-09-06 16:13:22.879] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-06 16:13:43.639] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:43.639] [DEBUG] ultt - received data: method=getClassTasks&class_id=
+[2014-09-06 16:13:43.639] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":""}
+[2014-09-06 16:13:43.639] [ERROR] ultt - error on method getClassTasks
+[2014-09-06 16:13:43.639] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-06 16:13:45.909] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:45.909] [DEBUG] ultt - received data: method=getClassTasks&class_id=dsf
+[2014-09-06 16:13:45.909] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"dsf"}
+[2014-09-06 16:13:45.909] [ERROR] ultt - error on method getClassTasks
+[2014-09-06 16:13:45.909] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-06 16:13:47.679] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:47.679] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-09-06 16:13:47.679] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-09-06 16:13:47.679] [DEBUG] ultt - get tasks of class with id: 1
+[2014-09-06 16:13:47.689] [INFO] ultt - successful tasks fetching
+[2014-09-06 16:13:47.689] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"TestTask1","type_name":"Test"}]
+[2014-09-06 16:13:56.089] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:56.089] [DEBUG] ultt - received data: method=getClassTasks&class_id=2
+[2014-09-06 16:13:56.089] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"2"}
+[2014-09-06 16:13:56.089] [DEBUG] ultt - get tasks of class with id: 2
+[2014-09-06 16:13:56.089] [INFO] ultt - successful tasks fetching
+[2014-09-06 16:13:56.089] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"TestTask2","type_name":"Test"}]
+[2014-09-06 16:13:58.149] [INFO] ultt - serving post to /unity/db
+[2014-09-06 16:13:58.149] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-09-06 16:13:58.149] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-09-06 16:13:58.149] [DEBUG] ultt - get tasks of class with id: 1
+[2014-09-06 16:13:58.159] [INFO] ultt - successful tasks fetching
+[2014-09-06 16:13:58.159] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"TestTask1","type_name":"Test"}]

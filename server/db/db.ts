@@ -27,6 +27,16 @@ module.exports = function(dbConnection, dbData, callback){
 		});
 	}
 	
+	if(parsedDbData.method === "getTeacherClasses"){
+		userlink.getTeacherClasses(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getTeacherClasses");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
 	if(parsedDbData.method === "getUserClasses"){
 		userlink.getUserClasses(dbConnection, parsedDbData, function(err, result){
 			if(err){
@@ -42,6 +52,16 @@ module.exports = function(dbConnection, dbData, callback){
 		classlink.getClassUsers(dbConnection, parsedDbData, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error on method getClassUsers");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "getClassTasks"){
+		classlink.getClassTasks(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getClassTasks");
 				return callback(err);
 			}
 			return callback(null, result);
@@ -109,7 +129,7 @@ function post(dbConnection, dbData, callback){
 			return callback(err);
 		}
 		logger.log(logger.logLevels["info"], "successful db insert");
-		callback(null, "success");
+		callback(null, {"status" : 1});
 	});
 }
 

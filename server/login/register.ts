@@ -17,8 +17,14 @@ module.exports = function(dbConnection, userData, callback){
 	var user = parser(userData);
 	//TODO: decide on password requirements
 	//check password requirements
-	if(user.password.length < 6 || user.password.length > 12 || user.username.length === 0){
-		return callback(null, "bad password");
+	if(user.password.length < 6){
+		return callback(null, {"error" : 200});
+	}
+	if(user.password.length > 12){
+		return callback(null, {"error" : 201});
+	}
+	if(user.username.length === 0){
+		return callback(null, {"error" : 202});
 	}
 	
 	//prepare fetch
@@ -39,7 +45,7 @@ module.exports = function(dbConnection, userData, callback){
 			logger.log(logger.logLevels["debug"], "empty fetch result, username not taken");
 		} else{
 			logger.log(logger.logLevels["debug"], "fetch result, user does exist");
-			return callback(null, "user exists");
+			return callback(null, {"error" : 203});
 		}
 	});
 	
@@ -53,10 +59,26 @@ module.exports = function(dbConnection, userData, callback){
 	db(dbConnection, insertUser, function(error, result){
 		if(error){
 			logger.log(logger.logLevels["error"], "error on inserting new user: " + error.toString());
-			return callback(err);
+			return callback(error);
 		}
 		
 		logger.log(logger.logLevels["debug"], "user successful inserted");
-		return callback(null, "success");
+		
+		//fetch and return id
+		var idFetch = [];
+		pwFetch.push("purpose=get");
+		pwFetch.push("table=user");
+		pwFetch.push("username=" + user.username);
+		pwFetch.push("user_id=null");
+		
+		db(dbConnection, idFetch, function(err, id){
+			if(err){
+				logger.log(logger.logLevels["error"], "error fetching id of new user: " + err.toString());
+				return callback(err);
+			}
+			
+			logger.log(logger.logLevels["debug"], "user_id of new user fetched");
+			return callback(null, id[0]);
+		});
 	});
 }

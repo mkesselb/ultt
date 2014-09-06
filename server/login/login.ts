@@ -23,6 +23,7 @@ module.exports = function(dbConnection, userData, callback){
 	pwFetch.push("table=user");
 	pwFetch.push("username=" + user.username);
 	pwFetch.push("password=null");
+	pwFetch.push("user_id=null");
 	
 	db(dbConnection, pwFetch, function(error, pw){
 		if(error){
@@ -33,7 +34,7 @@ module.exports = function(dbConnection, userData, callback){
 		
 		if(pw.length === 0){
 			logger.log(logger.logLevels["debug"], "empty fetch result, likewise user does not exist");
-			return callback(null, "failure");
+			return callback(null, {"error" : 100});
 		}
 		
 		//TODO: pw shall be hashed and the salt shall be within it
@@ -41,10 +42,12 @@ module.exports = function(dbConnection, userData, callback){
 		var pass = pw[0].password;
 		if(pass === "" || pass !== user.password){
 			logger.log(logger.logLevels["debug"], "input password did not match db password, returning failure");
-			return callback(null, "failure");
+			return callback(null, {"error" : 101});
 		}
 		
 		logger.log(logger.logLevels["debug"], "input password did match db password, returning success");
-		callback(null, "success");
+		
+		//returns id on success
+		callback(null, {"user_id" : pw[0].user_id});
 	});
 };

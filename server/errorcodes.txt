@@ -1,0 +1,23 @@
+Overview of error codes on server
+
+login error codes:
+
+100	:	"user does not exist"
+101	:	"input password does not match db password"
+
+register error codes:
+
+200	:	"bad password: needs at least 6 characters"
+201	:	"bad password: should not exceed 12 characters"
+202	:	"username is empty"
+203 :	"user exists already"
+
+database error codes:
+
+300	:	"malformed id"
+
+general error codes:
+
+400	:	"unspecified db error"
+401	:	"unspecified login error"
+402	:	"unspecified register error"

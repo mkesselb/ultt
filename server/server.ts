@@ -74,10 +74,18 @@ ultt.post('/unity/db', function(req, res){
 	req.on('end', function(){
 		db(connection, body, function(err, result){
 			if(err){
-				logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
-				res.send([]);
+				//check if err contains known db error code
+				if(err.error){
+					logger.log(logger.logLevels["error"], "error posting to db: " + JSON.stringify(err));
+					res.send(err);
+				} else{
+					//else send unspecified db error
+					logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
+					res.send({"error" : 400});
+				}
+			} else{
+				res.send(result);
 			}
-			res.send(result);
 		});
 	});
 });
@@ -98,10 +106,18 @@ ultt.post('/login', function(req, res){
 		//login module shall be invoked, and response shall be sent
 		login(connection, body, function(err, result){
 			if(err){
-				logger.log(logger.logLevels["error"], "error checking login data: " + err.toString());
-				res.send("error");
+				//check if it contains known error
+				if(err.error){
+					logger.log(logger.logLevels["error"], "error checking login data: " + JSON.stringify(err));
+					res.send(err);
+				} else{
+					//else send unspecified login error
+					logger.log(logger.logLevels["error"], "error checking login data: " + err.toString());
+					res.send({"error" : 401});
+				}
+			} else{
+				res.send(result);
 			}
-			res.send(result);
 		});
 	});
 });
@@ -121,10 +137,17 @@ ultt.post('/register', function(req, res){
 		//login module shall be invoked, and response shall be sent
 		register(connection, body, function(err, result){
 			if(err){
-				logger.log(logger.logLevels["error"], "error checking register data: " + err.toString());
-				res.send("error");
+				//check if it contains known error
+				if(err.error){
+					logger.log(logger.logLevels["error"], "error checking register data: " + JSON.stringify(err));
+					res.send(err);
+				} else{
+					logger.log(logger.logLevels["error"], "error checking register data: " + err.toString());
+					res.send({"error" : 402});
+				}
+			} else{
+				res.send(result);
 			}
-			res.send(result);
 		});
 	});
 });
