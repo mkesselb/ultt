@@ -4,6 +4,7 @@ using System.Collections;
 public class DBInterface : MonoBehaviour {
 	
 	private Main main;
+	
 	private string url = "127.0.0.1/unity/db";
 
 	// Use this for initialization
@@ -12,13 +13,13 @@ public class DBInterface : MonoBehaviour {
 	}
 	
 	
-	public void getUserData(string target, string username){
+	public void getUserData(string target, int id, GameObject receiver){
 		WWWForm form = new WWWForm();
-		form.AddField("purpose", "get");//TODO change "tryLogIn" to function on server
+		form.AddField("purpose", "get");
 		form.AddField("table", "user");
-		form.AddField("user_id", "null");
+		form.AddField("user_id", id);
         form.AddField("token", "null");
-		form.AddField("username", username);
+		form.AddField("username", "null");
 		form.AddField("password", "null");
 		form.AddField("name_first", "null");
 		form.AddField("name_last", "null");
@@ -27,21 +28,22 @@ public class DBInterface : MonoBehaviour {
 		form.AddField("school_id", "null");
 		
         WWW www = new WWW(url, form);
-		StartCoroutine(WaitForRequest(www, target));
+		StartCoroutine(WaitForRequest(www, target, receiver));
 		
 	}
 	
-	public void sendLogInData(string target, string username, string password){
+	public void sendLogInData(string target, string username, string password, GameObject receiver){
+		Debug.Log ("DBInterface: sendLogInData(..)");
 		WWWForm form = new WWWForm();
 		form.AddField("username", username);
 		form.AddField("password", password);
 
         WWW www = new WWW(url+"/login", form);
-		StartCoroutine(WaitForRequest(www, target));
+		StartCoroutine(WaitForRequest(www, target, receiver));
 		
 	}
 	
-	public void GetMyCourses(string target, int userid){
+	public void GetMyCourses(string target, int userid, GameObject receiver){
 		WWWForm form = new WWWForm();
 		form.AddField("purpose", "get");//TODO change "tryLogIn" to function on server
 		form.AddField("table", "class");
@@ -54,24 +56,31 @@ public class DBInterface : MonoBehaviour {
 		form.AddField("subject_id", "null");
 		
         WWW www = new WWW(url, form);
-		StartCoroutine(WaitForRequest(www, target));
+		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 	
+	//TODO
+	public void GetMeineKlassen(string target, int userid, GameObject receiver){}
+	public void GetMeineKurse(string target, int userid, GameObject receiver){}
+	public void GetMeineTasks(string target, int userid, GameObject receiver){}
 	
 	
 	
 	
 	
-	
-	IEnumerator WaitForRequest(WWW www, string target)
+	IEnumerator WaitForRequest(WWW www, string target, GameObject receiver)
     {
         yield return www;
-		
-        if (www.error != null) {
-			main.dbErrorHandler(target, www.error);
-		} else { 
-			main.dbInputHandler(target, www.text);
-		}    	
+	        if (www.error != null) {
+				main.dbErrorHandler(target, www.error);
+			} else { 
+				Debug.Log ("DBInterface: request received");
+				//main.dbInputHandler(target, www.text);
+				string[] temp = new string[]{target, www.text};
+				receiver.SendMessage("dbInputHandler",temp);
+				Debug.Log ("Send message to receiver");
+			}  
+			
     }    
 	
 }
