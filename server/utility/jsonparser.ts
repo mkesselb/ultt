@@ -1,4 +1,6 @@
 /* utility module which parses incoming www form data into a json object */
+
+/* www form data is an array of key=value pairs, which are parsed into a JSON */
 module.exports = function(data){
 	var parsedData = {};
 	data.forEach(function(dat){

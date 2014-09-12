@@ -1,0 +1,29 @@
+methods invocable through the db module:
+(generally, the response is an array of JSON-objects
+
+--- userlink ---
+getUser
+	fetches the user data
+	required data: user_id
+	response: user_id, token, username, name_first, name_last, email_id, picture, created_at, school_id
+
+getUserClasses
+	fetches the classes where the user is registered in
+	required data: user_id
+	response: class_id, classname, privacy, school_year, classcode, subject_name, teacher.username, user.accepted
+
+getTeacherClasses
+	fetches the classes where the user is teacher
+	required data: user_id
+	response: class_id, classname, privacy, school_year, classcode, subject.subject_name
+
+--- classlink ---
+getClassUsers
+	fetches the users of a class
+	required data: class_id
+	response: user_id, username, user.accepted
+		
+getClassTasks
+	fetches the tasks of a class
+	required data: class_id
+	response: task_id, taskname, tasktype.type_name				

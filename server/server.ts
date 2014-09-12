@@ -35,7 +35,7 @@ var server = ultt.listen(80, function(err){
 		throw err;
 	}
 	
-	logger.log(logger.logLevels["info"], "Listening on port " + server.address().port);
+	logger.log(logger.logLevels["info"], "listening on port " + server.address().port);
 });
 
 
@@ -103,7 +103,7 @@ ultt.post('/login', function(req, res){
 		}
 	});
 	req.on('end', function(){
-		//login module shall be invoked, and response shall be sent
+		//login module is invoked, and response is sent
 		login(connection, body, function(err, result){
 			if(err){
 				//check if it contains known error
@@ -134,7 +134,7 @@ ultt.post('/register', function(req, res){
 		}
 	});
 	req.on('end', function(){
-		//login module shall be invoked, and response shall be sent
+		//register module is invoked, and response is sent
 		register(connection, body, function(err, result){
 			if(err){
 				//check if it contains known error

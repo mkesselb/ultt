@@ -1,14 +1,17 @@
 /* module handling the database connections */
 /* two possible modes for database connection establishment:	
  * 		get and post separated (most like not possible due to Unity with WWW)
- * 		get and post to db have to be parsed from the receiving data object - most likely the way to go! */
+ * 		get and post to db have to be parsed from the receiving data object - most likely the way to go!
+ * 
+ * deprecated way: parsing data from www from and creating query on the fly
+ * now also offering dedicated methods to often needed, possibly complex queries
+ */
 
 //logging utility
 var logger = require('../logging/logging.ts');
 var parser = require('../utility/jsonparser.ts');
 var userlink = require('./userlink.ts');
 var classlink = require('./classlink.ts');
-
 
 module.exports = function(dbConnection, dbData, callback){
 	//parsing the dbdata, and deciding which purpose is the sent
@@ -99,7 +102,7 @@ module.exports = function(dbConnection, dbData, callback){
 	}
 };
 
-//---deprecated---
+/* ---deprecated--- */
 function post(dbConnection, dbData, callback){
 	/*
 	 * 	in the dbData json, the following data is important:
@@ -133,7 +136,7 @@ function post(dbConnection, dbData, callback){
 	});
 }
 
-//---deprecated---
+/* ---deprecated--- */
 function get(dbConnection, dbData, callback){
 	/*
 	 * 	in the dbData json, the following data is important:
@@ -192,7 +195,7 @@ function get(dbConnection, dbData, callback){
 	});
 }
 
-//---deprecated---
+/* ---deprecated--- */
 function update(dbConnection, dbData, callback){
 	//TODO: update db data
 }

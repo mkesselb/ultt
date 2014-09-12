@@ -7,7 +7,7 @@ log4js.configure({
 	]
 });
 
-//set default logging
+//set default logging -> console and file logging
 var logFile = log4js.getLogger('ultt');
 var logCons = log4js.getLogger('console');
 var logLevel = 2;

@@ -1,14 +1,16 @@
 /* module handling the register process, which consists of:
  * 	-	receiving desired username and password from user input
- * 	-	checking if username and password can be taken (username free + password min length) 
+ * 	-	checking if username and password can be taken (username free + password min / max length) 
  * 	-	giving appropriate response
  * 
- * if username does already exists, "user exists" is returned
- * if password is smaller minimum length or greater than max length, "bad password" is returned" 
- * else the user is written to db and "success" is returned 
+ * errors are returned if:
+ * 	user does already exist
+ * 	password length is smaller or greater than limit
+ * 	username is empty
+ * 
+ * if everything ok, the user is written to the db with the entered information, and the user_id is return as JSON
  */
 
-//logging utility
 var logger = require('../logging/logging.ts');
 var parser = require('../utility/jsonparser.ts');
 var db = require('../db/db.ts');
@@ -77,7 +79,7 @@ module.exports = function(dbConnection, userData, callback){
 				return callback(err);
 			}
 			
-			logger.log(logger.logLevels["debug"], "user_id of new user fetched");
+			logger.log(logger.logLevels["debug"], "user_id of new user fetched: " + id[0].user_id);
 			return callback(null, id[0]);
 		});
 	});

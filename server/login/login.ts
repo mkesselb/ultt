@@ -4,11 +4,10 @@
  * 	-	if found, the input password has to be checked against the saved password,
  * 			preferably with salt and hash to be secure and state-of-the-art
  * 
- * if either the user does not exist or the input password does not match the db data, no success is returned
- * else if the user can be found and the input password matches the db password, a login success is returned 
+ * if either the user does not exist or the input password does not match the db data, an appropriate error is returned
+ * else if the user can be found and the input password matches the db password, the user_id is returned as JSON 
  */
 
-//logging utility
 var logger = require('../logging/logging.ts');
 var parser = require('../utility/jsonparser.ts');
 var db = require('../db/db.ts');
