@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Profile : MonoBehaviour {
 	
+	private Main main;
 	private DBInterface dbinterface;
 	
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
@@ -13,19 +15,26 @@ public class Profile : MonoBehaviour {
 	//Button prefab to dynamically generate buttons
 	public Button button;
 	
-	public int user_id;
-	
+	public int userid;
 	public User user;
+	public List<UserClass> userClasses;
+	public List<TeacherClass> teacherClasses;
+	
 	
 	
 	void Start(){
+		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
 		overviewKlassen.SetActive(true);
-		//TODO get user id: user_id = 
-		dbinterface.getUserData("userData", user_id, gameObject);
 		
+		userid = main.getUserId();
+		userClasses = new List<UserClass>();
+		teacherClasses = new List<TeacherClass>();
+		
+		Debug.Log ("Send request for user data");
+		dbinterface.getUserData("userData", userid, gameObject);
 	}
 	
 	
@@ -37,19 +46,19 @@ public class Profile : MonoBehaviour {
 							overviewKlassen.SetActive(true);
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(false);
-							dbinterface.GetMeineKlassen("Klassen", user_id, gameObject);
+							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
 		case "btnKurse": 	//show overview of Kurse
 							overviewKlassen.SetActive(false);
 							overviewKurse.SetActive(true);
 							overviewTasks.SetActive(false);
-							dbinterface.GetMeineKurse("Kurse", user_id, gameObject);
+							dbinterface.getMeineKurse("Kurse", userid, gameObject);
 							break;
 		case "btnTasks":	//show overview of Tasks
 							overviewKlassen.SetActive(false);
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(true);
-							dbinterface.GetMeineTasks("Tasks", user_id, gameObject);
+							dbinterface.getMeineTasks("Tasks", userid, gameObject);
 							break;
 		}
 	}
@@ -61,7 +70,7 @@ public class Profile : MonoBehaviour {
 		string data = response[1];
 		switch(target){	
 		case "userData": 	//parse received user data and save in user
-							user = new User(parseJSON(data));
+							user = new User(userid, parseJSON(data));
 							//write user data to profile screen
 							fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
 			
@@ -69,23 +78,26 @@ public class Profile : MonoBehaviour {
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(false);
 							//TODO get Klassen of user and write to profile screen
+							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
-		case "Klassen":		Debug.Log ("Antwort auf Klassen: "+data);
-							//generate button for each Klasse
-							//one button
-							/*generatedBtn = (Button) Instantiate(button, Vector3.zero, Quaternion.identity);
-							generatedBtn.transform.parent = overviewKlassen.transform.FindChild("ContentKlassen");
-							generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = "neuer Button";*/
+						
+		case "Klassen":		//TODO generate button for each Klasse, yet only for first
+							string[] parsedData = parseJSON(data);
 							
+							TeacherClass temp = new TeacherClass(userid,parsedData);
+							teacherClasses.Add(temp);
+							generatedBtn = (Button) Instantiate(button, Vector3.zero, Quaternion.identity);
+							generatedBtn.transform.parent = overviewKlassen.transform.FindChild("ContentKlassen");
+							generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
+						
+							break;
 						
 						
 			
 							break;
-		case "Kurse":		Debug.Log ("Antwort auf Kurse: "+data);
-							//generate buttons
+		case "Kurse":		//generate buttons
 							break;
-		case "Tasks":		Debug.Log ("Antwort auf Tasks: "+data);
-							//generate buttons
+		case "Tasks":		//generate buttons
 							break;
 		}
 	}
@@ -97,17 +109,11 @@ public class Profile : MonoBehaviour {
 	//TODO change delimiters
 	private string[] parseJSON(string json){
 		Debug.Log ("call parse");
-		string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]" };
+		string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]", "}" };
         string[] temp = new string[30];
 		Debug.Log ("try start parse");
 		temp = json.Split(delimiters,System.StringSplitOptions.RemoveEmptyEntries);
 		Debug.Log ("parse finished");
-	
-		for (int i = 0; i< 14; i++){
-			Debug.Log ("data "+ i + ": "+ temp[i]);
-
-		}
-		
 		return temp;
 	}
 }

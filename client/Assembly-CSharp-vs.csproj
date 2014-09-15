@@ -51,7 +51,9 @@
      <Compile Include="Assets\Scripts\LogIn.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\Profile.cs" />
+     <Compile Include="Assets\Scripts\TeacherClass.cs" />
      <Compile Include="Assets\Scripts\User.cs" />
+     <Compile Include="Assets\Scripts\UserClass.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity4.6/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

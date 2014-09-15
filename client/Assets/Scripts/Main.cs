@@ -10,18 +10,16 @@ public class Main : MonoBehaviour {
 	//LogIn Screen
 	public GameObject panelLogInScreen;
 	
-	
 	//Profile Screen
 	public GameObject panelProfile;
 	
-	
-
-	
-	//Objects
-	User user;
+	//userid
+	public int userid;
 	
 	
 	void Start(){
+		
+		userid = 0;
 		Debug.Log ("Main: Start()");
 		dbinterface = gameObject.GetComponent<DBInterface>();
 		
@@ -32,7 +30,6 @@ public class Main : MonoBehaviour {
 	}
 	
 		
-
 	public void eventHandler(string eventname){
 		switch(eventname){
 		case "logInSuccess": 	panelLogInScreen.SetActive(false);
@@ -41,7 +38,6 @@ public class Main : MonoBehaviour {
 		}
 	}
 		
-
 	
 	//called by dbinterface when received www form contains an error
 	public void dbErrorHandler(string target, string errortext){
@@ -51,7 +47,12 @@ public class Main : MonoBehaviour {
 	
 	
 	
-	
+	public void setUserId(int id){
+		userid = id;	
+	}
+	public int getUserId(){
+		return userid;	
+	}
 	
 	
 	

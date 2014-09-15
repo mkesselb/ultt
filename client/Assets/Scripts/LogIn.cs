@@ -21,7 +21,7 @@ public class LogIn : MonoBehaviour {
 	public void clickedBtnLogIn(){
 		Debug.Log("LogIn Button clicked");
 		dbinterface.sendLogInData("logInData", inputUsername.text, inputPassword.text, gameObject);	
-		Debug.Log ("data send");
+		Debug.Log ("LogIn data send");
 	}
 	
 	
@@ -29,14 +29,25 @@ public class LogIn : MonoBehaviour {
 		string target = response[0];
 		string data = response[1];
 		switch(target){	
-		case "logInData": 	Debug.Log ("data: "+data); 
-							if(data == "success"){
-								main.eventHandler("logInSuccess");
-							} else {
-								//TODO ui error message
-							}
+		case "logInData": 	string[] temp = parseJSON(data);
+							main.setUserId(int.Parse(temp[1]));
+							main.eventHandler("logInSuccess");
+							
 							break;
 		}
+	}
+	
+	//TODO change delimiters
+	private string[] parseJSON(string json){
+		Debug.Log ("call parse");
+		string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]", "}" };
+        string[] temp = new string[30];
+		Debug.Log ("try start parse");
+		temp = json.Split(delimiters,System.StringSplitOptions.RemoveEmptyEntries);
+		Debug.Log ("parse finished");
+		
+		
+		return temp;
 	}
 	
 
