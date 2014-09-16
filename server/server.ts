@@ -1,4 +1,4 @@
-//declare function require(name:string);
+/* basic server application file, handling all requests and responses by giving them to the appropriate module */
 var express = require('express');
 var mysql = require('mysql');
 var fs = require('fs');

@@ -1,8 +1,8 @@
 /* module handling the database connections */
-/* two possible modes for database connection establishment:	
+/* two possible modes for database connection establishment:
  * 		get and post separated (most like not possible due to Unity with WWW)
  * 		get and post to db have to be parsed from the receiving data object - most likely the way to go!
- * 
+ *
  * deprecated way: parsing data from www from and creating query on the fly
  * now also offering dedicated methods to often needed, possibly complex queries
  */
@@ -17,7 +17,7 @@ module.exports = function(dbConnection, dbData, callback){
 	//parsing the dbdata, and deciding which purpose is the sent
 	var parsedDbData = parser(dbData);
 	logger.log(logger.logLevels["debug"], "full data received on db: " + JSON.stringify(parsedDbData));
-	
+
 	//deciding on route
 	/* userlink */
 	if(parsedDbData.method === "getUser"){
@@ -29,7 +29,7 @@ module.exports = function(dbConnection, dbData, callback){
 			return callback(null, result);
 		});
 	}
-	
+
 	if(parsedDbData.method === "getTeacherClasses"){
 		userlink.getTeacherClasses(dbConnection, parsedDbData, function(err, result){
 			if(err){
@@ -166,13 +166,13 @@ function get(dbConnection, dbData, callback){
 	}
 	
 	var query = "select ";
-	for(var d in fetchData){
+	for(d in fetchData){
 		if(fetchData.hasOwnProperty(d)){
 			query += d + ",";
 		}
 	}
 	query = query.substr(0, query.length-1) + " from " + table + " where ";
-	for(var d in matchData){
+	for(d in matchData){
 		if(matchData.hasOwnProperty(d)){
 			var x = matchData[d];
 			if(isNaN(x)){

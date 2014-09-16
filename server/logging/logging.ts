@@ -29,7 +29,7 @@ logLevelLookup = {
 		3 : "info",
 		4 : "warn",
 		5 : "error"
-} 
+};
 
 logFile.setLevel('DEBUG');
 logCons.setLevel('DEBUG');
@@ -38,7 +38,7 @@ function setLogLevel(logL){
 	if(logL < 0 || logL > 5){
 		logLevel = 2;
 	} else{
-		logLevel = logL
+		logLevel = logL;
 	}
 }
 

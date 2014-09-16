@@ -83,4 +83,4 @@ module.exports = function(dbConnection, userData, callback){
 			return callback(null, id[0]);
 		});
 	});
-}
+};

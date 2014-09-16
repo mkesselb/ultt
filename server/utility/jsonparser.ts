@@ -11,4 +11,4 @@ module.exports = function(data){
 		parsedData[d.key] = d.value;
 	});
 	return parsedData;
-}
+};
