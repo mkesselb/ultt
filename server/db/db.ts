@@ -50,6 +50,26 @@ module.exports = function(dbConnection, dbData, callback){
 		});
 	}
 	
+	if(parsedDbData.method === "registerUserToClass"){
+		userlink.registerUserToClass(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method registerUserToClass");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "acceptUserInClass"){
+		userlink.acceptUserInClass(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method acceptUserInClass");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
 	/* classlink */
 	if(parsedDbData.method === "getClassUsers"){
 		classlink.getClassUsers(dbConnection, parsedDbData, function(err, result){
@@ -65,6 +85,16 @@ module.exports = function(dbConnection, dbData, callback){
 		classlink.getClassTasks(dbConnection, parsedDbData, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error on method getClassTasks");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "getClassTopics"){
+		classlink.getClassTopics(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getClassTopics");
 				return callback(err);
 			}
 			return callback(null, result);

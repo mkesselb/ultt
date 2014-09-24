@@ -15,6 +15,7 @@ register error codes:
 database error codes:
 
 300	:	"malformed id"
+301 :	"entered classcode matched no class"
 
 general error codes:
 

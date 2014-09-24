@@ -1,10 +1,11 @@
 /* module which works the database queries that mostly deal with classes */
 var logger = require('../logging/logging.ts');
+var validator = require('../utility/inputvalidator.ts');
 
 /* fetches the users of the specified class. request parameter is class_id. */
 function getClassUsers(dbConnection, requestData, callback){
-	if(isNaN(requestData.class_id) || requestData.class_id.length === 0){
-		//malformed, class_id has to be number
+	if(!validator.validateID(requestData.class_id)){
+		//malformed class_id
 		return callback({"error" : 300});
 	}
 	logger.log(logger.logLevels["debug"], "get users of class with id: " + requestData.class_id);
@@ -24,14 +25,14 @@ function getClassUsers(dbConnection, requestData, callback){
 
 /* fetches the tasks of the specified class. request parameter is class_id. */
 function getClassTasks(dbConnection, requestData, callback){
-	if(isNaN(requestData.class_id) || requestData.class_id.length === 0){
-		//malformed, class_id has to be number
+	if(!validator.validateID(requestData.class_id)){
+		//malformed class_id
 		return callback({"error" : 300});
 	}
 	logger.log(logger.logLevels["debug"], "get tasks of class with id: " + requestData.class_id);
 	
 	//tasktype_id + type_name in table tasktype
-	var fetchTasks = "select t.task_id, t.taskname, tt.type_name "
+	var fetchTasks = "select t.task_id, t.taskname, tt.type_name, tc.class_topic_id "
 		+ "from task t, tasktype tt, task_for_class tc "
 		+ "where tc.class_id = " + requestData.class_id + " and tc.task_id = t.task_id "
 		+ "and t.tasktype_id = tt.tasktype_id";
@@ -46,7 +47,38 @@ function getClassTasks(dbConnection, requestData, callback){
 	});
 };
 
+/* fetches the topics of the specified class. request parameter is class_id. */
+function getClassTopics(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.class_id)){
+		//malformed class_id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "get topics of class with id: " + requestData.class_id);
+	//TODO: what order are the topics?
+	//maybe impose a creation order or some kind of assigned order... 
+	var fetchTopics = "select class_topic_id, topic_name "
+			+ "from class_topic where class_id = " + requestData.class_id;
+	
+	dbConnection.query(fetchTopics, function(err, topics){
+		if(err){
+			return callback(err);
+		}
+		logger.log(logger.logLevels["info"], "successful topics fetching");
+		logger.log(logger.logLevels["debug"], "fetch result: " + JSON.stringify(topics));
+		callback(null, topics);
+	});
+};
+
+function createClassTopic(dbConnection, requestData, callback){
+	//TODO: implement
+};
+
+function deleteClassTopic(dbConnection, requestData, callback){
+	//TODO: implement
+}
+
 module.exports = {
 		getClassUsers	: getClassUsers,
-		getClassTasks	: getClassTasks
+		getClassTasks	: getClassTasks,
+		getClassTopics	: getClassTopics
 };

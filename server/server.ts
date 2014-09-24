@@ -7,7 +7,6 @@ var login = require('./login/login.ts');
 var register = require('./login/register.ts');
 var logger = require('./logging/logging.ts');
 
-
 /* building db connection */
 //pooling connections also possible
 var connection = mysql.createConnection({

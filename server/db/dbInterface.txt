@@ -16,6 +16,16 @@ getTeacherClasses
 	fetches the classes where the user is teacher
 	required data: user_id
 	response: class_id, classname, privacy, school_year, classcode, subject.subject_name
+	
+registerUserToClass
+	writes the specified user and class to the "user_is_in_class" relationship, if the code is correctly entered
+	required data: user_id, classcode
+	response: class_id
+	
+acceptUserInClass
+	writes an accepted-update to the "user_is_in_class" relationship for specified user and class
+	reuqired data: user_id, class_id
+	response: {"success" : 1}
 
 --- classlink ---
 getClassUsers
@@ -26,4 +36,9 @@ getClassUsers
 getClassTasks
 	fetches the tasks of a class
 	required data: class_id
-	response: task_id, taskname, tasktype.type_name				
+	response: task_id, taskname, tasktype.type_name, class_topic_id
+	
+getClassTopics
+	fetches the topics of a class
+	required data: class_id
+	response: class_topic_id, topic_name			
