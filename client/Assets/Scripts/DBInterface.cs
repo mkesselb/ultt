@@ -32,6 +32,11 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 		
 	}
+	
+	public void sendRegisterData(string target, WWWForm form, GameObject receiver){
+		 WWW www = new WWW(url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));	
+	}
 
 	public void getMeineKlassen(string target, int userid, GameObject receiver){
 		Debug.Log ("called getMeineKlassen");
@@ -56,6 +61,12 @@ public class DBInterface : MonoBehaviour {
 	public void getMeineTasks(string target, int userid, GameObject receiver){
 		Debug.Log ("called getMeineTasks");
 	}
+	
+	//TODO
+	public void getTeacherClassData(string target, int classid, GameObject receiver){
+		Debug.Log ("dbinterface: TODO");
+	}
+
 	
 	
 	

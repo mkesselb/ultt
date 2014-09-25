@@ -25,4 +25,12 @@ public class UserClass {
 		user_accepted = data[15];
 	}
 	
+	public string getClassname(){
+		return classname;	
+	}
+	
+	public int getClassId(){
+		return class_id;	
+	}
+	
 }

@@ -48,10 +48,15 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Course.cs" />
      <Compile Include="Assets\Scripts\DBInterface.cs" />
+     <Compile Include="Assets\Scripts\JSONParser.cs" />
      <Compile Include="Assets\Scripts\LogIn.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
+     <Compile Include="Assets\Scripts\PanelRegister.cs" />
+     <Compile Include="Assets\Scripts\PanelTeacherClass.cs" />
      <Compile Include="Assets\Scripts\Profile.cs" />
+     <Compile Include="Assets\Scripts\TaskShort.cs" />
      <Compile Include="Assets\Scripts\TeacherClass.cs" />
+     <Compile Include="Assets\Scripts\Topic.cs" />
      <Compile Include="Assets\Scripts\User.cs" />
      <Compile Include="Assets\Scripts\UserClass.cs" />
  <Reference Include="UnityEngine.UI">

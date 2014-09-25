@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TeacherClass : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class TeacherClass : MonoBehaviour {
 	private string school_year;
 	private string classcode;
 	private string subject_name;
+	private List<Topic> topics;
+	private List<TaskShort> tasks;
+
 	
 	public TeacherClass(int id,string[] data){
 		user_id = id;
@@ -19,9 +23,36 @@ public class TeacherClass : MonoBehaviour {
 		school_year = data[7];
 		classcode= data[9];
 		subject_name = data[11];
+		topics = new List<Topic>();
+		tasks = new List<TaskShort>();
+		
 	}
 	
 	public string getClassname(){
 		return classname;	
+	}
+	
+	public int getClassId(){
+		return class_id;	
+	}
+	
+	public string getClassCode(){
+		return classcode;	
+	}
+	
+	public void addTopic(Topic t){
+		topics.Add(t);	
+	}
+	
+	public void addTask(TaskShort t){
+		tasks.Add(t);	
+	}
+	
+	public List<Topic> getTopicList(){
+		return  topics;	
+	}
+	
+	public List<TaskShort> getTaskList(){
+		return tasks;	
 	}
 }

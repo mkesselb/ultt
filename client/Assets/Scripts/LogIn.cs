@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class LogIn : MonoBehaviour {
 	
 	private Main main;
 	private DBInterface dbinterface;
+	private JSONParser jsonparser;
 	
 	public Text inputUsername, inputPassword;
 	
@@ -13,6 +15,7 @@ public class LogIn : MonoBehaviour {
 		Debug.Log ("LogIn: Start()");
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 	}
 	
 	
@@ -24,15 +27,22 @@ public class LogIn : MonoBehaviour {
 		Debug.Log ("LogIn data send");
 	}
 	
+	public void clickedBtnRegister(){
+		main.eventHandler("register",0);	
+	}
+	
 	
 	public void dbInputHandler(string[] response){
 		string target = response[0];
 		string data = response[1];
+		List<string[]> parsedData = new List<string[]>();
 		switch(target){	
-		case "logInData": 	string[] temp = parseJSON(data);
-							main.setUserId(int.Parse(temp[1]));
-							main.eventHandler("logInSuccess");
-							
+		case "logInData": 	/*string[] temp = parseJSON(data);
+							//main.setUserId(int.Parse(temp[1]));
+							main.eventHandler("logInSuccess", int.Parse(temp[1]));*/
+							parsedData = jsonparser.JSONparse(data);
+							string[] temp = parsedData[0];
+							main.eventHandler("logInSuccess", int.Parse (temp[1]));
 							break;
 		}
 	}
