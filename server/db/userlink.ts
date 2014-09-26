@@ -1,6 +1,7 @@
 /* module which works the database queries that mostly deal with users */
 var logger = require('../logging/logging.ts');
 var validator = require('../utility/inputvalidator.ts');
+var randomstring = require('../utility/randomstring.ts');
 
 /* fetches all user data. request parameter is user_id. */
 function getUser(dbConnection, requestData, callback){
@@ -34,7 +35,8 @@ function getUserClasses(dbConnection, requestData, callback){
 			"c.school_year, c.classcode, s.subject_name, us.username, u.accepted "
 			+ "from class c, user_is_in_class u, user us, subject s "
 			+ "where u.user_id = " + requestData.user_id
-			+ " and u.class_id = c.class_id and c.subject_id = s.subject_id and c.user_id = us.user_id";
+			+ " and u.class_id = c.class_id and c.subject_id = s.subject_id and c.user_id = us.user_id "
+			+ "and c.deleted = 0";
 	
 	dbConnection.query(fetchClasses, function(err, classes){
 		if(err){
@@ -56,7 +58,7 @@ function getTeacherClasses(dbConnection, requestData, callback){
 	
 	var fetchTeacherClasses = "select c.class_id, c.classname, c.privacy, c.school_year, c.classcode, s.subject_name " +
 			"from class c, subject s " +
-			"where c.user_id = " + requestData.user_id + " and c.subject_id = s.subject_id";
+			"where c.user_id = " + requestData.user_id + " and c.subject_id = s.subject_id and c.deleted = 0";
 	
 	dbConnection.query(fetchTeacherClasses, function(err, classes){
 		if(err){
@@ -90,19 +92,33 @@ function registerUserToClass(dbConnection, requestData, callback){
 		var class_id = cl[0].class_id
 		logger.log(logger.logLevels["debug"], "class_id " + class_id + " found for classcode " + requestData.classcode);
 	
-		var insertData = {}
-		insertData["user_id"] = requestData.user_id;
-		insertData["class_id"] = class_id;
-		insertData["accepted"] = 0;
-		
-		logger.log(logger.logLevels["debug"], "write user_id " + requestData.user_id 
-				+ " and class_id " + class_id + " to user_is_in_class relationship");
-		dbConnection.query("insert into user_is_in_class set ?", insertData, function(err, result){
+		//check if user is already registered in class or not
+		dbConnection.query("select user_id from user_is_in_class where user_id = " + requestData.user_id 
+				+ " and class_id = " + class_id, function(err, user){
 			if(err){
 				return callback(err);
 			}
-			logger.log(logger.logLevels["info"], "successful registered user to class");
-			callback(null, {"class_id" : class_id});
+			if(user.length !== 0){
+				Logger.log(logger.logLevels["warning"], "user was already registered in class");
+				return callback({"error" : 302});
+			}
+			
+			//insert user to be accepted
+			var insertData = {}
+			insertData["user_id"] = requestData.user_id;
+			insertData["class_id"] = class_id;
+			insertData["accepted"] = 0;
+			
+			logger.log(logger.logLevels["debug"], "write user_id " + requestData.user_id 
+					+ " and class_id " + class_id + " to user_is_in_class relationship");
+			dbConnection.query("insert into user_is_in_class set ?", insertData, function(err, result){
+				if(err){
+					return callback(err);
+				}
+				logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+				logger.log(logger.logLevels["info"], "successful registered user to class");
+				callback(null, {"class_id" : class_id});
+			});
 		});
 	});
 };
@@ -114,24 +130,94 @@ function acceptUserInClass(dbConnection, requestData, callback){
 		//some id was malformed
 		return callback({"error" : 300});
 	}
-	logger.log(logger.logLevels["debug"], "accepting user_id " + requestData.user_id 
-			+ " into class_id " + requestData.class_id);
-	dbConnection.query("update user_is_in_class set ? where ?", 
-			[{"accepted" : 1}, {"user_id" : requestData.user_id, "class_id" : requestData.class_id}], 
+	dbConnection.query("select user_id from user_is_in_class where user_id = " + requestData.user_id 
+			+ " and class_id = " + requestData.class_id, function(err, user){
+		if(err){
+			return callback(err);
+		}
+		if(user.length === 0){
+			logger.log(logger.logLevels["warning"], "user cannot be accepted, is not registered in class");
+			return callback({"error" : 303});
+		}
+		
+		//else, accept the user
+		logger.log(logger.logLevels["debug"], "accepting user_id " + requestData.user_id 
+				+ " into class_id " + requestData.class_id);
+		dbConnection.query("update user_is_in_class set ? where user_id = ? and class_id = ?", 
+				[{"accepted" : 1}, requestData.user_id, requestData.class_id], 
+				function(err, result){
+			if(err){
+				return callback(err);
+			}
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+			logger.log(logger.logLevels["info"], "successful accepted user to class");
+			callback(null, {"status" : 1});
+		});
+	});
+};
+
+/* creates a class. 
+ * required parameter are classname, user_id (of the teacher), school_year, subject_id */
+function createClass(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.user_id) || !validator.validateID(requestData.subject_id)){
+		//malformed id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "creating class " + requestData.classname
+			+ " for user_id " + requestData.user_id 
+			+ ", subject_id " + requestData.subject_id
+			+ " and school_year " + requestData.school_year);
+	
+	var classcode = randomstring(10);
+	var insertData = {};
+	insertData["classname"] = requestData.classname;
+	insertData["user_id"] = requestData.user_id;
+	insertData["school_year"] = requestData.school_year;
+	insertData["classcode"] = classcode;
+	insertData["subject_id"] = requestData.subject_id;
+	logger.log(logger.logLevels["debug"], "insert data: " + JSON.stringify(insertData));
+	
+	dbConnection.query("insert into class set ?", insertData, function(err, result){
+		if(err){
+			return callback(err);
+		}
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+		logger.log(logger.logLevels["info"], "successful class creating");
+		
+		//now, fetch id of created class and return it
+		dbConnection.query("select class_id from class where classcode ='" + classcode + "'", function(err, cl){
+			if(err){
+				return callback(err);
+			}
+			logger.log(logger.logLevels["debug"], "created class with id: " + cl[0].class_id 
+					+ ", classcode: " + classcode);
+			callback(null, {"class_id" : cl[0].class_id, "classcode" : classcode})
+		});
+	});
+};
+
+/* sets deleted flag of specified class. required parameter is class_id */
+function deleteClass(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.class_id)){
+		//malformed class_id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "deleting class with id: " + requestData.class_id);
+	
+	dbConnection.query("update class set ? where class_id = ?", 
+			[{"deleted" : 1}, requestData.class_id], 
 			function(err, result){
 		if(err){
 			return callback(err);
 		}
-		logger.log(logger.logLevels["info"], "successful accepted user to class");
-		callback(null, {"status" : 1});
+		
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+		logger.log(logger.logLevels["debug"], "successful setting delete flag of class");
+		callback(null, {"success" : 1});
 	});
 };
 
-function createClass(dbConnection, requestData, callback){
-	//TODO: implement
-};
-
-function deleteClass(dbConnection, requestData, callback){
+function createTask(dbConnection, requestData, callback){
 	//TODO: implement
 };
 
@@ -139,14 +225,14 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 	//TODO: implement
 };
 
-function createTask(dbConnection, requestData, callback){
-	//TODO: implement
-};
-
 module.exports = {
 		getUser				: getUser,
+		createTask			: createTask,
+		createClass			: createClass,
+		deleteClass			: deleteClass,
 		getUserClasses 		: getUserClasses,
 		getTeacherClasses	: getTeacherClasses,
 		acceptUserInClass	: acceptUserInClass,
+		assignTaskToTopic	: assignTaskToTopic,
 		registerUserToClass	: registerUserToClass
 };

@@ -16,6 +16,8 @@ database error codes:
 
 300	:	"malformed id"
 301 :	"entered classcode matched no class"
+302 :	"user already registered in class"
+303 :	"user not registered in class"
 
 general error codes:
 

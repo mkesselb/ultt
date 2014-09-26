@@ -218,6 +218,7 @@ CREATE TABLE IF NOT EXISTS `ultt`.`class` (
   `school_year` YEAR NOT NULL,
   `classcode` VARCHAR(45) NOT NULL,
   `subject_id` INT NOT NULL,
+  `deleted` TINYINT(1) NOT NULL,
   PRIMARY KEY (`class_id`),
   INDEX `fk_class_user1_idx` (`user_id` ASC),
   INDEX `fk_class_subject1_idx` (`subject_id` ASC),
@@ -321,9 +322,10 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `ultt`.`class_topic` ;
 
 CREATE TABLE IF NOT EXISTS `ultt`.`class_topic` (
-  `class_topic_id` INT NOT NULL,
+  `class_topic_id` INT NOT NULL AUTO_INCREMENT,
   `class_id` INT NOT NULL,
   `topic_name` VARCHAR(45) NOT NULL,
+  `deleted` TINYINT(1) NOT NULL,
   PRIMARY KEY (`class_topic_id`),
   INDEX `fk_class_topic_class1_idx` (`class_id` ASC),
   CONSTRAINT `fk_class_topic_class1`

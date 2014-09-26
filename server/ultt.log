@@ -464,3 +464,523 @@
 [2014-09-06 16:13:58.149] [DEBUG] ultt - get tasks of class with id: 1
 [2014-09-06 16:13:58.159] [INFO] ultt - successful tasks fetching
 [2014-09-06 16:13:58.159] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"TestTask1","type_name":"Test"}]
+[2014-09-12 11:11:41.878] [INFO] ultt - listening on port 80
+[2014-09-12 11:11:42.883] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-09-16 20:49:47.013] [INFO] ultt - listening on port 80
+[2014-09-16 20:49:48.023] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-09-16 20:49:52.583] [INFO] ultt - listening on port 80
+[2014-09-16 20:49:53.103] [INFO] ultt - connected to db
+[2014-09-18 20:26:05.590] [INFO] ultt - listening on port 80
+[2014-09-18 20:26:05.604] [INFO] ultt - connected to db
+[2014-09-18 20:26:13.231] [INFO] ultt - serving request to /
+[2014-09-18 20:26:13.541] [INFO] ultt - serving request to /ultt.unity3d
+[2014-09-18 20:28:27.688] [INFO] ultt - listening on port 80
+[2014-09-18 20:28:27.698] [INFO] ultt - connected to db
+[2014-09-18 20:41:34.159] [INFO] ultt - listening on port 80
+[2014-09-18 20:41:34.164] [INFO] ultt - connected to db
+[2014-09-18 20:41:49.867] [INFO] ultt - serving post to /login
+[2014-09-18 20:41:49.868] [DEBUG] ultt - received login data: username=test&password=test
+[2014-09-18 20:41:49.869] [DEBUG] ultt - user data received: {"username":"test","password":"test"}
+[2014-09-18 20:41:49.869] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"test","password":"null","user_id":"null"}
+[2014-09-18 20:41:49.869] [DEBUG] ultt - db fetch query: select password,user_id from user where username='test';
+[2014-09-18 20:41:49.871] [INFO] ultt - successful db fetching
+[2014-09-18 20:41:49.871] [DEBUG] ultt - fetch result: [{"password":"test","user_id":2}]
+[2014-09-18 20:41:49.872] [DEBUG] ultt - password fetched: [{"password":"test","user_id":2}]
+[2014-09-18 20:41:49.872] [DEBUG] ultt - input password did match db password, returning success
+[2014-09-18 20:41:49.922] [INFO] ultt - serving post to /unity/db
+[2014-09-18 20:41:49.923] [DEBUG] ultt - received data: method=getUser&user_id=2
+[2014-09-18 20:41:49.923] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"2"}
+[2014-09-18 20:41:49.924] [DEBUG] ultt - get user with id: 2
+[2014-09-18 20:41:49.925] [INFO] ultt - successful user fetching
+[2014-09-18 20:41:49.925] [DEBUG] ultt - fetch result: [{"user_id":2,"token":22,"username":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test"}]
+[2014-09-18 20:41:49.971] [INFO] ultt - serving post to /unity/db
+[2014-09-18 20:41:49.972] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-18 20:41:49.973] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-18 20:41:49.973] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-18 20:41:49.974] [INFO] ultt - successful teacher classes fetching
+[2014-09-18 20:41:49.975] [DEBUG] ultt - fetch result: []
+[2014-09-18 20:43:10.184] [INFO] ultt - serving request to /
+[2014-09-18 20:43:10.565] [INFO] ultt - serving request to /ultt.unity3d
+[2014-09-18 20:43:18.635] [INFO] ultt - serving request to /
+[2014-09-18 20:43:18.985] [INFO] ultt - serving request to /ultt.unity3d
+[2014-09-19 11:15:35.476] [INFO] ultt - listening on port 80
+[2014-09-19 11:15:35.490] [INFO] ultt - connected to db
+[2014-09-19 11:15:39.901] [INFO] ultt - serving request to /
+[2014-09-19 11:15:40.131] [INFO] ultt - serving request to /ultt.unity3d
+[2014-09-19 11:15:49.773] [INFO] ultt - serving post to /login
+[2014-09-19 11:15:49.775] [DEBUG] ultt - received login data: username=test&password=test
+[2014-09-19 11:15:49.776] [DEBUG] ultt - user data received: {"username":"test","password":"test"}
+[2014-09-19 11:15:49.776] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"test","password":"null","user_id":"null"}
+[2014-09-19 11:15:49.777] [DEBUG] ultt - db fetch query: select password,user_id from user where username='test';
+[2014-09-19 11:15:49.780] [INFO] ultt - successful db fetching
+[2014-09-19 11:15:49.780] [DEBUG] ultt - fetch result: [{"password":"test","user_id":2}]
+[2014-09-19 11:15:49.781] [DEBUG] ultt - password fetched: [{"password":"test","user_id":2}]
+[2014-09-19 11:15:49.781] [DEBUG] ultt - input password did match db password, returning success
+[2014-09-19 11:15:49.848] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:15:49.849] [DEBUG] ultt - received data: method=getUser&user_id=2
+[2014-09-19 11:15:49.849] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"2"}
+[2014-09-19 11:15:49.849] [DEBUG] ultt - get user with id: 2
+[2014-09-19 11:15:49.851] [INFO] ultt - successful user fetching
+[2014-09-19 11:15:49.851] [DEBUG] ultt - fetch result: [{"user_id":2,"token":22,"username":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test"}]
+[2014-09-19 11:15:49.881] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:15:49.882] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-19 11:15:49.882] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-19 11:15:49.883] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-19 11:15:49.884] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:15:49.884] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:16:15.712] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:15.714] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-19 11:16:15.715] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-19 11:16:15.717] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-19 11:16:15.720] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:16:15.721] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:16:17.090] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:17.091] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-19 11:16:17.092] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-19 11:16:17.094] [DEBUG] ultt - get classes of user with id: 2
+[2014-09-19 11:16:17.196] [INFO] ultt - successful classes fetching
+[2014-09-19 11:16:17.197] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":0}]
+[2014-09-19 11:16:18.552] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:18.553] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-19 11:16:18.553] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-19 11:16:18.554] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-19 11:16:18.556] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:16:18.556] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:16:21.336] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:21.337] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-19 11:16:21.338] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-19 11:16:21.339] [DEBUG] ultt - get classes of user with id: 2
+[2014-09-19 11:16:21.341] [INFO] ultt - successful classes fetching
+[2014-09-19 11:16:21.341] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":0}]
+[2014-09-19 11:16:21.820] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:21.820] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-19 11:16:21.821] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-19 11:16:21.821] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-19 11:16:21.824] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:16:21.826] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:16:26.497] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:26.498] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-19 11:16:26.500] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-19 11:16:26.501] [DEBUG] ultt - get classes of user with id: 2
+[2014-09-19 11:16:26.504] [INFO] ultt - successful classes fetching
+[2014-09-19 11:16:26.505] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":0}]
+[2014-09-19 11:16:26.869] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:16:26.870] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-19 11:16:26.871] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-19 11:16:26.874] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-19 11:16:26.877] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:16:26.880] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:17:51.468] [INFO] ultt - serving request to /
+[2014-09-19 11:17:51.680] [INFO] ultt - serving request to /ultt.unity3d
+[2014-09-19 11:18:04.487] [INFO] ultt - serving post to /login
+[2014-09-19 11:18:04.488] [DEBUG] ultt - received login data: username=mkesse&password=pass
+[2014-09-19 11:18:04.489] [DEBUG] ultt - user data received: {"username":"mkesse","password":"pass"}
+[2014-09-19 11:18:04.490] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null","user_id":"null"}
+[2014-09-19 11:18:04.491] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mkesse';
+[2014-09-19 11:18:04.492] [INFO] ultt - successful db fetching
+[2014-09-19 11:18:04.493] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-09-19 11:18:04.494] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-09-19 11:18:04.494] [DEBUG] ultt - input password did not match db password, returning failure
+[2014-09-19 11:18:04.573] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:18:04.574] [DEBUG] ultt - received data: method=getUser&user_id=101
+[2014-09-19 11:18:04.574] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"101"}
+[2014-09-19 11:18:04.575] [DEBUG] ultt - get user with id: 101
+[2014-09-19 11:18:04.575] [INFO] ultt - successful user fetching
+[2014-09-19 11:18:04.576] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:18:05.751] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:18:05.753] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=101
+[2014-09-19 11:18:05.755] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"101"}
+[2014-09-19 11:18:05.757] [DEBUG] ultt - get classes of teacher user with id: 101
+[2014-09-19 11:18:05.770] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:18:05.772] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:18:06.424] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:18:06.425] [DEBUG] ultt - received data: method=getUserClasses&user_id=101
+[2014-09-19 11:18:06.425] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"101"}
+[2014-09-19 11:18:06.426] [DEBUG] ultt - get classes of user with id: 101
+[2014-09-19 11:18:06.428] [INFO] ultt - successful classes fetching
+[2014-09-19 11:18:06.428] [DEBUG] ultt - fetch result: []
+[2014-09-19 11:18:08.992] [INFO] ultt - serving post to /unity/db
+[2014-09-19 11:18:08.995] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=101
+[2014-09-19 11:18:08.996] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"101"}
+[2014-09-19 11:18:08.998] [DEBUG] ultt - get classes of teacher user with id: 101
+[2014-09-19 11:18:09.000] [INFO] ultt - successful teacher classes fetching
+[2014-09-19 11:18:09.000] [DEBUG] ultt - fetch result: []
+[2014-09-24 16:13:08.506] [INFO] ultt - listening on port 80
+[2014-09-24 16:13:09.510] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-09-26 11:16:52.181] [INFO] ultt - listening on port 80
+[2014-09-26 11:16:52.191] [INFO] ultt - connected to db
+[2014-09-26 11:22:21.312] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:22:21.312] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-09-26 11:22:21.312] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-09-26 11:22:21.312] [DEBUG] ultt - get user with id: 1
+[2014-09-26 11:22:21.312] [INFO] ultt - successful user fetching
+[2014-09-26 11:22:21.312] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
+[2014-09-26 11:22:56.034] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:22:56.034] [DEBUG] ultt - received data: method=getUser&user_id=12
+[2014-09-26 11:22:56.034] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"12"}
+[2014-09-26 11:22:56.034] [DEBUG] ultt - get user with id: 12
+[2014-09-26 11:22:56.034] [INFO] ultt - successful user fetching
+[2014-09-26 11:22:56.034] [DEBUG] ultt - fetch result: []
+[2014-09-26 11:23:05.604] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:23:05.604] [DEBUG] ultt - received data: method=getUser&user_id=12d
+[2014-09-26 11:23:05.604] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"12d"}
+[2014-09-26 11:23:05.604] [ERROR] ultt - error on method getUser
+[2014-09-26 11:23:05.614] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:23:17.424] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:23:17.424] [DEBUG] ultt - received data: method=getUser&user_id=
+[2014-09-26 11:23:17.424] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
+[2014-09-26 11:23:17.424] [DEBUG] ultt - get user with id: 
+[2014-09-26 11:23:17.434] [ERROR] ultt - error on method getUser
+[2014-09-26 11:23:17.434] [ERROR] ultt - error posting to db: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+[2014-09-26 11:23:55.196] [INFO] ultt - listening on port 80
+[2014-09-26 11:23:55.206] [INFO] ultt - connected to db
+[2014-09-26 11:23:56.976] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:23:56.986] [DEBUG] ultt - received data: method=getUser&user_id=
+[2014-09-26 11:23:56.986] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
+[2014-09-26 11:23:56.986] [ERROR] ultt - error on method getUser
+[2014-09-26 11:23:56.986] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:25:06.877] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:25:06.880] [DEBUG] ultt - received data: method=getUser&user_id=%21%22%24%c2%a7%25%c2%a7
+[2014-09-26 11:25:06.882] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"%21%22%24%c2%a7%25%c2%a7"}
+[2014-09-26 11:25:06.884] [ERROR] ultt - error on method getUser
+[2014-09-26 11:25:06.886] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:25:14.082] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:25:14.084] [DEBUG] ultt - received data: method=getUser&user_id=
+[2014-09-26 11:25:14.085] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":""}
+[2014-09-26 11:25:14.086] [ERROR] ultt - error on method getUser
+[2014-09-26 11:25:14.087] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:25:17.844] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:25:17.848] [DEBUG] ultt - received data: method=getUser&user_id=2
+[2014-09-26 11:25:17.849] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"2"}
+[2014-09-26 11:25:17.851] [DEBUG] ultt - get user with id: 2
+[2014-09-26 11:25:17.858] [INFO] ultt - successful user fetching
+[2014-09-26 11:25:17.859] [DEBUG] ultt - fetch result: [{"user_id":2,"token":22,"username":"test","name_first":"test","name_last":"test","email_id":"test@test","picture":"/web/image/defaulttest.jpg","created_at":"2014-09-02T22:40:31.000Z","school_id":"test"}]
+[2014-09-26 11:25:54.801] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:25:54.801] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-26 11:25:54.801] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-26 11:25:54.801] [DEBUG] ultt - get classes of user with id: 1
+[2014-09-26 11:25:54.861] [INFO] ultt - successful classes fetching
+[2014-09-26 11:25:54.861] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":1}]
+[2014-09-26 11:26:04.081] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:04.081] [DEBUG] ultt - received data: method=getUserClasses&user_id=12
+[2014-09-26 11:26:04.081] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"12"}
+[2014-09-26 11:26:04.081] [DEBUG] ultt - get classes of user with id: 12
+[2014-09-26 11:26:04.081] [INFO] ultt - successful classes fetching
+[2014-09-26 11:26:04.081] [DEBUG] ultt - fetch result: []
+[2014-09-26 11:26:05.981] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:05.981] [DEBUG] ultt - received data: method=getUserClasses&user_id=2
+[2014-09-26 11:26:05.981] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"2"}
+[2014-09-26 11:26:05.981] [DEBUG] ultt - get classes of user with id: 2
+[2014-09-26 11:26:05.981] [INFO] ultt - successful classes fetching
+[2014-09-26 11:26:05.981] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":0}]
+[2014-09-26 11:26:08.151] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:08.151] [DEBUG] ultt - received data: method=getUserClasses&user_id=asdf
+[2014-09-26 11:26:08.151] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"asdf"}
+[2014-09-26 11:26:08.151] [ERROR] ultt - error on method getUserClasses
+[2014-09-26 11:26:08.151] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:26:10.221] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:10.221] [DEBUG] ultt - received data: method=getUserClasses&user_id=
+[2014-09-26 11:26:10.221] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":""}
+[2014-09-26 11:26:10.221] [ERROR] ultt - error on method getUserClasses
+[2014-09-26 11:26:10.221] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:26:11.771] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:11.771] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-09-26 11:26:11.771] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-09-26 11:26:11.771] [DEBUG] ultt - get classes of user with id: 1
+[2014-09-26 11:26:11.771] [INFO] ultt - successful classes fetching
+[2014-09-26 11:26:11.771] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":1}]
+[2014-09-26 11:26:57.941] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:57.941] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-26 11:26:57.941] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-26 11:26:57.941] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-26 11:26:57.941] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 11:26:57.941] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-09-26 11:26:59.851] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:26:59.851] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-26 11:26:59.851] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-26 11:26:59.851] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-26 11:26:59.861] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 11:26:59.861] [DEBUG] ultt - fetch result: []
+[2014-09-26 11:27:01.741] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:27:01.741] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-26 11:27:01.741] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-26 11:27:01.741] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-26 11:27:01.741] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 11:27:01.741] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-09-26 11:28:13.787] [INFO] ultt - listening on port 80
+[2014-09-26 11:28:13.792] [INFO] ultt - connected to db
+[2014-09-26 11:28:36.789] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:28:36.791] [DEBUG] ultt - received data: method=registerUserToClass&user_id=3&classcode=adf
+[2014-09-26 11:28:36.791] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"3","classcode":"adf"}
+[2014-09-26 11:28:36.793] [DEBUG] ultt - no class_id found for classcode: adf
+[2014-09-26 11:28:36.794] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:28:36.794] [ERROR] ultt - error posting to db: {"error":301}
+[2014-09-26 11:29:09.547] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:29:09.549] [DEBUG] ultt - received data: method=registerUserToClass&user_id=3&classcode=gkuzdxtzjsy
+[2014-09-26 11:29:09.550] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"3","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:29:09.554] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:29:09.555] [DEBUG] ultt - write user_id 3 and class_id 1 to user_is_in_class relationship
+[2014-09-26 11:29:09.565] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:29:09.566] [ERROR] ultt - error posting to db: Error: ER_NO_REFERENCED_ROW_: Cannot add or update a child row: a foreign key constraint fails (`ultt`.`user_is_in_class`, CONSTRAINT `fk_user_has_class_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[2014-09-26 11:29:33.048] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:29:33.050] [DEBUG] ultt - received data: method=registerUserToClass&user_id=2&classcode=gkuzdxtzjsy
+[2014-09-26 11:29:33.052] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"2","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:29:33.053] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:29:33.054] [DEBUG] ultt - write user_id 2 and class_id 1 to user_is_in_class relationship
+[2014-09-26 11:29:33.058] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:29:33.059] [ERROR] ultt - error posting to db: Error: ER_DUP_ENTRY: Duplicate entry '2-1' for key 'PRIMARY'
+[2014-09-26 11:36:36.826] [INFO] ultt - listening on port 80
+[2014-09-26 11:36:36.836] [INFO] ultt - connected to db
+[2014-09-26 11:36:40.088] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:36:40.088] [DEBUG] ultt - received data: method=registerUserToClass&user_id=2&classcode=gkuzdxtzjsy
+[2014-09-26 11:36:40.098] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"2","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:36:40.098] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:36:40.108] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:36:40.108] [ERROR] ultt - error posting to db: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-is_in_class where user_id = 2 and class_id = 1' at line 1
+[2014-09-26 11:36:57.248] [INFO] ultt - listening on port 80
+[2014-09-26 11:36:57.258] [INFO] ultt - connected to db
+[2014-09-26 11:36:59.998] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:37:00.008] [DEBUG] ultt - received data: method=registerUserToClass&user_id=2&classcode=gkuzdxtzjsy
+[2014-09-26 11:37:00.008] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"2","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:37:00.018] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:37:00.018] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:37:00.018] [ERROR] ultt - error posting to db: {"error":302}
+[2014-09-26 11:37:54.400] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:37:54.400] [DEBUG] ultt - received data: method=registerUserToClass&user_id=1&classcode=gkuzdxtzjsy
+[2014-09-26 11:37:54.400] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"1","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:37:54.400] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:37:54.400] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:37:54.400] [ERROR] ultt - error posting to db: {"error":302}
+[2014-09-26 11:38:01.670] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:38:01.670] [DEBUG] ultt - received data: method=registerUserToClass&user_id=3&classcode=gkuzdxtzjsy
+[2014-09-26 11:38:01.670] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"3","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:38:01.670] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:38:01.680] [DEBUG] ultt - write user_id 3 and class_id 1 to user_is_in_class relationship
+[2014-09-26 11:38:01.690] [ERROR] ultt - error on method registerUserToClass
+[2014-09-26 11:38:01.690] [ERROR] ultt - error posting to db: Error: ER_NO_REFERENCED_ROW_: Cannot add or update a child row: a foreign key constraint fails (`ultt`.`user_is_in_class`, CONSTRAINT `fk_user_has_class_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[2014-09-26 11:40:42.926] [INFO] ultt - listening on port 80
+[2014-09-26 11:40:42.931] [INFO] ultt - connected to db
+[2014-09-26 11:40:44.952] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:40:44.954] [DEBUG] ultt - received data: method=registerUserToClass&user_id=3&classcode=gkuzdxtzjsy
+[2014-09-26 11:40:44.956] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"3","classcode":"gkuzdxtzjsy"}
+[2014-09-26 11:40:44.960] [DEBUG] ultt - class_id 1 found for classcode gkuzdxtzjsy
+[2014-09-26 11:40:44.962] [DEBUG] ultt - write user_id 3 and class_id 1 to user_is_in_class relationship
+[2014-09-26 11:40:45.014] [INFO] ultt - successful registered user to class
+[2014-09-26 11:41:55.382] [INFO] ultt - listening on port 80
+[2014-09-26 11:41:55.387] [INFO] ultt - connected to db
+[2014-09-26 11:42:10.567] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:42:10.569] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=3&class_id=1
+[2014-09-26 11:42:10.570] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"3","class_id":"1"}
+[2014-09-26 11:42:10.570] [DEBUG] ultt - accepting user_id 3 into class_id 1
+[2014-09-26 11:42:10.574] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:42:10.575] [ERROR] ultt - error posting to db: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' `class_id` = '1'' at line 1
+[2014-09-26 11:46:35.086] [INFO] ultt - listening on port 80
+[2014-09-26 11:46:35.086] [INFO] ultt - connected to db
+[2014-09-26 11:46:37.336] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:46:37.346] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=3&class_id=1
+[2014-09-26 11:46:37.346] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"3","class_id":"1"}
+[2014-09-26 11:46:37.346] [DEBUG] ultt - accepting user_id 3 into class_id 1
+[2014-09-26 11:46:37.356] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:46:37.356] [ERROR] ultt - error posting to db: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' `class_id` = '1'' at line 1
+[2014-09-26 11:55:02.173] [INFO] ultt - listening on port 80
+[2014-09-26 11:55:02.173] [INFO] ultt - connected to db
+[2014-09-26 11:55:04.523] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:55:04.523] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=3&class_id=1
+[2014-09-26 11:55:04.523] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"3","class_id":"1"}
+[2014-09-26 11:55:04.523] [DEBUG] ultt - accepting user_id 3 into class_id 1
+[2014-09-26 11:55:04.603] [DEBUG] ultt - db response: [object Object]
+[2014-09-26 11:55:04.603] [INFO] ultt - successful accepted user to class
+[2014-09-26 11:55:30.623] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:55:30.623] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=3&class_id=1
+[2014-09-26 11:55:30.623] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"3","class_id":"1"}
+[2014-09-26 11:55:30.623] [DEBUG] ultt - accepting user_id 3 into class_id 1
+[2014-09-26 11:55:30.673] [DEBUG] ultt - db response: [object Object]
+[2014-09-26 11:55:30.673] [INFO] ultt - successful accepted user to class
+[2014-09-26 11:55:36.085] [INFO] ultt - listening on port 80
+[2014-09-26 11:55:36.095] [INFO] ultt - connected to db
+[2014-09-26 11:55:37.935] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:55:37.935] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=3&class_id=1
+[2014-09-26 11:55:37.935] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"3","class_id":"1"}
+[2014-09-26 11:55:37.945] [DEBUG] ultt - accepting user_id 3 into class_id 1
+[2014-09-26 11:55:37.975] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+[2014-09-26 11:55:37.985] [INFO] ultt - successful accepted user to class
+[2014-09-26 11:56:01.565] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:56:01.565] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=3&class_id=2
+[2014-09-26 11:56:01.565] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"3","class_id":"2"}
+[2014-09-26 11:56:01.565] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:56:01.565] [ERROR] ultt - error posting to db: {"error":303}
+[2014-09-26 11:56:08.325] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:56:08.325] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=31&class_id=2
+[2014-09-26 11:56:08.325] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"31","class_id":"2"}
+[2014-09-26 11:56:08.325] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:56:08.325] [ERROR] ultt - error posting to db: {"error":303}
+[2014-09-26 11:56:17.085] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:56:17.085] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=31dsaf&class_id=2
+[2014-09-26 11:56:17.085] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"31dsaf","class_id":"2"}
+[2014-09-26 11:56:17.085] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:56:17.085] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:56:20.785] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:56:20.785] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=31dsaf&class_id=adsf
+[2014-09-26 11:56:20.785] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"31dsaf","class_id":"adsf"}
+[2014-09-26 11:56:20.785] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:56:20.785] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:56:22.595] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:56:22.595] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=1&class_id=adsf
+[2014-09-26 11:56:22.595] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"1","class_id":"adsf"}
+[2014-09-26 11:56:22.595] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:56:22.595] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 11:56:25.395] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:56:25.395] [DEBUG] ultt - received data: method=acceptUserInClass&user_id=1&class_id=1
+[2014-09-26 11:56:25.395] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","user_id":"1","class_id":"1"}
+[2014-09-26 11:56:25.395] [DEBUG] ultt - accepting user_id 1 into class_id 1
+[2014-09-26 11:56:25.425] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+[2014-09-26 11:56:25.425] [INFO] ultt - successful accepted user to class
+[2014-09-26 11:57:36.197] [INFO] ultt - listening on port 80
+[2014-09-26 11:57:36.207] [INFO] ultt - connected to db
+[2014-09-26 11:59:33.981] [INFO] ultt - listening on port 80
+[2014-09-26 11:59:33.987] [INFO] ultt - connected to db
+[2014-09-26 11:59:54.168] [INFO] ultt - serving post to /unity/db
+[2014-09-26 11:59:54.170] [DEBUG] ultt - received data: method=acceptUserInClass&classname=testclass1&user_id=1&subject_id=1&school_year=2015
+[2014-09-26 11:59:54.171] [DEBUG] ultt - full data received on db: {"method":"acceptUserInClass","classname":"testclass1","user_id":"1","subject_id":"1","school_year":"2015"}
+[2014-09-26 11:59:54.171] [ERROR] ultt - error on method acceptUserInClass
+[2014-09-26 11:59:54.172] [ERROR] ultt - error posting to db: {"error":300}
+[2014-09-26 12:00:49.449] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:00:49.449] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:00:49.449] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:01:22.119] [INFO] ultt - listening on port 80
+[2014-09-26 12:01:22.129] [INFO] ultt - connected to db
+[2014-09-26 12:01:25.689] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:01:25.699] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:01:25.699] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:02:30.621] [INFO] ultt - listening on port 80
+[2014-09-26 12:02:30.621] [INFO] ultt - connected to db
+[2014-09-26 12:02:50.503] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:02:50.503] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:02:50.503] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:08:19.613] [INFO] ultt - listening on port 80
+[2014-09-26 12:08:19.623] [INFO] ultt - connected to db
+[2014-09-26 12:09:37.734] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:09:37.734] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:09:37.734] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:11:44.978] [INFO] ultt - listening on port 80
+[2014-09-26 12:11:44.978] [INFO] ultt - connected to db
+[2014-09-26 12:11:47.488] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:11:47.488] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:11:47.498] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:12:58.082] [INFO] ultt - listening on port 80
+[2014-09-26 12:12:58.082] [INFO] ultt - connected to db
+[2014-09-26 12:12:59.942] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:12:59.942] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:12:59.952] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:15:33.222] [INFO] ultt - listening on port 80
+[2014-09-26 12:15:33.227] [INFO] ultt - connected to db
+[2014-09-26 12:15:35.827] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:15:35.830] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:15:35.833] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:17:07.983] [INFO] ultt - listening on port 80
+[2014-09-26 12:17:07.993] [INFO] ultt - connected to db
+[2014-09-26 12:17:10.493] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:17:10.493] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:17:10.493] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:17:52.023] [INFO] ultt - listening on port 80
+[2014-09-26 12:18:27.105] [INFO] ultt - listening on port 80
+[2014-09-26 12:18:59.835] [INFO] ultt - -1-124-1-1-14-12
+[2014-09-26 12:18:59.835] [INFO] ultt - listening on port 80
+[2014-09-26 12:18:59.845] [INFO] ultt - connected to db
+[2014-09-26 12:19:43.317] [INFO] ultt - listening on port 80
+[2014-09-26 12:19:43.327] [INFO] ultt - connected to db
+[2014-09-26 12:19:45.437] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:19:45.437] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:19:45.437] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:19:58.427] [INFO] ultt - listening on port 80
+[2014-09-26 12:19:58.427] [INFO] ultt - connected to db
+[2014-09-26 12:20:02.457] [INFO] ultt - 5WggPi9zkP
+[2014-09-26 12:20:02.457] [INFO] ultt - listening on port 80
+[2014-09-26 12:20:02.457] [INFO] ultt - connected to db
+[2014-09-26 12:27:58.515] [INFO] ultt - listening on port 80
+[2014-09-26 12:27:58.525] [INFO] ultt - connected to db
+[2014-09-26 12:28:07.055] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:28:07.055] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:28:07.055] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:28:30.767] [INFO] ultt - listening on port 80
+[2014-09-26 12:28:30.767] [INFO] ultt - connected to db
+[2014-09-26 12:28:45.467] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:28:45.467] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:28:45.467] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:29:27.337] [INFO] ultt - listening on port 80
+[2014-09-26 12:29:27.347] [INFO] ultt - connected to db
+[2014-09-26 12:29:29.519] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:29:29.519] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:29:29.529] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:30:00.359] [INFO] ultt - listening on port 80
+[2014-09-26 12:30:00.369] [INFO] ultt - connected to db
+[2014-09-26 12:30:12.009] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:30:12.009] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=1&subject_id=1&school_year=2015
+[2014-09-26 12:30:12.009] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"1","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:33:23.569] [INFO] ultt - listening on port 80
+[2014-09-26 12:33:23.569] [INFO] ultt - connected to db
+[2014-09-26 12:33:27.329] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:33:55.971] [INFO] ultt - listening on port 80
+[2014-09-26 12:33:55.971] [INFO] ultt - connected to db
+[2014-09-26 12:34:02.631] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:34:02.641] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:34:02.641] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:34:02.641] [DEBUG] ultt - creating class testclass1 for user_id 3, subject_id 1 and school_year 2015
+[2014-09-26 12:34:02.841] [DEBUG] ultt - insert data: {"classname":"testclass1","user_id":"3","school_year":"2015","classcode":"4kb5pNAYSl","subject_id":"1"}
+[2014-09-26 12:34:02.901] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":3,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-09-26 12:34:02.901] [INFO] ultt - successful class creating
+[2014-09-26 12:34:02.911] [DEBUG] ultt - created class with id: 3 , classcode: 4kb5pNAYSl
+[2014-09-26 12:34:53.933] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:34:53.933] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=3&subject_id=1&school_year=2015
+[2014-09-26 12:34:53.933] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"3","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:34:53.933] [DEBUG] ultt - creating class testclass1 for user_id 3, subject_id 1 and school_year 2015
+[2014-09-26 12:34:53.933] [DEBUG] ultt - insert data: {"classname":"testclass1","user_id":"3","school_year":"2015","classcode":"E491wJwQDP","subject_id":"1"}
+[2014-09-26 12:34:54.003] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":4,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-09-26 12:34:54.003] [INFO] ultt - successful class creating
+[2014-09-26 12:34:54.013] [DEBUG] ultt - created class with id: 4 , classcode: E491wJwQDP
+[2014-09-26 12:34:58.913] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:34:58.913] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=32&subject_id=1&school_year=2015
+[2014-09-26 12:34:58.913] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"32","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:34:58.913] [DEBUG] ultt - creating class testclass1 for user_id 32, subject_id 1 and school_year 2015
+[2014-09-26 12:34:58.913] [DEBUG] ultt - insert data: {"classname":"testclass1","user_id":"32","school_year":"2015","classcode":"zj2hRA79zQ","subject_id":"1"}
+[2014-09-26 12:34:58.993] [ERROR] ultt - error on method createClass
+[2014-09-26 12:34:58.993] [ERROR] ultt - error posting to db: Error: ER_NO_REFERENCED_ROW_: Cannot add or update a child row: a foreign key constraint fails (`ultt`.`class`, CONSTRAINT `fk_class_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[2014-09-26 12:35:06.823] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:35:06.823] [DEBUG] ultt - received data: method=createClass&classname=testclass1&user_id=1&subject_id=1&school_year=2015
+[2014-09-26 12:35:06.823] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"testclass1","user_id":"1","subject_id":"1","school_year":"2015"}
+[2014-09-26 12:35:06.823] [DEBUG] ultt - creating class testclass1 for user_id 1, subject_id 1 and school_year 2015
+[2014-09-26 12:35:06.823] [DEBUG] ultt - insert data: {"classname":"testclass1","user_id":"1","school_year":"2015","classcode":"nGWkvsTYRN","subject_id":"1"}
+[2014-09-26 12:35:06.853] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":6,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-09-26 12:35:06.853] [INFO] ultt - successful class creating
+[2014-09-26 12:35:06.853] [DEBUG] ultt - created class with id: 6 , classcode: nGWkvsTYRN
+[2014-09-26 12:36:05.005] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:36:05.005] [DEBUG] ultt - received data: method=deleteClass&class_id=6
+[2014-09-26 12:36:05.005] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"6"}
+[2014-09-26 12:36:05.005] [DEBUG] ultt - deleting class with id: 6
+[2014-09-26 12:36:05.055] [DEBUG] ultt - successful setting delete flag of class
+[2014-09-26 12:36:30.840] [INFO] ultt - listening on port 80
+[2014-09-26 12:36:30.844] [INFO] ultt - connected to db
+[2014-09-26 12:37:10.892] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:37:10.893] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-26 12:37:10.894] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-26 12:37:10.894] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-26 12:37:10.896] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 12:37:10.897] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-09-26 12:37:15.607] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:37:15.609] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-09-26 12:37:15.610] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-09-26 12:37:15.611] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-09-26 12:37:15.613] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 12:37:15.615] [DEBUG] ultt - fetch result: [{"class_id":3,"classname":"testclass1","privacy":null,"school_year":2015,"classcode":"4kb5pNAYSl","subject_name":"Informatik"},{"class_id":4,"classname":"testclass1","privacy":null,"school_year":2015,"classcode":"E491wJwQDP","subject_name":"Informatik"}]
+[2014-09-26 12:37:23.099] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:37:23.101] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-09-26 12:37:23.102] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-09-26 12:37:23.103] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-09-26 12:37:23.106] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 12:37:23.107] [DEBUG] ultt - fetch result: []
+[2014-09-26 12:37:24.784] [INFO] ultt - serving post to /unity/db
+[2014-09-26 12:37:24.786] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-09-26 12:37:24.788] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-09-26 12:37:24.789] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-09-26 12:37:24.791] [INFO] ultt - successful teacher classes fetching
+[2014-09-26 12:37:24.792] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]

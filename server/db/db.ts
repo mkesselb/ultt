@@ -70,6 +70,26 @@ module.exports = function(dbConnection, dbData, callback){
 		});
 	}
 	
+	if(parsedDbData.method === "createClass"){
+		userlink.createClass(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method createClass");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "deleteClass"){
+		userlink.deleteClass(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method deleteClass");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
 	/* classlink */
 	if(parsedDbData.method === "getClassUsers"){
 		classlink.getClassUsers(dbConnection, parsedDbData, function(err, result){
@@ -101,6 +121,26 @@ module.exports = function(dbConnection, dbData, callback){
 		});
 	}
 	
+	if(parsedDbData.method === "createClassTopic"){
+		classlink.createClassTopic(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method createClassTopic");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "deleteClassTopic"){
+		classlink.deleteClassTopic(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method deleteClassTopic");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+
 	//---deprecated, but maybe preferable for getting / posting single values---
 	//deciding on route
 	if(parsedDbData.purpose === "post"){
