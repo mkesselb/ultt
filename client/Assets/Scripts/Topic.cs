@@ -6,9 +6,9 @@ public class Topic : MonoBehaviour {
 	private int topic_id;
 	private string topic_name;
 	
-	public Topic(string id, string name){
-		topic_id = int.Parse(id);
-		topic_name = name;
+	public Topic(string[] data){
+		topic_id = int.Parse(data[1]);
+		topic_name = data[3];
 	}
 	
 	public string getName(){

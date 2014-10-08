@@ -21,7 +21,7 @@ public class JSONParser : MonoBehaviour {
 		for (int i = 0; i < amountOfObjects; i++){
 			string[] temp = new string[30];
 		
-			string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]", "}", "{\"" };
+			string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]", "}", "{\"", "\"" };
 			temp = objectData[i].Split(delimiters,System.StringSplitOptions.RemoveEmptyEntries);
 			/*Debug.Log ("----------------------------");
 			for (int j = 0; j < temp.Length; j++){

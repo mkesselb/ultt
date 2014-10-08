@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UserClass {
 
@@ -12,6 +13,8 @@ public class UserClass {
 	private string subject_name;
 	private string teacher_username;
 	private string user_accepted;	
+	private List<Topic> topics;
+	private List<TaskShort> tasks;
 	
 	public UserClass(int id,string[] data){
 		user_id = id;
@@ -23,6 +26,8 @@ public class UserClass {
 		subject_name = data[11];
 		teacher_username = data[13];
 		user_accepted = data[15];
+		topics = new List<Topic>();
+		tasks = new List<TaskShort>();
 	}
 	
 	public string getClassname(){
@@ -33,4 +38,19 @@ public class UserClass {
 		return class_id;	
 	}
 	
+	public void addTopic(Topic t){
+		topics.Add(t);	
+	}
+	
+	public void addTask(TaskShort t){
+		tasks.Add(t);	
+	}
+	
+	public List<Topic> getTopicList(){
+		return  topics;	
+	}
+	
+	public List<TaskShort> getTaskList(){
+		return tasks;	
+	}
 }

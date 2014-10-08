@@ -53,7 +53,9 @@
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\PanelRegister.cs" />
      <Compile Include="Assets\Scripts\PanelTeacherClass.cs" />
+     <Compile Include="Assets\Scripts\PanelUserClass.cs" />
      <Compile Include="Assets\Scripts\Profile.cs" />
+     <Compile Include="Assets\Scripts\Student.cs" />
      <Compile Include="Assets\Scripts\TaskShort.cs" />
      <Compile Include="Assets\Scripts\TeacherClass.cs" />
      <Compile Include="Assets\Scripts\Topic.cs" />

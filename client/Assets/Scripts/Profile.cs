@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -9,7 +9,16 @@ public class Profile : MonoBehaviour {
 	private DBInterface dbinterface;
 	private JSONParser jsonparser;
 	
+	//Objects on "normal" view
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
+	//creation form (to create new class)
+	public GameObject panelCreateClass;
+	//objects on creation form
+	public Text classname, classsubject, classschoolyear;
+	//registration form (to register to existing class via classcode)
+	public GameObject panelRegistration;
+	//object on registration form
+	public Text classcode;
 	
 	public Text fieldUserData;
 	
@@ -30,7 +39,10 @@ public class Profile : MonoBehaviour {
 		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
+		panelCreateClass.SetActive(false);
+		panelRegistration.SetActive(false);
 		overviewKlassen.SetActive(true);
+		
 		
 		//userid = main.getUserId();
 		userClasses = new List<UserClass>();
@@ -91,11 +103,11 @@ public class Profile : MonoBehaviour {
 	
 	
 	public void dbInputHandler(string[] response){
-		Debug.Log ("in dbinputhandler of profile");
 		GameObject generatedBtn;
 		string target = response[0];
 		string data = response[1];
 		List<string[]> parsedData;
+		Debug.Log ("in dbinputhandler of profile, target "+target);
 		switch(target){	
 		case "userData": 	//parse received user data and save in user
 							parsedData = jsonparser.JSONparse(data);
@@ -139,7 +151,8 @@ public class Profile : MonoBehaviour {
 				
 								//set method to be called at onclick event
 								generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
-							}
+								generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {deleteClass(temp.getClassId());});			
+			}
 							break;
 						
 						
@@ -173,7 +186,55 @@ public class Profile : MonoBehaviour {
 						
 		case "Tasks":		//generate buttons
 							break;
+			
+		case "deletedClass":parsedData = jsonparser.JSONparse(data);
+							string[] result = parsedData[0];
+							if(result[1] == "1"){ //success
+								//refresh overview
+								dbinterface.getMeineKlassen("Klassen", userid, gameObject);
+							} else {
+								main.dbErrorHandler("deleteClass", "Löschen fehlgeschlagen");
+							}
+							break;
+		case "addedClass":	//TODO check if successfull, else: call main.dberrorhandler
+							panelCreateClass.SetActive(false);
+							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
+							break;
+		case "registered": 	panelRegistration.SetActive(false);
+							//TODO check if successfull, else: call main.dberrorhandler
+							dbinterface.getMeineKurse("Kurse", userid, gameObject);
+							break;
 		}
+	}
+	
+	public void showCreationFormForClass(){
+		Debug.Log ("button clicked, show creation form");	
+		//activate form to insert class data
+		panelCreateClass.SetActive(true);
+		//wait until button "create" is clicked (button calls addClass)
+	}
+	
+	public void addClass(){
+		//insert class into db if for filled correctly
+		//TODO check if filled correctly, else: call main.errorhandler
+		dbinterface.createClass("addedClass", classname.GetComponent<Text>().text, userid, int.Parse (classsubject.GetComponent<Text>().text), classschoolyear.GetComponent<Text>().text, gameObject); 
+	}
+				
+	public void deleteClass(int class_id){
+		Debug.Log ("button clicked, try to delete class");	
+		//delete class
+		dbinterface.deleteClass("deletedClass", class_id, gameObject);
+	}
+	
+	public void showRegisterToClassForm(){
+		Debug.Log ("button clicked, show registration form");	
+		panelRegistration.SetActive(true);
+		//wait until button "register" is clicked (button calls register) 
+	}
+	
+	public void register(){
+		Debug.Log ("button clicked, try to register");	
+		dbinterface.registerUserToClass("registered", userid, classcode.GetComponent<Text>().text, gameObject);	
 	}
 	
 	public void setUserId(int id){

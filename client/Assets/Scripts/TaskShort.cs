@@ -7,10 +7,10 @@ public class TaskShort : MonoBehaviour {
 	private int task_id;
 	private string task_name;
 	
-	public TaskShort(string top_id, string tas_id, string name){
-		topic_id = int.Parse(top_id);
-		task_id = int.Parse(tas_id);
-		task_name = name;
+	public TaskShort(string[] data){
+		task_id = int.Parse(data[1]);
+		task_name = data[3];
+		topic_id = int.Parse (data[7]);
 		
 	}
 	

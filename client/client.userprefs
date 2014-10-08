@@ -1,13 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PanelTeacherClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PanelUserClass.cs">
     <Files>
-      <File FileName="Assets\Scripts\User.cs" Line="13" Column="21" />
-      <File FileName="Assets\Scripts\DBInterface.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Main.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Profile.cs" Line="171" Column="9" />
-      <File FileName="Assets\Scripts\PanelTeacherClass.cs" Line="88" Column="59" />
-      <File FileName="Assets\Scripts\TeacherClass.cs" Line="55" Column="23" />
+      <File FileName="Assets\Scripts\PanelTeacherClass.cs" Line="119" Column="5" />
+      <File FileName="Assets\Scripts\DBInterface.cs" Line="70" Column="21" />
+      <File FileName="Assets\Scripts\Main.cs" Line="70" Column="63" />
+      <File FileName="Assets\Scripts\Student.cs" Line="20" Column="2" />
+      <File FileName="Assets\Scripts\TeacherClass.cs" Line="28" Column="27" />
+      <File FileName="Assets\Scripts\Profile.cs" Line="92" Column="1" />
+      <File FileName="Assets\Scripts\UserClass.cs" Line="3" Column="34" />
+      <File FileName="Assets\Scripts\PanelUserClass.cs" Line="104" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

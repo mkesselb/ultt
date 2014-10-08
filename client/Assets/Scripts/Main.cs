@@ -23,6 +23,12 @@ public class Main : MonoBehaviour {
 	//UserClassScreen
 	public GameObject panelUserClass;
 	
+	//Panels on profile panel
+	public GameObject panelCreateClass, panelRegistration;
+	
+	//panel on panelteacherClass
+	public GameObject panelStudentList;
+	
 	//userid
 	public int userid;
 
@@ -56,29 +62,38 @@ public class Main : MonoBehaviour {
 		case "openTeacherClass": panelProfile.SetActive(false);
 								panelTeacherClass.SetActive(true);
 								panelTeacherClass.GetComponent<PanelTeacherClass>().setClassId(id);
+								panelTeacherClass.GetComponent<PanelTeacherClass>().init();
 								break;
 		case "openUserClass": 	panelProfile.SetActive(false);
 								panelUserClass.SetActive(true);
-								Debug.Log ("TODO: UserClass script");
+								panelUserClass.GetComponent<PanelUserClass>().setClassId(id);
+								panelUserClass.GetComponent<PanelUserClass>().init ();
 								break;
 		
 		}
 	}
 	
 	public void back(){	
-		if(panelProfile.activeSelf){
+		if(panelProfile.activeSelf && panelCreateClass.activeSelf){
+			panelCreateClass.SetActive(false);	
+		}else if(panelProfile.activeSelf && panelRegistration.activeSelf){
+			panelRegistration.SetActive(false);
+			panelLogInScreen.SetActive(true);
+		}else if(panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf){
 			panelProfile.SetActive(false);
 			panelLogInScreen.SetActive(true);
 		}else if(panelRegister.activeSelf){
 			panelRegister.SetActive(false);
 			panelLogInScreen.SetActive(true);
-		} else if(panelTeacherClass.activeSelf){
+		}else if(panelTeacherClass.activeSelf && panelStudentList.activeSelf){
+			panelStudentList.SetActive(false);
+		} else if(panelTeacherClass.activeSelf && !panelStudentList.activeSelf){
 			panelTeacherClass.SetActive(false);
 			panelProfile.SetActive(true);
 		} else if(panelUserClass.activeSelf){
 			panelUserClass.SetActive(false);
 			panelProfile.SetActive(true);
-		}
+		} 
 								
 	}
 		
