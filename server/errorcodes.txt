@@ -18,6 +18,7 @@ database error codes:
 301 :	"entered classcode matched no class"
 302 :	"user already registered in class"
 303 :	"user not registered in class"
+304 :	"task cannot be linked to same class and topic twice"
 
 general error codes:
 

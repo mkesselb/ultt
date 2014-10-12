@@ -2,6 +2,26 @@
 var logger = require('../logging/logging.ts');
 var validator = require('../utility/inputvalidator.ts');
 
+/* fetches the class data of the specified class. request parameter is class_id */
+function getClass(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.class_id)){
+		//malformed class_id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "get class info with class id: " + requestData.class_id);
+	var getClass = "select c.classname, c.user_id, c.schoolyear, c.classcode, s.subject_name "
+		+ "from class c, subject s where c.class_id = " + requestData.class_id + " and c.subject_id = s.subject_id";
+	
+	dbConnection.query(getClass, function(err, clas){
+		if(err){
+			return callback(err);
+		}
+		logger.log(logger.logLevels["info"], "successful class information fetching");
+		logger.log(logger.logLevels["debug"], "fetch result: " + JSON.stringify(clas));
+		callback(nul, clas);
+	});
+};
+
 /* fetches the users of the specified class. request parameter is class_id. */
 function getClassUsers(dbConnection, requestData, callback){
 	if(!validator.validateID(requestData.class_id)){
@@ -9,7 +29,7 @@ function getClassUsers(dbConnection, requestData, callback){
 		return callback({"error" : 300});
 	}
 	logger.log(logger.logLevels["debug"], "get users of class with id: " + requestData.class_id);
-	var fetchUsers = "select u.user_id, u.username, uc.accepted "
+	var fetchUsers = "select u.user_id, u.username, u.name_first, u.name_last, uc.accepted "
 		+ "from user u, user_is_in_class uc " 
 		+ "where uc.class_id = " + requestData.class_id + " and u.user_id = uc.user_id";
 	
@@ -58,7 +78,7 @@ function getClassTopics(dbConnection, requestData, callback){
 	//maybe impose a creation order or some kind of assigned order... 
 	var fetchTopics = "select class_topic_id, topic_name "
 			+ "from class_topic where class_id = " + requestData.class_id 
-			+ " and deleted = 0";
+			+ " and deleted = 0 order by class_topic_id";
 	
 	dbConnection.query(fetchTopics, function(err, topics){
 		if(err){
@@ -124,9 +144,10 @@ function deleteClassTopic(dbConnection, requestData, callback){
 }
 
 module.exports = {
+		getClass		: getClass,
 		getClassUsers	: getClassUsers,
 		getClassTasks	: getClassTasks,
 		getClassTopics	: getClassTopics,
 		createClassTopic: createClassTopic,
-		deleteClassTopic: deleteClassTopic
+		deleteClassTopic: deleteClassTopic		
 };

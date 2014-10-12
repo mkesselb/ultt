@@ -36,12 +36,46 @@ deleteClass
 	sets "deleted" flag of the specified class
 	required data: class_id
 	response: {"success" : 1}
+	
+	
+	
+	
+	
+--- tasklink ---
+getTask
+	fetches the task data
+	required data: task_id
+	response: taskname, public, user_id, data_file, subject_name, type_name
+	
+getUserTasks
+	fetches the tasks of the user
+	required data: user_id
+	response: task_id, taskname, public, subject_name, type_name
+	
+createTask
+	creates a task for the specified user
+	required data: taskname, public, user_id, subject_id, tasktype_id
+	response: {"success" : 1}
+
+assignTaskToTopic
+	writes the specified task and topic into the task_for_class
+	required data: class_id, task_id, class_topic_id, obligatory, deadline, max_attempts
+	response: {"success" : 1}
+	
+
+		
+	
 
 --- classlink ---
+getClass
+	fetches the class data
+	required data: class_id
+	response:  classname, user_id, schoolyear, classcode, subject_name
+	
 getClassUsers
 	fetches the users of a class
 	required data: class_id
-	response: user_id, username, user.accepted
+	response: user_id, username, name_first, name_last, user.accepted
 		
 getClassTasks
 	fetches the tasks of a class

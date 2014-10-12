@@ -89,8 +89,59 @@ module.exports = function(dbConnection, dbData, callback){
 			return callback(null, result);
 		});
 	}
+
+	/* tasklink */
+	if(parsedDbData.method === "getTask"){
+		tasklink.getTask(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getTask");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "getUserTasks"){
+		tasklink.getUserTasks(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getUserTasks");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "createTask"){
+		tasklink.createTask(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method createTask");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "assignTaskToTopic"){
+		tasklink.assignTaskToTopic(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method assignTaskToTopic");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
 	
 	/* classlink */
+	if(parsedDbData.method === "getClass"){
+		classlink.getClass(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getClass");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
 	if(parsedDbData.method === "getClassUsers"){
 		classlink.getClassUsers(dbConnection, parsedDbData, function(err, result){
 			if(err){

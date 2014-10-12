@@ -217,22 +217,12 @@ function deleteClass(dbConnection, requestData, callback){
 	});
 };
 
-function createTask(dbConnection, requestData, callback){
-	//TODO: implement
-};
-
-function assignTaskToTopic(dbConnection, requestData, callback){
-	//TODO: implement
-};
-
 module.exports = {
 		getUser				: getUser,
-		createTask			: createTask,
 		createClass			: createClass,
 		deleteClass			: deleteClass,
 		getUserClasses 		: getUserClasses,
 		getTeacherClasses	: getTeacherClasses,
 		acceptUserInClass	: acceptUserInClass,
-		assignTaskToTopic	: assignTaskToTopic,
 		registerUserToClass	: registerUserToClass
 };

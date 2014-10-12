@@ -20,13 +20,13 @@ module.exports = function(dbConnection, userData, callback){
 	//TODO: decide on password requirements
 	//check password requirements
 	if(user.password.length < 6){
-		return callback(null, {"error" : 200});
+		return callback({"error" : 200});
 	}
 	if(user.password.length > 12){
-		return callback(null, {"error" : 201});
+		return callback({"error" : 201});
 	}
 	if(user.username.length === 0){
-		return callback(null, {"error" : 202});
+		return callback({"error" : 202});
 	}
 	
 	//prepare fetch
@@ -45,42 +45,45 @@ module.exports = function(dbConnection, userData, callback){
 		
 		if(pw.length === 0){
 			logger.log(logger.logLevels["debug"], "empty fetch result, username not taken");
+			//prepare post
+			var insertUser = [];
+			insertUser.push("purpose=post");
+			insertUser.push("table=user");
+			insertUser.push("username=" + user.username);
+			insertUser.push("password=" + user.password);
+			insertUser.push("name_first=" + user.name_first);
+			insertUser.push("name_last=" + user.name_last);
+			insertUser.push("email_id=" + user.email_id);
+			insertUser.push("school_id=" + user.school_id);
+			
+			db(dbConnection, insertUser, function(error, result){
+				if(error){
+					logger.log(logger.logLevels["error"], "error on inserting new user: " + error.toString());
+					return callback(error);
+				}
+				
+				logger.log(logger.logLevels["debug"], "user successful inserted");
+				
+				//fetch and return id
+				var idFetch = [];
+				idFetch.push("purpose=get");
+				idFetch.push("table=user");
+				idFetch.push("username=" + user.username);
+				idFetch.push("user_id=null");
+				
+				db(dbConnection, idFetch, function(err, id){
+					if(err){
+						logger.log(logger.logLevels["error"], "error fetching id of new user: " + err.toString());
+						return callback(err);
+					}
+					
+					logger.log(logger.logLevels["debug"], "user_id of new user fetched: " + id[0].user_id);
+					return callback(null, id[0]);
+				});
+			});
 		} else{
 			logger.log(logger.logLevels["debug"], "fetch result, user does exist");
-			return callback(null, {"error" : 203});
+			return callback({"error" : 203});
 		}
-	});
-	
-	//prepare post
-	var insertUser = [];
-	insertUser.push("purpose=post");
-	insertUser.push("table=user");
-	pwFetch.push("username=" + user.username);
-	pwFetch.push("password=" + user.password);
-	
-	db(dbConnection, insertUser, function(error, result){
-		if(error){
-			logger.log(logger.logLevels["error"], "error on inserting new user: " + error.toString());
-			return callback(error);
-		}
-		
-		logger.log(logger.logLevels["debug"], "user successful inserted");
-		
-		//fetch and return id
-		var idFetch = [];
-		pwFetch.push("purpose=get");
-		pwFetch.push("table=user");
-		pwFetch.push("username=" + user.username);
-		pwFetch.push("user_id=null");
-		
-		db(dbConnection, idFetch, function(err, id){
-			if(err){
-				logger.log(logger.logLevels["error"], "error fetching id of new user: " + err.toString());
-				return callback(err);
-			}
-			
-			logger.log(logger.logLevels["debug"], "user_id of new user fetched: " + id[0].user_id);
-			return callback(null, id[0]);
-		});
 	});
 };
