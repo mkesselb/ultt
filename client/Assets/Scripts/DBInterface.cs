@@ -5,9 +5,18 @@ public class DBInterface : MonoBehaviour {
 	
 	private Main main;
 	
-	private string url = "127.0.0.1/unity/db";
+	private string baseUrl = "";
+
+	private string url = "";
 
 	void Start () {
+		if (Application.isWebPlayer) {
+			//set db url
+			baseUrl = "";
+		} else{
+			baseUrl = "127.0.0.1/";
+		}
+		url = baseUrl + "unity/db";
 		main = gameObject.GetComponent<Main>();
 	}
 	
@@ -28,13 +37,13 @@ public class DBInterface : MonoBehaviour {
 		form.AddField("password", password);
 		Debug.Log ("try to send request with: "+ username+", "+password);
        
-		WWW www = new WWW("127.0.0.1/login", form);
+		WWW www = new WWW(baseUrl + "login", form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 		
 	}
 	
 	public void sendRegisterData(string target, WWWForm form, GameObject receiver){
-		 WWW www = new WWW(url, form);
+		 WWW www = new WWW(baseUrl + "register", form);
 		StartCoroutine(WaitForRequest(www, target, receiver));	
 	}
 

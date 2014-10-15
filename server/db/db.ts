@@ -12,6 +12,7 @@ var logger = require('../logging/logging.ts');
 var parser = require('../utility/jsonparser.ts');
 var userlink = require('./userlink.ts');
 var classlink = require('./classlink.ts');
+var tasklink = require('./tasklink.ts');
 
 module.exports = function(dbConnection, dbData, callback){
 	//parsing the dbdata, and deciding which purpose is the sent

@@ -5,15 +5,15 @@ var randomstring = require('../utility/randomstring.ts');
 
 /* fetches task information of the specified task. required parameter is task_id */
 function getTask(dbConnection, requestData, callback){
-	if(!validaotr.validateID(requestData.task_id){
+	if(!validator.validateID(requestData.task_id)){
 		//malformed task_id
 		return callback({"error" : 300});
-	})
+	}
 	logger.log(logger.logLevels["debug"], "fetching task information for task " + requestData.task_id);
 	
 	var fetchTask = "select t.taskname, t.public, t.user_id, t.data_file, s.subject_name, tt.type_name " 
-		+ "from tasks t, subject s, tasktype tt "
-		+ "where task_id = " + requestDat.task_id + " and t.subject_id = s.subject_id "
+		+ "from task t, subject s, tasktype tt "
+		+ "where task_id = " + requestData.task_id + " and t.subject_id = s.subject_id "
 		+ "and t.tasktype_id = tt.tasktype_id";
 	
 	dbConnection.query(fetchTask, function(err, task){
@@ -25,7 +25,7 @@ function getTask(dbConnection, requestData, callback){
 		logger.log(logger.logLevels["debug"], "fetch result: " + JSON.stringify(task));
 		return callback(null, task);
 	});
-}
+};
 
 /* fetches the tasks of the specified user. required parameter is user_id */
 function getUserTasks(dbConnection, requestData, callback){
@@ -36,7 +36,7 @@ function getUserTasks(dbConnection, requestData, callback){
 	logger.log(logger.logLevels["debug"], "fetching tasks for user " + requestData.user_id);
 	
 	var fetchTasks = "select t.task_id, t.taskname, t.public, s.subject_name, tt.type_name "
-		+ "from tasks t, subject s, tasktype tt "
+		+ "from task t, subject s, tasktype tt "
 		+ "where user_id = " + requestData.user_id 
 		+ " and t.subject_id = s.subject_id "
 		+ "and t.tasktype_id = tt.tasktype_id";
@@ -69,7 +69,7 @@ function createTask(dbConnection, requestData, callback){
 	insertData["user_id"] = requestData.user_id;
 	insertData["subject_id"] = requestData.subject_id;
 	insertData["tasktype_id"] = requestData.tasktype_id;
-	
+	//throws error if any referenced id does not exist...but should not happen in normal use
 	dbConnection.query("insert into task set ?", insertData, function(err, result){
 		if(err){
 			return callback(err);
@@ -92,7 +92,7 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 	}
 	logger.log(logger.logLevels["debug"], "assign task " + requestData.task_id 
 			+ " to class " + requestData.class_id 
-			+ " and topic " + requestData.topic_id 
+			+ " and topic " + requestData.class_topic_id 
 			+ " with following parameters: obligatory - " + requestData.obligatory 
 			+ ", deadline" + requestData.deadline 
 			+ ", max_attempts " + requestData.max_attempts);
@@ -112,7 +112,7 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 			var insertData = {};
 			insertData["task_id"] = requestData.task_id;
 			insertData["class_id"] = requestData.class_id;
-			insertData["topic_id"] = requestData.topic_id;
+			insertData["class_topic_id"] = requestData.class_topic_id;
 			insertData["obligatory"] = requestData.obligatory;
 			insertData["deadline"] = requestData.deadline;
 			insertData["max_attempts"] = requestData.max_attempts;
@@ -135,9 +135,9 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 };
 
 /*  */
-funtion unassignTaskOfTopic(dbConnection, requestData, callback){
+function unassignTaskOfTopic(dbConnection, requestData, callback){
 	//?
-}
+};
 
 /*  */
 function editTask(dbConnection, requestData, callback){
