@@ -13,8 +13,11 @@ public class Profile : MonoBehaviour {
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
 	//creation form (to create new class)
 	public GameObject panelCreateClass;
+	public GameObject panelCreateTask;
 	//objects on creation form
 	public Text classname, classsubject, classschoolyear;
+	//objects on task creation form
+	public Text taskname, tasksubject, tasktype, taskpublic;
 	//registration form (to register to existing class via classcode)
 	public GameObject panelRegistration;
 	//object on registration form
@@ -23,16 +26,15 @@ public class Profile : MonoBehaviour {
 	public Text fieldUserData;
 	
 	//Button prefab to dynamically generate buttons
-	public GameObject button, buttonUserClass, buttonTeacherClass;
+	public GameObject button, buttonUserClass, buttonTeacherClass, buttonTasks;
 	
 	public int userid;
 	public User user;
 	public List<UserClass> userClasses;
 	public List<TeacherClass> teacherClasses;
-	public List<GameObject> userClassesBtns, teacherClassesBtns;
-	
-	
-	
+	public List<TaskShort> tasks;
+	public List<GameObject> userClassesBtns, teacherClassesBtns, tasksBtns;
+
 	void Start(){
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
@@ -40,22 +42,22 @@ public class Profile : MonoBehaviour {
 		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
 		panelCreateClass.SetActive(false);
+		panelCreateTask.SetActive (false);
 		panelRegistration.SetActive(false);
 		overviewKlassen.SetActive(true);
-		
-		
+
 		//userid = main.getUserId();
 		userClasses = new List<UserClass>();
 		teacherClasses = new List<TeacherClass>();
 		userClassesBtns = new List<GameObject>();
 		teacherClassesBtns = new List<GameObject>();
+		tasksBtns = new List<GameObject>();
 		
 		Debug.Log ("Send request for user data");
 		dbinterface.getUserData("userData", userid, gameObject);
 	
 	}
-	
-	
+
 	public void clickedBtn(string target){
 		
 		//cases: button of each class, course, task
@@ -93,15 +95,15 @@ public class Profile : MonoBehaviour {
 							//getClassId to load corresponding class
 							main.eventHandler("openUserClass", id);
 							break;
+		case "btnTasks":
+							Debug.Log ("clicked in taskButton with taskid: "+id);
+							//open taskedit form
+							main.eventHandler("openTaskEdit", id);
+							break;
 		}
 			
 	}
-	
-	
 
-	
-	
-	
 	public void dbInputHandler(string[] response){
 		GameObject generatedBtn;
 		string target = response[0];
@@ -122,7 +124,7 @@ public class Profile : MonoBehaviour {
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
 						
-		case "Klassen":		//generate a button for each Klasse = teacherClass
+		case "Klassen":		//generate a button for each class = teacherClass
 			
 							//delete old buttons and clear all references
 							teacherClasses.Clear();
@@ -140,24 +142,23 @@ public class Profile : MonoBehaviour {
 									Debug.Log(s[j]);
 								}
 								Debug.Log ("---------------");*/
-								//add object to object list
-								TeacherClass temp = new TeacherClass(userid,s);
-								teacherClasses.Add(temp);
-								//generate button and add to button list
-								generatedBtn = Instantiate(buttonTeacherClass, Vector3.zero, Quaternion.identity) as GameObject;
-								generatedBtn.transform.parent = GameObject.Find("ContentKlassen").transform;
-								generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
-								teacherClassesBtns.Add(generatedBtn);
-				
-								//set method to be called at onclick event
-								generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
-								generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {deleteClass(temp.getClassId());});			
-			}
+								if(s.Length > 1){							
+									//add object to object list
+									TeacherClass temp = new TeacherClass(userid,s);
+									teacherClasses.Add(temp);
+									//generate button and add to button list
+									generatedBtn = Instantiate(buttonTeacherClass, Vector3.zero, Quaternion.identity) as GameObject;
+									generatedBtn.transform.parent = GameObject.Find("ContentKlassen").transform;
+									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
+									teacherClassesBtns.Add(generatedBtn);
+					
+									//set method to be called at onclick event
+									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
+									generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {deleteClass(temp.getClassId());});
+								}
+							}
 							break;
-						
-						
-			
-							break;
+
 		case "Kurse":		//generate buttons
 			
 							//delete old buttons and clear all references
@@ -173,18 +174,45 @@ public class Profile : MonoBehaviour {
 									Debug.Log(s[j]);
 								}
 								Debug.Log ("---------------");*/
-								UserClass temp = new UserClass(userid,s);
-								userClasses.Add(temp);
-								generatedBtn = Instantiate(buttonUserClass, Vector3.zero, Quaternion.identity) as GameObject;
-								generatedBtn.transform.parent = GameObject.Find("ContentKurse").transform;
-								generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
-								userClassesBtns.Add(generatedBtn);
-								//set method to be called at onclick event
-								generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnUserClasses", temp.getClassId());});
+								if(s.Length > 1){	
+									UserClass temp = new UserClass(userid,s);
+									userClasses.Add(temp);
+									generatedBtn = Instantiate(buttonUserClass, Vector3.zero, Quaternion.identity) as GameObject;
+									generatedBtn.transform.parent = GameObject.Find("ContentKurse").transform;
+									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
+									userClassesBtns.Add(generatedBtn);
+									//set method to be called at onclick event
+									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnUserClasses", temp.getClassId());});
+								}
 							}
 							break;
 						
 		case "Tasks":		//generate buttons
+			
+							//delete old buttons and clear all references
+							tasks.Clear ();
+							foreach(GameObject b in tasksBtns){
+								Destroy(b);
+							}	
+							tasksBtns.Clear();
+							parsedData = jsonparser.JSONparse(data);
+							
+							foreach (string[] s in parsedData){
+								/*for (int j = 0; j<s.Length; j++){
+													Debug.Log(s[j]);
+												}
+												Debug.Log ("---------------");*/
+								if(s.Length > 1){	
+									TaskShort temp = new TaskShort(s);
+									tasks.Add(temp);
+									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
+									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
+									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getTaskName();
+									tasksBtns.Add(generatedBtn);
+									//set method to be called at onclick event
+									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTasks", temp.getTaskId());});
+								}
+							}				
 							break;
 			
 		case "deletedClass":parsedData = jsonparser.JSONparse(data);
@@ -200,11 +228,20 @@ public class Profile : MonoBehaviour {
 							panelCreateClass.SetActive(false);
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
+		case "addedTask":	
+							panelCreateTask.SetActive(false);
+							dbinterface.getMeineTasks("Tasks", userid, gameObject);
+							break;
 		case "registered": 	panelRegistration.SetActive(false);
 							//TODO check if successfull, else: call main.dberrorhandler
 							dbinterface.getMeineKurse("Kurse", userid, gameObject);
 							break;
 		}
+	}
+
+	public void showTaskCreation(){
+		Debug.Log ("button clicked for show task creation");
+		panelCreateTask.SetActive (true);
 	}
 	
 	public void showCreationFormForClass(){
@@ -218,6 +255,17 @@ public class Profile : MonoBehaviour {
 		//insert class into db if for filled correctly
 		//TODO check if filled correctly, else: call main.errorhandler
 		dbinterface.createClass("addedClass", classname.GetComponent<Text>().text, userid, int.Parse (classsubject.GetComponent<Text>().text), classschoolyear.GetComponent<Text>().text, gameObject); 
+	}
+
+	public void addTask(){
+		//add task into db
+		dbinterface.createTask("addedTask", 
+		                       taskname.GetComponent<Text>().text, 
+		                       int.Parse(taskpublic.GetComponent<Text>().text), 
+		                       userid,
+		                       int.Parse(tasksubject.GetComponent<Text>().text), 
+		                       int.Parse (tasktype.GetComponent<Text>().text),
+		                       gameObject); 
 	}
 				
 	public void deleteClass(int class_id){
@@ -240,7 +288,4 @@ public class Profile : MonoBehaviour {
 	public void setUserId(int id){
 		userid = id;
 	}
-	
-	
-	
 }

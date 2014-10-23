@@ -69,6 +69,12 @@ public class DBInterface : MonoBehaviour {
 	
 	public void getMeineTasks(string target, int userid, GameObject receiver){
 		Debug.Log ("called getMeineTasks");
+		WWWForm form = new WWWForm();
+		form.AddField("method", "getUserTasks");
+		form.AddField("user_id", userid);
+		
+		WWW www = new WWW(url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 	
 	//TODO
@@ -169,6 +175,19 @@ public class DBInterface : MonoBehaviour {
 		form.AddField("class_id", class_id);
 		
         WWW www = new WWW(url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
+	public void createTask(string target, string taskname, int pub, int user_id, int subject_id, int tasktype_id, GameObject receiver){
+		WWWForm form = new WWWForm();
+		form.AddField("method", "createTask");
+		form.AddField("taskname", taskname);
+		form.AddField("public", pub);
+		form.AddField("user_id", user_id);
+		form.AddField("subject_id", subject_id);
+		form.AddField("tasktype_id", tasktype_id);
+
+		WWW www = new WWW (url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 

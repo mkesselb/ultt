@@ -24,7 +24,7 @@ public class Main : MonoBehaviour {
 	public GameObject panelUserClass;
 	
 	//Panels on profile panel
-	public GameObject panelCreateClass, panelRegistration;
+	public GameObject panelCreateClass, panelRegistration, panelCreateTask;
 	
 	//panel on panelteacherClass
 	public GameObject panelStudentList;
@@ -74,8 +74,10 @@ public class Main : MonoBehaviour {
 	}
 	
 	public void back(){	
-		if(panelProfile.activeSelf && panelCreateClass.activeSelf){
-			panelCreateClass.SetActive(false);	
+		if (panelProfile.activeSelf && panelCreateClass.activeSelf) {
+			panelCreateClass.SetActive (false);
+		}else if(panelProfile.activeSelf && panelCreateTask.activeSelf){
+			panelCreateTask.SetActive(false);
 		}else if(panelProfile.activeSelf && panelRegistration.activeSelf){
 			panelRegistration.SetActive(false);
 			panelLogInScreen.SetActive(true);
