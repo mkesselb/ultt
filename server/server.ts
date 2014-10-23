@@ -6,6 +6,7 @@ var db = require('./db/db.ts');
 var login = require('./login/login.ts');
 var register = require('./login/register.ts');
 var logger = require('./logging/logging.ts');
+var decoder = require('./utility/decoder.ts');
 
 /* building db connection */
 //pooling connections also possible
@@ -64,10 +65,12 @@ ultt.post('/unity/db', function(req, res){
 	logger.log(logger.logLevels["info"], "serving post to /unity/db");
 	var body = [];
 	req.on('data', function(data){
-		logger.log(logger.logLevels["debug"], "received data: " + data.toString());
+		logger.log(logger.logLevels["debug"], "received data: " + data);
 		var s = data.toString().split('&');
-		for(var i = 0; i < s.length; i++){
-			body.push(s[i]);
+		for(var i = 0; i < s.length; i++){;
+			var ss = decoder.decodeEscapedString(s[i]);
+			body.push(ss);
+			logger.log(logger.logLevels["debug"], "--- decoded " + ss);
 		}
 	});
 	req.on('end', function(){
@@ -98,7 +101,9 @@ ultt.post('/login', function(req, res){
 		logger.log(logger.logLevels["debug"], "received login data: " + data.toString());
 		var s = data.toString().split('&');
 		for(var i = 0; i < s.length; i++){
-			body.push(s[i]);
+			var ss = decoder.decodeEscapedString(s[i]);
+			body.push(ss);
+			logger.log(logger.logLevels["debug"], "--- decoded " + ss);
 		}
 	});
 	req.on('end', function(){
@@ -129,7 +134,9 @@ ultt.post('/register', function(req, res){
 		logger.log(logger.logLevels["debug"], "received register data: " + data.toString());
 		var s = data.toString().split('&');
 		for(var i = 0; i < s.length; i++){
-			body.push(s[i]);
+			var ss = decoder.decodeEscapedString(s[i]);
+			body.push(ss);
+			logger.log(logger.logLevels["debug"], "--- decoded " + ss);
 		}
 	});
 	req.on('end', function(){

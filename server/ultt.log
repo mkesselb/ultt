@@ -7500,3 +7500,1113 @@
 [2014-10-19 23:18:08.333] [DEBUG] ultt - get classes of teacher user with id: 5
 [2014-10-19 23:18:08.333] [INFO] ultt - successful teacher classes fetching
 [2014-10-19 23:18:08.333] [DEBUG] ultt - fetch result: [{"class_id":20,"classname":"hk23","privacy":null,"school_year":"0000","classcode":"0HaSGrVjyx","subject_name":"Informatik"}]
+[2014-10-23 20:03:33.855] [INFO] ultt - listening on port 80
+[2014-10-23 20:03:34.865] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-10-23 20:03:39.145] [INFO] ultt - listening on port 80
+[2014-10-23 20:03:40.155] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-10-23 20:03:42.335] [INFO] ultt - listening on port 80
+[2014-10-23 20:03:42.365] [INFO] ultt - connected to db
+[2014-10-23 20:07:23.775] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:07:23.775] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=name1+%2b+name2&school_year=2014
+[2014-10-23 20:07:23.775] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"name1+%2b+name2","school_year":"2014"}
+[2014-10-23 20:07:23.775] [DEBUG] ultt - creating class name1+%2b+name2 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:07:23.955] [DEBUG] ultt - insert data: {"classname":"name1+%2b+name2","user_id":"1","school_year":"2014","classcode":"gmoTX2LqNs","subject_id":"1"}
+[2014-10-23 20:07:24.205] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":21,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:07:24.205] [INFO] ultt - successful class creating
+[2014-10-23 20:07:24.245] [DEBUG] ultt - created class with id: 21, classcode: gmoTX2LqNs
+[2014-10-23 20:09:34.292] [INFO] ultt - serving request to /
+[2014-10-23 20:09:34.563] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 20:10:54.775] [INFO] ultt - serving request to /
+[2014-10-23 20:10:55.087] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 20:11:05.750] [INFO] ultt - serving request to /
+[2014-10-23 20:11:13.506] [INFO] ultt - serving post to /login
+[2014-10-23 20:11:13.508] [DEBUG] ultt - received login data: username=pasan&password=1234567
+[2014-10-23 20:11:13.510] [DEBUG] ultt - user data received: {"username":"pasan","password":"1234567"}
+[2014-10-23 20:11:13.511] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"pasan","password":"null","user_id":"null"}
+[2014-10-23 20:11:13.513] [DEBUG] ultt - db fetch query: select password,user_id from user where username='pasan';
+[2014-10-23 20:11:13.552] [INFO] ultt - successful db fetching
+[2014-10-23 20:11:13.554] [DEBUG] ultt - fetch result: [{"password":"1234567","user_id":5}]
+[2014-10-23 20:11:13.559] [DEBUG] ultt - password fetched: [{"password":"1234567","user_id":5}]
+[2014-10-23 20:11:13.560] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 20:11:13.646] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:13.647] [DEBUG] ultt - received data: method=getUser&user_id=5
+[2014-10-23 20:11:13.648] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"5"}
+[2014-10-23 20:11:13.649] [DEBUG] ultt - get user with id: 5
+[2014-10-23 20:11:13.650] [INFO] ultt - successful user fetching
+[2014-10-23 20:11:13.651] [DEBUG] ultt - fetch result: [{"user_id":5,"token":0,"username":"pasan","name_first":"anastasiya","name_last":"pasynkava","email_id":"2","picture":"/web/image/default.jpg","created_at":"2014-10-12T13:18:12.000Z","school_id":"schule"}]
+[2014-10-23 20:11:13.696] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:13.697] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 20:11:13.698] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 20:11:13.699] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 20:11:13.756] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:11:13.758] [DEBUG] ultt - fetch result: [{"class_id":20,"classname":"hk23","privacy":null,"school_year":"0000","classcode":"0HaSGrVjyx","subject_name":"Informatik"}]
+[2014-10-23 20:11:17.389] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:17.391] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 20:11:17.391] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 20:11:17.392] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 20:11:17.479] [INFO] ultt - successful classes fetching
+[2014-10-23 20:11:17.480] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:18.389] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:18.390] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 20:11:18.392] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 20:11:18.393] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 20:11:18.395] [INFO] ultt - successful classes fetching
+[2014-10-23 20:11:18.395] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:20.360] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:20.361] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 20:11:20.364] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 20:11:20.365] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 20:11:20.367] [INFO] ultt - successful classes fetching
+[2014-10-23 20:11:20.367] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:20.939] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:20.940] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 20:11:20.940] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 20:11:20.941] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 20:11:20.942] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:11:20.942] [DEBUG] ultt - fetch result: [{"class_id":20,"classname":"hk23","privacy":null,"school_year":"0000","classcode":"0HaSGrVjyx","subject_name":"Informatik"}]
+[2014-10-23 20:11:21.204] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:21.205] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 20:11:21.207] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 20:11:21.207] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 20:11:21.211] [INFO] ultt - successful classes fetching
+[2014-10-23 20:11:21.211] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:23.408] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:23.409] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 20:11:23.411] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 20:11:23.412] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 20:11:23.413] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:11:23.414] [DEBUG] ultt - fetch result: [{"class_id":20,"classname":"hk23","privacy":null,"school_year":"0000","classcode":"0HaSGrVjyx","subject_name":"Informatik"}]
+[2014-10-23 20:11:23.697] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:23.699] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 20:11:23.701] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 20:11:23.701] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 20:11:23.706] [INFO] ultt - successful classes fetching
+[2014-10-23 20:11:23.707] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:42.571] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:42.572] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 20:11:42.573] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 20:11:42.574] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 20:11:42.576] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:11:42.576] [DEBUG] ultt - fetch result: [{"class_id":20,"classname":"hk23","privacy":null,"school_year":"0000","classcode":"0HaSGrVjyx","subject_name":"Informatik"}]
+[2014-10-23 20:11:43.833] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:43.834] [DEBUG] ultt - received data: method=getClassTopics&class_id=20
+[2014-10-23 20:11:43.835] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"20"}
+[2014-10-23 20:11:43.835] [DEBUG] ultt - get topics of class with id: 20
+[2014-10-23 20:11:43.896] [INFO] ultt - successful topics fetching
+[2014-10-23 20:11:43.898] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:44.939] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:44.941] [DEBUG] ultt - received data: method=getClassUsers&class_id=20
+[2014-10-23 20:11:44.942] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"20"}
+[2014-10-23 20:11:44.943] [DEBUG] ultt - get users of class with id: 20
+[2014-10-23 20:11:44.947] [INFO] ultt - successful users fetching
+[2014-10-23 20:11:44.948] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:45.694] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:45.695] [DEBUG] ultt - received data: method=getClassUsers&class_id=20
+[2014-10-23 20:11:45.696] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"20"}
+[2014-10-23 20:11:45.697] [DEBUG] ultt - get users of class with id: 20
+[2014-10-23 20:11:45.698] [INFO] ultt - successful users fetching
+[2014-10-23 20:11:45.699] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:45.817] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:45.819] [DEBUG] ultt - received data: method=getClassUsers&class_id=20
+[2014-10-23 20:11:45.820] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"20"}
+[2014-10-23 20:11:45.823] [DEBUG] ultt - get users of class with id: 20
+[2014-10-23 20:11:45.827] [INFO] ultt - successful users fetching
+[2014-10-23 20:11:45.829] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:46.391] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:46.392] [DEBUG] ultt - received data: method=getClassUsers&class_id=20
+[2014-10-23 20:11:46.394] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"20"}
+[2014-10-23 20:11:46.395] [DEBUG] ultt - get users of class with id: 20
+[2014-10-23 20:11:46.397] [INFO] ultt - successful users fetching
+[2014-10-23 20:11:46.398] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:46.511] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:46.513] [DEBUG] ultt - received data: method=getClassUsers&class_id=20
+[2014-10-23 20:11:46.515] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"20"}
+[2014-10-23 20:11:46.516] [DEBUG] ultt - get users of class with id: 20
+[2014-10-23 20:11:46.519] [INFO] ultt - successful users fetching
+[2014-10-23 20:11:46.520] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:11:46.644] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:11:46.646] [DEBUG] ultt - received data: method=getClassUsers&class_id=20
+[2014-10-23 20:11:46.647] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"20"}
+[2014-10-23 20:11:46.648] [DEBUG] ultt - get users of class with id: 20
+[2014-10-23 20:11:46.650] [INFO] ultt - successful users fetching
+[2014-10-23 20:11:46.651] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:14:35.853] [INFO] ultt - listening on port 80
+[2014-10-23 20:14:35.858] [INFO] ultt - connected to db
+[2014-10-23 20:14:41.253] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:14:41.254] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=name1+%2b+name2&school_year=2014
+[2014-10-23 20:14:41.255] [DEBUG] ultt - received data: [109,101,116,104,111,100,61,99,114,101,97,116,101,67,108,97,115,115,38,117,115,101,114,95,105,100,61,49,38,115,117,98,106,101,99,116,95,105,100,61,49,38,99,108,97,115,115,110,97,109,101,61,110,97,109,101,49,43,37,50,98,43,110,97,109,101,50,38,115,99,104,111,111,108,95,121,101,97,114,61,50,48,49,52]
+[2014-10-23 20:14:41.256] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"name1+%2b+name2","school_year":"2014"}
+[2014-10-23 20:14:41.257] [DEBUG] ultt - creating class name1+%2b+name2 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:14:41.454] [DEBUG] ultt - insert data: {"classname":"name1+%2b+name2","user_id":"1","school_year":"2014","classcode":"Foov6S3Oav","subject_id":"1"}
+[2014-10-23 20:14:41.506] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":22,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:14:41.507] [INFO] ultt - successful class creating
+[2014-10-23 20:14:41.509] [DEBUG] ultt - created class with id: 22, classcode: Foov6S3Oav
+[2014-10-23 20:15:20.972] [INFO] ultt - listening on port 80
+[2014-10-23 20:15:20.976] [INFO] ultt - connected to db
+[2014-10-23 20:15:22.795] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:15:22.797] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=name1+%2b+name2&school_year=2014
+[2014-10-23 20:15:22.799] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"name1+%2b+name2","school_year":"2014"}
+[2014-10-23 20:15:22.800] [DEBUG] ultt - creating class name1+%2b+name2 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:15:22.983] [DEBUG] ultt - insert data: {"classname":"name1+%2b+name2","user_id":"1","school_year":"2014","classcode":"XOqQlsQou2","subject_id":"1"}
+[2014-10-23 20:15:23.039] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":23,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:15:23.041] [INFO] ultt - successful class creating
+[2014-10-23 20:15:23.046] [DEBUG] ultt - created class with id: 23, classcode: XOqQlsQou2
+[2014-10-23 20:16:10.055] [INFO] ultt - serving request to /
+[2014-10-23 20:16:10.258] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 20:16:25.149] [INFO] ultt - serving post to /login
+[2014-10-23 20:16:25.150] [DEBUG] ultt - received login data: username=pasan+%2b+%2b+%2b+&password=password
+[2014-10-23 20:16:25.151] [DEBUG] ultt - user data received: {"username":"pasan+%2b+%2b+%2b+","password":"password"}
+[2014-10-23 20:16:25.152] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"pasan+%2b+%2b+%2b+","password":"null","user_id":"null"}
+[2014-10-23 20:16:25.154] [DEBUG] ultt - db fetch query: select password,user_id from user where username='pasan+%2b+%2b+%2b+';
+[2014-10-23 20:16:25.155] [INFO] ultt - successful db fetching
+[2014-10-23 20:16:25.155] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:16:25.157] [DEBUG] ultt - password fetched: []
+[2014-10-23 20:16:25.157] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-23 20:16:25.207] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:16:25.208] [DEBUG] ultt - received data: method=getUser&user_id=100
+[2014-10-23 20:16:25.209] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"100"}
+[2014-10-23 20:16:25.209] [DEBUG] ultt - get user with id: 100
+[2014-10-23 20:16:25.210] [INFO] ultt - successful user fetching
+[2014-10-23 20:16:25.210] [DEBUG] ultt - fetch result: []
+[2014-10-23 20:24:34.818] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:24:34.819] [DEBUG] ultt - received data: method=c%00r%00e%00a%00t%00e%00C%00l%00a%00s%00s%00&user_id=1&subject_id=1&classname=name1+%2b+name2&school_year=2014
+[2014-10-23 20:24:34.820] [DEBUG] ultt - full data received on db: {"method":"c%00r%00e%00a%00t%00e%00C%00l%00a%00s%00s%00","user_id":"1","subject_id":"1","classname":"name1+%2b+name2","school_year":"2014"}
+[2014-10-23 20:25:29.887] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:25:29.887] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=name1+%2b+name2&school_year=2014
+[2014-10-23 20:25:29.888] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"name1+%2b+name2","school_year":"2014"}
+[2014-10-23 20:25:29.888] [DEBUG] ultt - creating class name1+%2b+name2 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:25:29.889] [DEBUG] ultt - insert data: {"classname":"name1+%2b+name2","user_id":"1","school_year":"2014","classcode":"Y24gif5B5Q","subject_id":"1"}
+[2014-10-23 20:25:29.955] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":24,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:25:29.957] [INFO] ultt - successful class creating
+[2014-10-23 20:25:29.959] [DEBUG] ultt - created class with id: 24, classcode: Y24gif5B5Q
+[2014-10-23 20:27:47.522] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:27:47.522] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=name1%2b%252b%2bname2&school_year=2014
+[2014-10-23 20:27:47.522] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"name1%2b%252b%2bname2","school_year":"2014"}
+[2014-10-23 20:27:47.523] [DEBUG] ultt - creating class name1%2b%252b%2bname2 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:27:47.523] [DEBUG] ultt - insert data: {"classname":"name1%2b%252b%2bname2","user_id":"1","school_year":"2014","classcode":"Jhodlm42XB","subject_id":"1"}
+[2014-10-23 20:27:47.548] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":25,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:27:47.549] [INFO] ultt - successful class creating
+[2014-10-23 20:27:47.549] [DEBUG] ultt - created class with id: 25, classcode: Jhodlm42XB
+[2014-10-23 20:30:21.798] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:30:21.799] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 20:30:21.800] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3cname1+%2b+name2%3e","school_year":"2014"}
+[2014-10-23 20:30:21.800] [DEBUG] ultt - creating class %3cname1+%2b+name2%3e for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:30:21.801] [DEBUG] ultt - insert data: {"classname":"%3cname1+%2b+name2%3e","user_id":"1","school_year":"2014","classcode":"QJVElifL8i","subject_id":"1"}
+[2014-10-23 20:30:21.855] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":26,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:30:21.857] [INFO] ultt - successful class creating
+[2014-10-23 20:30:21.857] [DEBUG] ultt - created class with id: 26, classcode: QJVElifL8i
+[2014-10-23 20:30:37.125] [INFO] ultt - serving request to /
+[2014-10-23 20:30:37.869] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 20:39:37.653] [INFO] ultt - serving request to /
+[2014-10-23 20:39:37.933] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 20:39:44.043] [INFO] ultt - serving post to /login
+[2014-10-23 20:39:44.044] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-10-23 20:39:44.044] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-10-23 20:39:44.045] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null","user_id":"null"}
+[2014-10-23 20:39:44.046] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mkesse';
+[2014-10-23 20:39:44.047] [INFO] ultt - successful db fetching
+[2014-10-23 20:39:44.048] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-23 20:39:44.049] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-23 20:39:44.050] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 20:39:44.106] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:39:44.106] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-10-23 20:39:44.106] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-10-23 20:39:44.107] [DEBUG] ultt - get user with id: 1
+[2014-10-23 20:39:44.108] [INFO] ultt - successful user fetching
+[2014-10-23 20:39:44.108] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
+[2014-10-23 20:39:44.148] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:39:44.148] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:39:44.149] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:39:44.149] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:39:44.152] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:39:44.152] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":21,"classname":"name1 + name2","privacy":null,"school_year":2014,"classcode":"gmoTX2LqNs","subject_name":"Informatik"},{"class_id":22,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"Foov6S3Oav","subject_name":"Informatik"},{"class_id":23,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"XOqQlsQou2","subject_name":"Informatik"},{"class_id":24,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"Y24gif5B5Q","subject_name":"Informatik"},{"class_id":25,"classname":"name1%2b%252b%2bname2","privacy":null,"school_year":2014,"classcode":"Jhodlm42XB","subject_name":"Informatik"},{"class_id":26,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"QJVElifL8i","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:06.341] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:06.342] [DEBUG] ultt - received data: method=deleteClass&class_id=24
+[2014-10-23 20:40:06.343] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"24"}
+[2014-10-23 20:40:06.344] [DEBUG] ultt - deleting class with id: 24
+[2014-10-23 20:40:06.371] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:06.373] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:06.427] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:06.428] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:06.429] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:06.431] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:06.434] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:06.435] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":21,"classname":"name1 + name2","privacy":null,"school_year":2014,"classcode":"gmoTX2LqNs","subject_name":"Informatik"},{"class_id":22,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"Foov6S3Oav","subject_name":"Informatik"},{"class_id":23,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"XOqQlsQou2","subject_name":"Informatik"},{"class_id":25,"classname":"name1%2b%252b%2bname2","privacy":null,"school_year":2014,"classcode":"Jhodlm42XB","subject_name":"Informatik"},{"class_id":26,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"QJVElifL8i","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:07.210] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:07.211] [DEBUG] ultt - received data: method=deleteClass&class_id=25
+[2014-10-23 20:40:07.212] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"25"}
+[2014-10-23 20:40:07.212] [DEBUG] ultt - deleting class with id: 25
+[2014-10-23 20:40:07.257] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:07.259] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:07.309] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:07.310] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:07.311] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:07.312] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:07.314] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:07.314] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":21,"classname":"name1 + name2","privacy":null,"school_year":2014,"classcode":"gmoTX2LqNs","subject_name":"Informatik"},{"class_id":22,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"Foov6S3Oav","subject_name":"Informatik"},{"class_id":23,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"XOqQlsQou2","subject_name":"Informatik"},{"class_id":26,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"QJVElifL8i","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:08.146] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:08.147] [DEBUG] ultt - received data: method=deleteClass&class_id=26
+[2014-10-23 20:40:08.148] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"26"}
+[2014-10-23 20:40:08.148] [DEBUG] ultt - deleting class with id: 26
+[2014-10-23 20:40:08.198] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:08.200] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:08.249] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:08.250] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:08.251] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:08.251] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:08.254] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:08.254] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":21,"classname":"name1 + name2","privacy":null,"school_year":2014,"classcode":"gmoTX2LqNs","subject_name":"Informatik"},{"class_id":22,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"Foov6S3Oav","subject_name":"Informatik"},{"class_id":23,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"XOqQlsQou2","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:08.877] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:08.879] [DEBUG] ultt - received data: method=deleteClass&class_id=23
+[2014-10-23 20:40:08.880] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"23"}
+[2014-10-23 20:40:08.882] [DEBUG] ultt - deleting class with id: 23
+[2014-10-23 20:40:08.911] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:08.912] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:08.955] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:08.956] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:08.957] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:08.957] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:08.959] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:08.960] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":21,"classname":"name1 + name2","privacy":null,"school_year":2014,"classcode":"gmoTX2LqNs","subject_name":"Informatik"},{"class_id":22,"classname":"name1+%2b+name2","privacy":null,"school_year":2014,"classcode":"Foov6S3Oav","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:09.804] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:09.805] [DEBUG] ultt - received data: method=deleteClass&class_id=22
+[2014-10-23 20:40:09.806] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"22"}
+[2014-10-23 20:40:09.807] [DEBUG] ultt - deleting class with id: 22
+[2014-10-23 20:40:09.831] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:09.834] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:09.889] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:09.891] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:09.891] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:09.892] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:09.893] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:09.894] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":21,"classname":"name1 + name2","privacy":null,"school_year":2014,"classcode":"gmoTX2LqNs","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:10.685] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:10.687] [DEBUG] ultt - received data: method=deleteClass&class_id=21
+[2014-10-23 20:40:10.688] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"21"}
+[2014-10-23 20:40:10.689] [DEBUG] ultt - deleting class with id: 21
+[2014-10-23 20:40:10.764] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:10.765] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:10.847] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:10.849] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:10.851] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:10.852] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:10.854] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:10.855] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:22.607] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:22.608] [DEBUG] ultt - received data: method=createClass&classname=a+b+%2b*%23&user_id=1&subject_id=1&school_year=2014
+[2014-10-23 20:40:22.610] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"a+b+%2b*%23","user_id":"1","subject_id":"1","school_year":"2014"}
+[2014-10-23 20:40:22.611] [DEBUG] ultt - creating class a+b+%2b*%23 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:40:22.612] [DEBUG] ultt - insert data: {"classname":"a+b+%2b*%23","user_id":"1","school_year":"2014","classcode":"9EYwKnbBjk","subject_id":"1"}
+[2014-10-23 20:40:22.657] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":27,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:40:22.659] [INFO] ultt - successful class creating
+[2014-10-23 20:40:22.661] [DEBUG] ultt - created class with id: 27, classcode: 9EYwKnbBjk
+[2014-10-23 20:40:22.723] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:22.725] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:22.726] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:22.728] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:22.731] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:22.732] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":27,"classname":"a+b+%2b*%23","privacy":null,"school_year":2014,"classcode":"9EYwKnbBjk","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:40:28.399] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:28.401] [DEBUG] ultt - received data: method=deleteClass&class_id=27
+[2014-10-23 20:40:28.402] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"27"}
+[2014-10-23 20:40:28.404] [DEBUG] ultt - deleting class with id: 27
+[2014-10-23 20:40:28.445] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 20:40:28.446] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 20:40:28.500] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:40:28.501] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:40:28.502] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:40:28.503] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:40:28.505] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:40:28.506] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:42:22.862] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:42:22.864] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 20:42:22.864] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3cname1+%2b+name2%3e","school_year":"2014"}
+[2014-10-23 20:42:22.865] [DEBUG] ultt - creating class %3cname1+%2b+name2%3e for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:42:22.865] [DEBUG] ultt - insert data: {"classname":"%3cname1+%2b+name2%3e","user_id":"1","school_year":"2014","classcode":"p1nXIrIk7p","subject_id":"1"}
+[2014-10-23 20:42:22.914] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":28,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:42:22.915] [INFO] ultt - successful class creating
+[2014-10-23 20:42:22.916] [DEBUG] ultt - created class with id: 28, classcode: p1nXIrIk7p
+[2014-10-23 20:46:54.742] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:46:54.743] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%253Cname1%2520%252B%2520name2%253E&school_year=2014
+[2014-10-23 20:46:54.743] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%253Cname1%2520%252B%2520name2%253E","school_year":"2014"}
+[2014-10-23 20:46:54.743] [DEBUG] ultt - creating class %253Cname1%2520%252B%2520name2%253E for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:46:54.744] [DEBUG] ultt - insert data: {"classname":"%253Cname1%2520%252B%2520name2%253E","user_id":"1","school_year":"2014","classcode":"B7kDLGmLMe","subject_id":"1"}
+[2014-10-23 20:46:54.805] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":29,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:46:54.807] [INFO] ultt - successful class creating
+[2014-10-23 20:46:54.809] [DEBUG] ultt - created class with id: 29, classcode: B7kDLGmLMe
+[2014-10-23 20:47:06.894] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:47:06.895] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:47:06.896] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:47:06.897] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:47:06.900] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:47:06.901] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:47:09.994] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:47:09.995] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:47:09.997] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:47:09.998] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:47:10.001] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:47:10.002] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:47:11.906] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:47:11.907] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-23 20:47:11.908] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-23 20:47:11.909] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-23 20:47:11.911] [INFO] ultt - successful classes fetching
+[2014-10-23 20:47:11.911] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik","username":"mkesse","accepted":1},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik","username":"mkesse","accepted":1}]
+[2014-10-23 20:47:12.771] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:47:12.773] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 20:47:12.773] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 20:47:12.773] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 20:47:12.775] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 20:47:12.775] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 20:49:11.347] [INFO] ultt - listening on port 80
+[2014-10-23 20:49:11.352] [INFO] ultt - connected to db
+[2014-10-23 20:49:29.467] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:49:29.469] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 20:49:29.469] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3cname1+%2b+name2%3e","school_year":"2014"}
+[2014-10-23 20:49:29.470] [DEBUG] ultt - creating class %3cname1+%2b+name2%3e for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:49:29.633] [DEBUG] ultt - insert data: {"classname":"%3cname1+%2b+name2%3e","user_id":"1","school_year":"2014","classcode":"NJrrw14yPU","subject_id":"1"}
+[2014-10-23 20:49:29.689] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":30,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:49:29.690] [INFO] ultt - successful class creating
+[2014-10-23 20:49:29.693] [DEBUG] ultt - created class with id: 30, classcode: NJrrw14yPU
+[2014-10-23 20:50:00.518] [INFO] ultt - listening on port 80
+[2014-10-23 20:50:00.523] [INFO] ultt - connected to db
+[2014-10-23 20:50:37.018] [INFO] ultt - listening on port 80
+[2014-10-23 20:50:37.023] [INFO] ultt - connected to db
+[2014-10-23 20:50:39.023] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:50:39.024] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%253Cname1%2520%252B%2520name2%253E&school_year=2014
+[2014-10-23 20:50:39.025] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%253Cname1%2520%252B%2520name2%253E","school_year":"2014"}
+[2014-10-23 20:50:39.025] [DEBUG] ultt - creating class %253Cname1%2520%252B%2520name2%253E for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:50:39.190] [DEBUG] ultt - insert data: {"classname":"%253Cname1%2520%252B%2520name2%253E","user_id":"1","school_year":"2014","classcode":"wO4bWMu2dT","subject_id":"1"}
+[2014-10-23 20:50:39.220] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":31,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:50:39.221] [INFO] ultt - successful class creating
+[2014-10-23 20:50:39.222] [DEBUG] ultt - created class with id: 31, classcode: wO4bWMu2dT
+[2014-10-23 20:51:22.131] [INFO] ultt - listening on port 80
+[2014-10-23 20:51:22.136] [INFO] ultt - connected to db
+[2014-10-23 20:51:24.250] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:51:24.253] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%253Cname1%2520%252B%2520name2%253E&school_year=2014
+[2014-10-23 20:51:24.256] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3Cname1%20%2B%20name2%3E","school_year":"2014"}
+[2014-10-23 20:51:24.258] [DEBUG] ultt - creating class %3Cname1%20%2B%20name2%3E for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:51:24.471] [DEBUG] ultt - insert data: {"classname":"%3Cname1%20%2B%20name2%3E","user_id":"1","school_year":"2014","classcode":"ZJ4aDHVHRk","subject_id":"1"}
+[2014-10-23 20:51:24.515] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":32,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:51:24.516] [INFO] ultt - successful class creating
+[2014-10-23 20:51:24.517] [DEBUG] ultt - created class with id: 32, classcode: ZJ4aDHVHRk
+[2014-10-23 20:52:33.887] [INFO] ultt - listening on port 80
+[2014-10-23 20:52:33.891] [INFO] ultt - connected to db
+[2014-10-23 20:52:37.569] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:52:37.570] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=name1+%2b+name2&school_year=2014
+[2014-10-23 20:52:37.570] [DEBUG] ultt - ---method=createClass
+[2014-10-23 20:52:37.571] [DEBUG] ultt - ---user_id=1
+[2014-10-23 20:52:37.571] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 20:52:37.571] [DEBUG] ultt - ---classname=name1+++name2
+[2014-10-23 20:52:37.571] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 20:52:37.572] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"name1+++name2","school_year":"2014"}
+[2014-10-23 20:52:37.572] [DEBUG] ultt - creating class name1+++name2 for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:52:37.737] [DEBUG] ultt - insert data: {"classname":"name1+++name2","user_id":"1","school_year":"2014","classcode":"qYJD9WLQaQ","subject_id":"1"}
+[2014-10-23 20:52:37.791] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":33,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:52:37.793] [INFO] ultt - successful class creating
+[2014-10-23 20:52:37.798] [DEBUG] ultt - created class with id: 33, classcode: qYJD9WLQaQ
+[2014-10-23 20:53:23.837] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:53:23.838] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e%25%26&school_year=2014
+[2014-10-23 20:53:23.839] [DEBUG] ultt - ---method=createClass
+[2014-10-23 20:53:23.839] [DEBUG] ultt - ---user_id=1
+[2014-10-23 20:53:23.840] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 20:53:23.840] [DEBUG] ultt - ---classname=<name1+++name2>%&
+[2014-10-23 20:53:23.840] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 20:53:23.840] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1+++name2>%&","school_year":"2014"}
+[2014-10-23 20:53:23.841] [DEBUG] ultt - creating class <name1+++name2>%& for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:53:23.841] [DEBUG] ultt - insert data: {"classname":"<name1+++name2>%&","user_id":"1","school_year":"2014","classcode":"pLZFt4nmkQ","subject_id":"1"}
+[2014-10-23 20:53:23.896] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":34,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:53:23.897] [INFO] ultt - successful class creating
+[2014-10-23 20:53:23.898] [DEBUG] ultt - created class with id: 34, classcode: pLZFt4nmkQ
+[2014-10-23 20:56:58.156] [INFO] ultt - listening on port 80
+[2014-10-23 20:56:58.160] [INFO] ultt - connected to db
+[2014-10-23 20:57:57.271] [INFO] ultt - listening on port 80
+[2014-10-23 20:57:57.276] [INFO] ultt - connected to db
+[2014-10-23 20:58:00.838] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:58:00.839] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%253Cname1%2520%252B%2520name2%253E&school_year=2014
+[2014-10-23 20:58:00.858] [DEBUG] ultt - ---method=createClass
+[2014-10-23 20:58:00.859] [DEBUG] ultt - ---user_id=1
+[2014-10-23 20:58:00.859] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 20:58:00.860] [DEBUG] ultt - ---classname=%3Cname1%20%2B%20name2%3E
+[2014-10-23 20:58:00.860] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 20:58:00.860] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3Cname1%20%2B%20name2%3E","school_year":"2014"}
+[2014-10-23 20:58:00.861] [DEBUG] ultt - creating class %3Cname1%20%2B%20name2%3E for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:58:01.027] [DEBUG] ultt - insert data: {"classname":"%3Cname1%20%2B%20name2%3E","user_id":"1","school_year":"2014","classcode":"SKJN7LDjaH","subject_id":"1"}
+[2014-10-23 20:58:01.064] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":35,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:58:01.065] [INFO] ultt - successful class creating
+[2014-10-23 20:58:01.067] [DEBUG] ultt - created class with id: 35, classcode: SKJN7LDjaH
+[2014-10-23 20:58:29.795] [INFO] ultt - listening on port 80
+[2014-10-23 20:58:29.800] [INFO] ultt - connected to db
+[2014-10-23 20:58:32.194] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:58:32.196] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%253Cname1%2520%252B%2520name2%253E&school_year=2014
+[2014-10-23 20:58:32.198] [DEBUG] ultt - ---method=createClass
+[2014-10-23 20:58:32.199] [DEBUG] ultt - ---user_id=1
+[2014-10-23 20:58:32.200] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 20:58:32.200] [DEBUG] ultt - ---classname=%3Cname1%20%2B%20name2%3E
+[2014-10-23 20:58:32.201] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 20:58:32.202] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3Cname1%20%2B%20name2%3E","school_year":"2014"}
+[2014-10-23 20:58:32.203] [DEBUG] ultt - creating class %3Cname1%20%2B%20name2%3E for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:58:32.414] [DEBUG] ultt - insert data: {"classname":"%3Cname1%20%2B%20name2%3E","user_id":"1","school_year":"2014","classcode":"qyYdpre5XC","subject_id":"1"}
+[2014-10-23 20:58:32.452] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":36,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:58:32.453] [INFO] ultt - successful class creating
+[2014-10-23 20:58:32.456] [DEBUG] ultt - created class with id: 36, classcode: qyYdpre5XC
+[2014-10-23 20:58:55.978] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:58:55.979] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 20:58:55.979] [DEBUG] ultt - ---method=createClass
+[2014-10-23 20:58:55.979] [DEBUG] ultt - ---user_id=1
+[2014-10-23 20:58:55.980] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 20:58:55.980] [DEBUG] ultt - ---classname=<name1+%2b+name2>
+[2014-10-23 20:58:55.980] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 20:58:55.980] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1+%2b+name2>","school_year":"2014"}
+[2014-10-23 20:58:55.981] [DEBUG] ultt - creating class <name1+%2b+name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:58:55.981] [DEBUG] ultt - insert data: {"classname":"<name1+%2b+name2>","user_id":"1","school_year":"2014","classcode":"mgSLvpqT6o","subject_id":"1"}
+[2014-10-23 20:58:56.016] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":37,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:58:56.017] [INFO] ultt - successful class creating
+[2014-10-23 20:58:56.018] [DEBUG] ultt - created class with id: 37, classcode: mgSLvpqT6o
+[2014-10-23 20:59:15.563] [INFO] ultt - listening on port 80
+[2014-10-23 20:59:15.568] [INFO] ultt - connected to db
+[2014-10-23 20:59:17.362] [INFO] ultt - serving post to /unity/db
+[2014-10-23 20:59:17.364] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 20:59:17.365] [DEBUG] ultt - ---method=createClass
+[2014-10-23 20:59:17.366] [DEBUG] ultt - ---user_id=1
+[2014-10-23 20:59:17.366] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 20:59:17.367] [DEBUG] ultt - ---classname=<name1+++name2>
+[2014-10-23 20:59:17.368] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 20:59:17.369] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1+++name2>","school_year":"2014"}
+[2014-10-23 20:59:17.370] [DEBUG] ultt - creating class <name1+++name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 20:59:17.552] [DEBUG] ultt - insert data: {"classname":"<name1+++name2>","user_id":"1","school_year":"2014","classcode":"DbVfAiIMJr","subject_id":"1"}
+[2014-10-23 20:59:17.585] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":38,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 20:59:17.586] [INFO] ultt - successful class creating
+[2014-10-23 20:59:17.587] [DEBUG] ultt - created class with id: 38, classcode: DbVfAiIMJr
+[2014-10-23 21:00:20.489] [INFO] ultt - listening on port 80
+[2014-10-23 21:00:20.493] [INFO] ultt - connected to db
+[2014-10-23 21:00:24.597] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:00:24.598] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 21:00:24.599] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:00:24.599] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:00:24.600] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:00:24.600] [DEBUG] ultt - ---classname=<name1 ++name2>
+[2014-10-23 21:00:24.600] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:00:24.601] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1 ++name2>","school_year":"2014"}
+[2014-10-23 21:00:24.601] [DEBUG] ultt - creating class <name1 ++name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:00:24.768] [DEBUG] ultt - insert data: {"classname":"<name1 ++name2>","user_id":"1","school_year":"2014","classcode":"K23Tatd364","subject_id":"1"}
+[2014-10-23 21:00:24.796] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":39,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:00:24.796] [INFO] ultt - successful class creating
+[2014-10-23 21:00:24.798] [DEBUG] ultt - created class with id: 39, classcode: K23Tatd364
+[2014-10-23 21:00:39.702] [INFO] ultt - listening on port 80
+[2014-10-23 21:00:39.707] [INFO] ultt - connected to db
+[2014-10-23 21:00:43.588] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:02:41.684] [INFO] ultt - listening on port 80
+[2014-10-23 21:02:41.688] [INFO] ultt - connected to db
+[2014-10-23 21:02:43.293] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:02:43.295] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 21:02:43.296] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:02:43.297] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:02:43.297] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:02:43.298] [DEBUG] ultt - ---classname=<name1 + name2>
+[2014-10-23 21:02:43.298] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:02:43.299] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1 + name2>","school_year":"2014"}
+[2014-10-23 21:02:43.300] [DEBUG] ultt - creating class <name1 + name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:02:43.538] [DEBUG] ultt - insert data: {"classname":"<name1 + name2>","user_id":"1","school_year":"2014","classcode":"p3CfQvbEmo","subject_id":"1"}
+[2014-10-23 21:02:43.567] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":40,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:02:43.568] [INFO] ultt - successful class creating
+[2014-10-23 21:02:43.569] [DEBUG] ultt - created class with id: 40, classcode: p3CfQvbEmo
+[2014-10-23 21:03:12.614] [INFO] ultt - listening on port 80
+[2014-10-23 21:03:12.619] [INFO] ultt - connected to db
+[2014-10-23 21:03:16.928] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:03:16.930] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 21:03:16.931] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:03:16.932] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:03:16.933] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:03:16.934] [DEBUG] ultt - ---classname=<name1+++name2>
+[2014-10-23 21:03:16.934] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:03:16.936] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1+++name2>","school_year":"2014"}
+[2014-10-23 21:03:16.937] [DEBUG] ultt - creating class <name1+++name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:03:17.150] [DEBUG] ultt - insert data: {"classname":"<name1+++name2>","user_id":"1","school_year":"2014","classcode":"bpLyaKePpU","subject_id":"1"}
+[2014-10-23 21:03:17.185] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":41,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:03:17.186] [INFO] ultt - successful class creating
+[2014-10-23 21:03:17.190] [DEBUG] ultt - created class with id: 41, classcode: bpLyaKePpU
+[2014-10-23 21:04:13.737] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:04:13.738] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3c%00n%00a%00m%00e%001%00+%00%2b%00+%00n%00a%00m%00e%002%00%3e%00&school_year=2014
+[2014-10-23 21:04:13.739] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:04:13.739] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:04:13.739] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:04:13.739] [DEBUG] ultt - ---classname=< n a m e 1 + + + n a m e 2 > 
+[2014-10-23 21:04:13.740] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:04:13.740] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","school_year":"2014"}
+[2014-10-23 21:04:13.741] [DEBUG] ultt - creating class < n a m e 1 + + + n a m e 2 >  for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:04:13.741] [DEBUG] ultt - insert data: {"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","user_id":"1","school_year":"2014","classcode":"tYnWTr7qlP","subject_id":"1"}
+[2014-10-23 21:04:13.787] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":42,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:04:13.788] [INFO] ultt - successful class creating
+[2014-10-23 21:04:13.789] [DEBUG] ultt - created class with id: 42, classcode: tYnWTr7qlP
+[2014-10-23 21:07:13.604] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:07:13.606] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%253Cname1%2520%2b%2520name2%253E&school_year=2014
+[2014-10-23 21:07:13.606] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:07:13.606] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:07:13.607] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:07:13.607] [DEBUG] ultt - ---classname=%3Cname1%20+%20name2%3E
+[2014-10-23 21:07:13.607] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:07:13.607] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%3Cname1%20+%20name2%3E","school_year":"2014"}
+[2014-10-23 21:07:13.608] [DEBUG] ultt - creating class %3Cname1%20+%20name2%3E for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:07:13.608] [DEBUG] ultt - insert data: {"classname":"%3Cname1%20+%20name2%3E","user_id":"1","school_year":"2014","classcode":"BAqJLsmopK","subject_id":"1"}
+[2014-10-23 21:07:13.659] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":43,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:07:13.660] [INFO] ultt - successful class creating
+[2014-10-23 21:07:13.661] [DEBUG] ultt - created class with id: 43, classcode: BAqJLsmopK
+[2014-10-23 21:07:40.127] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:07:40.127] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%25%00%00%003%00%00%00C%00%00%00n%00%00%00a%00%00%00m%00%00%00e%00%00%001%00%00%00%25%00%00%002%00%00%000%00%00%00%2b%00%00%00%25%00%00%002%00%00%000%00%00%00n%00%00%00a%00%00%00m%00%00%00e%00%00%002%00%00%00%25%00%00%003%00%00%00E%00%00%00&school_year=2014
+[2014-10-23 21:07:40.128] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:07:40.128] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:07:40.128] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:07:40.129] [DEBUG] ultt - ---classname=%   3   C   n   a   m   e   1   %   2   0   +   %   2   0   n   a   m   e   2   %   3   E   
+[2014-10-23 21:07:40.129] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:07:40.129] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00002\u0000\u0000\u0000%\u0000\u0000\u00003\u0000\u0000\u0000E\u0000\u0000\u0000","school_year":"2014"}
+[2014-10-23 21:07:40.129] [DEBUG] ultt - creating class %   3   C   n   a   m   e   1   %   2   0   +   %   2   0   n   a   m   e   2   %   3   E    for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:07:40.130] [DEBUG] ultt - insert data: {"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00002\u0000\u0000\u0000%\u0000\u0000\u00003\u0000\u0000\u0000E\u0000\u0000\u0000","user_id":"1","school_year":"2014","classcode":"BAzKA8usYP","subject_id":"1"}
+[2014-10-23 21:07:40.190] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":44,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:07:40.191] [INFO] ultt - successful class creating
+[2014-10-23 21:07:40.192] [DEBUG] ultt - created class with id: 44, classcode: BAzKA8usYP
+[2014-10-23 21:08:27.280] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:08:27.281] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 21:08:27.281] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:08:27.281] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:08:27.282] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:08:27.282] [DEBUG] ultt - ---classname=<name1+++name2>
+[2014-10-23 21:08:27.283] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:08:27.283] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1+++name2>","school_year":"2014"}
+[2014-10-23 21:08:27.284] [DEBUG] ultt - creating class <name1+++name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:08:27.284] [DEBUG] ultt - insert data: {"classname":"<name1+++name2>","user_id":"1","school_year":"2014","classcode":"uWUEGQa9nw","subject_id":"1"}
+[2014-10-23 21:08:27.314] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":45,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:08:27.316] [INFO] ultt - successful class creating
+[2014-10-23 21:08:27.318] [DEBUG] ultt - created class with id: 45, classcode: uWUEGQa9nw
+[2014-10-23 21:08:56.549] [INFO] ultt - listening on port 80
+[2014-10-23 21:08:56.553] [INFO] ultt - connected to db
+[2014-10-23 21:08:58.617] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:08:58.619] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%3cname1+%2b+name2%3e&school_year=2014
+[2014-10-23 21:08:58.620] [DEBUG] ultt - ---method=createClass
+[2014-10-23 21:08:58.621] [DEBUG] ultt - ---user_id=1
+[2014-10-23 21:08:58.621] [DEBUG] ultt - ---subject_id=1
+[2014-10-23 21:08:58.622] [DEBUG] ultt - ---classname=<name1 + name2>
+[2014-10-23 21:08:58.622] [DEBUG] ultt - ---school_year=2014
+[2014-10-23 21:08:58.624] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"<name1 + name2>","school_year":"2014"}
+[2014-10-23 21:08:58.624] [DEBUG] ultt - creating class <name1 + name2> for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:08:58.835] [DEBUG] ultt - insert data: {"classname":"<name1 + name2>","user_id":"1","school_year":"2014","classcode":"2IoOSAA9Rz","subject_id":"1"}
+[2014-10-23 21:08:58.892] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":46,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:08:58.893] [INFO] ultt - successful class creating
+[2014-10-23 21:08:58.896] [DEBUG] ultt - created class with id: 46, classcode: 2IoOSAA9Rz
+[2014-10-23 21:09:18.221] [INFO] ultt - listening on port 80
+[2014-10-23 21:09:18.226] [INFO] ultt - connected to db
+[2014-10-23 21:10:14.863] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:10:14.863] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%c2%b0%21%c2%a7%24%25%26%2f()%3d%3f1234567890%c3%9f*%c3%9c%27%c3%84%c3%96_%3a%3b%3c%3e%2b%c3%bc%23%c3%a4%c3%b6-.%2c_%e2%82%ac%40%7c&school_year=2014
+[2014-10-23 21:10:14.864] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"°!§$%&/()","school_year":"2014"}
+[2014-10-23 21:10:14.865] [DEBUG] ultt - creating class °!§$%&/() for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:10:15.031] [DEBUG] ultt - insert data: {"classname":"°!§$%&/()","user_id":"1","school_year":"2014","classcode":"sdoVhoo9EJ","subject_id":"1"}
+[2014-10-23 21:10:15.053] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":47,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:10:15.054] [INFO] ultt - successful class creating
+[2014-10-23 21:10:15.055] [DEBUG] ultt - created class with id: 47, classcode: sdoVhoo9EJ
+[2014-10-23 21:11:44.502] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:11:44.504] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%c2%b0%21%c2%a7%24%25%26%2f()%3f1234567890%c3%9f*%c3%9c%27%c3%84%c3%96_%3a%3b%3c%3e%2b%c3%bc%23%c3%a4%c3%b6-.%2c_%e2%82%ac%40%7c&school_year=2014
+[2014-10-23 21:11:44.504] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","school_year":"2014"}
+[2014-10-23 21:11:44.505] [DEBUG] ultt - creating class °!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@| for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:11:44.505] [DEBUG] ultt - insert data: {"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","user_id":"1","school_year":"2014","classcode":"hOsUQtCRAh","subject_id":"1"}
+[2014-10-23 21:11:44.564] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":48,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:11:44.566] [INFO] ultt - successful class creating
+[2014-10-23 21:11:44.569] [DEBUG] ultt - created class with id: 48, classcode: hOsUQtCRAh
+[2014-10-23 21:12:03.346] [INFO] ultt - serving request to /
+[2014-10-23 21:12:03.550] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 21:12:12.509] [INFO] ultt - serving post to /login
+[2014-10-23 21:12:12.511] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-10-23 21:12:12.514] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-10-23 21:12:12.515] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null","user_id":"null"}
+[2014-10-23 21:12:12.516] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mkesse';
+[2014-10-23 21:12:12.517] [INFO] ultt - successful db fetching
+[2014-10-23 21:12:12.518] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-23 21:12:12.519] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-23 21:12:12.519] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 21:12:12.584] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:12.584] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-10-23 21:12:12.585] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-10-23 21:12:12.585] [DEBUG] ultt - get user with id: 1
+[2014-10-23 21:12:12.586] [INFO] ultt - successful user fetching
+[2014-10-23 21:12:12.587] [DEBUG] ultt - fetch result: [{"user_id":1,"token":66,"username":"mkesse","name_first":"Max","name_last":"Kesselbacher","email_id":"mkesse@gmx.at","picture":"/web/image/default.jpg","created_at":"2014-08-27T17:40:24.000Z","school_id":"10"}]
+[2014-10-23 21:12:12.617] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:12.617] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:12.618] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:12.618] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:12.620] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:12.620] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":34,"classname":"<name1+++name2>%&","privacy":null,"school_year":2014,"classcode":"pLZFt4nmkQ","subject_name":"Informatik"},{"class_id":35,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"SKJN7LDjaH","subject_name":"Informatik"},{"class_id":36,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"qyYdpre5XC","subject_name":"Informatik"},{"class_id":37,"classname":"<name1+%2b+name2>","privacy":null,"school_year":2014,"classcode":"mgSLvpqT6o","subject_name":"Informatik"},{"class_id":38,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"DbVfAiIMJr","subject_name":"Informatik"},{"class_id":39,"classname":"<name1 ++name2>","privacy":null,"school_year":2014,"classcode":"K23Tatd364","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:14.452] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:14.452] [DEBUG] ultt - received data: method=deleteClass&class_id=37
+[2014-10-23 21:12:14.453] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"37"}
+[2014-10-23 21:12:14.453] [DEBUG] ultt - deleting class with id: 37
+[2014-10-23 21:12:14.514] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:14.515] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:14.574] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:14.575] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:14.575] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:14.576] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:14.578] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:14.579] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":34,"classname":"<name1+++name2>%&","privacy":null,"school_year":2014,"classcode":"pLZFt4nmkQ","subject_name":"Informatik"},{"class_id":35,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"SKJN7LDjaH","subject_name":"Informatik"},{"class_id":36,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"qyYdpre5XC","subject_name":"Informatik"},{"class_id":38,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"DbVfAiIMJr","subject_name":"Informatik"},{"class_id":39,"classname":"<name1 ++name2>","privacy":null,"school_year":2014,"classcode":"K23Tatd364","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:15.249] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:15.252] [DEBUG] ultt - received data: method=deleteClass&class_id=36
+[2014-10-23 21:12:15.253] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"36"}
+[2014-10-23 21:12:15.253] [DEBUG] ultt - deleting class with id: 36
+[2014-10-23 21:12:15.285] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:15.286] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:15.332] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:15.334] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:15.334] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:15.334] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:15.337] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:15.341] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":34,"classname":"<name1+++name2>%&","privacy":null,"school_year":2014,"classcode":"pLZFt4nmkQ","subject_name":"Informatik"},{"class_id":35,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"SKJN7LDjaH","subject_name":"Informatik"},{"class_id":38,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"DbVfAiIMJr","subject_name":"Informatik"},{"class_id":39,"classname":"<name1 ++name2>","privacy":null,"school_year":2014,"classcode":"K23Tatd364","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:16.391] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:16.394] [DEBUG] ultt - received data: method=deleteClass&class_id=35
+[2014-10-23 21:12:16.395] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"35"}
+[2014-10-23 21:12:16.395] [DEBUG] ultt - deleting class with id: 35
+[2014-10-23 21:12:16.426] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:16.427] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:16.460] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:16.461] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:16.461] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:16.463] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:16.465] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:16.466] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":34,"classname":"<name1+++name2>%&","privacy":null,"school_year":2014,"classcode":"pLZFt4nmkQ","subject_name":"Informatik"},{"class_id":38,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"DbVfAiIMJr","subject_name":"Informatik"},{"class_id":39,"classname":"<name1 ++name2>","privacy":null,"school_year":2014,"classcode":"K23Tatd364","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:17.270] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:17.272] [DEBUG] ultt - received data: method=deleteClass&class_id=38
+[2014-10-23 21:12:17.273] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"38"}
+[2014-10-23 21:12:17.273] [DEBUG] ultt - deleting class with id: 38
+[2014-10-23 21:12:17.300] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:17.302] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:17.339] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:17.341] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:17.342] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:17.342] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:17.351] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:17.352] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":34,"classname":"<name1+++name2>%&","privacy":null,"school_year":2014,"classcode":"pLZFt4nmkQ","subject_name":"Informatik"},{"class_id":39,"classname":"<name1 ++name2>","privacy":null,"school_year":2014,"classcode":"K23Tatd364","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:17.882] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:17.883] [DEBUG] ultt - received data: method=deleteClass&class_id=39
+[2014-10-23 21:12:17.884] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"39"}
+[2014-10-23 21:12:17.884] [DEBUG] ultt - deleting class with id: 39
+[2014-10-23 21:12:17.920] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:17.921] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:17.967] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:17.968] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:17.969] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:17.969] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:17.971] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:17.971] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":34,"classname":"<name1+++name2>%&","privacy":null,"school_year":2014,"classcode":"pLZFt4nmkQ","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:19.028] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:19.030] [DEBUG] ultt - received data: method=deleteClass&class_id=34
+[2014-10-23 21:12:19.031] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"34"}
+[2014-10-23 21:12:19.032] [DEBUG] ultt - deleting class with id: 34
+[2014-10-23 21:12:19.058] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:19.059] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:19.096] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:19.097] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:19.098] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:19.099] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:19.102] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:19.102] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":40,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"p3CfQvbEmo","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:20.303] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:20.304] [DEBUG] ultt - received data: method=deleteClass&class_id=40
+[2014-10-23 21:12:20.305] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"40"}
+[2014-10-23 21:12:20.306] [DEBUG] ultt - deleting class with id: 40
+[2014-10-23 21:12:20.454] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:20.455] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:20.489] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:20.491] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:20.491] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:20.492] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:20.493] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:20.494] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":41,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"bpLyaKePpU","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:20.859] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:20.860] [DEBUG] ultt - received data: method=deleteClass&class_id=41
+[2014-10-23 21:12:20.862] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"41"}
+[2014-10-23 21:12:20.862] [DEBUG] ultt - deleting class with id: 41
+[2014-10-23 21:12:20.890] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:20.891] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:20.930] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:20.932] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:20.933] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:20.934] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:20.936] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:20.936] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":42,"classname":"<\u0000n\u0000a\u0000m\u0000e\u00001\u0000+\u0000+\u0000+\u0000n\u0000a\u0000m\u0000e\u00002\u0000>\u0000","privacy":null,"school_year":2014,"classcode":"tYnWTr7qlP","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:21.760] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:21.761] [DEBUG] ultt - received data: method=deleteClass&class_id=42
+[2014-10-23 21:12:21.762] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"42"}
+[2014-10-23 21:12:21.763] [DEBUG] ultt - deleting class with id: 42
+[2014-10-23 21:12:21.809] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:21.811] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:21.847] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:21.848] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:21.849] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:21.850] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:21.852] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:21.853] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":43,"classname":"%3Cname1%20+%20name2%3E","privacy":null,"school_year":2014,"classcode":"BAqJLsmopK","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:23.126] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:23.128] [DEBUG] ultt - received data: method=deleteClass&class_id=43
+[2014-10-23 21:12:23.129] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"43"}
+[2014-10-23 21:12:23.131] [DEBUG] ultt - deleting class with id: 43
+[2014-10-23 21:12:23.167] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:23.168] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:23.217] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:23.218] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:23.219] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:23.219] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:23.221] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:23.221] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":28,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"p1nXIrIk7p","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:26.814] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:26.816] [DEBUG] ultt - received data: method=deleteClass&class_id=28
+[2014-10-23 21:12:26.816] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"28"}
+[2014-10-23 21:12:26.817] [DEBUG] ultt - deleting class with id: 28
+[2014-10-23 21:12:26.848] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:26.849] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:26.897] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:26.899] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:26.900] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:26.900] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:26.902] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:26.903] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":29,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"B7kDLGmLMe","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:27.568] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:27.569] [DEBUG] ultt - received data: method=deleteClass&class_id=29
+[2014-10-23 21:12:27.570] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"29"}
+[2014-10-23 21:12:27.570] [DEBUG] ultt - deleting class with id: 29
+[2014-10-23 21:12:27.630] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:27.632] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:27.670] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:27.672] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:27.672] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:27.673] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:27.674] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:27.675] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":30,"classname":"%3cname1+%2b+name2%3e","privacy":null,"school_year":2014,"classcode":"NJrrw14yPU","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:28.385] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:28.388] [DEBUG] ultt - received data: method=deleteClass&class_id=30
+[2014-10-23 21:12:28.389] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"30"}
+[2014-10-23 21:12:28.389] [DEBUG] ultt - deleting class with id: 30
+[2014-10-23 21:12:28.422] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:28.423] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:28.466] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:28.467] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:28.468] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:28.469] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:28.472] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:28.473] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":31,"classname":"%253Cname1%2520%252B%2520name2%253E","privacy":null,"school_year":2014,"classcode":"wO4bWMu2dT","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:29.605] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:29.607] [DEBUG] ultt - received data: method=deleteClass&class_id=31
+[2014-10-23 21:12:29.608] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"31"}
+[2014-10-23 21:12:29.608] [DEBUG] ultt - deleting class with id: 31
+[2014-10-23 21:12:29.665] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:29.666] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:29.707] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:29.709] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:29.709] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:29.710] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:29.711] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:29.711] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":32,"classname":"%3Cname1%20%2B%20name2%3E","privacy":null,"school_year":2014,"classcode":"ZJ4aDHVHRk","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:30.401] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:30.402] [DEBUG] ultt - received data: method=deleteClass&class_id=32
+[2014-10-23 21:12:30.403] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"32"}
+[2014-10-23 21:12:30.403] [DEBUG] ultt - deleting class with id: 32
+[2014-10-23 21:12:30.447] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:30.448] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:30.483] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:30.484] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:30.487] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:30.488] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:30.489] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:30.490] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":33,"classname":"name1+++name2","privacy":null,"school_year":2014,"classcode":"qYJD9WLQaQ","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:31.040] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:31.041] [DEBUG] ultt - received data: method=deleteClass&class_id=33
+[2014-10-23 21:12:31.042] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"33"}
+[2014-10-23 21:12:31.043] [DEBUG] ultt - deleting class with id: 33
+[2014-10-23 21:12:31.105] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:31.106] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:31.144] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:31.145] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:31.145] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:31.146] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:31.147] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:31.148] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":44,"classname":"%\u0000\u0000\u00003\u0000\u0000\u0000C\u0000\u0000\u0000n\u0000\u0000\u0000a\u0000\u0000\u0000m\u0000\u0000\u0000e\u0000\u0000\u00001\u0000\u0000\u0000%\u0000\u0000\u00002\u0000\u0000\u00000\u0000\u0000\u0000+","privacy":null,"school_year":2014,"classcode":"BAzKA8usYP","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:31.939] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:31.940] [DEBUG] ultt - received data: method=deleteClass&class_id=44
+[2014-10-23 21:12:31.941] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"44"}
+[2014-10-23 21:12:31.941] [DEBUG] ultt - deleting class with id: 44
+[2014-10-23 21:12:31.967] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:31.969] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:32.007] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:32.007] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:32.008] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:32.009] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:32.010] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:32.011] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":45,"classname":"<name1+++name2>","privacy":null,"school_year":2014,"classcode":"uWUEGQa9nw","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:33.809] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:33.810] [DEBUG] ultt - received data: method=deleteClass&class_id=45
+[2014-10-23 21:12:33.811] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"45"}
+[2014-10-23 21:12:33.812] [DEBUG] ultt - deleting class with id: 45
+[2014-10-23 21:12:33.888] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:33.890] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:33.929] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:33.930] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:33.931] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:33.932] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:33.934] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:33.934] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":46,"classname":"<name1 + name2>","privacy":null,"school_year":2014,"classcode":"2IoOSAA9Rz","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:34.721] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:34.723] [DEBUG] ultt - received data: method=deleteClass&class_id=46
+[2014-10-23 21:12:34.723] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"46"}
+[2014-10-23 21:12:34.724] [DEBUG] ultt - deleting class with id: 46
+[2014-10-23 21:12:34.757] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:34.758] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:34.805] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:34.806] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:34.807] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:34.807] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:34.810] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:34.811] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":47,"classname":"°!§$%&/()","privacy":null,"school_year":2014,"classcode":"sdoVhoo9EJ","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:12:36.172] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:36.173] [DEBUG] ultt - received data: method=deleteClass&class_id=47
+[2014-10-23 21:12:36.174] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"47"}
+[2014-10-23 21:12:36.174] [DEBUG] ultt - deleting class with id: 47
+[2014-10-23 21:12:36.209] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:12:36.211] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:12:36.252] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:12:36.252] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:12:36.253] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:12:36.253] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:12:36.255] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:12:36.255] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:13:19.798] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:13:19.799] [DEBUG] ultt - received data: method=createClass&user_id=1&subject_id=1&classname=%d1%84%d0%b2%d1%8b%d0%b0%d1%84%d0%b6%d0%bf%d1%84%d1%83%d0%ba%d0%bf&school_year=2014
+[2014-10-23 21:13:19.800] [DEBUG] ultt - full data received on db: {"method":"createClass","user_id":"1","subject_id":"1","classname":"фвыафжпфукп","school_year":"2014"}
+[2014-10-23 21:13:19.801] [DEBUG] ultt - creating class фвыафжпфукп for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:13:19.801] [DEBUG] ultt - insert data: {"classname":"фвыафжпфукп","user_id":"1","school_year":"2014","classcode":"5uGuRwaJS1","subject_id":"1"}
+[2014-10-23 21:13:19.832] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":49,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:13:19.833] [INFO] ultt - successful class creating
+[2014-10-23 21:13:19.833] [DEBUG] ultt - created class with id: 49, classcode: 5uGuRwaJS1
+[2014-10-23 21:13:28.653] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:13:28.654] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:13:28.655] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:13:28.656] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:13:28.658] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:13:28.658] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":49,"classname":"фвыафжпфукп","privacy":null,"school_year":2014,"classcode":"5uGuRwaJS1","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:20:12.909] [INFO] ultt - listening on port 80
+[2014-10-23 21:20:12.914] [INFO] ultt - connected to db
+[2014-10-23 21:20:24.235] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:20:24.238] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:20:24.240] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:20:24.242] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:20:24.247] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:20:24.248] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":49,"classname":"фвыафжпфукп","privacy":null,"school_year":2014,"classcode":"5uGuRwaJS1","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:20:58.761] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:20:58.763] [DEBUG] ultt - received data: method=createClass&classname=klasse%5e1234567890%c3%9f%c2%b4%c2%b0%21%60%c2%a7%24%25%26%2f()%3f*%c3%9c%27%c3%84%c3%96_%3a%3b%2b%c3%bc%23%c3%a4%c3%b6-.%2c%3c%3e%7c&user_id=1&subject_id=1&school_year=2014
+[2014-10-23 21:20:58.766] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"klasse^1234567890ß´°!`§$%&/()?*Ü'ÄÖ_:;+ü#äö-.,<>|","user_id":"1","subject_id":"1","school_year":"2014"}
+[2014-10-23 21:20:58.768] [DEBUG] ultt - creating class klasse^1234567890ß´°!`§$%&/()?*Ü'ÄÖ_:;+ü#äö-.,<>| for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:20:58.983] [DEBUG] ultt - insert data: {"classname":"klasse^1234567890ß´°!`§$%&/()?*Ü'ÄÖ_:;+ü#äö-.,<>|","user_id":"1","school_year":"2014","classcode":"hjsf7LBqbo","subject_id":"1"}
+[2014-10-23 21:20:59.033] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":50,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:20:59.033] [INFO] ultt - successful class creating
+[2014-10-23 21:20:59.034] [DEBUG] ultt - created class with id: 50, classcode: hjsf7LBqbo
+[2014-10-23 21:20:59.108] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:20:59.109] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:20:59.111] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:20:59.112] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:20:59.115] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:20:59.116] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":49,"classname":"фвыафжпфукп","privacy":null,"school_year":2014,"classcode":"5uGuRwaJS1","subject_name":"Informatik"},{"class_id":50,"classname":"klasse^1234567890ß´°!`§$%&/()?*Ü'ÄÖ_:;+ü#äö-.","privacy":null,"school_year":2014,"classcode":"hjsf7LBqbo","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:21:20.004] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:21:20.005] [DEBUG] ultt - received data: method=getClassTopics&class_id=50
+[2014-10-23 21:21:20.005] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"50"}
+[2014-10-23 21:21:20.006] [DEBUG] ultt - get topics of class with id: 50
+[2014-10-23 21:21:20.006] [INFO] ultt - successful topics fetching
+[2014-10-23 21:21:20.007] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:21:25.378] [INFO] ultt - serving post to /login
+[2014-10-23 21:21:25.383] [DEBUG] ultt - received login data: username=mkesse&password=password
+[2014-10-23 21:21:25.385] [DEBUG] ultt - user data received: {"username":"mkesse","password":"password"}
+[2014-10-23 21:21:25.386] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mkesse","password":"null","user_id":"null"}
+[2014-10-23 21:21:25.388] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mkesse';
+[2014-10-23 21:21:25.391] [INFO] ultt - successful db fetching
+[2014-10-23 21:21:25.392] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-23 21:21:25.395] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-23 21:21:25.396] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 21:22:18.574] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:22:18.575] [DEBUG] ultt - received data: method=createClass&classname=%d1%84%d0%b8%d1%86%d1%83%d1%86%d0%ba%d0%b5%d0%bd&user_id=1&subject_id=1&school_year=2014
+[2014-10-23 21:22:18.577] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"фицуцкен","user_id":"1","subject_id":"1","school_year":"2014"}
+[2014-10-23 21:22:18.578] [DEBUG] ultt - creating class фицуцкен for user_id 1, subject_id 1 and school_year 2014
+[2014-10-23 21:22:18.579] [DEBUG] ultt - insert data: {"classname":"фицуцкен","user_id":"1","school_year":"2014","classcode":"c1zVExKWlK","subject_id":"1"}
+[2014-10-23 21:22:18.610] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":51,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:22:18.611] [INFO] ultt - successful class creating
+[2014-10-23 21:22:18.613] [DEBUG] ultt - created class with id: 51, classcode: c1zVExKWlK
+[2014-10-23 21:22:18.658] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:22:18.659] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-23 21:22:18.661] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-23 21:22:18.661] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-23 21:22:18.722] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:22:18.724] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Informatik1","privacy":null,"school_year":2014,"classcode":"gkuzdxtzjsy","subject_name":"Informatik"},{"class_id":48,"classname":"°!§$%&/()?1234567890ß*Ü'ÄÖ_:;<>+ü#äö-.,_€@|","privacy":null,"school_year":2014,"classcode":"hOsUQtCRAh","subject_name":"Informatik"},{"class_id":49,"classname":"фвыафжпфукп","privacy":null,"school_year":2014,"classcode":"5uGuRwaJS1","subject_name":"Informatik"},{"class_id":50,"classname":"klasse^1234567890ß´°!`§$%&/()?*Ü'ÄÖ_:;+ü#äö-.","privacy":null,"school_year":2014,"classcode":"hjsf7LBqbo","subject_name":"Informatik"},{"class_id":51,"classname":"фицуцкен","privacy":null,"school_year":2014,"classcode":"c1zVExKWlK","subject_name":"Informatik"},{"class_id":2,"classname":"Mathematik1","privacy":null,"school_year":2014,"classcode":"rxtzjdsjmm","subject_name":"Mathematik"}]
+[2014-10-23 21:25:31.209] [INFO] ultt - serving request to /
+[2014-10-23 21:25:31.480] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-23 21:25:38.235] [INFO] ultt - serving post to /login
+[2014-10-23 21:25:38.240] [DEBUG] ultt - received login data: username=pasan&password=1234567
+[2014-10-23 21:25:38.241] [DEBUG] ultt - user data received: {"username":"pasan","password":"1234567"}
+[2014-10-23 21:25:38.242] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"pasan","password":"null","user_id":"null"}
+[2014-10-23 21:25:38.242] [DEBUG] ultt - db fetch query: select password,user_id from user where username='pasan';
+[2014-10-23 21:25:38.244] [INFO] ultt - successful db fetching
+[2014-10-23 21:25:38.245] [DEBUG] ultt - fetch result: [{"password":"1234567","user_id":5}]
+[2014-10-23 21:25:38.245] [DEBUG] ultt - password fetched: [{"password":"1234567","user_id":5}]
+[2014-10-23 21:25:38.246] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 21:25:38.316] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:38.317] [DEBUG] ultt - received data: method=getUser&user_id=5
+[2014-10-23 21:25:38.318] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"5"}
+[2014-10-23 21:25:38.319] [DEBUG] ultt - get user with id: 5
+[2014-10-23 21:25:38.320] [INFO] ultt - successful user fetching
+[2014-10-23 21:25:38.320] [DEBUG] ultt - fetch result: [{"user_id":5,"token":0,"username":"pasan","name_first":"anastasiya","name_last":"pasynkava","email_id":"2","picture":"/web/image/default.jpg","created_at":"2014-10-12T13:18:12.000Z","school_id":"schule"}]
+[2014-10-23 21:25:38.350] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:38.351] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 21:25:38.351] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 21:25:38.352] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 21:25:38.353] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:25:38.353] [DEBUG] ultt - fetch result: [{"class_id":20,"classname":"hk23","privacy":null,"school_year":"0000","classcode":"0HaSGrVjyx","subject_name":"Informatik"}]
+[2014-10-23 21:25:40.648] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:40.654] [DEBUG] ultt - received data: method=deleteClass&class_id=20
+[2014-10-23 21:25:40.656] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"20"}
+[2014-10-23 21:25:40.657] [DEBUG] ultt - deleting class with id: 20
+[2014-10-23 21:25:40.698] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-10-23 21:25:40.700] [DEBUG] ultt - successful setting delete flag of class
+[2014-10-23 21:25:40.748] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:40.749] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 21:25:40.750] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 21:25:40.750] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 21:25:40.752] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:25:40.752] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:25:47.565] [INFO] ultt - listening on port 80
+[2014-10-23 21:25:47.570] [INFO] ultt - connected to db
+[2014-10-23 21:25:49.867] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:49.869] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 21:25:49.870] [DEBUG] ultt - --- method=getUserClasses
+[2014-10-23 21:25:49.871] [DEBUG] ultt - --- user_id=5
+[2014-10-23 21:25:49.873] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 21:25:49.873] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 21:25:49.877] [INFO] ultt - successful classes fetching
+[2014-10-23 21:25:49.877] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:25:54.235] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:54.238] [DEBUG] ultt - received data: method=registerUserToClass&user_id=5&classcode=%22%c2%a7%24%25%26%2f
+[2014-10-23 21:25:54.239] [DEBUG] ultt - --- method=registerUserToClass
+[2014-10-23 21:25:54.239] [DEBUG] ultt - --- user_id=5
+[2014-10-23 21:25:54.241] [DEBUG] ultt - --- classcode="§$%&/
+[2014-10-23 21:25:54.242] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"5","classcode":"\"§$%&/"}
+[2014-10-23 21:25:54.244] [DEBUG] ultt - no class_id found for classcode: "§$%&/
+[2014-10-23 21:25:54.245] [ERROR] ultt - error on method registerUserToClass
+[2014-10-23 21:25:54.248] [ERROR] ultt - error posting to db: {"error":301}
+[2014-10-23 21:25:54.299] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:25:54.302] [DEBUG] ultt - received data: method=getUserClasses&user_id=5
+[2014-10-23 21:25:54.303] [DEBUG] ultt - --- method=getUserClasses
+[2014-10-23 21:25:54.304] [DEBUG] ultt - --- user_id=5
+[2014-10-23 21:25:54.305] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"5"}
+[2014-10-23 21:25:54.306] [DEBUG] ultt - get classes of user with id: 5
+[2014-10-23 21:25:54.308] [INFO] ultt - successful classes fetching
+[2014-10-23 21:25:54.309] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:26:01.384] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:26:01.385] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 21:26:01.386] [DEBUG] ultt - --- method=getTeacherClasses
+[2014-10-23 21:26:01.387] [DEBUG] ultt - --- user_id=5
+[2014-10-23 21:26:01.387] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 21:26:01.388] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 21:26:01.391] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:26:01.392] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:26:13.591] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:26:13.592] [DEBUG] ultt - received data: method=createClass&classname=klasse+1+%2b+*+%2f+789456123&user_id=5&subject_id=1&school_year=2014
+[2014-10-23 21:26:13.593] [DEBUG] ultt - --- method=createClass
+[2014-10-23 21:26:13.594] [DEBUG] ultt - --- classname=klasse 1 + * / 789456123
+[2014-10-23 21:26:13.595] [DEBUG] ultt - --- user_id=5
+[2014-10-23 21:26:13.595] [DEBUG] ultt - --- subject_id=1
+[2014-10-23 21:26:13.596] [DEBUG] ultt - --- school_year=2014
+[2014-10-23 21:26:13.597] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"klasse 1 + * / 789456123","user_id":"5","subject_id":"1","school_year":"2014"}
+[2014-10-23 21:26:13.598] [DEBUG] ultt - creating class klasse 1 + * / 789456123 for user_id 5, subject_id 1 and school_year 2014
+[2014-10-23 21:26:13.795] [DEBUG] ultt - insert data: {"classname":"klasse 1 + * / 789456123","user_id":"5","school_year":"2014","classcode":"uOG7GvdRez","subject_id":"1"}
+[2014-10-23 21:26:13.838] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":52,"serverStatus":2,"warningCount":0,"message":"","protocol41":true,"changedRows":0}
+[2014-10-23 21:26:13.839] [INFO] ultt - successful class creating
+[2014-10-23 21:26:13.839] [DEBUG] ultt - created class with id: 52, classcode: uOG7GvdRez
+[2014-10-23 21:26:13.879] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:26:13.880] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=5
+[2014-10-23 21:26:13.880] [DEBUG] ultt - --- method=getTeacherClasses
+[2014-10-23 21:26:13.880] [DEBUG] ultt - --- user_id=5
+[2014-10-23 21:26:13.880] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"5"}
+[2014-10-23 21:26:13.881] [DEBUG] ultt - get classes of teacher user with id: 5
+[2014-10-23 21:26:13.881] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:26:13.882] [DEBUG] ultt - fetch result: [{"class_id":52,"classname":"klasse 1 + * / 789456123","privacy":null,"school_year":2014,"classcode":"uOG7GvdRez","subject_name":"Informatik"}]
+[2014-10-23 21:27:02.607] [INFO] ultt - listening on port 80
+[2014-10-23 21:27:02.611] [INFO] ultt - connected to db
+[2014-10-23 21:27:31.212] [INFO] ultt - serving post to /register
+[2014-10-23 21:27:31.215] [DEBUG] ultt - received register data: method=register&name_first=max&name_last=k&username=maxk&password=1234567&email_id=1%402&school_id=km
+[2014-10-23 21:27:31.217] [DEBUG] ultt - --- decoded method=register
+[2014-10-23 21:27:31.218] [DEBUG] ultt - --- decoded name_first=max
+[2014-10-23 21:27:31.219] [DEBUG] ultt - --- decoded name_last=k
+[2014-10-23 21:27:31.220] [DEBUG] ultt - --- decoded username=maxk
+[2014-10-23 21:27:31.220] [DEBUG] ultt - --- decoded password=1234567
+[2014-10-23 21:27:31.221] [DEBUG] ultt - --- decoded email_id=1@2
+[2014-10-23 21:27:31.221] [DEBUG] ultt - --- decoded school_id=km
+[2014-10-23 21:27:31.223] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"maxk","password":"null"}
+[2014-10-23 21:27:31.224] [DEBUG] ultt - db fetch query: select password from user where username='maxk';
+[2014-10-23 21:27:31.227] [INFO] ultt - successful db fetching
+[2014-10-23 21:27:31.227] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:27:31.228] [DEBUG] ultt - password fetched: []
+[2014-10-23 21:27:31.229] [DEBUG] ultt - empty fetch result, username not taken
+[2014-10-23 21:27:31.229] [DEBUG] ultt - full data received on db: {"purpose":"post","table":"user","username":"maxk","password":"1234567","name_first":"max","name_last":"k","email_id":"1@2","school_id":"km"}
+[2014-10-23 21:27:31.232] [DEBUG] ultt - db insert data: {"username":"maxk","password":"1234567","name_first":"max","name_last":"k","email_id":"1@2","school_id":"km"}, in table: user
+[2014-10-23 21:27:31.289] [INFO] ultt - successful db insert
+[2014-10-23 21:27:31.291] [DEBUG] ultt - user successful inserted
+[2014-10-23 21:27:31.292] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"maxk","user_id":"null"}
+[2014-10-23 21:27:31.293] [DEBUG] ultt - db fetch query: select user_id from user where username='maxk';
+[2014-10-23 21:27:31.295] [INFO] ultt - successful db fetching
+[2014-10-23 21:27:31.296] [DEBUG] ultt - fetch result: [{"user_id":6}]
+[2014-10-23 21:27:31.296] [DEBUG] ultt - user_id of new user fetched: 6
+[2014-10-23 21:28:14.739] [INFO] ultt - serving post to /login
+[2014-10-23 21:28:14.741] [DEBUG] ultt - received login data: username=maxk&password=1234567
+[2014-10-23 21:28:14.741] [DEBUG] ultt - --- decoded username=maxk
+[2014-10-23 21:28:14.742] [DEBUG] ultt - --- decoded password=1234567
+[2014-10-23 21:28:14.742] [DEBUG] ultt - user data received: {"username":"maxk","password":"1234567"}
+[2014-10-23 21:28:14.743] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"maxk","password":"null","user_id":"null"}
+[2014-10-23 21:28:14.743] [DEBUG] ultt - db fetch query: select password,user_id from user where username='maxk';
+[2014-10-23 21:28:14.745] [INFO] ultt - successful db fetching
+[2014-10-23 21:28:14.745] [DEBUG] ultt - fetch result: [{"password":"1234567","user_id":6}]
+[2014-10-23 21:28:14.746] [DEBUG] ultt - password fetched: [{"password":"1234567","user_id":6}]
+[2014-10-23 21:28:14.746] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 21:28:17.177] [INFO] ultt - serving post to /login
+[2014-10-23 21:28:17.178] [DEBUG] ultt - received login data: username=maxk&password=1234567
+[2014-10-23 21:28:17.180] [DEBUG] ultt - --- decoded username=maxk
+[2014-10-23 21:28:17.181] [DEBUG] ultt - --- decoded password=1234567
+[2014-10-23 21:28:17.182] [DEBUG] ultt - user data received: {"username":"maxk","password":"1234567"}
+[2014-10-23 21:28:17.184] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"maxk","password":"null","user_id":"null"}
+[2014-10-23 21:28:17.185] [DEBUG] ultt - db fetch query: select password,user_id from user where username='maxk';
+[2014-10-23 21:28:17.188] [INFO] ultt - successful db fetching
+[2014-10-23 21:28:17.189] [DEBUG] ultt - fetch result: [{"password":"1234567","user_id":6}]
+[2014-10-23 21:28:17.190] [DEBUG] ultt - password fetched: [{"password":"1234567","user_id":6}]
+[2014-10-23 21:28:17.191] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-23 21:28:19.655] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:28:19.656] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=6
+[2014-10-23 21:28:19.658] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-23 21:28:19.658] [DEBUG] ultt - --- decoded user_id=6
+[2014-10-23 21:28:19.659] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"6"}
+[2014-10-23 21:28:19.660] [DEBUG] ultt - get classes of teacher user with id: 6
+[2014-10-23 21:28:19.662] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:28:19.663] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:28:20.519] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:28:20.521] [DEBUG] ultt - received data: method=getUserClasses&user_id=6
+[2014-10-23 21:28:20.522] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-23 21:28:20.522] [DEBUG] ultt - --- decoded user_id=6
+[2014-10-23 21:28:20.523] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"6"}
+[2014-10-23 21:28:20.525] [DEBUG] ultt - get classes of user with id: 6
+[2014-10-23 21:28:20.527] [INFO] ultt - successful classes fetching
+[2014-10-23 21:28:20.528] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:28:21.790] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:28:21.791] [DEBUG] ultt - received data: method=getUserClasses&user_id=6
+[2014-10-23 21:28:21.794] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-23 21:28:21.795] [DEBUG] ultt - --- decoded user_id=6
+[2014-10-23 21:28:21.796] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"6"}
+[2014-10-23 21:28:21.797] [DEBUG] ultt - get classes of user with id: 6
+[2014-10-23 21:28:21.799] [INFO] ultt - successful classes fetching
+[2014-10-23 21:28:21.799] [DEBUG] ultt - fetch result: []
+[2014-10-23 21:28:22.183] [INFO] ultt - serving post to /unity/db
+[2014-10-23 21:28:22.185] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=6
+[2014-10-23 21:28:22.187] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-23 21:28:22.187] [DEBUG] ultt - --- decoded user_id=6
+[2014-10-23 21:28:22.188] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"6"}
+[2014-10-23 21:28:22.189] [DEBUG] ultt - get classes of teacher user with id: 6
+[2014-10-23 21:28:22.190] [INFO] ultt - successful teacher classes fetching
+[2014-10-23 21:28:22.191] [DEBUG] ultt - fetch result: []
