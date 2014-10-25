@@ -11,7 +11,17 @@ public class PanelTeacherClass : MonoBehaviour {
 	private JSONParser jsonparser;
 	
 	public GameObject panelStudentList;
-	
+
+	//panelAddTopic
+	public GameObject panelAddTopic;
+	public Text fieldTopicToAdd;
+
+	//panelAddTask
+	public GameObject panelAddTask;
+	public List<TaskShort> tasks;
+	public List<GameObject> tasksBtns;
+	public GameObject buttonTasks;
+
 	public GameObject topic;
 	public GameObject btnTask;
 	public GameObject studentInList_unaccepted, studentInList_accepted;
@@ -33,7 +43,7 @@ public class PanelTeacherClass : MonoBehaviour {
 		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		//teacherClass = GameObject.Find("Scripts").GetComponent<TeacherClass>();
 		
-		
+		tasksBtns = new List<GameObject>();
 		topics = new List<GameObject>();
 		students = new List<GameObject>();
 		init ();
@@ -48,6 +58,8 @@ public class PanelTeacherClass : MonoBehaviour {
 		dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 		
 		panelStudentList.SetActive(false);
+		panelAddTopic.SetActive (false);
+		panelAddTask.SetActive (false);
 		
 		//destroy teacherClassObject because it has wrong id
 		Destroy(teacherClass);
@@ -100,7 +112,7 @@ public class PanelTeacherClass : MonoBehaviour {
 								generatedTopic.transform.parent = GameObject.Find("ContentTasksForTopic").transform;
 								generatedTopic.transform.FindChild("TopicHeadline/Text").GetComponent<Text>().text = t.getName();
 								//define button actions: add task and delete topic
-								generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {addTask();});
+								generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {showTasks();});
 								generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTopic(t.getId());});
 								topics.Add(generatedTopic);
 								foreach(TaskShort ts in teacherClass.getTaskList()){
@@ -166,6 +178,30 @@ public class PanelTeacherClass : MonoBehaviour {
 								main.dbErrorHandler("acceptedStudent", "Schüler konnte nicht hinzugefügt werden");
 							}
 							break;
+		case "tasks":		panelAddTask.SetActive(true);
+							//generate buttons
+							GameObject generatedBtn;
+							//delete old buttons and clear all references
+							tasks.Clear ();
+							foreach(GameObject b in tasksBtns){
+								Destroy(b);
+							}	
+							tasksBtns.Clear();
+							parsedData = jsonparser.JSONparse(data);
+							
+							foreach (string[] s in parsedData){
+								if(s.Length > 1){	
+									TaskShort temp = new TaskShort(s);
+									tasks.Add(temp);
+									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
+									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
+									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getTaskName();
+									tasksBtns.Add(generatedBtn);
+									//set method to be called at onclick event
+									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId());});
+								}
+							}				
+							break;	
 		
 		case "addedTopic":
 							break;
@@ -173,9 +209,17 @@ public class PanelTeacherClass : MonoBehaviour {
 		
 	}
 	
-	public void addTask(){
+	public void showTasks(){
 		Debug.Log ("Button clicked, try to add Task");
-		
+		//get Tasks 
+		dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
+
+	}
+
+	public void addTask(int taskid){
+		//TODO
+		Debug.Log ("TODO: method in dbinterface: addTaskToClass");
+		panelAddTask.SetActive (false);
 	}
 	
 	
@@ -189,10 +233,17 @@ public class PanelTeacherClass : MonoBehaviour {
 		//delete task
 		//refresh panel from db or delete task from panelTeacherClass??
 	}
+
+	public void activatePanelAddTopic(){
+		Debug.Log ("activate panel");
+		panelAddTopic.SetActive (true);
+	}
 	
 	public void addTopic(){
-		Debug.Log ("Button clicked, try to add Topic");	
-		//dbinterface.createClassTopic("addedTopic", class_id, name, gameObject);	
+		string name = fieldTopicToAdd.GetComponent<Text> ().text;
+		Debug.Log ("Button clicked, try to add Topic: "+name);	
+		dbinterface.createClassTopic("addedTopic", class_id, name, gameObject);	
+		panelAddTopic.SetActive (false);
 	}
 	
 	public void deleteTopic(int id){

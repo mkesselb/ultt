@@ -31,7 +31,11 @@ public class TeacherClass : MonoBehaviour {
 		students = new List<Student>();
 		
 	}
-	
+
+	public int getUserId(){
+		return user_id;
+	}
+
 	public string getClassname(){
 		return classname;	
 	}
@@ -67,4 +71,5 @@ public class TeacherClass : MonoBehaviour {
 	public void addStudent(Student s){
 		students.Add(s);
 	}
+
 }

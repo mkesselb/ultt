@@ -28,6 +28,11 @@ public class Main : MonoBehaviour {
 	
 	//panel on panelteacherClass
 	public GameObject panelStudentList;
+
+	//objects on panelHeader
+	public Text headerText;
+	public Text btnBackText;
+	public GameObject messagebox;
 	
 	//userid
 	public int userid;
@@ -37,12 +42,13 @@ public class Main : MonoBehaviour {
 		
 		dbinterface = gameObject.GetComponent<DBInterface>();
 		
-		//activate logInScreen, deactivate rest
+		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
 		panelRegister.SetActive(false);
 		panelProfile.SetActive(false);
 		panelTeacherClass.SetActive(false);
 		panelUserClass.SetActive(false);
+		messagebox.SetActive (false);
 		
 	}
 	
@@ -102,14 +108,29 @@ public class Main : MonoBehaviour {
 	//called by dbinterface when received www form contains an error
 	public void dbErrorHandler(string target, string errortext){
 		Debug.Log ("Error message from db on target "+target+": "+errortext);
+
+		writeToMessagebox ("Es konnte keine Verbindung zum Server hergstellt werden.");
+
 	}
 	
 	public void errorHandler(string target, string errortext){
+		string displayedErrorText = "";
 		switch(target){
 		case "registerFormNotCorrectlyFilled": 	Debug.Log ("Register form not correctly filled: "+errortext);
+			displayedErrorText = errortext;
 												break;
 		
 		}
+		writeToMessagebox (displayedErrorText);
+	}
+
+	public void writeToMessagebox(string text){
+		messagebox.transform.FindChild ("Text").GetComponent<Text> ().text = text;
+		messagebox.SetActive (true);
+	}
+
+	public void deactivateMessagebox(){
+		messagebox.SetActive (false);
 	}
 	
 	
