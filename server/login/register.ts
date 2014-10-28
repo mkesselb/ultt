@@ -39,7 +39,7 @@ module.exports = function(dbConnection, userData, callback){
 	db(dbConnection, pwFetch, function(error, pw){
 		if(error){
 			logger.log(logger.logLevels["error"], "error on fetching pw for register: " + error.toString());
-			return callback(err);
+			return callback(error);
 		}
 		logger.log(logger.logLevels["debug"], "password fetched: " + JSON.stringify(pw));
 		

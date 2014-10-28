@@ -298,7 +298,8 @@ function get(dbConnection, dbData, callback){
 		if(matchData.hasOwnProperty(d)){
 			var x = matchData[d];
 			if(isNaN(x)){
-				query += d + "='" + x + "' and ";
+				//escape double quotes in x
+				query += d + "=\"" + x.split("\"").join('\\\"') + "\" and ";
 			} else{
 				query += d + "=" + x + " and ";
 			}
