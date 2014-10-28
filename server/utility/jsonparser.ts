@@ -4,9 +4,17 @@
 module.exports = function(data){
 	var parsedData = {};
 	data.forEach(function(dat){
+		var split = dat.split("=");
+		var k = split[0];
+		var val = split[1];
+		if(split.length > 2){
+			for(i = 2; i < split.length; i++){
+				val += "=" + split[i];
+			}
+		}
 		var d = {
-				key : dat.split("=")[0],
-				value : dat.split("=")[1]
+				key : k,
+				value : val
 		};
 		parsedData[d.key] = d.value;
 	});
