@@ -8610,3 +8610,1127 @@
 [2014-10-23 21:28:22.189] [DEBUG] ultt - get classes of teacher user with id: 6
 [2014-10-23 21:28:22.190] [INFO] ultt - successful teacher classes fetching
 [2014-10-23 21:28:22.191] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:33:05.416] [INFO] ultt - listening on port 80
+[2014-10-28 12:33:06.425] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-10-28 12:33:50.315] [INFO] ultt - listening on port 80
+[2014-10-28 12:33:51.319] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-10-28 12:33:55.440] [INFO] ultt - listening on port 80
+[2014-10-28 12:33:55.503] [INFO] ultt - connected to db
+[2014-10-28 12:43:34.517] [INFO] ultt - serving post to /register
+[2014-10-28 12:43:34.523] [DEBUG] ultt - received register data: method=register&name_first=m&name_last=k&username=mk&password=password&email_id=m%40k&school_id=mk
+[2014-10-28 12:43:34.586] [DEBUG] ultt - --- decoded method=register
+[2014-10-28 12:43:34.587] [DEBUG] ultt - --- decoded name_first=m
+[2014-10-28 12:43:34.589] [DEBUG] ultt - --- decoded name_last=k
+[2014-10-28 12:43:34.590] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 12:43:34.592] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 12:43:34.593] [DEBUG] ultt - --- decoded email_id=m@k
+[2014-10-28 12:43:34.594] [DEBUG] ultt - --- decoded school_id=mk
+[2014-10-28 12:43:34.597] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null"}
+[2014-10-28 12:43:34.600] [DEBUG] ultt - db fetch query: select password from user where username='mk';
+[2014-10-28 12:43:34.725] [ERROR] ultt - error on db get
+[2014-10-28 12:46:00.401] [INFO] ultt - listening on port 80
+[2014-10-28 12:46:00.420] [INFO] ultt - connected to db
+[2014-10-28 12:46:03.758] [INFO] ultt - serving post to /register
+[2014-10-28 12:46:03.761] [DEBUG] ultt - received register data: method=register&name_first=m&name_last=k&username=mk&password=password&email_id=m%40k&school_id=mk
+[2014-10-28 12:46:03.763] [DEBUG] ultt - --- decoded method=register
+[2014-10-28 12:46:03.764] [DEBUG] ultt - --- decoded name_first=m
+[2014-10-28 12:46:03.765] [DEBUG] ultt - --- decoded name_last=k
+[2014-10-28 12:46:03.766] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 12:46:03.768] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 12:46:03.769] [DEBUG] ultt - --- decoded email_id=m@k
+[2014-10-28 12:46:03.770] [DEBUG] ultt - --- decoded school_id=mk
+[2014-10-28 12:46:03.773] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null"}
+[2014-10-28 12:46:03.775] [DEBUG] ultt - db fetch query: select password from user where username='mk';
+[2014-10-28 12:46:03.783] [INFO] ultt - successful db fetching
+[2014-10-28 12:46:03.783] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:03.785] [DEBUG] ultt - password fetched: []
+[2014-10-28 12:46:03.786] [DEBUG] ultt - empty fetch result, username not taken
+[2014-10-28 12:46:03.788] [DEBUG] ultt - full data received on db: {"purpose":"post","table":"user","username":"mk","password":"password","name_first":"m","name_last":"k","email_id":"m@k","school_id":"mk"}
+[2014-10-28 12:46:03.791] [DEBUG] ultt - db insert data: {"username":"mk","password":"password","name_first":"m","name_last":"k","email_id":"m@k","school_id":"mk"}, in table: user
+[2014-10-28 12:46:03.887] [INFO] ultt - successful db insert
+[2014-10-28 12:46:03.889] [DEBUG] ultt - user successful inserted
+[2014-10-28 12:46:03.891] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","user_id":"null"}
+[2014-10-28 12:46:03.894] [DEBUG] ultt - db fetch query: select user_id from user where username='mk';
+[2014-10-28 12:46:03.898] [INFO] ultt - successful db fetching
+[2014-10-28 12:46:03.899] [DEBUG] ultt - fetch result: [{"user_id":1}]
+[2014-10-28 12:46:03.900] [DEBUG] ultt - user_id of new user fetched: 1
+[2014-10-28 12:46:13.550] [INFO] ultt - serving post to /login
+[2014-10-28 12:46:13.552] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 12:46:13.553] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 12:46:13.554] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 12:46:13.556] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 12:46:13.557] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 12:46:13.560] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 12:46:13.564] [INFO] ultt - successful db fetching
+[2014-10-28 12:46:13.565] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 12:46:13.567] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 12:46:13.568] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 12:46:13.696] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:13.698] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-10-28 12:46:13.699] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 12:46:13.700] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:13.702] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-10-28 12:46:13.703] [DEBUG] ultt - get user with id: 1
+[2014-10-28 12:46:13.706] [INFO] ultt - successful user fetching
+[2014-10-28 12:46:13.711] [DEBUG] ultt - fetch result: [{"user_id":1,"token":0,"username":"mk","name_first":"m","name_last":"k","email_id":"m@k","picture":"/web/image/default.jpg","created_at":"2014-10-28T11:46:03.000Z","school_id":"mk"}]
+[2014-10-28 12:46:13.810] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:13.812] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:46:13.813] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:46:13.814] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:13.816] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:46:13.824] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:46:13.826] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:46:13.828] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:20.085] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:20.086] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:46:20.087] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:46:20.088] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:20.090] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:46:20.091] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:46:20.095] [INFO] ultt - successful classes fetching
+[2014-10-28 12:46:20.102] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:21.697] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:21.698] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-10-28 12:46:21.701] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-10-28 12:46:21.704] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:21.706] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-10-28 12:46:21.712] [DEBUG] ultt - fetching tasks for user 1
+[2014-10-28 12:46:21.716] [INFO] ultt - successful user tasks fetching
+[2014-10-28 12:46:21.717] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:23.261] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:23.262] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:46:23.263] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:46:23.264] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:23.266] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:46:23.269] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:46:23.272] [INFO] ultt - successful classes fetching
+[2014-10-28 12:46:23.272] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:23.836] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:23.837] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:46:23.839] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:46:23.840] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:23.846] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:46:23.848] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:46:23.852] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:46:23.853] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:24.868] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:24.870] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-10-28 12:46:24.871] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-10-28 12:46:24.873] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:24.873] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-10-28 12:46:24.875] [DEBUG] ultt - fetching tasks for user 1
+[2014-10-28 12:46:24.879] [INFO] ultt - successful user tasks fetching
+[2014-10-28 12:46:24.885] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:25.310] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:25.311] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:46:25.313] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:46:25.314] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:25.316] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:46:25.317] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:46:25.321] [INFO] ultt - successful classes fetching
+[2014-10-28 12:46:25.322] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:25.816] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:25.817] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:46:25.819] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:46:25.821] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:25.822] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:46:25.824] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:46:25.829] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:46:25.830] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:26.843] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:26.845] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:46:26.847] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:46:26.848] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:26.850] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:46:26.851] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:46:26.854] [INFO] ultt - successful classes fetching
+[2014-10-28 12:46:26.863] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:27.495] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:27.496] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-10-28 12:46:27.497] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-10-28 12:46:27.498] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:27.500] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-10-28 12:46:27.501] [DEBUG] ultt - fetching tasks for user 1
+[2014-10-28 12:46:27.504] [INFO] ultt - successful user tasks fetching
+[2014-10-28 12:46:27.514] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:28.677] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:28.678] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:46:28.680] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:46:28.681] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:28.682] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:46:28.683] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:46:28.689] [INFO] ultt - successful classes fetching
+[2014-10-28 12:46:28.696] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:29.325] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:29.329] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:46:29.330] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:46:29.331] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:29.333] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:46:29.335] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:46:29.337] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:46:29.344] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:33.195] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:33.196] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:46:33.198] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:46:33.199] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:33.199] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:46:33.200] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:46:33.202] [INFO] ultt - successful classes fetching
+[2014-10-28 12:46:33.203] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:35.627] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:35.628] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:46:35.628] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:46:35.629] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:35.630] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:46:35.631] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:46:35.633] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:46:35.634] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:37.700] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:37.701] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-10-28 12:46:37.702] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-10-28 12:46:37.703] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:37.704] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-10-28 12:46:37.705] [DEBUG] ultt - fetching tasks for user 1
+[2014-10-28 12:46:37.707] [INFO] ultt - successful user tasks fetching
+[2014-10-28 12:46:37.708] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:39.896] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:46:39.897] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:46:39.898] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:46:39.899] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:46:39.900] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:46:39.900] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:46:39.902] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:46:39.903] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:46:43.710] [INFO] ultt - serving post to /login
+[2014-10-28 12:46:43.712] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 12:46:43.713] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 12:46:43.714] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 12:46:43.715] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 12:46:43.716] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 12:46:43.717] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 12:46:43.720] [INFO] ultt - successful db fetching
+[2014-10-28 12:46:43.722] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 12:46:43.723] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 12:46:43.724] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 12:47:40.211] [INFO] ultt - serving post to /login
+[2014-10-28 12:47:40.212] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 12:47:40.214] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 12:47:40.214] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 12:47:40.215] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 12:47:40.216] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 12:47:40.217] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 12:47:40.219] [INFO] ultt - successful db fetching
+[2014-10-28 12:47:40.219] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 12:47:40.220] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 12:47:40.222] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 12:47:40.347] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:47:40.348] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-10-28 12:47:40.353] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 12:47:40.354] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:47:40.355] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-10-28 12:47:40.356] [DEBUG] ultt - get user with id: 1
+[2014-10-28 12:47:40.358] [INFO] ultt - successful user fetching
+[2014-10-28 12:47:40.363] [DEBUG] ultt - fetch result: [{"user_id":1,"token":0,"username":"mk","name_first":"m","name_last":"k","email_id":"m@k","picture":"/web/image/default.jpg","created_at":"2014-10-28T11:46:03.000Z","school_id":"mk"}]
+[2014-10-28 12:47:40.459] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:47:40.460] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:47:40.461] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:47:40.462] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:47:40.462] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:47:40.464] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:47:40.469] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:47:40.471] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:47:48.546] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:47:48.547] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:47:48.547] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:47:48.548] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:47:48.550] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:47:48.555] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:47:48.557] [INFO] ultt - successful classes fetching
+[2014-10-28 12:47:48.558] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:47:49.397] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:47:49.399] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-10-28 12:47:49.401] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-10-28 12:47:49.401] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:47:49.402] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-10-28 12:47:49.403] [DEBUG] ultt - fetching tasks for user 1
+[2014-10-28 12:47:49.405] [INFO] ultt - successful user tasks fetching
+[2014-10-28 12:47:49.406] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:47:50.110] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:47:50.112] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 12:47:50.112] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 12:47:50.113] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:47:50.114] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 12:47:50.114] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 12:47:50.117] [INFO] ultt - successful classes fetching
+[2014-10-28 12:47:50.118] [DEBUG] ultt - fetch result: []
+[2014-10-28 12:47:50.817] [INFO] ultt - serving post to /unity/db
+[2014-10-28 12:47:50.819] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 12:47:50.820] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 12:47:50.821] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 12:47:50.822] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 12:47:50.823] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 12:47:50.825] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 12:47:50.826] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:29:36.531] [INFO] ultt - listening on port 80
+[2014-10-28 13:29:36.551] [ERROR] ultt - error connecting to db: Error: Cannot enqueue Handshake after already enqueuing a Handshake.
+[2014-10-28 13:33:31.610] [INFO] ultt - listening on port 80
+[2014-10-28 13:33:31.630] [INFO] ultt - connected to db
+[2014-10-28 13:33:37.130] [INFO] ultt - listening on port 80
+[2014-10-28 13:33:38.130] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-10-28 13:36:54.620] [INFO] ultt - listening on port 80
+[2014-10-28 13:36:54.640] [INFO] ultt - connected to db
+[2014-10-28 13:37:03.391] [INFO] ultt - serving request to /
+[2014-10-28 13:37:05.648] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 13:37:25.525] [INFO] ultt - serving post to /login
+[2014-10-28 13:37:25.527] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:37:25.530] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:37:25.531] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:37:25.535] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:37:25.538] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:37:25.540] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:37:25.647] [INFO] ultt - successful db fetching
+[2014-10-28 13:37:25.649] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:37:25.651] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:37:25.653] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:37:25.761] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:37:25.762] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-10-28 13:37:25.764] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 13:37:25.768] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:37:25.770] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-10-28 13:37:25.771] [DEBUG] ultt - get user with id: 1
+[2014-10-28 13:37:25.775] [INFO] ultt - successful user fetching
+[2014-10-28 13:37:25.777] [DEBUG] ultt - fetch result: [{"user_id":1,"token":0,"username":"mk","name_first":"m","name_last":"k","email_id":"m@k","picture":"/web/image/default.jpg","created_at":"2014-10-28T11:46:03.000Z","school_id":"mk"}]
+[2014-10-28 13:37:25.812] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:37:25.815] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 13:37:25.816] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 13:37:25.818] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:37:25.820] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 13:37:25.821] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 13:37:25.834] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 13:37:25.835] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:37:33.223] [INFO] ultt - serving post to /login
+[2014-10-28 13:37:33.225] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:37:33.228] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:37:33.229] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:37:33.231] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:37:33.232] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:37:33.233] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:37:33.236] [INFO] ultt - successful db fetching
+[2014-10-28 13:37:33.237] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:37:33.239] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:37:33.241] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:37:34.076] [INFO] ultt - serving post to /login
+[2014-10-28 13:37:34.078] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:37:34.080] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:37:34.081] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:37:34.084] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:37:34.086] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:37:34.087] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:37:34.090] [INFO] ultt - successful db fetching
+[2014-10-28 13:37:34.091] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:37:34.093] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:37:34.094] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:41:28.350] [INFO] ultt - listening on port 80
+[2014-10-28 13:41:28.371] [INFO] ultt - connected to db
+[2014-10-28 13:41:34.724] [INFO] ultt - serving post to /login
+[2014-10-28 13:41:34.727] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:41:34.729] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:41:34.732] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:41:34.736] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:41:34.738] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:41:34.740] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:41:34.746] [INFO] ultt - successful db fetching
+[2014-10-28 13:41:34.748] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:41:34.750] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:41:34.752] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:41:40.204] [INFO] ultt - serving post to /login
+[2014-10-28 13:41:40.206] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:41:40.207] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:41:40.208] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:41:40.211] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:41:40.215] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:41:40.217] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:41:40.220] [INFO] ultt - successful db fetching
+[2014-10-28 13:41:40.221] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:41:40.222] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:41:40.224] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:41:52.507] [INFO] ultt - serving post to /login
+[2014-10-28 13:41:52.508] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:41:52.511] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:41:52.512] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:42:23.037] [INFO] ultt - listening on port 80
+[2014-10-28 13:42:24.061] [ERROR] ultt - error connecting to db: Error: connect ECONNREFUSED
+[2014-10-28 13:42:28.252] [INFO] ultt - listening on port 80
+[2014-10-28 13:42:28.276] [INFO] ultt - connected to db
+[2014-10-28 13:42:32.590] [INFO] ultt - serving post to /login
+[2014-10-28 13:42:32.592] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:42:32.595] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:42:32.596] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:42:32.600] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:42:32.602] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:42:32.604] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:42:32.720] [INFO] ultt - successful db fetching
+[2014-10-28 13:42:32.722] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:42:32.724] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:42:32.725] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:42:39.793] [INFO] ultt - serving post to /login
+[2014-10-28 13:42:39.795] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:42:39.796] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:42:39.797] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:42:39.799] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:42:39.804] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:42:39.805] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:42:39.809] [INFO] ultt - successful db fetching
+[2014-10-28 13:42:39.810] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:42:39.812] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:42:39.814] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:42:41.065] [INFO] ultt - serving post to /login
+[2014-10-28 13:42:41.066] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:42:41.068] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:42:41.070] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:42:41.072] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:42:41.074] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:42:41.076] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:42:41.078] [INFO] ultt - successful db fetching
+[2014-10-28 13:42:41.079] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:42:41.081] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:42:41.083] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:42:42.845] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:42:42.847] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 13:42:42.848] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:42:42.849] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:42:42.851] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 13:42:42.852] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 13:42:42.977] [INFO] ultt - successful classes fetching
+[2014-10-28 13:42:42.978] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:42:43.276] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:42:43.277] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 13:42:43.279] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 13:42:43.280] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:42:43.281] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 13:42:43.282] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 13:42:43.286] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 13:42:43.287] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:42:43.676] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:42:43.677] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 13:42:43.679] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:42:43.680] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:42:43.681] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 13:42:43.682] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 13:42:43.689] [INFO] ultt - successful classes fetching
+[2014-10-28 13:42:43.690] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:42:45.811] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:42:45.812] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-10-28 13:42:45.814] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 13:42:45.815] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:42:45.816] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-10-28 13:42:45.819] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-10-28 13:42:45.821] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 13:42:45.825] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:42:53.231] [INFO] ultt - serving post to /login
+[2014-10-28 13:42:53.232] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:42:53.234] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:42:53.235] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:42:54.245] [ERROR] ultt - error getting connection from pool: Error: connect ECONNREFUSED
+[2014-10-28 13:42:59.749] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:42:59.751] [DEBUG] ultt - received data: method=getUserClasses&user_id=403
+[2014-10-28 13:42:59.754] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:42:59.755] [DEBUG] ultt - --- decoded user_id=403
+[2014-10-28 13:43:00.760] [ERROR] ultt - error getting connection from pool: Error: connect ECONNREFUSED
+[2014-10-28 13:43:00.984] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:00.985] [DEBUG] ultt - received data: method=getUserClasses&user_id=403
+[2014-10-28 13:43:00.987] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:43:00.988] [DEBUG] ultt - --- decoded user_id=403
+[2014-10-28 13:43:01.987] [ERROR] ultt - error getting connection from pool: Error: connect ECONNREFUSED
+[2014-10-28 13:43:01.990] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:01.993] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=403
+[2014-10-28 13:43:01.994] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 13:43:01.996] [DEBUG] ultt - --- decoded user_id=403
+[2014-10-28 13:43:03.003] [ERROR] ultt - error getting connection from pool: Error: connect ECONNREFUSED
+[2014-10-28 13:43:14.192] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:14.194] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=403
+[2014-10-28 13:43:14.195] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 13:43:14.195] [DEBUG] ultt - --- decoded user_id=403
+[2014-10-28 13:43:15.198] [ERROR] ultt - error getting connection from pool: Error: connect ECONNREFUSED
+[2014-10-28 13:43:15.826] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:15.827] [DEBUG] ultt - received data: method=getUserClasses&user_id=403
+[2014-10-28 13:43:15.829] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:43:15.829] [DEBUG] ultt - --- decoded user_id=403
+[2014-10-28 13:43:16.834] [ERROR] ultt - error getting connection from pool: Error: connect ECONNREFUSED
+[2014-10-28 13:43:28.852] [INFO] ultt - serving post to /login
+[2014-10-28 13:43:28.854] [DEBUG] ultt - received login data: username=mk&password=password
+[2014-10-28 13:43:28.856] [DEBUG] ultt - --- decoded username=mk
+[2014-10-28 13:43:28.856] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:43:28.863] [DEBUG] ultt - user data received: {"username":"mk","password":"password"}
+[2014-10-28 13:43:28.866] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"mk","password":"null","user_id":"null"}
+[2014-10-28 13:43:28.868] [DEBUG] ultt - db fetch query: select password,user_id from user where username='mk';
+[2014-10-28 13:43:28.893] [INFO] ultt - successful db fetching
+[2014-10-28 13:43:28.895] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-10-28 13:43:28.896] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-10-28 13:43:28.897] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 13:43:32.745] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:32.747] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 13:43:32.748] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:43:32.749] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:43:32.750] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 13:43:32.751] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 13:43:32.832] [INFO] ultt - successful classes fetching
+[2014-10-28 13:43:32.833] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:43:39.749] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:39.750] [DEBUG] ultt - received data: method=registerUserToClass&user_id=1&classcode=sfd
+[2014-10-28 13:43:39.751] [DEBUG] ultt - --- decoded method=registerUserToClass
+[2014-10-28 13:43:39.751] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:43:39.753] [DEBUG] ultt - --- decoded classcode=sfd
+[2014-10-28 13:43:39.755] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"1","classcode":"sfd"}
+[2014-10-28 13:43:39.758] [DEBUG] ultt - no class_id found for classcode: sfd
+[2014-10-28 13:43:39.759] [ERROR] ultt - error on method registerUserToClass
+[2014-10-28 13:43:39.760] [ERROR] ultt - error posting to db: {"error":301}
+[2014-10-28 13:43:39.799] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:43:39.800] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-10-28 13:43:39.802] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 13:43:39.803] [DEBUG] ultt - --- decoded user_id=1
+[2014-10-28 13:43:39.804] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-10-28 13:43:39.805] [DEBUG] ultt - get classes of user with id: 1
+[2014-10-28 13:43:39.813] [INFO] ultt - successful classes fetching
+[2014-10-28 13:43:39.815] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:46:15.345] [INFO] ultt - listening on port 80
+[2014-10-28 13:46:15.364] [INFO] ultt - connected to db
+[2014-10-28 13:46:19.662] [INFO] ultt - listening on port 81
+[2014-10-28 13:46:19.681] [INFO] ultt - connected to db
+[2014-10-28 13:46:36.546] [INFO] ultt - serving request to /
+[2014-10-28 13:46:37.056] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 13:53:04.839] [INFO] ultt - listening on port 81
+[2014-10-28 13:53:04.849] [INFO] ultt - connected to db
+[2014-10-28 13:53:07.369] [INFO] ultt - listening on port 8
+[2014-10-28 13:53:07.389] [INFO] ultt - connected to db
+[2014-10-28 13:53:09.809] [INFO] ultt - listening on port 80
+[2014-10-28 13:53:09.829] [INFO] ultt - connected to db
+[2014-10-28 13:53:44.128] [INFO] ultt - serving request to /
+[2014-10-28 13:53:44.824] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 13:54:17.771] [INFO] ultt - serving post to /login
+[2014-10-28 13:54:17.773] [DEBUG] ultt - received login data: username=%c2%b0%21%22%c2%a7%24%25%26%2f()%3d%3f%60%c2%b4%c3%9f%5c%c2%b2%c2%b3%7b%5b%5d%7d&password=password
+[2014-10-28 13:54:17.776] [DEBUG] ultt - --- decoded username=°!"§$%&/()=?`´ß\²³{[]}
+[2014-10-28 13:54:17.777] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:54:17.781] [DEBUG] ultt - user data received: {"username":"°!\"§$%&/()","password":"password"}
+[2014-10-28 13:54:17.783] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"°!\"§$%&/()","password":"null","user_id":"null"}
+[2014-10-28 13:54:17.785] [DEBUG] ultt - db fetch query: select password,user_id from user where username='°!"§$%&/()';
+[2014-10-28 13:54:17.791] [INFO] ultt - successful db fetching
+[2014-10-28 13:54:17.792] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:54:17.793] [DEBUG] ultt - password fetched: []
+[2014-10-28 13:54:17.794] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 13:54:17.896] [INFO] ultt - serving post to /unity/db
+[2014-10-28 13:54:17.898] [DEBUG] ultt - received data: method=getUser&user_id=100
+[2014-10-28 13:54:17.899] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 13:54:17.903] [DEBUG] ultt - --- decoded user_id=100
+[2014-10-28 13:54:17.905] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"100"}
+[2014-10-28 13:54:17.906] [DEBUG] ultt - get user with id: 100
+[2014-10-28 13:54:17.909] [INFO] ultt - successful user fetching
+[2014-10-28 13:54:17.910] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:55:41.998] [INFO] ultt - serving post to /login
+[2014-10-28 13:55:42.001] [DEBUG] ultt - received login data: username=abc%22%22&password=password
+[2014-10-28 13:55:42.003] [DEBUG] ultt - --- decoded username=abc""
+[2014-10-28 13:55:42.003] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:55:42.006] [DEBUG] ultt - user data received: {"username":"abc\"\"","password":"password"}
+[2014-10-28 13:55:42.007] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"abc\"\"","password":"null","user_id":"null"}
+[2014-10-28 13:55:42.009] [DEBUG] ultt - db fetch query: select password,user_id from user where username='abc""';
+[2014-10-28 13:55:42.011] [INFO] ultt - successful db fetching
+[2014-10-28 13:55:42.012] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:55:42.013] [DEBUG] ultt - password fetched: []
+[2014-10-28 13:55:42.014] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 13:56:34.451] [INFO] ultt - serving post to /login
+[2014-10-28 13:56:34.452] [DEBUG] ultt - received login data: username=abc%3dcba&password=password
+[2014-10-28 13:56:34.453] [DEBUG] ultt - --- decoded username=abc=cba
+[2014-10-28 13:56:34.453] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 13:56:34.455] [DEBUG] ultt - user data received: {"username":"abc","password":"password"}
+[2014-10-28 13:56:34.456] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"abc","password":"null","user_id":"null"}
+[2014-10-28 13:56:34.456] [DEBUG] ultt - db fetch query: select password,user_id from user where username='abc';
+[2014-10-28 13:56:34.458] [INFO] ultt - successful db fetching
+[2014-10-28 13:56:34.459] [DEBUG] ultt - fetch result: []
+[2014-10-28 13:56:34.460] [DEBUG] ultt - password fetched: []
+[2014-10-28 13:56:34.461] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:07:52.496] [INFO] ultt - listening on port 80
+[2014-10-28 14:07:52.515] [INFO] ultt - connected to db
+[2014-10-28 14:07:57.158] [INFO] ultt - serving post to /login
+[2014-10-28 14:07:57.161] [DEBUG] ultt - received login data: username=abc%3dcba&password=password
+[2014-10-28 14:07:57.163] [DEBUG] ultt - --- decoded username=abc=cba
+[2014-10-28 14:07:57.164] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:07:57.168] [DEBUG] ultt - user data received: {"username":"abccba","password":"password"}
+[2014-10-28 14:07:57.170] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"abccba","password":"null","user_id":"null"}
+[2014-10-28 14:07:57.172] [DEBUG] ultt - db fetch query: select password,user_id from user where username='abccba';
+[2014-10-28 14:07:57.177] [INFO] ultt - successful db fetching
+[2014-10-28 14:07:57.178] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:07:57.179] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:07:57.180] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:08:11.958] [INFO] ultt - listening on port 80
+[2014-10-28 14:08:11.977] [INFO] ultt - connected to db
+[2014-10-28 14:08:16.554] [INFO] ultt - serving post to /login
+[2014-10-28 14:08:16.556] [DEBUG] ultt - received login data: username=abc%3dcba&password=password
+[2014-10-28 14:08:16.558] [DEBUG] ultt - --- decoded username=abc=cba
+[2014-10-28 14:08:16.560] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:08:16.565] [DEBUG] ultt - user data received: {"username":"abc=cba","password":"password"}
+[2014-10-28 14:08:16.568] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"abc=cba","password":"null","user_id":"null"}
+[2014-10-28 14:08:16.569] [DEBUG] ultt - db fetch query: select password,user_id from user where username='abc=cba';
+[2014-10-28 14:08:16.574] [INFO] ultt - successful db fetching
+[2014-10-28 14:08:16.576] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:08:16.577] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:08:16.578] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:08:50.851] [INFO] ultt - serving post to /register
+[2014-10-28 14:08:50.853] [DEBUG] ultt - received register data: method=register&name_first=a&name_last=%3dc&username=a%3dc&password=1234%3d5678&email_id=a%40c&school_id=ac%3dca
+[2014-10-28 14:08:50.854] [DEBUG] ultt - --- decoded method=register
+[2014-10-28 14:08:50.855] [DEBUG] ultt - --- decoded name_first=a
+[2014-10-28 14:08:50.856] [DEBUG] ultt - --- decoded name_last==c
+[2014-10-28 14:08:50.860] [DEBUG] ultt - --- decoded username=a=c
+[2014-10-28 14:08:50.861] [DEBUG] ultt - --- decoded password=1234=5678
+[2014-10-28 14:08:50.862] [DEBUG] ultt - --- decoded email_id=a@c
+[2014-10-28 14:08:50.862] [DEBUG] ultt - --- decoded school_id=ac=ca
+[2014-10-28 14:08:50.866] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a=c","password":"null"}
+[2014-10-28 14:08:50.867] [DEBUG] ultt - db fetch query: select password from user where username='a=c';
+[2014-10-28 14:08:50.869] [INFO] ultt - successful db fetching
+[2014-10-28 14:08:50.870] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:08:50.871] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:08:50.872] [DEBUG] ultt - empty fetch result, username not taken
+[2014-10-28 14:08:50.873] [DEBUG] ultt - full data received on db: {"purpose":"post","table":"user","username":"a=c","password":"1234=5678","name_first":"a","name_last":"=c","email_id":"a@c","school_id":"ac=ca"}
+[2014-10-28 14:08:50.875] [DEBUG] ultt - db insert data: {"username":"a=c","password":"1234=5678","name_first":"a","name_last":"=c","email_id":"a@c","school_id":"ac=ca"}, in table: user
+[2014-10-28 14:08:50.947] [INFO] ultt - successful db insert
+[2014-10-28 14:08:50.949] [DEBUG] ultt - user successful inserted
+[2014-10-28 14:08:50.951] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a=c","user_id":"null"}
+[2014-10-28 14:08:50.953] [DEBUG] ultt - db fetch query: select user_id from user where username='a=c';
+[2014-10-28 14:08:50.956] [INFO] ultt - successful db fetching
+[2014-10-28 14:08:50.957] [DEBUG] ultt - fetch result: [{"user_id":2}]
+[2014-10-28 14:08:50.957] [DEBUG] ultt - user_id of new user fetched: 2
+[2014-10-28 14:09:16.826] [INFO] ultt - serving post to /login
+[2014-10-28 14:09:16.828] [DEBUG] ultt - received login data: username=a%3dc&password=1234%3d5678
+[2014-10-28 14:09:16.829] [DEBUG] ultt - --- decoded username=a=c
+[2014-10-28 14:09:16.830] [DEBUG] ultt - --- decoded password=1234=5678
+[2014-10-28 14:09:16.832] [DEBUG] ultt - user data received: {"username":"a=c","password":"1234=5678"}
+[2014-10-28 14:09:16.833] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a=c","password":"null","user_id":"null"}
+[2014-10-28 14:09:16.834] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a=c';
+[2014-10-28 14:09:16.837] [INFO] ultt - successful db fetching
+[2014-10-28 14:09:16.839] [DEBUG] ultt - fetch result: [{"password":"1234=5678","user_id":2}]
+[2014-10-28 14:09:16.839] [DEBUG] ultt - password fetched: [{"password":"1234=5678","user_id":2}]
+[2014-10-28 14:09:16.840] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:10:10.775] [INFO] ultt - listening on port 80
+[2014-10-28 14:10:10.795] [INFO] ultt - connected to db
+[2014-10-28 14:10:41.365] [INFO] ultt - listening on port 81
+[2014-10-28 14:10:41.384] [INFO] ultt - connected to db
+[2014-10-28 14:10:44.965] [INFO] ultt - serving request to /
+[2014-10-28 14:10:46.296] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 14:10:56.061] [INFO] ultt - serving post to /login
+[2014-10-28 14:10:56.063] [DEBUG] ultt - received login data: username=a%3dc&password=1234%3d5678
+[2014-10-28 14:10:56.065] [DEBUG] ultt - --- decoded username=a=c
+[2014-10-28 14:10:56.066] [DEBUG] ultt - --- decoded password=1234=5678
+[2014-10-28 14:10:56.071] [DEBUG] ultt - user data received: {"username":"a=c","password":"1234=5678"}
+[2014-10-28 14:10:56.073] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a=c","password":"null","user_id":"null"}
+[2014-10-28 14:10:56.075] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a=c';
+[2014-10-28 14:10:56.082] [INFO] ultt - successful db fetching
+[2014-10-28 14:10:56.084] [DEBUG] ultt - fetch result: [{"password":"1234=5678","user_id":2}]
+[2014-10-28 14:10:56.085] [DEBUG] ultt - password fetched: [{"password":"1234=5678","user_id":2}]
+[2014-10-28 14:10:56.086] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:10:56.182] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:10:56.184] [DEBUG] ultt - received data: method=getUser&user_id=2
+[2014-10-28 14:10:56.185] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 14:10:56.188] [DEBUG] ultt - --- decoded user_id=2
+[2014-10-28 14:10:56.191] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"2"}
+[2014-10-28 14:10:56.192] [DEBUG] ultt - get user with id: 2
+[2014-10-28 14:10:56.195] [INFO] ultt - successful user fetching
+[2014-10-28 14:10:56.198] [DEBUG] ultt - fetch result: [{"user_id":2,"token":0,"username":"a=c","name_first":"a","name_last":"=c","email_id":"a@c","picture":"/web/image/default.jpg","created_at":"2014-10-28T13:08:50.000Z","school_id":"ac=ca"}]
+[2014-10-28 14:10:56.233] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:10:56.235] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=2
+[2014-10-28 14:10:56.236] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:10:56.236] [DEBUG] ultt - --- decoded user_id=2
+[2014-10-28 14:10:56.238] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"2"}
+[2014-10-28 14:10:56.239] [DEBUG] ultt - get classes of teacher user with id: 2
+[2014-10-28 14:10:56.312] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:10:56.314] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:11:38.500] [INFO] ultt - serving post to /register
+[2014-10-28 14:11:38.502] [DEBUG] ultt - received register data: method=register&name_first=a%22%22b&name_last=c%22%22d&username=a%22%22b%22%22v&password=qwe%22%22qwe&email_id=qwe&school_id=qwe
+[2014-10-28 14:11:38.504] [DEBUG] ultt - --- decoded method=register
+[2014-10-28 14:11:38.505] [DEBUG] ultt - --- decoded name_first=a""b
+[2014-10-28 14:11:38.506] [DEBUG] ultt - --- decoded name_last=c""d
+[2014-10-28 14:11:38.507] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:11:38.507] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:11:38.508] [DEBUG] ultt - --- decoded email_id=qwe
+[2014-10-28 14:11:38.509] [DEBUG] ultt - --- decoded school_id=qwe
+[2014-10-28 14:11:38.511] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null"}
+[2014-10-28 14:11:38.512] [DEBUG] ultt - db fetch query: select password from user where username='a""b""v';
+[2014-10-28 14:11:38.514] [INFO] ultt - successful db fetching
+[2014-10-28 14:11:38.515] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:11:38.517] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:11:38.517] [DEBUG] ultt - empty fetch result, username not taken
+[2014-10-28 14:11:38.518] [DEBUG] ultt - full data received on db: {"purpose":"post","table":"user","username":"a\"\"b\"\"v","password":"qwe\"\"qwe","name_first":"a\"\"b","name_last":"c\"\"d","email_id":"qwe","school_id":"qwe"}
+[2014-10-28 14:11:38.519] [DEBUG] ultt - db insert data: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe","name_first":"a\"\"b","name_last":"c\"\"d","email_id":"qwe","school_id":"qwe"}, in table: user
+[2014-10-28 14:11:38.606] [INFO] ultt - successful db insert
+[2014-10-28 14:11:38.608] [DEBUG] ultt - user successful inserted
+[2014-10-28 14:11:38.609] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","user_id":"null"}
+[2014-10-28 14:11:38.610] [DEBUG] ultt - db fetch query: select user_id from user where username='a""b""v';
+[2014-10-28 14:11:38.618] [INFO] ultt - successful db fetching
+[2014-10-28 14:11:38.619] [DEBUG] ultt - fetch result: [{"user_id":3}]
+[2014-10-28 14:11:38.620] [DEBUG] ultt - user_id of new user fetched: 3
+[2014-10-28 14:12:14.578] [INFO] ultt - serving post to /login
+[2014-10-28 14:12:14.582] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:12:14.584] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:12:14.585] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:12:14.587] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:12:14.588] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:12:14.589] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:12:14.591] [INFO] ultt - successful db fetching
+[2014-10-28 14:12:14.592] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:14.595] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:14.595] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:12:20.556] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:12:20.558] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
+[2014-10-28 14:12:20.559] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 14:12:20.560] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:12:20.561] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
+[2014-10-28 14:12:20.563] [DEBUG] ultt - get classes of user with id: 3
+[2014-10-28 14:12:20.565] [INFO] ultt - successful classes fetching
+[2014-10-28 14:12:20.566] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:12:21.634] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:12:21.636] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:12:21.637] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:12:21.638] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:12:21.640] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:12:21.640] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:12:21.643] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:12:21.643] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:12:23.116] [INFO] ultt - serving post to /login
+[2014-10-28 14:12:23.118] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:12:23.119] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:12:23.119] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:12:23.121] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:12:23.121] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:12:23.123] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:12:23.125] [INFO] ultt - successful db fetching
+[2014-10-28 14:12:23.126] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:23.127] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:23.128] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:12:26.470] [INFO] ultt - serving post to /login
+[2014-10-28 14:12:26.471] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:12:26.472] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:12:26.473] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:12:26.476] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:12:26.478] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:12:26.479] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:12:26.481] [INFO] ultt - successful db fetching
+[2014-10-28 14:12:26.482] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:26.482] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:26.483] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:12:35.446] [INFO] ultt - serving request to /
+[2014-10-28 14:12:36.061] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 14:12:48.077] [INFO] ultt - serving post to /login
+[2014-10-28 14:12:48.079] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:12:48.080] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:12:48.080] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:12:48.086] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:12:48.087] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:12:48.088] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:12:48.090] [INFO] ultt - successful db fetching
+[2014-10-28 14:12:48.091] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:48.092] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:12:48.092] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:12:48.183] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:12:48.185] [DEBUG] ultt - received data: method=getUser&user_id=3
+[2014-10-28 14:12:48.186] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 14:12:48.188] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:12:48.189] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"3"}
+[2014-10-28 14:12:48.190] [DEBUG] ultt - get user with id: 3
+[2014-10-28 14:12:48.194] [INFO] ultt - successful user fetching
+[2014-10-28 14:12:48.196] [DEBUG] ultt - fetch result: [{"user_id":3,"token":0,"username":"a\"\"b\"\"v","name_first":"a\"\"b","name_last":"c\"\"d","email_id":"qwe","picture":"/web/image/default.jpg","created_at":"2014-10-28T13:11:38.000Z","school_id":"qwe"}]
+[2014-10-28 14:12:48.235] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:12:48.237] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:12:48.238] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:12:48.239] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:12:48.240] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:12:48.241] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:12:48.244] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:12:48.247] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:13:21.429] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:13:21.430] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:13:21.432] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:13:21.433] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:13:21.435] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:13:21.435] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:13:21.437] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:13:21.438] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:15:34.393] [INFO] ultt - serving post to /login
+[2014-10-28 14:15:34.396] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:15:34.396] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:15:34.397] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:15:34.399] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:15:34.400] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:15:34.402] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:15:34.410] [INFO] ultt - successful db fetching
+[2014-10-28 14:15:34.411] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:15:34.412] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:15:34.413] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:15:37.181] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:15:37.183] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
+[2014-10-28 14:15:37.184] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 14:15:37.185] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:15:37.187] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
+[2014-10-28 14:15:37.188] [DEBUG] ultt - get classes of user with id: 3
+[2014-10-28 14:15:37.190] [INFO] ultt - successful classes fetching
+[2014-10-28 14:15:37.191] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:15:41.294] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:15:41.296] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:15:41.297] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:15:41.298] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:15:41.299] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:15:41.300] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:15:41.303] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:15:41.304] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:15:56.382] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:15:56.383] [DEBUG] ultt - received data: method=createClass&classname=a%3db%3dc%22%22wer&user_id=3&subject_id=1&school_year=2014
+[2014-10-28 14:15:56.384] [DEBUG] ultt - --- decoded method=createClass
+[2014-10-28 14:15:56.386] [DEBUG] ultt - --- decoded classname=a=b=c""wer
+[2014-10-28 14:15:56.387] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:15:56.388] [DEBUG] ultt - --- decoded subject_id=1
+[2014-10-28 14:15:56.389] [DEBUG] ultt - --- decoded school_year=2014
+[2014-10-28 14:15:56.390] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"a=b=c\"\"wer","user_id":"3","subject_id":"1","school_year":"2014"}
+[2014-10-28 14:15:56.391] [DEBUG] ultt - creating class a=b=c""wer for user_id 3, subject_id 1 and school_year 2014
+[2014-10-28 14:15:57.042] [DEBUG] ultt - insert data: {"classname":"a=b=c\"\"wer","user_id":"3","school_year":"2014","classcode":"ikSS1w9oJC","subject_id":"1"}
+[2014-10-28 14:15:57.191] [ERROR] ultt - error on method createClass
+[2014-10-28 14:15:57.192] [ERROR] ultt - error posting to db: Error: ER_NO_REFERENCED_ROW_: Cannot add or update a child row: a foreign key constraint fails (`ultt`.`class`, CONSTRAINT `fk_class_subject1` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`subject_id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+[2014-10-28 14:15:57.234] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:15:57.236] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:15:57.238] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:15:57.239] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:15:57.241] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:15:57.242] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:15:57.244] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:15:57.245] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:16:35.733] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:35.734] [DEBUG] ultt - received data: method=createClass&classname=a%3db%3dc%22%22wer&user_id=3&subject_id=1&school_year=2014
+[2014-10-28 14:16:35.736] [DEBUG] ultt - --- decoded method=createClass
+[2014-10-28 14:16:35.737] [DEBUG] ultt - --- decoded classname=a=b=c""wer
+[2014-10-28 14:16:35.737] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:35.738] [DEBUG] ultt - --- decoded subject_id=1
+[2014-10-28 14:16:35.739] [DEBUG] ultt - --- decoded school_year=2014
+[2014-10-28 14:16:35.741] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"a=b=c\"\"wer","user_id":"3","subject_id":"1","school_year":"2014"}
+[2014-10-28 14:16:35.742] [DEBUG] ultt - creating class a=b=c""wer for user_id 3, subject_id 1 and school_year 2014
+[2014-10-28 14:16:35.748] [DEBUG] ultt - insert data: {"classname":"a=b=c\"\"wer","user_id":"3","school_year":"2014","classcode":"pNDGDxPHlR","subject_id":"1"}
+[2014-10-28 14:16:35.822] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":2,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-10-28 14:16:35.823] [INFO] ultt - successful class creating
+[2014-10-28 14:16:35.826] [DEBUG] ultt - created class with id: 2, classcode: pNDGDxPHlR
+[2014-10-28 14:16:35.963] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:35.965] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:16:35.966] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:16:35.967] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:35.968] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:16:35.969] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:16:35.971] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:16:35.972] [DEBUG] ultt - fetch result: [{"class_id":2,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"pNDGDxPHlR","subject_name":"test"}]
+[2014-10-28 14:16:46.451] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:46.452] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
+[2014-10-28 14:16:46.454] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 14:16:46.455] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:46.457] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
+[2014-10-28 14:16:46.458] [DEBUG] ultt - get classes of user with id: 3
+[2014-10-28 14:16:46.460] [INFO] ultt - successful classes fetching
+[2014-10-28 14:16:46.461] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:16:47.118] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:47.119] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:16:47.122] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:16:47.122] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:47.124] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:16:47.125] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:16:47.129] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:16:47.131] [DEBUG] ultt - fetch result: [{"class_id":2,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"pNDGDxPHlR","subject_name":"test"}]
+[2014-10-28 14:16:50.620] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:50.621] [DEBUG] ultt - received data: method=createClass&classname=a%3db%3dc%22%22wer&user_id=3&subject_id=1&school_year=2014
+[2014-10-28 14:16:50.622] [DEBUG] ultt - --- decoded method=createClass
+[2014-10-28 14:16:50.624] [DEBUG] ultt - --- decoded classname=a=b=c""wer
+[2014-10-28 14:16:50.625] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:50.625] [DEBUG] ultt - --- decoded subject_id=1
+[2014-10-28 14:16:50.626] [DEBUG] ultt - --- decoded school_year=2014
+[2014-10-28 14:16:50.627] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"a=b=c\"\"wer","user_id":"3","subject_id":"1","school_year":"2014"}
+[2014-10-28 14:16:50.628] [DEBUG] ultt - creating class a=b=c""wer for user_id 3, subject_id 1 and school_year 2014
+[2014-10-28 14:16:50.629] [DEBUG] ultt - insert data: {"classname":"a=b=c\"\"wer","user_id":"3","school_year":"2014","classcode":"q8J04p9nGn","subject_id":"1"}
+[2014-10-28 14:16:50.712] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":3,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-10-28 14:16:50.714] [INFO] ultt - successful class creating
+[2014-10-28 14:16:50.722] [DEBUG] ultt - created class with id: 3, classcode: q8J04p9nGn
+[2014-10-28 14:16:50.769] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:50.770] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:16:50.771] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:16:50.772] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:50.774] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:16:50.774] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:16:50.777] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:16:50.778] [DEBUG] ultt - fetch result: [{"class_id":2,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"pNDGDxPHlR","subject_name":"test"},{"class_id":3,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"q8J04p9nGn","subject_name":"test"}]
+[2014-10-28 14:16:51.904] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:51.905] [DEBUG] ultt - received data: method=createClass&classname=a%3db%3dc%22%22wer&user_id=3&subject_id=1&school_year=2014
+[2014-10-28 14:16:51.907] [DEBUG] ultt - --- decoded method=createClass
+[2014-10-28 14:16:51.908] [DEBUG] ultt - --- decoded classname=a=b=c""wer
+[2014-10-28 14:16:51.909] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:51.910] [DEBUG] ultt - --- decoded subject_id=1
+[2014-10-28 14:16:51.911] [DEBUG] ultt - --- decoded school_year=2014
+[2014-10-28 14:16:51.912] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"a=b=c\"\"wer","user_id":"3","subject_id":"1","school_year":"2014"}
+[2014-10-28 14:16:51.913] [DEBUG] ultt - creating class a=b=c""wer for user_id 3, subject_id 1 and school_year 2014
+[2014-10-28 14:16:51.914] [DEBUG] ultt - insert data: {"classname":"a=b=c\"\"wer","user_id":"3","school_year":"2014","classcode":"2zXfVy77Df","subject_id":"1"}
+[2014-10-28 14:16:51.966] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":4,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-10-28 14:16:51.967] [INFO] ultt - successful class creating
+[2014-10-28 14:16:51.969] [DEBUG] ultt - created class with id: 4, classcode: 2zXfVy77Df
+[2014-10-28 14:16:52.034] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:52.035] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:16:52.036] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:16:52.036] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:52.038] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:16:52.040] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:16:52.044] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:16:52.045] [DEBUG] ultt - fetch result: [{"class_id":2,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"pNDGDxPHlR","subject_name":"test"},{"class_id":3,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"q8J04p9nGn","subject_name":"test"},{"class_id":4,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"2zXfVy77Df","subject_name":"test"}]
+[2014-10-28 14:16:54.106] [INFO] ultt - serving post to /login
+[2014-10-28 14:16:54.108] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:16:54.109] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:16:54.109] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:16:54.111] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:16:54.111] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:16:54.112] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:16:54.114] [INFO] ultt - successful db fetching
+[2014-10-28 14:16:54.115] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:16:54.116] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:16:54.117] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:16:54.970] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:54.972] [DEBUG] ultt - received data: method=getUserClasses&user_id=3
+[2014-10-28 14:16:54.973] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-10-28 14:16:54.973] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:54.975] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"3"}
+[2014-10-28 14:16:54.976] [DEBUG] ultt - get classes of user with id: 3
+[2014-10-28 14:16:54.980] [INFO] ultt - successful classes fetching
+[2014-10-28 14:16:54.981] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:16:55.826] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:16:55.827] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:16:55.829] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:16:55.830] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:16:55.834] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:16:55.836] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:16:55.839] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:16:55.840] [DEBUG] ultt - fetch result: [{"class_id":2,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"pNDGDxPHlR","subject_name":"test"},{"class_id":3,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"q8J04p9nGn","subject_name":"test"},{"class_id":4,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"2zXfVy77Df","subject_name":"test"}]
+[2014-10-28 14:17:00.459] [INFO] ultt - serving request to /
+[2014-10-28 14:17:03.887] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 14:17:11.113] [INFO] ultt - serving post to /login
+[2014-10-28 14:17:11.114] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:17:11.115] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:17:11.116] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:17:11.117] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:17:11.118] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:17:11.119] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a""b""v';
+[2014-10-28 14:17:11.121] [INFO] ultt - successful db fetching
+[2014-10-28 14:17:11.122] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:17:11.123] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:17:11.125] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:17:11.222] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:17:11.223] [DEBUG] ultt - received data: method=getUser&user_id=3
+[2014-10-28 14:17:11.228] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 14:17:11.228] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:17:11.229] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"3"}
+[2014-10-28 14:17:11.230] [DEBUG] ultt - get user with id: 3
+[2014-10-28 14:17:11.232] [INFO] ultt - successful user fetching
+[2014-10-28 14:17:11.233] [DEBUG] ultt - fetch result: [{"user_id":3,"token":0,"username":"a\"\"b\"\"v","name_first":"a\"\"b","name_last":"c\"\"d","email_id":"qwe","picture":"/web/image/default.jpg","created_at":"2014-10-28T13:11:38.000Z","school_id":"qwe"}]
+[2014-10-28 14:17:11.276] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:17:11.277] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=3
+[2014-10-28 14:17:11.279] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:17:11.283] [DEBUG] ultt - --- decoded user_id=3
+[2014-10-28 14:17:11.285] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"3"}
+[2014-10-28 14:17:11.286] [DEBUG] ultt - get classes of teacher user with id: 3
+[2014-10-28 14:17:11.287] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:17:11.288] [DEBUG] ultt - fetch result: [{"class_id":2,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"pNDGDxPHlR","subject_name":"test"},{"class_id":3,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"q8J04p9nGn","subject_name":"test"},{"class_id":4,"classname":"a=b=c\"\"wer","privacy":null,"school_year":2014,"classcode":"2zXfVy77Df","subject_name":"test"}]
+[2014-10-28 14:19:42.155] [INFO] ultt - serving post to /login
+[2014-10-28 14:19:42.156] [DEBUG] ultt - received login data: username=node+js+mysql+connection+pool&password=qwe%22%22qwe
+[2014-10-28 14:19:42.157] [DEBUG] ultt - --- decoded username=node js mysql connection pool
+[2014-10-28 14:19:42.158] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:19:42.160] [DEBUG] ultt - user data received: {"username":"node js mysql connection pool","password":"qwe\"\"qwe"}
+[2014-10-28 14:19:42.161] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"node js mysql connection pool","password":"null","user_id":"null"}
+[2014-10-28 14:19:42.161] [DEBUG] ultt - db fetch query: select password,user_id from user where username='node js mysql connection pool';
+[2014-10-28 14:19:42.168] [INFO] ultt - successful db fetching
+[2014-10-28 14:19:42.169] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:19:42.169] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:19:42.170] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:19:51.340] [INFO] ultt - serving request to /
+[2014-10-28 14:19:51.961] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 14:19:59.856] [INFO] ultt - serving post to /login
+[2014-10-28 14:19:59.858] [DEBUG] ultt - received login data: username=node+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+pool&password=password
+[2014-10-28 14:19:59.861] [DEBUG] ultt - --- decoded username=node js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection pool
+[2014-10-28 14:19:59.864] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:19:59.865] [DEBUG] ultt - user data received: {"username":"node js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection pool","password":"password"}
+[2014-10-28 14:19:59.868] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"node js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection pool","password":"null","user_id":"null"}
+[2014-10-28 14:19:59.872] [DEBUG] ultt - db fetch query: select password,user_id from user where username='node js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection pool';
+[2014-10-28 14:19:59.876] [INFO] ultt - successful db fetching
+[2014-10-28 14:19:59.876] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:19:59.877] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:19:59.878] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:19:59.962] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:19:59.964] [DEBUG] ultt - received data: method=getUser&user_id=100
+[2014-10-28 14:19:59.966] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 14:19:59.966] [DEBUG] ultt - --- decoded user_id=100
+[2014-10-28 14:19:59.971] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"100"}
+[2014-10-28 14:19:59.972] [DEBUG] ultt - get user with id: 100
+[2014-10-28 14:19:59.976] [INFO] ultt - successful user fetching
+[2014-10-28 14:19:59.977] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:20:19.805] [INFO] ultt - serving post to /login
+[2014-10-28 14:20:19.806] [DEBUG] ultt - received login data: username=node+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolnode+js+mysql+connection+poolno%27de+js+mysql+connection+pool&password=password
+[2014-10-28 14:20:19.810] [DEBUG] ultt - --- decoded username=node js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolnode js mysql connection poolno'de js mysql connection pool
+[2014-10-28 14:20:19.813] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:21:22.903] [INFO] ultt - listening on port 81
+[2014-10-28 14:21:22.922] [INFO] ultt - connected to db
+[2014-10-28 14:21:27.319] [INFO] ultt - serving post to /login
+[2014-10-28 14:21:27.322] [DEBUG] ultt - received login data: username=a%27b&password=password
+[2014-10-28 14:21:27.324] [DEBUG] ultt - --- decoded username=a'b
+[2014-10-28 14:21:50.784] [INFO] ultt - listening on port 81
+[2014-10-28 14:21:50.802] [INFO] ultt - connected to db
+[2014-10-28 14:21:50.831] [INFO] ultt - serving post to /login
+[2014-10-28 14:21:50.833] [DEBUG] ultt - received login data: username=a%22b&password=password
+[2014-10-28 14:21:50.835] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:21:50.837] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:21:50.842] [DEBUG] ultt - user data received: {"username":"a\"b","password":"password"}
+[2014-10-28 14:21:50.845] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:21:50.846] [DEBUG] ultt - db fetch query: select password,user_id from user where username='a"b';
+[2014-10-28 14:21:50.852] [INFO] ultt - successful db fetching
+[2014-10-28 14:21:50.853] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:21:50.854] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:21:50.855] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:22:58.330] [INFO] ultt - listening on port 81
+[2014-10-28 14:22:58.348] [INFO] ultt - connected to db
+[2014-10-28 14:23:03.089] [INFO] ultt - serving post to /login
+[2014-10-28 14:23:03.093] [DEBUG] ultt - received login data: username=a%22b&password=password
+[2014-10-28 14:23:03.095] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:29:28.616] [INFO] ultt - listening on port 81
+[2014-10-28 14:29:28.635] [INFO] ultt - connected to db
+[2014-10-28 14:29:31.556] [INFO] ultt - serving post to /login
+[2014-10-28 14:29:31.558] [DEBUG] ultt - received login data: username=a%22b&password=password
+[2014-10-28 14:29:31.561] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:29:31.561] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:29:31.565] [DEBUG] ultt - user data received: {"username":"a\"b","password":"password"}
+[2014-10-28 14:29:31.568] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:29:31.569] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a"b";
+[2014-10-28 14:29:31.580] [ERROR] ultt - error on db get
+[2014-10-28 14:29:31.581] [ERROR] ultt - error on fetching pw for loginError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b"' at line 1
+[2014-10-28 14:29:31.582] [ERROR] ultt - error checking login data: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b"' at line 1
+[2014-10-28 14:31:25.462] [INFO] ultt - listening on port 81
+[2014-10-28 14:31:25.481] [INFO] ultt - connected to db
+[2014-10-28 14:31:29.486] [INFO] ultt - serving post to /login
+[2014-10-28 14:31:29.489] [DEBUG] ultt - received login data: username=a%22b&password=password
+[2014-10-28 14:31:29.491] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:31:29.492] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:31:29.496] [DEBUG] ultt - user data received: {"username":"a\"b","password":"password"}
+[2014-10-28 14:31:29.498] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:31:29.500] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a"b";
+[2014-10-28 14:31:29.515] [ERROR] ultt - error on db get
+[2014-10-28 14:31:29.516] [ERROR] ultt - error on fetching pw for loginError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b"' at line 1
+[2014-10-28 14:31:29.518] [ERROR] ultt - error checking login data: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b"' at line 1
+[2014-10-28 14:31:50.608] [INFO] ultt - listening on port 81
+[2014-10-28 14:31:50.627] [INFO] ultt - connected to db
+[2014-10-28 14:31:54.463] [INFO] ultt - serving post to /login
+[2014-10-28 14:31:54.465] [DEBUG] ultt - received login data: username=a%22b&password=password
+[2014-10-28 14:31:54.467] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:31:54.467] [DEBUG] ultt - --- decoded password=password
+[2014-10-28 14:31:54.471] [DEBUG] ultt - user data received: {"username":"a\"b","password":"password"}
+[2014-10-28 14:31:54.474] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:31:54.476] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a\"b";
+[2014-10-28 14:31:54.482] [INFO] ultt - successful db fetching
+[2014-10-28 14:31:54.483] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:31:54.484] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:31:54.485] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-10-28 14:32:25.966] [INFO] ultt - serving post to /register
+[2014-10-28 14:32:25.968] [DEBUG] ultt - received register data: method=register&name_first=a%22b&name_last=ac&username=a%22b&password=1234%225678&email_id=mk&school_id=km
+[2014-10-28 14:32:25.970] [DEBUG] ultt - --- decoded method=register
+[2014-10-28 14:32:25.971] [DEBUG] ultt - --- decoded name_first=a"b
+[2014-10-28 14:32:25.972] [DEBUG] ultt - --- decoded name_last=ac
+[2014-10-28 14:32:25.972] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:32:25.973] [DEBUG] ultt - --- decoded password=1234"5678
+[2014-10-28 14:32:25.974] [DEBUG] ultt - --- decoded email_id=mk
+[2014-10-28 14:32:25.975] [DEBUG] ultt - --- decoded school_id=km
+[2014-10-28 14:32:25.979] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null"}
+[2014-10-28 14:32:25.980] [DEBUG] ultt - db fetch query: select password from user where username="a\"b";
+[2014-10-28 14:32:25.983] [INFO] ultt - successful db fetching
+[2014-10-28 14:32:25.983] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:32:25.985] [DEBUG] ultt - password fetched: []
+[2014-10-28 14:32:25.986] [DEBUG] ultt - empty fetch result, username not taken
+[2014-10-28 14:32:25.987] [DEBUG] ultt - full data received on db: {"purpose":"post","table":"user","username":"a\"b","password":"1234\"5678","name_first":"a\"b","name_last":"ac","email_id":"mk","school_id":"km"}
+[2014-10-28 14:32:25.988] [DEBUG] ultt - db insert data: {"username":"a\"b","password":"1234\"5678","name_first":"a\"b","name_last":"ac","email_id":"mk","school_id":"km"}, in table: user
+[2014-10-28 14:32:26.076] [INFO] ultt - successful db insert
+[2014-10-28 14:32:26.077] [DEBUG] ultt - user successful inserted
+[2014-10-28 14:32:26.078] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","user_id":"null"}
+[2014-10-28 14:32:26.080] [DEBUG] ultt - db fetch query: select user_id from user where username="a\"b";
+[2014-10-28 14:32:26.082] [INFO] ultt - successful db fetching
+[2014-10-28 14:32:26.083] [DEBUG] ultt - fetch result: [{"user_id":4}]
+[2014-10-28 14:32:26.084] [DEBUG] ultt - user_id of new user fetched: 4
+[2014-10-28 14:32:52.059] [INFO] ultt - serving post to /login
+[2014-10-28 14:32:52.061] [DEBUG] ultt - received login data: username=a%22b&password=1234%225678
+[2014-10-28 14:32:52.062] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:32:52.062] [DEBUG] ultt - --- decoded password=1234"5678
+[2014-10-28 14:32:52.064] [DEBUG] ultt - user data received: {"username":"a\"b","password":"1234\"5678"}
+[2014-10-28 14:32:52.065] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:32:52.066] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a\"b";
+[2014-10-28 14:32:52.068] [INFO] ultt - successful db fetching
+[2014-10-28 14:32:52.069] [DEBUG] ultt - fetch result: [{"password":"1234\"5678","user_id":4}]
+[2014-10-28 14:32:52.070] [DEBUG] ultt - password fetched: [{"password":"1234\"5678","user_id":4}]
+[2014-10-28 14:32:52.071] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:33:38.745] [INFO] ultt - serving post to /login
+[2014-10-28 14:33:38.746] [DEBUG] ultt - received login data: username=a%22b&password=1234%225678
+[2014-10-28 14:33:38.748] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:33:38.749] [DEBUG] ultt - --- decoded password=1234"5678
+[2014-10-28 14:33:38.750] [DEBUG] ultt - user data received: {"username":"a\"b","password":"1234\"5678"}
+[2014-10-28 14:33:38.752] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:33:38.752] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a\"b";
+[2014-10-28 14:33:38.754] [INFO] ultt - successful db fetching
+[2014-10-28 14:33:38.755] [DEBUG] ultt - fetch result: [{"password":"1234\"5678","user_id":4}]
+[2014-10-28 14:33:38.756] [DEBUG] ultt - password fetched: [{"password":"1234\"5678","user_id":4}]
+[2014-10-28 14:33:38.757] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:33:43.569] [INFO] ultt - serving request to /
+[2014-10-28 14:33:44.295] [INFO] ultt - serving request to /ultt.unity3d
+[2014-10-28 14:33:52.681] [INFO] ultt - serving post to /login
+[2014-10-28 14:33:52.683] [DEBUG] ultt - received login data: username=a%22b&password=1234%225678
+[2014-10-28 14:33:52.685] [DEBUG] ultt - --- decoded username=a"b
+[2014-10-28 14:33:52.688] [DEBUG] ultt - --- decoded password=1234"5678
+[2014-10-28 14:33:52.690] [DEBUG] ultt - user data received: {"username":"a\"b","password":"1234\"5678"}
+[2014-10-28 14:33:52.694] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"b","password":"null","user_id":"null"}
+[2014-10-28 14:33:52.695] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a\"b";
+[2014-10-28 14:33:52.697] [INFO] ultt - successful db fetching
+[2014-10-28 14:33:52.698] [DEBUG] ultt - fetch result: [{"password":"1234\"5678","user_id":4}]
+[2014-10-28 14:33:52.699] [DEBUG] ultt - password fetched: [{"password":"1234\"5678","user_id":4}]
+[2014-10-28 14:33:52.699] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:33:52.790] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:33:52.792] [DEBUG] ultt - received data: method=getUser&user_id=4
+[2014-10-28 14:33:52.794] [DEBUG] ultt - --- decoded method=getUser
+[2014-10-28 14:33:52.795] [DEBUG] ultt - --- decoded user_id=4
+[2014-10-28 14:33:52.796] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"4"}
+[2014-10-28 14:33:52.797] [DEBUG] ultt - get user with id: 4
+[2014-10-28 14:33:52.801] [INFO] ultt - successful user fetching
+[2014-10-28 14:33:52.802] [DEBUG] ultt - fetch result: [{"user_id":4,"token":0,"username":"a\"b","name_first":"a\"b","name_last":"ac","email_id":"mk","picture":"/web/image/default.jpg","created_at":"2014-10-28T13:32:25.000Z","school_id":"km"}]
+[2014-10-28 14:33:52.842] [INFO] ultt - serving post to /unity/db
+[2014-10-28 14:33:52.843] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=4
+[2014-10-28 14:33:52.845] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-10-28 14:33:52.846] [DEBUG] ultt - --- decoded user_id=4
+[2014-10-28 14:33:52.847] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"4"}
+[2014-10-28 14:33:52.848] [DEBUG] ultt - get classes of teacher user with id: 4
+[2014-10-28 14:33:52.850] [INFO] ultt - successful teacher classes fetching
+[2014-10-28 14:33:52.851] [DEBUG] ultt - fetch result: []
+[2014-10-28 14:34:54.932] [INFO] ultt - serving post to /login
+[2014-10-28 14:34:54.934] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:34:54.935] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:34:54.936] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:34:54.938] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:34:54.939] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:34:54.940] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a\""b""v";
+[2014-10-28 14:34:54.949] [ERROR] ultt - error on db get
+[2014-10-28 14:34:54.950] [ERROR] ultt - error on fetching pw for loginError: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b""v"' at line 1
+[2014-10-28 14:34:54.952] [ERROR] ultt - error checking login data: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'b""v"' at line 1
+[2014-10-28 14:35:34.684] [INFO] ultt - listening on port 81
+[2014-10-28 14:35:34.703] [INFO] ultt - connected to db
+[2014-10-28 14:35:37.833] [INFO] ultt - listening on port 81
+[2014-10-28 14:35:37.852] [INFO] ultt - connected to db
+[2014-10-28 14:35:40.810] [INFO] ultt - listening on port 81
+[2014-10-28 14:35:40.829] [INFO] ultt - connected to db
+[2014-10-28 14:35:44.483] [INFO] ultt - serving post to /login
+[2014-10-28 14:35:44.486] [DEBUG] ultt - received login data: username=a%22%22b%22%22v&password=qwe%22%22qwe
+[2014-10-28 14:35:44.488] [DEBUG] ultt - --- decoded username=a""b""v
+[2014-10-28 14:35:44.489] [DEBUG] ultt - --- decoded password=qwe""qwe
+[2014-10-28 14:35:44.493] [DEBUG] ultt - user data received: {"username":"a\"\"b\"\"v","password":"qwe\"\"qwe"}
+[2014-10-28 14:35:44.496] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"a\"\"b\"\"v","password":"null","user_id":"null"}
+[2014-10-28 14:35:44.498] [DEBUG] ultt - db fetch query: select password,user_id from user where username="a\"\"b\"\"v";
+[2014-10-28 14:35:44.504] [INFO] ultt - successful db fetching
+[2014-10-28 14:35:44.505] [DEBUG] ultt - fetch result: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:35:44.506] [DEBUG] ultt - password fetched: [{"password":"qwe\"\"qwe","user_id":3}]
+[2014-10-28 14:35:44.507] [DEBUG] ultt - input password did match db password, returning success
+[2014-10-28 14:36:03.071] [INFO] ultt - listening on port 81
+[2014-10-28 14:36:03.090] [INFO] ultt - connected to db
