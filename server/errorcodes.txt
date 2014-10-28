@@ -25,3 +25,4 @@ general error codes:
 400	:	"unspecified db error"
 401	:	"unspecified login error"
 402	:	"unspecified register error"
+403 :	"error getting connection from pool"

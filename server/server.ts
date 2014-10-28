@@ -9,26 +9,32 @@ var logger = require('./logging/logging.ts');
 var decoder = require('./utility/decoder.ts');
 
 /* building db connection */
-//pooling connections also possible
-var connection = mysql.createConnection({
+//creating connection pool
+var pool = mysql.createPool({
 	host     : 'localhost',
 	user     : 'root',
 	password : '',
 	database : 'ultt'
 });
-connection.connect(function(err){
+pool.getConnection(function(err, connection){
+	//try to establish one connection to see whether db can be reached
 	if (err){
 		logger.log(logger.logLevels["error"], "error connecting to db: " + err.toString());
 		throw err;
 	}
 
 	logger.log(logger.logLevels["info"], "connected to db");
+	connection.release();
 });
 
-
 /* application server starting */
+var port = 80;
+if(process.argv.length > 2){
+	//assuming that argument on index 2 is a specified port
+	port = process.argv[2];
+}
 var ultt = express();
-var server = ultt.listen(80, function(err){
+var server = ultt.listen(port, function(err){
 	if(err){
 		logger.log(logger.logLevels["error"], "error listening on port "
 				+ server.address().port + ": " + err.toString());
@@ -74,20 +80,28 @@ ultt.post('/unity/db', function(req, res){
 		}
 	});
 	req.on('end', function(){
-		db(connection, body, function(err, result){
+		pool.getConnection(function(err, connection){
 			if(err){
-				//check if err contains known db error code
-				if(err.error){
-					logger.log(logger.logLevels["error"], "error posting to db: " + JSON.stringify(err));
-					res.send(err);
+				logger.log(logger.logLevels["error"], "error getting connection from pool: " + err.toString()); 
+				res.send({"error" : 403});
+				return;
+			}		
+			db(connection, body, function(err, result){
+				if(err){
+					//check if err contains known db error code
+					if(err.error){
+						logger.log(logger.logLevels["error"], "error posting to db: " + JSON.stringify(err));
+						res.send(err);
+					} else{
+						//else send unspecified db error
+						logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
+						res.send({"error" : 400});
+					}
 				} else{
-					//else send unspecified db error
-					logger.log(logger.logLevels["error"], "error posting to db: " + err.toString());
-					res.send({"error" : 400});
+					res.send(result);
 				}
-			} else{
-				res.send(result);
-			}
+			});
+			connection.release();
 		});
 	});
 });
@@ -108,20 +122,28 @@ ultt.post('/login', function(req, res){
 	});
 	req.on('end', function(){
 		//login module is invoked, and response is sent
-		login(connection, body, function(err, result){
+		pool.getConnection(function(err, connection){
 			if(err){
-				//check if it contains known error
-				if(err.error){
-					logger.log(logger.logLevels["error"], "error checking login data: " + JSON.stringify(err));
-					res.send(err);
+				logger.log(logger.logLevels["error"], "error getting connection from pool: " + err.toString()); 
+				res.send({"error" : 403});
+				return;
+			}			
+			login(connection, body, function(err, result){
+				if(err){
+					//check if it contains known error
+					if(err.error){
+						logger.log(logger.logLevels["error"], "error checking login data: " + JSON.stringify(err));
+						res.send(err);
+					} else{
+						//else send unspecified login error
+						logger.log(logger.logLevels["error"], "error checking login data: " + err.toString());
+						res.send({"error" : 401});
+					}
 				} else{
-					//else send unspecified login error
-					logger.log(logger.logLevels["error"], "error checking login data: " + err.toString());
-					res.send({"error" : 401});
+					res.send(result);
 				}
-			} else{
-				res.send(result);
-			}
+			});		
+			connection.release();
 		});
 	});
 });
@@ -141,19 +163,27 @@ ultt.post('/register', function(req, res){
 	});
 	req.on('end', function(){
 		//register module is invoked, and response is sent
-		register(connection, body, function(err, result){
+		pool.getConnection(function(err, connection){
 			if(err){
-				//check if it contains known error
-				if(err.error){
-					logger.log(logger.logLevels["error"], "error checking register data: " + JSON.stringify(err));
-					res.send(err);
-				} else{
-					logger.log(logger.logLevels["error"], "error checking register data: " + err.toString());
-					res.send({"error" : 402});
-				}
-			} else{
-				res.send(result);
+				logger.log(logger.logLevels["error"], "error getting connection from pool: " + err.toString()); 
+				res.send({"error" : 403});
+				return;
 			}
+			register(connection, body, function(err, result){
+				if(err){
+					//check if it contains known error
+					if(err.error){
+						logger.log(logger.logLevels["error"], "error checking register data: " + JSON.stringify(err));
+						res.send(err);
+					} else{
+						logger.log(logger.logLevels["error"], "error checking register data: " + err.toString());
+						res.send({"error" : 402});
+					}
+				} else{
+					res.send(result);
+				}
+			});		
+			connection.release();
 		});
 	});
 });
