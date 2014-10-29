@@ -45,6 +45,15 @@ CREATE TABLE IF NOT EXISTS `ultt`.`subject` (
   PRIMARY KEY (`subject_id`))
 ENGINE = InnoDB;
 
+INSERT INTO `subject` (`subject_id`, `subject_name`) VALUES
+(1, 'Informatik'),
+(2, 'Mathematik'),
+(3, 'Deutsch'),
+(4, 'Englisch'),
+(5, 'Französisch'),
+(6, 'Spanisch'),
+(7, 'Biologie'),
+(8, 'Geographie');
 
 -- -----------------------------------------------------
 -- Table `ultt`.`tasktype`
@@ -336,7 +345,6 @@ CREATE TABLE IF NOT EXISTS `ultt`.`class_topic` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 -- -----------------------------------------------------
 -- Table `ultt`.`task_for_class`
 -- -----------------------------------------------------
@@ -401,6 +409,11 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci;
 
+INSERT INTO `tasktype` (`tasktype_id`, `type_name`) VALUES
+(1, 'Zuordnung'),
+(2, 'Kategorie'),
+(3, 'Quiz'),
+(4, 'Sequenz');
 
 -- -----------------------------------------------------
 -- Table `ultt`.`wiki`
