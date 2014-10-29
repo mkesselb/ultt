@@ -45,7 +45,7 @@ deleteClass
 getTask
 	fetches the task data
 	required data: task_id
-	response: taskname, public, user_id, data_file, subject_name, type_name
+	response: taskname, public, user_id, data_file, subject_name, type_name, description
 	
 getUserTasks
 	fetches the tasks of the user
@@ -61,6 +61,11 @@ assignTaskToTopic
 	writes the specified task and topic into the task_for_class
 	required data: class_id, task_id, class_topic_id, obligatory, deadline, max_attempts
 	response: {"success" : 1}
+	
+editTask
+	updates description and data_file
+	required data: task_id, description, data_file
+	response: {"success" : 1} 
 	
 
 		

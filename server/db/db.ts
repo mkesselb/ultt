@@ -132,6 +132,16 @@ module.exports = function(dbConnection, dbData, callback){
 		});
 	}
 	
+	if(parsedDbData.method === "editTask"){
+		tasklink.editTask(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method editTask");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
 	/* classlink */
 	if(parsedDbData.method === "getClass"){
 		classlink.getClass(dbConnection, parsedDbData, function(err, result){

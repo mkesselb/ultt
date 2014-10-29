@@ -11,7 +11,7 @@ function getTask(dbConnection, requestData, callback){
 	}
 	logger.log(logger.logLevels["debug"], "fetching task information for task " + requestData.task_id);
 	
-	var fetchTask = "select t.taskname, t.public, t.user_id, t.data_file, s.subject_name, tt.type_name " 
+	var fetchTask = "select t.taskname, t.public, t.user_id, t.data_file, s.subject_name, tt.type_name, t.description " 
 		+ "from task t, subject s, tasktype tt "
 		+ "where task_id = " + requestData.task_id + " and t.subject_id = s.subject_id "
 		+ "and t.tasktype_id = tt.tasktype_id";
@@ -139,9 +139,30 @@ function unassignTaskOfTopic(dbConnection, requestData, callback){
 	//?
 };
 
-/*  */
+/* edits description and taskdata of specified task_id.
+ * required data: task_id, description, data_file. */
 function editTask(dbConnection, requestData, callback){
-	//write task info + ?longblob
+	//write task info + longblob
+	//longblob consists of a .csv text
+	//maybe, should take task_id, (description) and taskdata
+	if(!validator.validateID(requestData.task_id)){
+		//malformed task_id
+		return callback({"error" : 300});
+	}
+	
+	logger.log(logger.logLevels["debug"], "editing task " + requestData.task_id 
+			+ " with data_file " + requestData.data_file);
+	
+	dbConnection.query("update task set ? where task_id = ?", 
+			[{"data_file" : requestData.data_file, "description" : requestData.description}, requestData.task_id], function(err, result){
+		if(err){
+			return callback(err);
+		}
+		
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+		logger.log(logger.logLevels["debug"], "successful edited task data");
+		callback(null, {"success" : 1});
+	});
 };
 
 module.exports = {
