@@ -239,6 +239,16 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
+	//delete profile data at log out
+	public void clear(){
+		userClasses.Clear ();
+		teacherClasses.Clear ();
+		userClassesBtns.Clear ();
+		teacherClassesBtns.Clear ();
+		tasksBtns.Clear ();
+		setUserId (0);
+	}
+
 	public void showTaskCreation(){
 		Debug.Log ("button clicked for show task creation");
 		panelCreateTask.SetActive (true);

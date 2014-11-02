@@ -101,13 +101,13 @@ public class PanelUserClass : MonoBehaviour {
 										generatedButton.transform.parent = generatedTopic.transform;
 										generatedButton.transform.FindChild("Text").GetComponent<Text>().text = ts.getTaskName();
 										//define button actions: start task and delete task
-										generatedButton.GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId());});
+										generatedButton.GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId(), ts.getTaskType());});
 										
 									}
 								}
 				
 						}
-								
+							
 		
 											
 			
@@ -118,11 +118,14 @@ public class PanelUserClass : MonoBehaviour {
 	
 	
 	
-	public void startTask(int id){
+	public void startTask(int id, string type){
 		Debug.Log ("Button clicked, try to start Task");
-		//Load task with id	
+		if (type == "Quiz") {
+			main.eventHandler("startQuiz", id);
+		}
+
 	}
-	
+
 	
 			
 	public void setClassId(int id){

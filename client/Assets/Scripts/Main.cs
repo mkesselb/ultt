@@ -33,6 +33,11 @@ public class Main : MonoBehaviour {
 	public Text headerText;
 	public Text btnBackText;
 	public GameObject messagebox;
+
+	//panels for tasks
+	public GameObject panelQuiz;
+	public GameObject panelFlashcard;
+	public GameObject panelAssign;
 	
 	//userid
 	public int userid;
@@ -48,6 +53,9 @@ public class Main : MonoBehaviour {
 		panelProfile.SetActive(false);
 		panelTeacherClass.SetActive(false);
 		panelUserClass.SetActive(false);
+		panelQuiz.SetActive (false);
+		panelFlashcard.SetActive (false);
+		panelAssign.SetActive (false);
 		messagebox.SetActive (false);
 		
 	}
@@ -75,34 +83,45 @@ public class Main : MonoBehaviour {
 								panelUserClass.GetComponent<PanelUserClass>().setClassId(id);
 								panelUserClass.GetComponent<PanelUserClass>().init ();
 								break;
-		
+		case "startQuiz":		panelQuiz.SetActive(true);
+								break;
 		}
 	}
 	
 	public void back(){	
-		if (panelProfile.activeSelf && panelCreateClass.activeSelf) {
-			panelCreateClass.SetActive (false);
-		}else if(panelProfile.activeSelf && panelCreateTask.activeSelf){
-			panelCreateTask.SetActive(false);
-		}else if(panelProfile.activeSelf && panelRegistration.activeSelf){
-			panelRegistration.SetActive(false);
-			panelLogInScreen.SetActive(true);
-		}else if(panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf){
-			panelProfile.SetActive(false);
-			panelLogInScreen.SetActive(true);
-		}else if(panelRegister.activeSelf){
-			panelRegister.SetActive(false);
-			panelLogInScreen.SetActive(true);
-		}else if(panelTeacherClass.activeSelf && panelStudentList.activeSelf){
-			panelStudentList.SetActive(false);
-		} else if(panelTeacherClass.activeSelf && !panelStudentList.activeSelf){
-			panelTeacherClass.SetActive(false);
-			panelProfile.SetActive(true);
-		} else if(panelUserClass.activeSelf){
-			panelUserClass.SetActive(false);
-			panelProfile.SetActive(true);
-		} 
-								
+				if (panelProfile.activeSelf && panelCreateClass.activeSelf) {
+						panelCreateClass.SetActive (false);
+						btnBackText.GetComponent<Text>().text = "zurück";
+				} else if (panelProfile.activeSelf && panelCreateTask.activeSelf) {
+						panelCreateTask.SetActive (false);
+						btnBackText.GetComponent<Text>().text = "zurück";
+				} else if (panelProfile.activeSelf && panelRegistration.activeSelf) {
+						panelRegistration.SetActive (false);
+						panelLogInScreen.SetActive (true);
+						btnBackText.GetComponent<Text>().text = "";
+				} else if (panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf) {
+						panelProfile.SetActive (false);
+						panelLogInScreen.SetActive (true);
+						panelProfile.GetComponent<Profile>().clear();
+						btnBackText.GetComponent<Text>().text = "";
+				} else if (panelRegister.activeSelf) {
+						panelRegister.SetActive (false);
+						panelLogInScreen.SetActive (true);
+						btnBackText.GetComponent<Text>().text = "zurück";
+				} else if (panelTeacherClass.activeSelf && panelStudentList.activeSelf) {
+						panelStudentList.SetActive (false);
+						btnBackText.GetComponent<Text>().text = "zurück";
+				} else if (panelTeacherClass.activeSelf && !panelStudentList.activeSelf) {
+						panelTeacherClass.SetActive (false);
+						panelProfile.SetActive (true);
+						btnBackText.GetComponent<Text>().text = "abmelden";
+				} else if (panelUserClass.activeSelf) {
+						panelUserClass.SetActive (false);
+						panelProfile.SetActive (true);
+						btnBackText.GetComponent<Text>().text = "zurück";
+				} else if(panelQuiz.activeSelf){
+						Debug.Log ("do not stop task!");
+				}
 	}
 		
 	//called by dbinterface when received www form contains an error

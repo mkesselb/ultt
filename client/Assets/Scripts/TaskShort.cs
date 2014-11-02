@@ -6,12 +6,13 @@ public class TaskShort : MonoBehaviour {
 	private int topic_id;
 	private int task_id;
 	private string task_name;
+	private string task_type;
 	
 	public TaskShort(string[] data){
 		task_id = int.Parse(data[1]);
 		task_name = data[3];
 		//topic_id = int.Parse (data[7]);
-		
+		task_type = "Quiz";
 	}
 	
 	public int getTopicId(){
@@ -24,5 +25,9 @@ public class TaskShort : MonoBehaviour {
 	
 	public string getTaskName(){
 		return task_name;	
+	}
+
+	public string getTaskType(){
+		return task_type;	
 	}
 }

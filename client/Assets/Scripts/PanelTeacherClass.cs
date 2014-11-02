@@ -203,8 +203,10 @@ public class PanelTeacherClass : MonoBehaviour {
 							}				
 							break;	
 		
-		case "addedTopic":
+		case "changed":		//added or deleted task or topic --> refresh view
+							init();
 							break;
+
 		}
 		
 	}
@@ -248,8 +250,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	
 	public void deleteTopic(int id){
 		Debug.Log ("Button clicked, try to delete Topic");	
-		//delete topic
-		//refresh panel from db or delete topic from panelTeacherClass??
+		dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
 	}
 	
 	public void showStudentList(){
