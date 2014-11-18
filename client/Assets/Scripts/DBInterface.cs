@@ -10,13 +10,15 @@ public class DBInterface : MonoBehaviour {
 	private string url = "";
 
 	void Start () {
-		if (Application.isWebPlayer) {
+		/*if (Application.isWebPlayer) {
 			//set db url
 			baseUrl = "";
 		} else{
 			baseUrl = "127.0.0.1/";
 		}
-		url = baseUrl + "unity/db";
+		url = baseUrl + "unity/db";*/
+		url = "127.0.0.1/unity/db";
+		baseUrl = "127.0.0.1/";
 		main = gameObject.GetComponent<Main>();
 	}
 	
@@ -106,7 +108,7 @@ public class DBInterface : MonoBehaviour {
 	public void deleteClassTopic(string target, int class_topic_id, GameObject receiver){
 		//response: {"success": 1}
 		WWWForm form = new WWWForm();
-		form.AddField("method", "createClassTopic");
+		form.AddField("method", "deleteClassTopic");
 		form.AddField("class_topic_id", class_topic_id);
 		
         WWW www = new WWW(url, form);
@@ -199,13 +201,14 @@ public class DBInterface : MonoBehaviour {
 	IEnumerator WaitForRequest(WWW www, string target, GameObject receiver)
     {
         yield return www;
-		//Debug.Log ("WaitForRequest, receiver: "+receiver.ToString()+", data: "+www.text);
+		Debug.Log ("WaitForRequest, receiver: "+receiver.ToString()+", data: "+www.text);
 	        if (www.error != null) {
 				main.dbErrorHandler(target, www.error);
 			} else { 
-				Debug.Log ("got data: "+www.text);
+			Debug.Log ("got data: "+www.text);
 				string[] temp = new string[]{target, www.text};
 				receiver.SendMessage("dbInputHandler",temp);
+
 			}  
 			
     }    

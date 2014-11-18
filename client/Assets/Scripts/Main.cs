@@ -84,6 +84,7 @@ public class Main : MonoBehaviour {
 								panelUserClass.GetComponent<PanelUserClass>().init ();
 								break;
 		case "startQuiz":		panelQuiz.SetActive(true);
+								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
 		}
 	}

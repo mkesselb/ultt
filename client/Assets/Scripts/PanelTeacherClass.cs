@@ -19,6 +19,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	//panelAddTask
 	public GameObject panelAddTask;
 	public List<TaskShort> tasks;
+	public List<TaskOverview> tasksOverview;
 	public List<GameObject> tasksBtns;
 	public GameObject buttonTasks;
 
@@ -27,6 +28,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	public GameObject studentInList_unaccepted, studentInList_accepted;
 	
 	public int class_id;
+	public int currentTopic;
 	private TeacherClass teacherClass;
 	
 	public Text fieldClassData;
@@ -46,6 +48,7 @@ public class PanelTeacherClass : MonoBehaviour {
 		tasksBtns = new List<GameObject>();
 		topics = new List<GameObject>();
 		students = new List<GameObject>();
+		tasksOverview = new List<TaskOverview> ();
 		init ();
 		
 		
@@ -60,9 +63,9 @@ public class PanelTeacherClass : MonoBehaviour {
 		panelStudentList.SetActive(false);
 		panelAddTopic.SetActive (false);
 		panelAddTask.SetActive (false);
-		
-		//destroy teacherClassObject because it has wrong id
-		Destroy(teacherClass);
+
+		currentTopic = -1;
+	
 		//and destroy all generated topics (with their tasks)
 		foreach (GameObject t in topics){
 			Destroy(t);	
@@ -81,6 +84,7 @@ public class PanelTeacherClass : MonoBehaviour {
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
 		List<string[]> parsedData;
+		Debug.Log ("with target: "+target);
 		switch(target){	
 		case "classData": 	parsedData = jsonparser.JSONparse(data);
 							teacherClass = new TeacherClass(class_id, parsedData[0]);
@@ -88,47 +92,56 @@ public class PanelTeacherClass : MonoBehaviour {
 							
 							dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 							break;
-		case "classTopics": parsedData = jsonparser.JSONparse(data);
-							if(parsedData[0][0] !="[]"){
-								foreach( string[] s in parsedData){
-									Topic t = new Topic(s);
-									Debug.Log ("Topicid: "+t.getId()+" Name: "+t.getName());
-									teacherClass.addTopic(t);
-								}
-								dbinterface.getTasksForClass("classTasks", class_id, gameObject);
-							}
-							break;
-		case "classTasks":	parsedData = jsonparser.JSONparse(data);
-							foreach( string[] s in parsedData){
-								//TODO index out of range
-								//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object
-								TaskShort task = new TaskShort(s);
-								teacherClass.addTask(task);
-							}
-					
-							foreach(Topic t in teacherClass.getTopicList()){
-								//generate topic, add it to hierarchy and change shown text
-								generatedTopic = Instantiate(topic, Vector3.zero, Quaternion.identity) as GameObject;
-								generatedTopic.transform.parent = GameObject.Find("ContentTasksForTopic").transform;
-								generatedTopic.transform.FindChild("TopicHeadline/Text").GetComponent<Text>().text = t.getName();
-								//define button actions: add task and delete topic
-								generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {showTasks();});
-								generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTopic(t.getId());});
-								topics.Add(generatedTopic);
-								foreach(TaskShort ts in teacherClass.getTaskList()){
-									//find all tasks that belong to this topic
-									if(ts.getTopicId() == t.getId()){
-										//generate task, add it to hierarchy and change shown text
-										generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
-										generatedButton.transform.parent = generatedTopic.transform;
-										generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
-										//define button actions: start task and delete task
-										generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId());});
-										generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTask(ts.getTaskId());});
-										
+		case "classTopics": if(data != "[]"){
+								parsedData = jsonparser.JSONparse(data);
+								if(parsedData[0][0] !="[]"){
+									foreach( string[] s in parsedData){
+										Topic t = new Topic(s);
+										Debug.Log ("Topicid: "+t.getId()+" Name: "+t.getName());
+										teacherClass.addTopic(t);
 									}
+									dbinterface.getTasksForClass("classTasks", class_id, gameObject);
 								}
-				
+							}
+							
+							break;
+		case "classTasks":	if(data != "[]"){
+								parsedData = jsonparser.JSONparse(data);
+								foreach( string[] s in parsedData){
+									//TODO index out of range
+									//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object
+									TaskShort task = new TaskShort(s);
+									teacherClass.addTask(task);
+								}
+							}
+							
+							if(teacherClass.getTopicList().Count>0){
+								foreach(Topic t in teacherClass.getTopicList()){
+									//generate topic, add it to hierarchy and change shown text
+									generatedTopic = Instantiate(topic, Vector3.zero, Quaternion.identity) as GameObject;
+									generatedTopic.transform.parent = GameObject.Find("ContentTasksForTopic").transform;
+									generatedTopic.transform.FindChild("TopicHeadline/Text").GetComponent<Text>().text = t.getName();
+									//define button actions: add task and delete topic
+									generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {showTasks(t.getId());});
+									generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTopic(t.getId());});
+									topics.Add(generatedTopic);
+									if(teacherClass.getTaskList().Count>0){
+										foreach(TaskShort ts in teacherClass.getTaskList()){
+											//find all tasks that belong to this topic
+											if(ts.getTopicId() == t.getId()){
+												//generate task, add it to hierarchy and change shown text
+												generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
+												generatedButton.transform.parent = generatedTopic.transform;
+												generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
+												//define button actions: start task and delete task
+												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId());});
+												generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTask(ts.getTaskId());});
+												
+											}
+										}
+									}
+					
+								}
 							}
 								
 		
@@ -141,28 +154,31 @@ public class PanelTeacherClass : MonoBehaviour {
 								Destroy(s);	
 							}
 							students.Clear();
+
+							panelStudentList.SetActive(true);
 			
 							//parse data in student objects (create student class)
-							parsedData = jsonparser.JSONparse(data);
-							foreach( string[] s in parsedData){
-								Student student = new Student(s);
-								teacherClass.addStudent(student);
-				
-								//create studentInList object for each student
-								if(student.isAccepted()){
-									generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
-								} else {
-									// studentInList_unaccepted object containa an add button
-									generatedStudentInList = Instantiate(studentInList_unaccepted, Vector3.zero, Quaternion.identity) as GameObject;
-									//define button action: add student to class
-									generatedStudentInList.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener(()=> {acceptStudent(student);});
+							if(data != "[]"){
+								parsedData = jsonparser.JSONparse(data);
+								foreach( string[] s in parsedData){
+									Student student = new Student(s);
+									teacherClass.addStudent(student);
+					
+									//create studentInList object for each student
+									if(student.isAccepted()){
+										generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
+									} else {
+										// studentInList_unaccepted object containa an add button
+										generatedStudentInList = Instantiate(studentInList_unaccepted, Vector3.zero, Quaternion.identity) as GameObject;
+										//define button action: add student to class
+										generatedStudentInList.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener(()=> {acceptStudent(student);});
+									}
+									//add studentInList objects to hierarchy
+									generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
+									generatedStudentInList.transform.FindChild("Text").GetComponent<Text>().text = student.getName();
+									
+									students.Add(generatedStudentInList);
 								}
-								//add studentInList objects to hierarchy
-								generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
-								generatedStudentInList.transform.FindChild("Text").GetComponent<Text>().text = student.getName();
-								
-								students.Add(generatedStudentInList);
-								panelStudentList.SetActive(true);
 							}
 						
 							
@@ -182,7 +198,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							//generate buttons
 							GameObject generatedBtn;
 							//delete old buttons and clear all references
-							tasks.Clear ();
+							tasksOverview = new List<TaskOverview>();
 							foreach(GameObject b in tasksBtns){
 								Destroy(b);
 							}	
@@ -191,48 +207,57 @@ public class PanelTeacherClass : MonoBehaviour {
 							
 							foreach (string[] s in parsedData){
 								if(s.Length > 1){	
-									TaskShort temp = new TaskShort(s);
-									tasks.Add(temp);
+									TaskOverview temp = new TaskOverview(s);
+									tasksOverview.Add(temp);
 									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
 									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getTaskName();
 									tasksBtns.Add(generatedBtn);
 									//set method to be called at onclick event
-									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId());});
+									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId(), currentTopic);});
 								}
-							}				
+							}	
+							currentTopic = -1;
 							break;	
 		
 		case "changed":		//added or deleted task or topic --> refresh view
 							init();
 							break;
-
+		case "addedTopic":		//added or deleted task or topic --> refresh view
+							init();
+							break;
+		case "addedTaskToClass": init ();
+							break;
+		case "deletedTopic": init ();
+							break;
 		}
 		
 	}
 	
-	public void showTasks(){
+	public void showTasks(int topicId){
 		Debug.Log ("Button clicked, try to add Task");
-		//get Tasks 
-		dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
+		currentTopic = topicId;
+		//TODO dbmethod
+		//dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
 
 	}
 
-	public void addTask(int taskid){
-		//TODO
-		Debug.Log ("TODO: method in dbinterface: addTaskToClass");
+	public void addTask(int taskId, int topicId){
+		//TODO change params
+		dbinterface.createTask ("addedTaskToClass", "Name of Task " + taskId, 1, teacherClass.getUserId (), 1, 1, gameObject);
 		panelAddTask.SetActive (false);
 	}
 	
 	
 	public void startTask(int id){
 		Debug.Log ("Button clicked, try to start Task");
-		//Load task with id	
+		//Load task with id: handle via main.eventhandler
 	}
 	
 	public void deleteTask(int id){
 		Debug.Log ("Button clicked, try to delete Task");	
 		//delete task
+		dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
 		//refresh panel from db or delete task from panelTeacherClass??
 	}
 
@@ -262,7 +287,6 @@ public class PanelTeacherClass : MonoBehaviour {
 		Debug.Log ("Button clicked, try to accept user");	
 		dbinterface.acceptUserInClass("acceptedStudent", s.getId(), class_id, gameObject);	
 	}
-	
 			
 	public void setClassId(int id){
 		class_id = id;

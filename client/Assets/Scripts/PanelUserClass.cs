@@ -32,7 +32,7 @@ public class PanelUserClass : MonoBehaviour {
 		
 		
 		topics = new List<GameObject>();
-		init ();
+
 		
 		
 	}

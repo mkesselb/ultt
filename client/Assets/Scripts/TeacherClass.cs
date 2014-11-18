@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class TeacherClass : MonoBehaviour {
+public class TeacherClass{
 
 	private int user_id;
 	private int class_id;

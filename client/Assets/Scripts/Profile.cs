@@ -9,7 +9,7 @@ public class Profile : MonoBehaviour {
 	private DBInterface dbinterface;
 	private JSONParser jsonparser;
 	
-	//Objects on "normal" view
+	//Objects on standard view
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
 	//creation form (to create new class)
 	public GameObject panelCreateClass;
@@ -32,7 +32,7 @@ public class Profile : MonoBehaviour {
 	public User user;
 	public List<UserClass> userClasses;
 	public List<TeacherClass> teacherClasses;
-	public List<TaskShort> tasks;
+	public List<TaskOverview> tasks;
 	public List<GameObject> userClassesBtns, teacherClassesBtns, tasksBtns;
 
 	void Start(){
@@ -41,6 +41,7 @@ public class Profile : MonoBehaviour {
 		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
+		//only teacherClasses view is actve first
 		panelCreateClass.SetActive(false);
 		panelCreateTask.SetActive (false);
 		panelRegistration.SetActive(false);
@@ -49,6 +50,7 @@ public class Profile : MonoBehaviour {
 		//userid = main.getUserId();
 		userClasses = new List<UserClass>();
 		teacherClasses = new List<TeacherClass>();
+		tasks = new List<TaskOverview> ();
 		userClassesBtns = new List<GameObject>();
 		teacherClassesBtns = new List<GameObject>();
 		tasksBtns = new List<GameObject>();
@@ -58,23 +60,24 @@ public class Profile : MonoBehaviour {
 	
 	}
 
+	//action performed after clicking on menu items teacherClasses, courses or tasks
 	public void clickedBtn(string target){
 		
 		//cases: button of each class, course, task
 		switch(target){
-		case "btnKlassen":	//show overview of Klassen
+		case "btnKlassen":	//show overview of teacherClasses
 							overviewKlassen.SetActive(true);
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(false);
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
-		case "btnKurse": 	//show overview of Kurse
+		case "btnKurse": 	//show overview of courses
 							overviewKlassen.SetActive(false);
 							overviewKurse.SetActive(true);
 							overviewTasks.SetActive(false);
 							dbinterface.getMeineKurse("Kurse", userid, gameObject);
 							break;
-		case "btnTasks":	//show overview of Tasks
+		case "btnTasks":	//show overview of tasks
 							overviewKlassen.SetActive(false);
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(true);
@@ -83,6 +86,7 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
+	//action performed after clicking on a certain teacherClass, course or task
 	public void clickedBtn(string target, int id){
 		switch(target){
 		case "btnTeacherClasses":
@@ -104,6 +108,7 @@ public class Profile : MonoBehaviour {
 			
 	}
 
+	//called by dbinterface to handle input data: set user data, generate new buttons, delete buttons
 	public void dbInputHandler(string[] response){
 		GameObject generatedBtn;
 		string target = response[0];
@@ -111,69 +116,58 @@ public class Profile : MonoBehaviour {
 		List<string[]> parsedData;
 		Debug.Log ("in dbinputhandler of profile, target "+target);
 		switch(target){	
-		case "userData": 	//parse received user data and save in user
+		case "userData": 	//parse received user data and save in user object
 							parsedData = jsonparser.JSONparse(data);
 							user = new User(userid, parsedData[0]);
 							//write user data to profile screen
 							fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
 			
-							//activate first overview: Klassen
+							//activate first overview: teacherClasses
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(false);
-							//get Klassen of user
+							//get classes of user
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
 						
-		case "Klassen":		//generate a button for each class = teacherClass
-			
-							//delete old buttons and clear all references
+		case "Klassen":		//delete old buttons and clear all references
 							teacherClasses.Clear();
 							foreach(GameObject b in teacherClassesBtns){
 								Destroy(b);
 							}	
 							teacherClassesBtns.Clear();
-							//parse data to string array
+
+							//parse data
 							parsedData = jsonparser.JSONparse(data);
 			
-							//split parsed data into data packages for one object (=TeacherClass)
-							//for (int i = 0; i<parsedData.Length/12; i++){
+							//split parsed data into data packages for one teacherClass)
 							foreach (string[] s in parsedData){
-								/*for (int j = 0; j<s.Length; j++){
-									Debug.Log(s[j]);
-								}
-								Debug.Log ("---------------");*/
 								if(s.Length > 1){							
-									//add object to object list
 									TeacherClass temp = new TeacherClass(userid,s);
+									//add teacherClass to list
 									teacherClasses.Add(temp);
-									//generate button and add to button list
+									//generate button for teacherClass and add to button list
 									generatedBtn = Instantiate(buttonTeacherClass, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentKlassen").transform;
 									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
 									teacherClassesBtns.Add(generatedBtn);
 					
-									//set method to be called at onclick event
+									//set method to be called at onclick event for main button ("Button") and delete button ("ButtonDelete") on button object
 									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
 									generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {deleteClass(temp.getClassId());});
 								}
 							}
 							break;
 
-		case "Kurse":		//generate buttons
-			
-							//delete old buttons and clear all references
+		case "Kurse":		//delete old buttons and clear all references
 							userClasses.Clear ();
 							foreach(GameObject b in userClassesBtns){
 								Destroy(b);
 							}	
 							userClassesBtns.Clear();
 							parsedData = jsonparser.JSONparse(data);
-			
+
+							//generate buttons
 							foreach (string[] s in parsedData){
-								/*for (int j = 0; j<s.Length; j++){
-									Debug.Log(s[j]);
-								}
-								Debug.Log ("---------------");*/
 								if(s.Length > 1){	
 									UserClass temp = new UserClass(userid,s);
 									userClasses.Add(temp);
@@ -187,23 +181,19 @@ public class Profile : MonoBehaviour {
 							}
 							break;
 						
-		case "Tasks":		//generate buttons
-			
-							//delete old buttons and clear all references
+		case "Tasks":		//delete old buttons and clear all references
 							tasks.Clear ();
 							foreach(GameObject b in tasksBtns){
 								Destroy(b);
 							}	
 							tasksBtns.Clear();
 							parsedData = jsonparser.JSONparse(data);
-							
+
+
+							//generate buttons
 							foreach (string[] s in parsedData){
-								/*for (int j = 0; j<s.Length; j++){
-													Debug.Log(s[j]);
-												}
-												Debug.Log ("---------------");*/
-								if(s.Length > 1){	
-									TaskShort temp = new TaskShort(s);
+								if(s.Length> 1){	
+									TaskOverview temp = new TaskOverview(s);
 									tasks.Add(temp);
 									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
@@ -212,7 +202,7 @@ public class Profile : MonoBehaviour {
 									//set method to be called at onclick event
 									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTasks", temp.getTaskId());});
 								}
-							}				
+							}			
 							break;
 			
 		case "deletedClass":parsedData = jsonparser.JSONparse(data);
