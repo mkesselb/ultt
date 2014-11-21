@@ -1,7 +1,7 @@
 {
   "name": "ultt",
   "description": "ultimate learning and teaching tool",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": true,
   "dependencies": {
     "express": "4.6.1",
