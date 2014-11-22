@@ -193,7 +193,32 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 
-	
+	public void assignTaskToTopic(string target, int class_id, int task_id, int class_topic_id, int obligatory, string deadline, int max_attempts, GameObject receiver){
+		//response: {"success" : 1}
+		WWWForm form = new WWWForm();
+		form.AddField("method", "assignTaskToTopic");
+		form.AddField("class_id", class_id);
+		form.AddField("task_id", task_id);
+		form.AddField("class_topic_id", class_topic_id);
+		form.AddField("obligatory", obligatory);
+		form.AddField("deadine", deadline);
+		form.AddField ("max_attempts", max_attempts);
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+
+	}
+
+	public void getTask(string target, int task_id, GameObject receiver){
+		//response: taskname, public, user_id, data_file, subject_name, type_name, description
+		WWWForm form = new WWWForm();
+		form.AddField("method", "getTask");
+		form.AddField("task_id", task_id);
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+
+	}
 	
 	
 	

@@ -39,30 +39,45 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Course.cs" />
      <Compile Include="Assets\Scripts\DBInterface.cs" />
      <Compile Include="Assets\Scripts\JSONParser.cs" />
      <Compile Include="Assets\Scripts\LogIn.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
-     <Compile Include="Assets\Scripts\PanelRegister.cs" />
-     <Compile Include="Assets\Scripts\PanelTeacherClass.cs" />
-     <Compile Include="Assets\Scripts\PanelUserClass.cs" />
-     <Compile Include="Assets\Scripts\Profile.cs" />
-     <Compile Include="Assets\Scripts\Student.cs" />
-     <Compile Include="Assets\Scripts\TaskShort.cs" />
-     <Compile Include="Assets\Scripts\TeacherClass.cs" />
-     <Compile Include="Assets\Scripts\Topic.cs" />
-     <Compile Include="Assets\Scripts\User.cs" />
-     <Compile Include="Assets\Scripts\UserClass.cs" />
+     <Compile Include="Assets\Scripts\Objects\Course.cs" />
+     <Compile Include="Assets\Scripts\Objects\Question.cs" />
+     <Compile Include="Assets\Scripts\Objects\Student.cs" />
+     <Compile Include="Assets\Scripts\Objects\TaskOverview.cs" />
+     <Compile Include="Assets\Scripts\Objects\TaskShort.cs" />
+     <Compile Include="Assets\Scripts\Objects\TeacherClass.cs" />
+     <Compile Include="Assets\Scripts\Objects\Topic.cs" />
+     <Compile Include="Assets\Scripts\Objects\User.cs" />
+     <Compile Include="Assets\Scripts\Objects\UserClass.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelAssign.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFlashcard.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFormQuiz.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelQuiz.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelRegister.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelTeacherClass.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelUserClass.cs" />
+     <Compile Include="Assets\Scripts\Panels\Profile.cs" />
+     <Compile Include="Assets\Scripts\taskdata\AssignmentData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\AssignmentQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\CSVHelper.cs" />
+     <Compile Include="Assets\Scripts\taskdata\CategoryData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\CategoryQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\QuizData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\QuizQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\TaskData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\TaskQuestion.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Projects/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

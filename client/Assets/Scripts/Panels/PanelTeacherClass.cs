@@ -63,8 +63,6 @@ public class PanelTeacherClass : MonoBehaviour {
 		panelStudentList.SetActive(false);
 		panelAddTopic.SetActive (false);
 		panelAddTask.SetActive (false);
-
-		currentTopic = -1;
 	
 		//and destroy all generated topics (with their tasks)
 		foreach (GameObject t in topics){
@@ -97,7 +95,6 @@ public class PanelTeacherClass : MonoBehaviour {
 								if(parsedData[0][0] !="[]"){
 									foreach( string[] s in parsedData){
 										Topic t = new Topic(s);
-										Debug.Log ("Topicid: "+t.getId()+" Name: "+t.getName());
 										teacherClass.addTopic(t);
 									}
 									dbinterface.getTasksForClass("classTasks", class_id, gameObject);
@@ -122,20 +119,22 @@ public class PanelTeacherClass : MonoBehaviour {
 									generatedTopic.transform.parent = GameObject.Find("ContentTasksForTopic").transform;
 									generatedTopic.transform.FindChild("TopicHeadline/Text").GetComponent<Text>().text = t.getName();
 									//define button actions: add task and delete topic
-									generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {showTasks(t.getId());});
-									generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTopic(t.getId());});
+									int topicId = t.getId();
+									generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {showTasks(topicId);});
+									generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTopic(topicId);});
 									topics.Add(generatedTopic);
 									if(teacherClass.getTaskList().Count>0){
 										foreach(TaskShort ts in teacherClass.getTaskList()){
 											//find all tasks that belong to this topic
-											if(ts.getTopicId() == t.getId()){
+											if(ts.getTopicId() == topicId){
 												//generate task, add it to hierarchy and change shown text
 												generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
 												generatedButton.transform.parent = generatedTopic.transform;
 												generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
 												//define button actions: start task and delete task
-												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId());});
-												generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTask(ts.getTaskId());});
+												int taskId = ts.getTaskId();
+												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(taskId);});
+												generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTask(taskId);});
 												
 											}
 										}
@@ -217,7 +216,6 @@ public class PanelTeacherClass : MonoBehaviour {
 									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId(), currentTopic);});
 								}
 							}	
-							currentTopic = -1;
 							break;	
 		
 		case "changed":		//added or deleted task or topic --> refresh view
@@ -230,21 +228,23 @@ public class PanelTeacherClass : MonoBehaviour {
 							break;
 		case "deletedTopic": init ();
 							break;
+		case "deletedTask": init ();
+							break;
 		}
 		
 	}
 	
 	public void showTasks(int topicId){
-		Debug.Log ("Button clicked, try to add Task");
+		Debug.Log ("Button clicked, try to add Task to Topic with id "+topicId);
 		currentTopic = topicId;
 		//TODO dbmethod
-		//dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
+		dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
 
 	}
 
 	public void addTask(int taskId, int topicId){
 		//TODO change params
-		dbinterface.createTask ("addedTaskToClass", "Name of Task " + taskId, 1, teacherClass.getUserId (), 1, 1, gameObject);
+		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, 1, "2014-11-06 00:00:00", 1, gameObject);
 		panelAddTask.SetActive (false);
 	}
 	
@@ -255,10 +255,8 @@ public class PanelTeacherClass : MonoBehaviour {
 	}
 	
 	public void deleteTask(int id){
-		Debug.Log ("Button clicked, try to delete Task");	
-		//delete task
-		dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
-		//refresh panel from db or delete task from panelTeacherClass??
+		Debug.Log ("Button clicked, TODO try to delete Task");	
+		//delete task with target "deletedTask"
 	}
 
 	public void activatePanelAddTopic(){
@@ -274,7 +272,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	}
 	
 	public void deleteTopic(int id){
-		Debug.Log ("Button clicked, try to delete Topic");	
+		Debug.Log ("Button clicked, try to delete Topic with id "+id);	
 		dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
 	}
 	
