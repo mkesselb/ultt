@@ -1,15 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelFormQuiz.cs">
     <Files>
-      <File FileName="Assets\Scripts\Panels\PanelQuiz.cs" Line="76" Column="1" />
+      <File FileName="Assets\Scripts\Panels\PanelFormQuiz.cs" Line="56" Column="3" />
+      <File FileName="Assets\Scripts\Panels\PanelFormQuiz.cs" Line="56" Column="1" />
+      <File FileName="Assets\Scripts\Panels\PanelQuiz.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Main.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\DBInterface.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\taskdata\CSVHelper.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\taskdata\QuizData.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\taskdata\QuizQuestion.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Panels\PanelFormQuiz.cs" Line="50" Column="30" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
