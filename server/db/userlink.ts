@@ -99,7 +99,7 @@ function registerUserToClass(dbConnection, requestData, callback){
 				return callback(err);
 			}
 			if(user.length !== 0){
-				Logger.log(logger.logLevels["warning"], "user was already registered in class");
+				logger.log(logger.logLevels["warning"], "user was already registered in class");
 				return callback({"error" : 302});
 			}
 			

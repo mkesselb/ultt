@@ -59,6 +59,11 @@ ultt.get('/ultt.unity3d', function(req, res){
 	fs.createReadStream('ultt.unity3d').pipe(res);
 });
 
+ultt.get('/favicon.ico', function(req, res){
+	logger.log(logger.logLevels["info"], "serving request to /favicon.ico");
+	fs.createReadStream('favicon.ico').pipe(res);
+});
+
 ultt.get('/info', function(req, res){
 	logger.log(logger.logLevels["info"], "serving request to /info");
 	res.send('sp mkesselb, comoessl, stoffl1024');
