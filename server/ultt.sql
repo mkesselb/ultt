@@ -355,7 +355,7 @@ CREATE TABLE IF NOT EXISTS `ultt`.`task_for_class` (
   `task_id` MEDIUMINT(8) NOT NULL,
   `assign_time` TIMESTAMP NULL,
   `obligatory` TINYINT(1) NOT NULL,
-  `deadline` DATE NOT NULL COMMENT 'Zeitpunkt bis zu welchem diese Task gemacht werden soll.',
+  `deadline` DATETIME NOT NULL COMMENT 'Zeitpunkt bis zu welchem diese Task gemacht werden soll.',
   `max_attempts` SMALLINT NOT NULL COMMENT 'Anzahl der Versuche',
   `task_for_class_id` MEDIUMINT NOT NULL AUTO_INCREMENT,
   `class_topic_id` INT NOT NULL,
