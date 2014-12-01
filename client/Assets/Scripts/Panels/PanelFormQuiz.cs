@@ -32,7 +32,7 @@ public class PanelFormQuiz : MonoBehaviour {
 	public void init(){
 		questions = new List<GameObject> ();
 		question_id = 0;
-
+		addQuestionForm();
 
 	}
 
@@ -45,14 +45,34 @@ public class PanelFormQuiz : MonoBehaviour {
 	public void addQuestionForm(){
 		Debug.Log ("Add question");
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
-		question_id++;
+
 		int id = question_id;
 		generatedQuestion.name = "question" + id;
 		generatedQuestion.transform.parent = GameObject.Find ("panelQuestions/questions").transform;
 		generatedQuestion.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener (() => {addAnswerForm(generatedQuestion.name);});	
+		questions.Add (generatedQuestion);
+		question_id++;
 	}
 
 	public void saveQuestions(){
+		foreach (GameObject q in questions) {
+			Debug.Log ("questionText: "+q.transform.FindChild("InputField/Text").GetComponent<Text>().text);
+
+			Transform[] answers = q.transform.Find("answers").GetComponentsInChildren<Transform>();
+
+			foreach (Transform answer in answers){
+				Debug.Log ("answer: "+answer.FindChild("InputField/Text").GetComponent<Text>().text);
+			}
+
+
+//			Transform[] allChildren = q.transform.GetComponentsInChildren<Transform>();
+//			foreach(Transform tr in allChildren){
+//				if(tr.tag =="FormQuizQuestion"){
+//					Debug.Log ("Question: "+tr.GetComponent<Text>().text);
+//				}
+//			}
+		}
+
 
 	}
 }
