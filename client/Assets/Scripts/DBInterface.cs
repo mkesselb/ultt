@@ -219,6 +219,19 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 
 	}
+
+	public void editTask(string target, int task_id, string description, string data_file, GameObject receiver){
+		//response: {"success" : 1} 
+		WWWForm form = new WWWForm();
+		form.AddField("method", "editTask");
+		form.AddField("task_id", task_id);
+		form.AddField ("description", description);
+		form.AddField ("data_file", data_file);
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
 	
 	
 	

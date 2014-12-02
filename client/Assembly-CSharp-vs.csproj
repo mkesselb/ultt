@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Objects\Course.cs" />
      <Compile Include="Assets\Scripts\Objects\Question.cs" />
      <Compile Include="Assets\Scripts\Objects\Student.cs" />
+     <Compile Include="Assets\Scripts\Objects\Task.cs" />
      <Compile Include="Assets\Scripts\Objects\TaskOverview.cs" />
      <Compile Include="Assets\Scripts\Objects\TaskShort.cs" />
      <Compile Include="Assets\Scripts\Objects\TeacherClass.cs" />

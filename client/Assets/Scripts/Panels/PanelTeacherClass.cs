@@ -28,6 +28,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	public GameObject studentInList_unaccepted, studentInList_accepted;
 	
 	public int class_id;
+	public int task_id;
 	public int currentTopic;
 	private TeacherClass teacherClass;
 	
@@ -230,6 +231,9 @@ public class PanelTeacherClass : MonoBehaviour {
 							break;
 		case "deletedTask": init ();
 							break;
+		case "startTask":	parsedData = jsonparser.JSONparse(data);
+							Task taskToStart = new Task(task_id, parsedData[0]);
+							break;
 		}
 		
 	}
@@ -244,14 +248,15 @@ public class PanelTeacherClass : MonoBehaviour {
 
 	public void addTask(int taskId, int topicId){
 		//TODO change params
-		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, 1, "2014-11-06 00:00:00", 1, gameObject);
+		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, 1, System.DateTime.Now.ToString(), 1, gameObject);
 		panelAddTask.SetActive (false);
 	}
 	
 	
 	public void startTask(int id){
 		Debug.Log ("Button clicked, try to start Task");
-		//Load task with id: handle via main.eventhandler
+		task_id = id;
+		dbinterface.getTask ("startTask", id, gameObject);
 	}
 	
 	public void deleteTask(int id){

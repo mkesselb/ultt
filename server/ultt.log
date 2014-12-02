@@ -9835,3 +9835,1284 @@
 [2014-11-22 23:29:38.592] [DEBUG] ultt - get tasks of class with id: 1
 [2014-11-22 23:29:38.592] [INFO] ultt - successful tasks fetching
 [2014-11-22 23:29:38.602] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-01 13:44:33.906] [INFO] ultt - listening on port 80
+[2014-12-01 13:44:33.936] [INFO] ultt - connected to db
+[2014-12-01 13:44:48.891] [INFO] ultt - serving post to /login
+[2014-12-01 13:44:48.891] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-01 13:44:48.901] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-01 13:44:48.901] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-01 13:44:48.911] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-01 13:44:48.911] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-01 13:44:48.911] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-01 13:44:48.951] [INFO] ultt - successful db fetching
+[2014-12-01 13:44:48.951] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-01 13:44:48.951] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-01 13:44:48.951] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-01 13:44:49.191] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:44:49.191] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-01 13:44:49.191] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-01 13:44:49.201] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:44:49.211] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-01 13:44:49.211] [DEBUG] ultt - get user with id: 1
+[2014-12-01 13:44:49.221] [INFO] ultt - successful user fetching
+[2014-12-01 13:44:49.221] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-01 13:44:49.411] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:44:49.421] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-01 13:44:49.421] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-01 13:44:49.421] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:44:49.434] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-01 13:44:49.436] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-01 13:44:49.461] [INFO] ultt - successful teacher classes fetching
+[2014-12-01 13:44:49.461] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-01 13:44:51.361] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:44:51.371] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-01 13:44:51.371] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-01 13:44:51.381] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:44:51.391] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-01 13:44:51.391] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-01 13:44:51.401] [INFO] ultt - successful topics fetching
+[2014-12-01 13:44:51.411] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-01 13:44:51.681] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:44:51.681] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-01 13:44:51.681] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-01 13:44:51.691] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:44:51.691] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-01 13:44:51.691] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-01 13:44:51.721] [INFO] ultt - successful tasks fetching
+[2014-12-01 13:44:51.721] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-01 13:45:02.464] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:02.484] [DEBUG] ultt - received data: method=createClassTopic&class_id=1&topic_name=neues+Thema
+[2014-12-01 13:45:02.484] [DEBUG] ultt - --- decoded method=createClassTopic
+[2014-12-01 13:45:02.494] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:02.494] [DEBUG] ultt - --- decoded topic_name=neues Thema
+[2014-12-01 13:45:02.504] [DEBUG] ultt - full data received on db: {"method":"createClassTopic","class_id":"1","topic_name":"neues Thema"}
+[2014-12-01 13:45:02.504] [DEBUG] ultt - creating topic neues Thema for class_id 1
+[2014-12-01 13:45:02.514] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":27,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-12-01 13:45:02.524] [INFO] ultt - successful class topic creating
+[2014-12-01 13:45:02.524] [DEBUG] ultt - created class_topic_id: [{"class_topic_id":9},{"class_topic_id":26},{"class_topic_id":27}]
+[2014-12-01 13:45:02.664] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:02.684] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-01 13:45:02.694] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-01 13:45:02.694] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:02.704] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-01 13:45:02.704] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-01 13:45:02.714] [INFO] ultt - successful topics fetching
+[2014-12-01 13:45:02.724] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"},{"class_topic_id":27,"topic_name":"neues Thema"}]
+[2014-12-01 13:45:03.016] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:03.026] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-01 13:45:03.026] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-01 13:45:03.036] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:03.036] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-01 13:45:03.046] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-01 13:45:03.046] [INFO] ultt - successful tasks fetching
+[2014-12-01 13:45:03.056] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-01 13:45:06.271] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:06.271] [DEBUG] ultt - received data: method=deleteClassTopic&class_topic_id=27
+[2014-12-01 13:45:06.271] [DEBUG] ultt - --- decoded method=deleteClassTopic
+[2014-12-01 13:45:06.281] [DEBUG] ultt - --- decoded class_topic_id=27
+[2014-12-01 13:45:06.281] [DEBUG] ultt - full data received on db: {"method":"deleteClassTopic","class_topic_id":"27"}
+[2014-12-01 13:45:06.291] [DEBUG] ultt - deleting class topic with id: 27
+[2014-12-01 13:45:06.291] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-12-01 13:45:06.301] [DEBUG] ultt - successful setting delete flag of class_topic
+[2014-12-01 13:45:06.411] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:06.411] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-01 13:45:06.421] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-01 13:45:06.421] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:06.421] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-01 13:45:06.431] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-01 13:45:06.431] [INFO] ultt - successful topics fetching
+[2014-12-01 13:45:06.441] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-01 13:45:06.641] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:06.651] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-01 13:45:06.651] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-01 13:45:06.661] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:06.661] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-01 13:45:06.661] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-01 13:45:06.671] [INFO] ultt - successful tasks fetching
+[2014-12-01 13:45:06.671] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-01 13:45:09.028] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:09.028] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-01 13:45:09.038] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-01 13:45:09.038] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:45:09.048] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-01 13:45:09.048] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-01 13:45:09.058] [INFO] ultt - successful user tasks fetching
+[2014-12-01 13:45:09.068] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-01 13:45:10.383] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:10.383] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=11&class_topic_id=8&obligatory=1&deadine=2014-11-06+00%3a00%3a00&max_attempts=1
+[2014-12-01 13:45:10.383] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-01 13:45:10.393] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:10.393] [DEBUG] ultt - --- decoded task_id=11
+[2014-12-01 13:45:10.403] [DEBUG] ultt - --- decoded class_topic_id=8
+[2014-12-01 13:45:10.403] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-01 13:45:10.413] [DEBUG] ultt - --- decoded deadine=2014-11-06 00:00:00
+[2014-12-01 13:45:10.413] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-01 13:45:10.423] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"11","class_topic_id":"8","obligatory":"1","deadine":"2014-11-06 00:00:00","max_attempts":"1"}
+[2014-12-01 13:45:10.423] [DEBUG] ultt - assign task 11 to class 1 and topic 8 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-01 13:45:10.453] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-01 13:45:10.463] [ERROR] ultt - error posting to db: Error: ER_BAD_NULL_ERROR: Column 'deadline' cannot be null
+[2014-12-01 13:45:10.583] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:10.593] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-01 13:45:10.593] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-01 13:45:10.593] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:10.603] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-01 13:45:10.603] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-01 13:45:10.623] [INFO] ultt - successful topics fetching
+[2014-12-01 13:45:10.623] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-01 13:45:10.866] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:10.866] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-01 13:45:10.876] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-01 13:45:10.876] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:10.876] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-01 13:45:10.886] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-01 13:45:10.886] [INFO] ultt - successful tasks fetching
+[2014-12-01 13:45:10.896] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-01 13:45:17.893] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:17.893] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
+[2014-12-01 13:45:17.893] [DEBUG] ultt - --- decoded method=getClassUsers
+[2014-12-01 13:45:17.903] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:45:17.903] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
+[2014-12-01 13:45:17.913] [DEBUG] ultt - get users of class with id: 1
+[2014-12-01 13:45:17.923] [INFO] ultt - successful users fetching
+[2014-12-01 13:45:17.923] [DEBUG] ultt - fetch result: [{"user_id":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","accepted":0}]
+[2014-12-01 13:45:23.456] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:23.456] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-01 13:45:23.466] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-01 13:45:23.466] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:45:23.476] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-01 13:45:23.476] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-01 13:45:23.486] [INFO] ultt - successful classes fetching
+[2014-12-01 13:45:23.486] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik","username":"comoessl","accepted":0}]
+[2014-12-01 13:45:41.681] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:45:41.691] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-01 13:45:41.691] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-01 13:45:41.701] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:45:41.701] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-01 13:45:41.711] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-01 13:45:41.713] [INFO] ultt - successful classes fetching
+[2014-12-01 13:45:41.713] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik","username":"comoessl","accepted":0}]
+[2014-12-01 13:46:01.548] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:46:01.558] [DEBUG] ultt - received data: method=registerUserToClass&user_id=1&classcode=vUZL7U6iDl
+[2014-12-01 13:46:01.558] [DEBUG] ultt - --- decoded method=registerUserToClass
+[2014-12-01 13:46:01.558] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:46:01.568] [DEBUG] ultt - --- decoded classcode=vUZL7U6iDl
+[2014-12-01 13:46:01.568] [DEBUG] ultt - full data received on db: {"method":"registerUserToClass","user_id":"1","classcode":"vUZL7U6iDl"}
+[2014-12-01 13:46:01.578] [DEBUG] ultt - class_id 1 found for classcode vUZL7U6iDl
+[2014-12-01 13:46:01.588] [ERROR] ultt - error on method registerUserToClass
+[2014-12-01 13:46:01.588] [ERROR] ultt - error posting to db: {"error":302}
+[2014-12-01 13:46:01.708] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:46:01.708] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-01 13:46:01.718] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-01 13:46:01.718] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:46:01.718] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-01 13:46:01.728] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-01 13:46:01.728] [INFO] ultt - successful classes fetching
+[2014-12-01 13:46:01.728] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik","username":"comoessl","accepted":0}]
+[2014-12-01 13:47:03.972] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:47:03.979] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-01 13:47:03.984] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-01 13:47:03.987] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:47:03.992] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-01 13:47:03.992] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-01 13:47:03.994] [INFO] ultt - successful user tasks fetching
+[2014-12-01 13:47:04.004] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-01 13:47:11.914] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:47:11.914] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-01 13:47:11.924] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-01 13:47:11.924] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-01 13:47:11.924] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-01 13:47:11.934] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-01 13:47:11.934] [INFO] ultt - successful teacher classes fetching
+[2014-12-01 13:47:11.944] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-01 13:47:13.069] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:47:13.069] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-01 13:47:13.069] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-01 13:47:13.069] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:47:13.069] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-01 13:47:13.069] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-01 13:47:13.079] [INFO] ultt - successful topics fetching
+[2014-12-01 13:47:13.089] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-01 13:47:13.324] [INFO] ultt - serving post to /unity/db
+[2014-12-01 13:47:13.324] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-01 13:47:13.324] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-01 13:47:13.334] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-01 13:47:13.334] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-01 13:47:13.334] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-01 13:47:13.344] [INFO] ultt - successful tasks fetching
+[2014-12-01 13:47:13.344] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 11:50:05.812] [INFO] ultt - listening on port 80
+[2014-12-02 11:50:05.842] [INFO] ultt - connected to db
+[2014-12-02 11:50:22.613] [INFO] ultt - serving post to /login
+[2014-12-02 11:50:22.613] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 11:50:22.613] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 11:50:22.623] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 11:50:22.623] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 11:50:22.633] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 11:50:22.633] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 11:50:22.663] [INFO] ultt - successful db fetching
+[2014-12-02 11:50:22.663] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 11:50:22.663] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 11:50:22.663] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 11:50:22.883] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:50:22.883] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 11:50:22.893] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 11:50:22.893] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 11:50:22.903] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 11:50:22.903] [DEBUG] ultt - get user with id: 1
+[2014-12-02 11:50:22.923] [INFO] ultt - successful user fetching
+[2014-12-02 11:50:22.923] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 11:50:23.103] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:50:23.113] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 11:50:23.113] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 11:50:23.123] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 11:50:23.123] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 11:50:23.133] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 11:50:23.153] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 11:50:23.153] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 11:50:24.643] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:50:24.643] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 11:50:24.643] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 11:50:24.653] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 11:50:24.653] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 11:50:24.663] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 11:50:24.673] [INFO] ultt - successful topics fetching
+[2014-12-02 11:50:24.673] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 11:50:24.903] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:50:24.913] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 11:50:24.913] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 11:50:24.923] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 11:50:24.923] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 11:50:24.933] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 11:50:24.963] [INFO] ultt - successful tasks fetching
+[2014-12-02 11:50:24.963] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 11:53:30.041] [INFO] ultt - serving post to /login
+[2014-12-02 11:53:30.041] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 11:53:30.051] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 11:53:30.051] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 11:53:30.051] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 11:53:30.061] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 11:53:30.061] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 11:53:30.061] [INFO] ultt - successful db fetching
+[2014-12-02 11:53:30.071] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 11:53:30.071] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 11:53:30.071] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 11:53:30.241] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:53:30.251] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 11:53:30.251] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 11:53:30.251] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 11:53:30.271] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 11:53:30.271] [DEBUG] ultt - get user with id: 1
+[2014-12-02 11:53:30.271] [INFO] ultt - successful user fetching
+[2014-12-02 11:53:30.281] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 11:53:30.461] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:53:30.461] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 11:53:30.471] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 11:53:30.471] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 11:53:30.471] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 11:53:30.471] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 11:53:30.471] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 11:53:30.471] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 11:53:31.581] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:53:31.581] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 11:53:31.581] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 11:53:31.581] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 11:53:31.591] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 11:53:31.591] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 11:53:31.601] [INFO] ultt - successful topics fetching
+[2014-12-02 11:53:31.601] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 11:53:31.871] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:53:31.871] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 11:53:31.881] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 11:53:31.881] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 11:53:31.881] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 11:53:31.891] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 11:53:31.891] [INFO] ultt - successful tasks fetching
+[2014-12-02 11:53:31.891] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 11:53:45.339] [INFO] ultt - serving post to /unity/db
+[2014-12-02 11:53:45.339] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 11:53:45.339] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 11:53:45.339] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 11:53:45.349] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 11:53:45.349] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 11:53:45.349] [INFO] ultt - successful task data fetching
+[2014-12-02 11:53:45.359] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:00:42.824] [INFO] ultt - serving post to /login
+[2014-12-02 12:00:42.834] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:00:42.834] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:00:42.834] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:00:42.844] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:00:42.844] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:00:42.844] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:00:42.854] [INFO] ultt - successful db fetching
+[2014-12-02 12:00:42.854] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:00:42.854] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:00:42.864] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:00:43.054] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:00:43.054] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:00:43.054] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:00:43.064] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:00:43.064] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:00:43.064] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:00:43.074] [INFO] ultt - successful user fetching
+[2014-12-02 12:00:43.074] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:00:43.274] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:00:43.294] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:00:43.294] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:00:43.294] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:00:43.304] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:00:43.314] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:00:43.314] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:00:43.324] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:00:44.424] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:00:44.424] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:00:44.434] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:00:44.434] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:00:44.434] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:00:44.444] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:00:44.444] [INFO] ultt - successful topics fetching
+[2014-12-02 12:00:44.444] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:00:44.714] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:00:44.714] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:00:44.714] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:00:44.724] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:00:44.724] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:00:44.724] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:00:44.734] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:00:44.734] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:00:46.054] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:00:46.064] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:00:46.064] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:00:46.064] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:00:46.064] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:00:46.064] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:00:46.074] [INFO] ultt - successful task data fetching
+[2014-12-02 12:00:46.074] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:01:58.503] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:01:58.503] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:01:58.533] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:01:58.533] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:01:58.543] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:01:58.543] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:01:58.553] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:01:58.553] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 12:01:59.593] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:01:59.593] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=11&class_topic_id=4&obligatory=1&deadine=2014-11-06+00%3a00%3a00&max_attempts=1
+[2014-12-02 12:01:59.593] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 12:01:59.593] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:01:59.603] [DEBUG] ultt - --- decoded task_id=11
+[2014-12-02 12:01:59.613] [DEBUG] ultt - --- decoded class_topic_id=4
+[2014-12-02 12:01:59.613] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 12:01:59.613] [DEBUG] ultt - --- decoded deadine=2014-11-06 00:00:00
+[2014-12-02 12:01:59.613] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 12:01:59.613] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"11","class_topic_id":"4","obligatory":"1","deadine":"2014-11-06 00:00:00","max_attempts":"1"}
+[2014-12-02 12:01:59.623] [DEBUG] ultt - assign task 11 to class 1 and topic 4 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 12:01:59.633] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 12:01:59.633] [ERROR] ultt - error posting to db: {"error":304}
+[2014-12-02 12:01:59.763] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:01:59.763] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:01:59.763] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:01:59.763] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:01:59.773] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:01:59.773] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:01:59.773] [INFO] ultt - successful topics fetching
+[2014-12-02 12:01:59.783] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:01:59.983] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:01:59.983] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:01:59.993] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:01:59.993] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:01:59.993] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:01:59.993] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:02:00.003] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:02:00.003] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:02:06.983] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:02:06.993] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:02:06.993] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:02:06.993] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:02:07.003] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:02:07.003] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:02:07.013] [INFO] ultt - successful topics fetching
+[2014-12-02 12:02:07.013] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:02:07.243] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:02:07.243] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:02:07.243] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:02:07.243] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:02:07.253] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:02:07.253] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:02:07.263] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:02:07.273] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:02:31.290] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:02:31.290] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:02:31.290] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:02:31.300] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:02:31.300] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:02:31.310] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:02:31.310] [INFO] ultt - successful topics fetching
+[2014-12-02 12:02:31.310] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:02:31.490] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:02:31.490] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:02:31.490] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:02:31.490] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:02:31.500] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:02:31.500] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:02:31.500] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:02:31.500] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:02:33.040] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:02:33.040] [DEBUG] ultt - received data: method=getClassUsers&class_id=1
+[2014-12-02 12:02:33.040] [DEBUG] ultt - --- decoded method=getClassUsers
+[2014-12-02 12:02:33.050] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:02:33.050] [DEBUG] ultt - full data received on db: {"method":"getClassUsers","class_id":"1"}
+[2014-12-02 12:02:33.050] [DEBUG] ultt - get users of class with id: 1
+[2014-12-02 12:02:33.070] [INFO] ultt - successful users fetching
+[2014-12-02 12:02:33.070] [DEBUG] ultt - fetch result: [{"user_id":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","accepted":0}]
+[2014-12-02 12:02:36.610] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:02:36.610] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-02 12:02:36.610] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-02 12:02:36.620] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:02:36.620] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-02 12:02:36.620] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-02 12:02:36.630] [INFO] ultt - successful classes fetching
+[2014-12-02 12:02:36.640] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik","username":"comoessl","accepted":0}]
+[2014-12-02 12:08:22.414] [INFO] ultt - serving post to /login
+[2014-12-02 12:08:22.424] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:08:22.424] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:08:22.424] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:08:22.424] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:08:22.424] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:08:22.424] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:08:22.434] [INFO] ultt - successful db fetching
+[2014-12-02 12:08:22.434] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:08:22.434] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:08:22.444] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:08:22.614] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:08:22.624] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:08:22.624] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:08:22.624] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:08:22.624] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:08:22.624] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:08:22.634] [INFO] ultt - successful user fetching
+[2014-12-02 12:08:22.634] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:08:22.784] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:08:22.794] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:08:22.794] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:08:22.794] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:08:22.804] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:08:22.804] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:08:22.814] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:08:22.814] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:08:24.004] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:08:24.014] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:08:24.014] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:08:24.014] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:08:24.014] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:08:24.014] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:08:24.024] [INFO] ultt - successful topics fetching
+[2014-12-02 12:08:24.024] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:08:24.274] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:08:24.274] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:08:24.274] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:08:24.274] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:08:24.284] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:08:24.284] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:08:24.284] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:08:24.284] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:11:09.542] [INFO] ultt - serving post to /login
+[2014-12-02 12:11:09.542] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:11:09.542] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:11:09.542] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:11:09.542] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:11:09.542] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:11:09.552] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:11:09.552] [INFO] ultt - successful db fetching
+[2014-12-02 12:11:09.552] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:11:09.552] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:11:09.552] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:11:09.722] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:11:09.722] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:11:09.722] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:11:09.732] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:11:09.732] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:11:09.732] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:11:09.742] [INFO] ultt - successful user fetching
+[2014-12-02 12:11:09.742] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:11:09.882] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:11:09.882] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:11:09.882] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:11:09.892] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:11:09.892] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:11:09.892] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:11:09.902] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:11:09.902] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:12:56.701] [INFO] ultt - serving post to /login
+[2014-12-02 12:12:56.701] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:12:56.701] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:12:56.711] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:12:56.711] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:12:56.711] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:12:56.721] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:12:56.721] [INFO] ultt - successful db fetching
+[2014-12-02 12:12:56.721] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:12:56.721] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:12:56.721] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:12:56.871] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:12:56.871] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:12:56.871] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:12:56.871] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:12:56.881] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:12:56.881] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:12:56.881] [INFO] ultt - successful user fetching
+[2014-12-02 12:12:56.881] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:12:57.051] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:12:57.051] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:12:57.051] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:12:57.051] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:12:57.051] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:12:57.051] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:12:57.061] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:12:57.061] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:23:15.708] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:23:15.708] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:23:15.708] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:23:15.708] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:23:15.718] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:23:15.718] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:23:15.718] [INFO] ultt - successful task data fetching
+[2014-12-02 12:23:15.718] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:30:56.294] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:30:56.304] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:30:56.304] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:30:56.304] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:30:56.304] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:30:56.304] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:30:56.314] [INFO] ultt - successful task data fetching
+[2014-12-02 12:30:56.314] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:33:13.740] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:33:13.750] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:33:13.750] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:33:13.750] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:33:13.760] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:33:13.760] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:33:13.770] [INFO] ultt - successful task data fetching
+[2014-12-02 12:33:13.770] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:34:49.000] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:34:49.000] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:34:49.000] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:34:49.010] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:34:49.030] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:34:49.030] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:34:49.030] [INFO] ultt - successful task data fetching
+[2014-12-02 12:34:49.040] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:36:02.838] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:36:02.838] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:36:02.838] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:36:02.838] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:36:02.848] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:36:02.848] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:36:02.858] [INFO] ultt - successful task data fetching
+[2014-12-02 12:36:02.858] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:36:33.434] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:36:33.434] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:36:33.444] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:36:33.454] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:36:33.454] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:36:33.464] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:36:33.464] [INFO] ultt - successful task data fetching
+[2014-12-02 12:36:33.464] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:42:08.480] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:08.480] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:42:08.480] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:42:08.490] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:42:08.490] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:42:08.500] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:42:08.500] [INFO] ultt - successful task data fetching
+[2014-12-02 12:42:08.500] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:42:11.860] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:11.860] [DEBUG] ultt - received data: method=editTask&task_id=2&description=&data_file=
+[2014-12-02 12:42:11.860] [DEBUG] ultt - --- decoded method=editTask
+[2014-12-02 12:42:11.860] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:42:11.870] [DEBUG] ultt - --- decoded description=
+[2014-12-02 12:42:11.870] [DEBUG] ultt - --- decoded data_file=
+[2014-12-02 12:42:11.870] [DEBUG] ultt - full data received on db: {"method":"editTask","task_id":"2","description":"","data_file":""}
+[2014-12-02 12:42:11.880] [DEBUG] ultt - editing task 2 with data_file 
+[2014-12-02 12:42:11.880] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+[2014-12-02 12:42:11.890] [DEBUG] ultt - successful edited task data
+[2014-12-02 12:42:32.880] [INFO] ultt - serving post to /login
+[2014-12-02 12:42:32.880] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:42:32.880] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:42:32.880] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:42:32.890] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:42:32.890] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:42:32.890] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:42:32.890] [INFO] ultt - successful db fetching
+[2014-12-02 12:42:32.900] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:42:32.900] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:42:32.900] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:42:33.070] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:33.070] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:42:33.080] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:42:33.080] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:42:33.080] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:42:33.080] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:42:33.090] [INFO] ultt - successful user fetching
+[2014-12-02 12:42:33.090] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:42:33.280] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:33.280] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:42:33.280] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:42:33.290] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:42:33.290] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:42:33.290] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:42:33.300] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:42:33.300] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:42:36.489] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:36.489] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:42:36.489] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:42:36.489] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:42:36.499] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:42:36.499] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:42:36.499] [INFO] ultt - successful topics fetching
+[2014-12-02 12:42:36.499] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:42:36.739] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:36.739] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:42:36.739] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:42:36.739] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:42:36.749] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:42:36.749] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:42:36.749] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:42:36.749] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:42:42.211] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:42:42.211] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:42:42.211] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:42:42.221] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:42:42.221] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:42:42.221] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:42:42.231] [INFO] ultt - successful task data fetching
+[2014-12-02 12:42:42.231] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:43:46.189] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:46.189] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:43:46.199] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:43:46.209] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:43:46.209] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:43:46.209] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:43:46.219] [INFO] ultt - successful task data fetching
+[2014-12-02 12:43:46.219] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:43:47.689] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:47.689] [DEBUG] ultt - received data: method=editTask&task_id=2&description=&data_file=QuizData
+[2014-12-02 12:43:47.689] [DEBUG] ultt - --- decoded method=editTask
+[2014-12-02 12:43:47.689] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:43:47.699] [DEBUG] ultt - --- decoded description=
+[2014-12-02 12:43:47.699] [DEBUG] ultt - --- decoded data_file=QuizData
+[2014-12-02 12:43:47.699] [DEBUG] ultt - full data received on db: {"method":"editTask","task_id":"2","description":"","data_file":"QuizData"}
+[2014-12-02 12:43:47.699] [DEBUG] ultt - editing task 2 with data_file QuizData
+[2014-12-02 12:43:47.709] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-12-02 12:43:47.719] [DEBUG] ultt - successful edited task data
+[2014-12-02 12:43:57.077] [INFO] ultt - serving post to /login
+[2014-12-02 12:43:57.087] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:43:57.087] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:43:57.087] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:43:57.087] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:43:57.097] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:43:57.097] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:43:57.097] [INFO] ultt - successful db fetching
+[2014-12-02 12:43:57.107] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:43:57.107] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:43:57.107] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:43:57.277] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:57.277] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:43:57.277] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:43:57.287] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:43:57.287] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:43:57.287] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:43:57.297] [INFO] ultt - successful user fetching
+[2014-12-02 12:43:57.297] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:43:57.467] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:57.477] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:43:57.477] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:43:57.477] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:43:57.477] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:43:57.487] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:43:57.487] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:43:57.487] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:43:58.477] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:58.477] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:43:58.477] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:43:58.477] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:43:58.487] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:43:58.487] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:43:58.497] [INFO] ultt - successful topics fetching
+[2014-12-02 12:43:58.497] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:43:58.737] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:58.737] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:43:58.737] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:43:58.737] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:43:58.737] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:43:58.747] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:43:58.747] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:43:58.747] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:43:59.597] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:43:59.597] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:43:59.597] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:43:59.607] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:43:59.607] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:43:59.617] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:43:59.617] [INFO] ultt - successful task data fetching
+[2014-12-02 12:43:59.617] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"QuizData","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:44:02.997] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:44:02.997] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:44:03.007] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:44:03.007] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:44:03.007] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:44:03.007] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:44:03.017] [INFO] ultt - successful task data fetching
+[2014-12-02 12:44:03.017] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"QuizData","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:44:58.338] [INFO] ultt - serving post to /login
+[2014-12-02 12:44:58.338] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:44:58.348] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:44:58.348] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:44:58.348] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:44:58.348] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:44:58.358] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:44:58.358] [INFO] ultt - successful db fetching
+[2014-12-02 12:44:58.368] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:44:58.368] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:44:58.368] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:44:58.528] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:44:58.528] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:44:58.528] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:44:58.528] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:44:58.538] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:44:58.538] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:44:58.548] [INFO] ultt - successful user fetching
+[2014-12-02 12:44:58.548] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:44:58.718] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:44:58.718] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:44:58.718] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:44:58.728] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:44:58.728] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:44:58.728] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:44:58.728] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:44:58.738] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:44:59.657] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:44:59.657] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:44:59.667] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:44:59.667] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:44:59.677] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:44:59.677] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:44:59.687] [INFO] ultt - successful topics fetching
+[2014-12-02 12:44:59.687] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:44:59.927] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:44:59.927] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:44:59.927] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:44:59.927] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:44:59.937] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:44:59.947] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:44:59.947] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:44:59.947] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:45:04.547] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:04.557] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:45:04.557] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:45:04.557] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:45:04.557] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:45:04.557] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:45:04.567] [INFO] ultt - successful task data fetching
+[2014-12-02 12:45:04.567] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"QuizData","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:45:06.157] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:06.157] [DEBUG] ultt - received data: method=editTask&task_id=2&description=&data_file=0%2cFrage+eingeben%2cInput%2c1%2cInput%2c1%0a
+[2014-12-02 12:45:06.157] [DEBUG] ultt - --- decoded method=editTask
+[2014-12-02 12:45:06.157] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:45:06.157] [DEBUG] ultt - --- decoded description=
+[2014-12-02 12:45:06.167] [DEBUG] ultt - --- decoded data_file=0,Frage eingeben,Input,1,Input,1
+
+[2014-12-02 12:45:06.167] [DEBUG] ultt - full data received on db: {"method":"editTask","task_id":"2","description":"","data_file":"0,Frage eingeben,Input,1,Input,1\n"}
+[2014-12-02 12:45:06.167] [DEBUG] ultt - editing task 2 with data_file 0,Frage eingeben,Input,1,Input,1
+
+[2014-12-02 12:45:06.177] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-12-02 12:45:06.177] [DEBUG] ultt - successful edited task data
+[2014-12-02 12:45:16.517] [INFO] ultt - serving post to /login
+[2014-12-02 12:45:16.517] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:45:16.527] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:45:16.527] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:45:16.527] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:45:16.527] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:45:16.537] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:45:16.537] [INFO] ultt - successful db fetching
+[2014-12-02 12:45:16.547] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:45:16.547] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:45:16.557] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:45:17.567] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:17.567] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:45:17.567] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:45:17.567] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:45:17.577] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:45:17.577] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:45:17.577] [INFO] ultt - successful topics fetching
+[2014-12-02 12:45:17.577] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:45:17.817] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:17.817] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:45:17.827] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:45:17.827] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:45:17.827] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:45:17.827] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:45:17.837] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:45:17.837] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:45:18.627] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:18.627] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:45:18.627] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:45:18.637] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:45:18.637] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:45:18.647] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:45:18.647] [INFO] ultt - successful task data fetching
+[2014-12-02 12:45:18.657] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"0,Frage eingeben,Input,1,Input,1\n","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:45:58.600] [INFO] ultt - serving post to /login
+[2014-12-02 12:45:58.610] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:45:58.610] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:45:58.610] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:45:58.610] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:45:58.610] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:45:58.610] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:45:58.620] [INFO] ultt - successful db fetching
+[2014-12-02 12:45:58.630] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:45:58.630] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:45:58.630] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:45:58.800] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:58.810] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:45:58.810] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:45:58.810] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:45:58.820] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:45:58.820] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:45:58.820] [INFO] ultt - successful user fetching
+[2014-12-02 12:45:58.830] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:45:59.020] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:45:59.020] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:45:59.030] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:45:59.030] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:45:59.030] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:45:59.040] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:45:59.040] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:45:59.040] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:46:00.060] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:00.070] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:46:00.070] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:46:00.070] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:46:00.070] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:46:00.080] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:46:00.080] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:46:00.080] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:46:06.010] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:06.010] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:46:06.010] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:46:06.010] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:06.010] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:46:06.020] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:46:06.020] [INFO] ultt - successful topics fetching
+[2014-12-02 12:46:06.020] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":26,"topic_name":"Neues Thema"}]
+[2014-12-02 12:46:06.280] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:06.280] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:46:06.280] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:46:06.290] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:06.290] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:46:06.290] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:46:06.300] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:46:06.300] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:46:09.960] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:09.960] [DEBUG] ultt - received data: method=deleteClassTopic&class_topic_id=26
+[2014-12-02 12:46:09.970] [DEBUG] ultt - --- decoded method=deleteClassTopic
+[2014-12-02 12:46:09.970] [DEBUG] ultt - --- decoded class_topic_id=26
+[2014-12-02 12:46:09.980] [DEBUG] ultt - full data received on db: {"method":"deleteClassTopic","class_topic_id":"26"}
+[2014-12-02 12:46:09.980] [DEBUG] ultt - deleting class topic with id: 26
+[2014-12-02 12:46:09.980] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-12-02 12:46:09.990] [DEBUG] ultt - successful setting delete flag of class_topic
+[2014-12-02 12:46:10.110] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:10.120] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:46:10.120] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:46:10.130] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:10.130] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:46:10.130] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:46:10.140] [INFO] ultt - successful topics fetching
+[2014-12-02 12:46:10.150] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"}]
+[2014-12-02 12:46:10.350] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:10.350] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:46:10.350] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:46:10.360] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:10.360] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:46:10.360] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:46:10.370] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:46:10.370] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:46:21.660] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:21.660] [DEBUG] ultt - received data: method=createClassTopic&class_id=1&topic_name=new+Topic
+[2014-12-02 12:46:21.660] [DEBUG] ultt - --- decoded method=createClassTopic
+[2014-12-02 12:46:21.660] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:21.660] [DEBUG] ultt - --- decoded topic_name=new Topic
+[2014-12-02 12:46:21.670] [DEBUG] ultt - full data received on db: {"method":"createClassTopic","class_id":"1","topic_name":"new Topic"}
+[2014-12-02 12:46:21.670] [DEBUG] ultt - creating topic new Topic for class_id 1
+[2014-12-02 12:46:21.680] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":28,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-12-02 12:46:21.680] [INFO] ultt - successful class topic creating
+[2014-12-02 12:46:21.690] [DEBUG] ultt - created class_topic_id: [{"class_topic_id":28}]
+[2014-12-02 12:46:21.820] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:21.820] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:46:21.820] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:46:21.820] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:21.830] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:46:21.830] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:46:21.830] [INFO] ultt - successful topics fetching
+[2014-12-02 12:46:21.830] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:46:22.050] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:22.050] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:46:22.060] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:46:22.060] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:22.060] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:46:22.060] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:46:22.070] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:46:22.070] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:46:25.610] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:25.610] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:46:25.620] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:46:25.620] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:46:25.620] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:46:25.620] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:46:25.630] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:46:25.630] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 12:46:26.660] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:26.670] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=11&class_topic_id=28&obligatory=1&deadine=2014-11-06+00%3a00%3a00&max_attempts=1
+[2014-12-02 12:46:26.670] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 12:46:26.670] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:26.670] [DEBUG] ultt - --- decoded task_id=11
+[2014-12-02 12:46:26.670] [DEBUG] ultt - --- decoded class_topic_id=28
+[2014-12-02 12:46:26.680] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 12:46:26.680] [DEBUG] ultt - --- decoded deadine=2014-11-06 00:00:00
+[2014-12-02 12:46:26.680] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 12:46:26.680] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"11","class_topic_id":"28","obligatory":"1","deadine":"2014-11-06 00:00:00","max_attempts":"1"}
+[2014-12-02 12:46:26.680] [DEBUG] ultt - assign task 11 to class 1 and topic 28 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 12:46:26.700] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 12:46:26.700] [ERROR] ultt - error posting to db: Error: ER_BAD_NULL_ERROR: Column 'deadline' cannot be null
+[2014-12-02 12:46:26.810] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:26.810] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:46:26.810] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:46:26.810] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:26.810] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:46:26.810] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:46:26.820] [INFO] ultt - successful topics fetching
+[2014-12-02 12:46:26.820] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:46:27.010] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:27.010] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:46:27.010] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:46:27.010] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:27.020] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:46:27.020] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:46:27.020] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:46:27.020] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:46:48.564] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:48.564] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:46:48.564] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:46:48.564] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:46:48.564] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:46:48.564] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:46:48.574] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:46:48.574] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 12:46:53.505] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:53.505] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=1&class_topic_id=28&obligatory=1&deadine=2014-11-06+00%3a00%3a00&max_attempts=1
+[2014-12-02 12:46:53.515] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 12:46:53.515] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:53.515] [DEBUG] ultt - --- decoded task_id=1
+[2014-12-02 12:46:53.515] [DEBUG] ultt - --- decoded class_topic_id=28
+[2014-12-02 12:46:53.525] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 12:46:53.525] [DEBUG] ultt - --- decoded deadine=2014-11-06 00:00:00
+[2014-12-02 12:46:53.535] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 12:46:53.535] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"1","class_topic_id":"28","obligatory":"1","deadine":"2014-11-06 00:00:00","max_attempts":"1"}
+[2014-12-02 12:46:53.535] [DEBUG] ultt - assign task 1 to class 1 and topic 28 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 12:46:53.545] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 12:46:53.555] [ERROR] ultt - error posting to db: Error: ER_BAD_NULL_ERROR: Column 'deadline' cannot be null
+[2014-12-02 12:46:53.675] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:53.675] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:46:53.675] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:46:53.685] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:53.685] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:46:53.685] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:46:53.685] [INFO] ultt - successful topics fetching
+[2014-12-02 12:46:53.695] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:46:53.945] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:46:53.945] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:46:53.945] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:46:53.945] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:46:53.955] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:46:53.955] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:46:53.955] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:46:53.965] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:56:35.939] [INFO] ultt - listening on port 80
+[2014-12-02 12:56:35.969] [INFO] ultt - connected to db
+[2014-12-02 12:56:45.740] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:56:45.750] [DEBUG] ultt - received data: method=getTask&task_id=2
+[2014-12-02 12:56:45.750] [DEBUG] ultt - --- decoded method=getTask
+[2014-12-02 12:56:45.750] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:56:45.770] [DEBUG] ultt - full data received on db: {"method":"getTask","task_id":"2"}
+[2014-12-02 12:56:45.770] [DEBUG] ultt - fetching task information for task 2
+[2014-12-02 12:56:45.800] [INFO] ultt - successful task data fetching
+[2014-12-02 12:56:45.800] [DEBUG] ultt - fetch result: [{"taskname":"Algebra Test","public":0,"user_id":1,"data_file":"0,Frage eingeben,Input,1,Input,1\n","subject_name":"Informatik","type_name":"Zuordnung","description":""}]
+[2014-12-02 12:56:47.405] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:56:47.405] [DEBUG] ultt - received data: method=editTask&task_id=2&description=&data_file=0%2cFrage+eingeben%2cInput%2c1%2cInput%2c1%0a
+[2014-12-02 12:56:47.415] [DEBUG] ultt - --- decoded method=editTask
+[2014-12-02 12:56:47.415] [DEBUG] ultt - --- decoded task_id=2
+[2014-12-02 12:56:47.415] [DEBUG] ultt - --- decoded description=
+[2014-12-02 12:56:47.415] [DEBUG] ultt - --- decoded data_file=0,Frage eingeben,Input,1,Input,1
+
+[2014-12-02 12:56:47.415] [DEBUG] ultt - full data received on db: {"method":"editTask","task_id":"2","description":"","data_file":"0,Frage eingeben,Input,1,Input,1\n"}
+[2014-12-02 12:56:47.425] [DEBUG] ultt - editing task 2 with data_file 0,Frage eingeben,Input,1,Input,1
+
+[2014-12-02 12:56:47.435] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 0  Warnings: 0","protocol41":true,"changedRows":0}
+[2014-12-02 12:56:47.435] [DEBUG] ultt - successful edited task data
+[2014-12-02 12:56:57.534] [INFO] ultt - serving post to /login
+[2014-12-02 12:56:57.544] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 12:56:57.544] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 12:56:57.544] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 12:56:57.544] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 12:56:57.544] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 12:56:57.544] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 12:56:57.564] [INFO] ultt - successful db fetching
+[2014-12-02 12:56:57.564] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:56:57.574] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 12:56:57.574] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 12:56:57.734] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:56:57.744] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 12:56:57.744] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 12:56:57.744] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:56:57.744] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 12:56:57.754] [DEBUG] ultt - get user with id: 1
+[2014-12-02 12:56:57.754] [INFO] ultt - successful user fetching
+[2014-12-02 12:56:57.754] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 12:56:57.924] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:56:57.924] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:56:57.924] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:56:57.924] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:56:57.924] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:56:57.934] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:56:57.944] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:56:57.944] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:56:59.109] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:56:59.109] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:56:59.109] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:56:59.109] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:56:59.119] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:56:59.119] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:56:59.129] [INFO] ultt - successful topics fetching
+[2014-12-02 12:56:59.129] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:56:59.319] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:56:59.319] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:56:59.329] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:56:59.339] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:56:59.339] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:56:59.339] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:56:59.349] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:56:59.349] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:57:01.290] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:01.290] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-02 12:57:01.300] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-02 12:57:01.300] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:57:01.310] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-02 12:57:01.310] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-02 12:57:01.320] [INFO] ultt - successful classes fetching
+[2014-12-02 12:57:01.320] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik","username":"comoessl","accepted":0}]
+[2014-12-02 12:57:03.209] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:03.209] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 12:57:03.209] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 12:57:03.219] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:57:03.219] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 12:57:03.219] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 12:57:03.229] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 12:57:03.239] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 12:57:03.849] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:03.849] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:57:03.849] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:57:03.849] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:57:03.859] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:57:03.859] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:57:03.869] [INFO] ultt - successful topics fetching
+[2014-12-02 12:57:03.869] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:57:04.079] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:04.079] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:57:04.079] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:57:04.089] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:57:04.089] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:57:04.089] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:57:04.099] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:57:04.099] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:57:06.974] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:06.974] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:57:06.974] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:57:06.974] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:57:06.984] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:57:06.984] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:57:07.014] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:57:07.014] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 12:57:10.294] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:10.294] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=4&class_topic_id=4&obligatory=1&deadine=12%2f2%2f2014+12%3a57%3a10+PM&max_attempts=1
+[2014-12-02 12:57:10.294] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 12:57:10.304] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:57:10.304] [DEBUG] ultt - --- decoded task_id=4
+[2014-12-02 12:57:10.304] [DEBUG] ultt - --- decoded class_topic_id=4
+[2014-12-02 12:57:10.304] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 12:57:10.314] [DEBUG] ultt - --- decoded deadine=12/2/2014 12:57:10 PM
+[2014-12-02 12:57:10.314] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 12:57:10.314] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"4","class_topic_id":"4","obligatory":"1","deadine":"12/2/2014 12:57:10 PM","max_attempts":"1"}
+[2014-12-02 12:57:10.324] [DEBUG] ultt - assign task 4 to class 1 and topic 4 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 12:57:10.324] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 12:57:10.334] [ERROR] ultt - error posting to db: {"error":304}
+[2014-12-02 12:57:10.474] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:10.474] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:57:10.474] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:57:10.474] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:57:10.484] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:57:10.484] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:57:10.484] [INFO] ultt - successful topics fetching
+[2014-12-02 12:57:10.494] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:57:10.674] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:57:10.674] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:57:10.674] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:57:10.684] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:57:10.684] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:57:10.684] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:57:10.684] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:57:10.684] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:58:48.344] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:58:48.344] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:58:48.344] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:58:48.344] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:58:48.344] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:58:48.354] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:58:48.354] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:58:48.364] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 12:58:53.234] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:58:53.244] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=23&class_topic_id=4&obligatory=1&deadine=12%2f2%2f2014+12%3a58%3a53+PM&max_attempts=1
+[2014-12-02 12:58:53.244] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 12:58:53.244] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:58:53.244] [DEBUG] ultt - --- decoded task_id=23
+[2014-12-02 12:58:53.254] [DEBUG] ultt - --- decoded class_topic_id=4
+[2014-12-02 12:58:53.254] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 12:58:53.254] [DEBUG] ultt - --- decoded deadine=12/2/2014 12:58:53 PM
+[2014-12-02 12:58:53.254] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 12:58:53.254] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"23","class_topic_id":"4","obligatory":"1","deadine":"12/2/2014 12:58:53 PM","max_attempts":"1"}
+[2014-12-02 12:58:53.264] [DEBUG] ultt - assign task 23 to class 1 and topic 4 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 12:58:53.264] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 12:58:53.264] [ERROR] ultt - error posting to db: {"error":304}
+[2014-12-02 12:58:53.384] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:58:53.384] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:58:53.384] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:58:53.384] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:58:53.394] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:58:53.404] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:58:53.404] [INFO] ultt - successful topics fetching
+[2014-12-02 12:58:53.404] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:58:53.644] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:58:53.644] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:58:53.654] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:58:53.654] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:58:53.654] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:58:53.654] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:58:53.664] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:58:53.664] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:59:18.779] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:59:18.779] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:59:18.779] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:59:18.779] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:59:18.779] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:59:18.789] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:59:18.789] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:59:18.789] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 12:59:21.569] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:59:21.569] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=22&class_topic_id=28&obligatory=1&deadine=12%2f2%2f2014+12%3a59%3a21+PM&max_attempts=1
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded task_id=22
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded class_topic_id=28
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded deadine=12/2/2014 12:59:21 PM
+[2014-12-02 12:59:21.579] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 12:59:21.589] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"22","class_topic_id":"28","obligatory":"1","deadine":"12/2/2014 12:59:21 PM","max_attempts":"1"}
+[2014-12-02 12:59:21.589] [DEBUG] ultt - assign task 22 to class 1 and topic 28 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 12:59:21.609] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 12:59:21.619] [ERROR] ultt - error posting to db: Error: ER_BAD_NULL_ERROR: Column 'deadline' cannot be null
+[2014-12-02 12:59:21.749] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:59:21.749] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 12:59:21.749] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 12:59:21.749] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:59:21.749] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 12:59:21.759] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 12:59:21.759] [INFO] ultt - successful topics fetching
+[2014-12-02 12:59:21.769] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 12:59:21.989] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:59:21.989] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 12:59:21.989] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 12:59:21.999] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 12:59:21.999] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 12:59:21.999] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 12:59:22.009] [INFO] ultt - successful tasks fetching
+[2014-12-02 12:59:22.009] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 12:59:57.566] [INFO] ultt - serving post to /unity/db
+[2014-12-02 12:59:57.576] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 12:59:57.586] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 12:59:57.586] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 12:59:57.586] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 12:59:57.596] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 12:59:57.606] [INFO] ultt - successful user tasks fetching
+[2014-12-02 12:59:57.606] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-02 13:00:00.416] [INFO] ultt - serving post to /unity/db
+[2014-12-02 13:00:00.426] [DEBUG] ultt - received data: method=assignTaskToTopic&class_id=1&task_id=23&class_topic_id=28&obligatory=1&deadine=12%2f2%2f2014+1%3a00%3a00+PM&max_attempts=1
+[2014-12-02 13:00:00.426] [DEBUG] ultt - --- decoded method=assignTaskToTopic
+[2014-12-02 13:00:00.426] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 13:00:00.426] [DEBUG] ultt - --- decoded task_id=23
+[2014-12-02 13:00:00.436] [DEBUG] ultt - --- decoded class_topic_id=28
+[2014-12-02 13:00:00.436] [DEBUG] ultt - --- decoded obligatory=1
+[2014-12-02 13:00:00.446] [DEBUG] ultt - --- decoded deadine=12/2/2014 1:00:00 PM
+[2014-12-02 13:00:00.446] [DEBUG] ultt - --- decoded max_attempts=1
+[2014-12-02 13:00:00.446] [DEBUG] ultt - full data received on db: {"method":"assignTaskToTopic","class_id":"1","task_id":"23","class_topic_id":"28","obligatory":"1","deadine":"12/2/2014 1:00:00 PM","max_attempts":"1"}
+[2014-12-02 13:00:00.446] [DEBUG] ultt - assign task 23 to class 1 and topic 28 with following parameters: obligatory - 1, deadlineundefined, max_attempts 1
+[2014-12-02 13:00:00.466] [ERROR] ultt - error on method assignTaskToTopic
+[2014-12-02 13:00:00.466] [ERROR] ultt - error posting to db: Error: ER_BAD_NULL_ERROR: Column 'deadline' cannot be null
+[2014-12-02 13:00:00.606] [INFO] ultt - serving post to /unity/db
+[2014-12-02 13:00:00.606] [DEBUG] ultt - received data: method=getClassTopics&class_id=1
+[2014-12-02 13:00:00.606] [DEBUG] ultt - --- decoded method=getClassTopics
+[2014-12-02 13:00:00.616] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 13:00:00.626] [DEBUG] ultt - full data received on db: {"method":"getClassTopics","class_id":"1"}
+[2014-12-02 13:00:00.626] [DEBUG] ultt - get topics of class with id: 1
+[2014-12-02 13:00:00.626] [INFO] ultt - successful topics fetching
+[2014-12-02 13:00:00.626] [DEBUG] ultt - fetch result: [{"class_topic_id":4,"topic_name":"Thema3"},{"class_topic_id":8,"topic_name":"Test"},{"class_topic_id":28,"topic_name":"new Topic"}]
+[2014-12-02 13:00:00.886] [INFO] ultt - serving post to /unity/db
+[2014-12-02 13:00:00.886] [DEBUG] ultt - received data: method=getClassTasks&class_id=1
+[2014-12-02 13:00:00.886] [DEBUG] ultt - --- decoded method=getClassTasks
+[2014-12-02 13:00:00.886] [DEBUG] ultt - --- decoded class_id=1
+[2014-12-02 13:00:00.886] [DEBUG] ultt - full data received on db: {"method":"getClassTasks","class_id":"1"}
+[2014-12-02 13:00:00.886] [DEBUG] ultt - get tasks of class with id: 1
+[2014-12-02 13:00:00.896] [INFO] ultt - successful tasks fetching
+[2014-12-02 13:00:00.896] [DEBUG] ultt - fetch result: [{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":4},{"task_id":1,"taskname":"Wiederholung","type_name":"Zuordnung","class_topic_id":4},{"task_id":2,"taskname":"Algebra Test","type_name":"Zuordnung","class_topic_id":2}]
+[2014-12-02 13:01:50.923] [INFO] ultt - serving post to /login
+[2014-12-02 13:01:50.923] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-02 13:01:50.923] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-02 13:01:50.933] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-02 13:01:50.933] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-02 13:01:50.933] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-02 13:01:50.933] [DEBUG] ultt - db fetch query: select password,user_id from user where username="comoessl";
+[2014-12-02 13:01:50.933] [INFO] ultt - successful db fetching
+[2014-12-02 13:01:50.933] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-02 13:01:50.943] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-02 13:01:50.943] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-02 13:01:51.103] [INFO] ultt - serving post to /unity/db
+[2014-12-02 13:01:51.103] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-02 13:01:51.103] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-02 13:01:51.103] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 13:01:51.113] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-02 13:01:51.113] [DEBUG] ultt - get user with id: 1
+[2014-12-02 13:01:51.113] [INFO] ultt - successful user fetching
+[2014-12-02 13:01:51.123] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-02 13:01:51.273] [INFO] ultt - serving post to /unity/db
+[2014-12-02 13:01:51.273] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-02 13:01:51.273] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-02 13:01:51.273] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 13:01:51.283] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-02 13:01:51.283] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-02 13:01:51.283] [INFO] ultt - successful teacher classes fetching
+[2014-12-02 13:01:51.283] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-02 13:01:55.773] [INFO] ultt - serving post to /unity/db
+[2014-12-02 13:01:55.773] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-02 13:01:55.773] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-02 13:01:55.773] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-02 13:01:55.773] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-02 13:01:55.783] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-02 13:01:55.793] [INFO] ultt - successful user tasks fetching
+[2014-12-02 13:01:55.794] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]

@@ -34,6 +34,9 @@ public abstract class TaskData{
 
 	public List<TaskQuestion> constructFromCSV(string csv){
 		List<TaskQuestion> taskQ = new List<TaskQuestion>();
+		if (csv.Length == 0) {
+						return taskQ;
+				}
 		string[] lines = csv.Split (null);
 		
 		foreach (string s in lines) {

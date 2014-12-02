@@ -38,6 +38,9 @@ public class Main : MonoBehaviour {
 	public GameObject panelQuiz;
 	public GameObject panelFlashcard;
 	public GameObject panelAssign;
+
+	//panels for task forms
+	public GameObject panelFormQuiz;
 	
 	//userid
 	public int userid;
@@ -57,6 +60,7 @@ public class Main : MonoBehaviour {
 		panelFlashcard.SetActive (false);
 		panelAssign.SetActive (false);
 		messagebox.SetActive (false);
+		panelFormQuiz.SetActive (false);
 		
 	}
 	
