@@ -41,8 +41,7 @@ public class PanelFormQuiz : MonoBehaviour {
 		question_id = 0;
 		//test id
 		task_id = 2;
-		dbinterface.getTask ("taskData", task_id, gameObject);
-
+		//dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
 	public void dbInputHandler(string[] response){
@@ -55,25 +54,41 @@ public class PanelFormQuiz : MonoBehaviour {
 						foreach (string s in parsedData[0]){
 				Debug.Log ("data: "+ s);
 						}
-						Task task = new Task(task_id, parsedData[0]); 
-						addQuestionForm();
+						//Task task = new Task(task_id, parsedData[0]); 
+						//TODO: get csv data from task
+						loadQuestionsFromTask("");
 						break;
 		}
 		}
 
-	public void addAnswerForm(string questionName, int id){
+	public void loadQuestionsFromTask(string csv){
+		QuizData qu = new QuizData (csv);
+		foreach (QuizQuestion q in qu.getQuestions()) {
+			addQuestionForm(q.getQuestionText());
+			List<string> ans = (List<string>)(((object[])q.getAnswer())[0]);
+			List<int> weig = (List<int>)(((object[])q.getAnswer())[1]);
+			for(int i = 0; i < ans.Count; i++){
+				addAnswerForm("question"+question_id, question_id, ans[i], weig[i]>0);
+			}
+		}
+	}
+
+	public void addAnswerForm(string questionName, int id, string answerText = "Neue Antwort", bool correct = false){
 		GameObject generatedAnswer = Instantiate (answer, Vector3.zero, Quaternion.identity) as GameObject;
 		generatedAnswer.transform.parent = GameObject.Find(questionName+"/answers").transform;
+		generatedAnswer.transform.FindChild ("InputField/Text").GetComponent<Text> ().text = answerText;
+		generatedAnswer.transform.FindChild ("Toggle").GetComponent<Toggle> ().isOn = correct;
 		answers [id].Add (generatedAnswer);
 	}
 
-	public void addQuestionForm(){
+	public void addQuestionForm(string qname = "Neue Frage"){
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = question_id;
 		generatedQuestion.name = "question" + id;
 		generatedQuestion.transform.parent = GameObject.Find ("panelQuestions/questions").transform;
 		generatedQuestion.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener (() => {addAnswerForm(generatedQuestion.name, id);});	
+		generatedQuestion.transform.FindChild ("InputField/Text").GetComponent<Text> ().text = qname;
 		questions.Add (generatedQuestion);
 		List<GameObject> answersForQuestion = new List<GameObject> ();
 		answers.Add (answersForQuestion);

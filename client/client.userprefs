@@ -1,20 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelTeacherClass.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelFormCategory.cs">
     <Files>
-      <File FileName="Assets\Scripts\Panels\PanelFormQuiz.cs" Line="105" Column="67" />
-      <File FileName="Assets\Scripts\Main.cs" Line="56" Column="33" />
-      <File FileName="Assets\Scripts\taskdata\CSVHelper.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\taskdata\QuizData.cs" Line="18" Column="53" />
-      <File FileName="Assets\Scripts\taskdata\QuizQuestion.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\taskdata\TaskData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\TaskOverview.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\TaskShort.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Question.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Objects\Task.cs" Line="25" Column="22" />
-      <File FileName="Assets\Scripts\Panels\PanelQuiz.cs" Line="35" Column="2" />
-      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="251" Column="114" />
-      <File FileName="Assets\Scripts\DBInterface.cs" Line="203" Column="43" />
+      <File FileName="Assets\Scripts\Main.cs" Line="52" Column="14" />
+      <File FileName="Assets\Scripts\Panels\PanelFormCategory.cs" Line="82" Column="60" />
+      <File FileName="Assets\Scripts\Panels\PanelFormQuiz.cs" Line="76" Column="90" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

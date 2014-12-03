@@ -10,15 +10,16 @@ public class DBInterface : MonoBehaviour {
 	private string url = "";
 
 	void Start () {
-		/*if (Application.isWebPlayer) {
+		if (Application.isWebPlayer) {
 			//set db url
 			baseUrl = "";
 		} else{
 			baseUrl = "127.0.0.1/";
 		}
-		url = baseUrl + "unity/db";*/
-		url = "127.0.0.1/unity/db";
-		baseUrl = "127.0.0.1/";
+		url = baseUrl + "unity/db";
+		//url = "127.0.0.1/unity/db";
+		//baseUrl = "127.0.0.1/";
+		Debug.Log (url + ";" + baseUrl);
 		main = gameObject.GetComponent<Main>();
 	}
 	
