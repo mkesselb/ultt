@@ -94,7 +94,7 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 			+ " to class " + requestData.class_id 
 			+ " and topic " + requestData.class_topic_id 
 			+ " with following parameters: obligatory - " + requestData.obligatory 
-			+ ", deadline" + requestData.deadline 
+			+ ", deadline " + requestData.deadline 
 			+ ", max_attempts " + requestData.max_attempts);
 	
 	//first, perform fetch to see whether task is already linked to same class+topic

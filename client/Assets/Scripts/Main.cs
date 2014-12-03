@@ -49,6 +49,7 @@ public class Main : MonoBehaviour {
 	void Start(){
 		
 		dbinterface = gameObject.GetComponent<DBInterface>();
+		CSVHelper.addSwap (",", "#csw");
 		
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);

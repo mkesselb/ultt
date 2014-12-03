@@ -37,7 +37,7 @@ public abstract class TaskData{
 		if (csv.Length == 0) {
 						return taskQ;
 				}
-		string[] lines = csv.Split (null);
+		string[] lines = csv.Split (new Char[]{'\n'});
 		
 		foreach (string s in lines) {
 			taskQ.Add(constructTaskQuestion(s));
