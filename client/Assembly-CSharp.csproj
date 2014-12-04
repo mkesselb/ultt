@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>F:/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>F:/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\Objects\UserClass.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelAssign.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelFlashcard.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFormAssignment.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelFormCategory.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelFormQuiz.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelQuiz.cs" />
@@ -79,7 +80,7 @@
      <Compile Include="Assets\Scripts\taskdata\TaskData.cs" />
      <Compile Include="Assets\Scripts\taskdata\TaskQuestion.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>F:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
