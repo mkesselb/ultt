@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>F:/Unity/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>F:/Unity/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +79,7 @@
      <Compile Include="Assets\Scripts\taskdata\TaskData.cs" />
      <Compile Include="Assets\Scripts\taskdata\TaskQuestion.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Projects/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>F:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

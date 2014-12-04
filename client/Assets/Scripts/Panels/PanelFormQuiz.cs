@@ -52,7 +52,7 @@ public class PanelFormQuiz : MonoBehaviour {
 		switch (target) {
 		case "taskData": parsedData = jsonparser.JSONparse(data);
 						foreach (string s in parsedData[0]){
-				Debug.Log ("data: "+ s);
+							Debug.Log ("data: "+ s);
 						}
 						//Task task = new Task(task_id, parsedData[0]); 
 						//TODO: get csv data from task
@@ -63,12 +63,16 @@ public class PanelFormQuiz : MonoBehaviour {
 
 	public void loadQuestionsFromTask(string csv){
 		QuizData qu = new QuizData (csv);
-		foreach (QuizQuestion q in qu.getQuestions()) {
-			addQuestionForm(q.getQuestionText());
-			List<string> ans = (List<string>)(((object[])q.getAnswer())[0]);
-			List<int> weig = (List<int>)(((object[])q.getAnswer())[1]);
-			for(int i = 0; i < ans.Count; i++){
-				addAnswerForm("question"+question_id, question_id, ans[i], weig[i]>0);
+		if (qu.getQuestions ().Count == 0) {
+			addQuestionForm();
+		} else {
+			foreach (QuizQuestion q in qu.getQuestions()) {
+				addQuestionForm(q.getQuestionText(), true);
+				List<string> ans = (List<string>)(((object[])q.getAnswer())[0]);
+				List<int> weig = (List<int>)(((object[])q.getAnswer())[1]);
+				for(int i = 0; i < ans.Count; i++){
+					addAnswerForm("question"+(question_id-1), question_id-1, ans[i], weig[i]>0);
+				}
 			}
 		}
 	}
@@ -81,7 +85,7 @@ public class PanelFormQuiz : MonoBehaviour {
 		answers [id].Add (generatedAnswer);
 	}
 
-	public void addQuestionForm(string qname = "Neue Frage"){
+	public void addQuestionForm(string qname = "Neue Frage", bool load = false){
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = question_id;
@@ -92,8 +96,10 @@ public class PanelFormQuiz : MonoBehaviour {
 		questions.Add (generatedQuestion);
 		List<GameObject> answersForQuestion = new List<GameObject> ();
 		answers.Add (answersForQuestion);
-		addAnswerForm (generatedQuestion.name, id);
-		addAnswerForm (generatedQuestion.name, id);
+		if (!load) {
+			addAnswerForm (generatedQuestion.name, id);
+			addAnswerForm (generatedQuestion.name, id);
+		}
 		question_id++;
 	}
 

@@ -64,10 +64,14 @@ public class PanelFormCategory : MonoBehaviour {
 
 	public void loadCategoriesFromTask(string csv){
 		CategoryData catData = new CategoryData (csv);
-		foreach(CategoryQuestion catq in catData.getQuestions()){
-			addCategoryForm(catq.getCategoryName());
-			foreach(string s in (List<string>)catq.getAnswer()){
-				addMemberForm ("category" + category_id, category_id, s);
+		if (catData.getQuestions ().Count == 0) {
+			addCategoryForm();
+		} else {
+			foreach(CategoryQuestion catq in catData.getQuestions()){
+				addCategoryForm(catq.getCategoryName(), true);
+				foreach(string s in (List<string>)catq.getAnswer()){
+					addMemberForm ("category" + (category_id-1), category_id-1, s);
+				}
 			}
 		}
 	}
@@ -79,7 +83,7 @@ public class PanelFormCategory : MonoBehaviour {
 		members [id].Add (generatedMember);
 	}
 
-	public void addCategoryForm(string catName="Neue Kategorie"){
+	public void addCategoryForm(string catName="Neue Kategorie", bool load = false){
 		GameObject generatedCat = Instantiate (category, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = category_id;
@@ -89,7 +93,10 @@ public class PanelFormCategory : MonoBehaviour {
 		generatedCat.transform.FindChild ("catName/Text").GetComponent<Text> ().text = catName;
 		categories.Add (generatedCat);
 		List<GameObject> membersForCat = new List<GameObject> ();
-		members.Add (membersForCat);
+		if (!load) {
+			members.Add (membersForCat);
+		}
+
 		addMemberForm (generatedCat.name, id);
 		category_id++;
 	}
