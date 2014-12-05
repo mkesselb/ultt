@@ -8,7 +8,7 @@ public class QuizData : TaskData{
 	}
 
 	override public TaskQuestion constructTaskQuestion(string csvLine){
-		string[] p = csvLine.Split (new Char[]{','});
+		string[] p = csvLine.Split (new char[]{','});
 		List<string> answers = new List<string>();
 		List<int> weights = new List<int>();
 		for(int i = 2; i < p.Length; i = i+2){

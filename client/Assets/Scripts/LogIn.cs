@@ -2,12 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class LogIn : MonoBehaviour {
 	
 	private Main main;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 	
 	public Text inputUsername, inputPassword;
 	
@@ -15,11 +15,8 @@ public class LogIn : MonoBehaviour {
 		Debug.Log ("LogIn: Start()");
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 	}
-	
-	
-	
+
 	//call dbinterface to send request
 	public void clickedBtnLogIn(){
 		Debug.Log("LogIn Button clicked");
@@ -35,30 +32,12 @@ public class LogIn : MonoBehaviour {
 	public void dbInputHandler(string[] response){
 		string target = response[0];
 		string data = response[1];
-		List<string[]> parsedData = new List<string[]>();
+		JSONNode parsedData;
 		switch(target){	
-		case "logInData": 	/*string[] temp = parseJSON(data);
-							//main.setUserId(int.Parse(temp[1]));
-							main.eventHandler("logInSuccess", int.Parse(temp[1]));*/
-							parsedData = jsonparser.JSONparse(data);
-							string[] temp = parsedData[0];
-							main.eventHandler("logInSuccess", int.Parse (temp[1]));
+		case "logInData": 	parsedData = JSONParser.JSONparse(data);
+							JSONNode user = parsedData[0];
+							main.eventHandler("logInSuccess", int.Parse (user["user_id"]));
 							break;
 		}
 	}
-	
-	//TODO change delimiters
-	private string[] parseJSON(string json){
-		Debug.Log ("call parse");
-		string[] delimiters = { "[{\"", "\":\"", ",\"", "\":", "\",\"", "\"}]", "}]", "}" };
-        string[] temp = new string[30];
-		Debug.Log ("try start parse");
-		temp = json.Split(delimiters,System.StringSplitOptions.RemoveEmptyEntries);
-		Debug.Log ("parse finished");
-		
-		
-		return temp;
-	}
-	
-
 }

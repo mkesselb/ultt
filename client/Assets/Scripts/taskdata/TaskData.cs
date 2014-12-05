@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public abstract class TaskData{
 	protected List<TaskQuestion> taskQuestions;
@@ -35,12 +36,14 @@ public abstract class TaskData{
 	public List<TaskQuestion> constructFromCSV(string csv){
 		List<TaskQuestion> taskQ = new List<TaskQuestion>();
 		if (csv.Length == 0) {
-						return taskQ;
-				}
-		string[] lines = csv.Split (new Char[]{'\n'});
+			return taskQ;
+		}
+		string[] lines = csv.Split (new char[]{'\n'});
 		
 		foreach (string s in lines) {
-			taskQ.Add(constructTaskQuestion(s));
+			if(s.Length > 0){
+				taskQ.Add(constructTaskQuestion(s));
+			}
 		}
 		
 		return taskQ;

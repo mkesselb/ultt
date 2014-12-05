@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class TaskShort{
 
@@ -13,6 +14,13 @@ public class TaskShort{
 		task_name = data[3];
 		topic_id = int.Parse (data[7]);
 		task_type = "Quiz";
+	}
+
+	public TaskShort(JSONNode task){
+		task_id = int.Parse (task["task_id"]);
+		topic_id = int.Parse (task["class_topic_id"]);
+		task_name = task["taskname"];
+		task_type = task["type_name"];
 	}
 	
 	public int getTopicId(){

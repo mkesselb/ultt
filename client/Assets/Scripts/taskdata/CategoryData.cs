@@ -9,7 +9,7 @@ public class CategoryData : TaskData{
 	}
 
 	override public TaskQuestion constructTaskQuestion(string csvLine){
-		string[] p = csvLine.Split (new Char[]{','});
+		string[] p = csvLine.Split (new char[]{','});
 		List<string> members = new List<string>();
 		for(int i = 2; i < p.Length; i++){
 			members.Add(CSVHelper.swapDecode(p[i]));

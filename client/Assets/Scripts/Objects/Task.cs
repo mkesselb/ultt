@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class Task {
 
@@ -7,12 +8,12 @@ public class Task {
 	private int isPublic;
 	private string name;
 	private int user_id;
-	private QuizData datafile;
+	private string datafile;
 	private string subjectname;
 	private string typename;
 	private string description;
 
-	public Task(string task_name,int taskIsPublic, int user_id, QuizData task_datafile, string subjectname, string typename, string task_description){
+	public Task(string task_name,int taskIsPublic, int user_id, string task_datafile, string subjectname, string typename, string task_description){
 		isPublic = taskIsPublic;
 		name = task_name;
 		this.user_id = user_id;
@@ -23,12 +24,28 @@ public class Task {
 	
 	}
 	public Task(int id, string[] data){
+		this.id = id;
 		name = data [1];
-		this.user_id = int.Parse (data [3]);
-		//datafile = new QuizData(data [5]);
+		this.user_id = int.Parse (data [5]);
+		datafile = data [7];
 		//this.subjectname = data [7];
 		//this.typename = data [9];
 		//description = data [11];
+	}
+
+	public Task(int id_, JSONNode task){
+		this.id = id_;
+		name = task ["taskname"];
+		isPublic = int.Parse(task ["public"]);
+		user_id = int.Parse (task ["user_id"]);
+		if (task ["data_file"] != null){
+			datafile = task ["data_file"];
+		} else {
+			datafile = "";
+		}
+		subjectname = task ["subject_name"];
+		typename = task ["type_name"];
+		description = task ["description"];
 	}
 
 	public void setId(int task_id){
@@ -43,7 +60,7 @@ public class Task {
 	public int getUserId(){
 		return id;
 	}
-	public TaskData getDatafile(){
+	public string getDatafile(){
 		return datafile;
 	}
 	public string getSubjectName(){
@@ -54,8 +71,5 @@ public class Task {
 	}
 	public string getDescription(){
 		return description;
-		}
-
-
-
+	}
 }

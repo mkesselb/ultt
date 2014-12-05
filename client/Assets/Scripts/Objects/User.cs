@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class User {
 	
@@ -16,7 +17,7 @@ public class User {
 	
 	
 	//param: string[14] array
-	public User(int id,string[] data){
+	public User(int id, string[] data){
 		user_id = int.Parse(data[1]);
 		token = int.Parse(data[3]);
 		username = data[5];
@@ -28,7 +29,17 @@ public class User {
 		school_id = data[17];
 	}
 	
-	
+	public User(JSONNode user){
+		user_id = int.Parse (user ["user_id"]);
+		token = int.Parse (user ["token"]);
+		username = user ["username"];
+		name_first = user ["name_first"];
+		name_last = user ["name_last"];
+		email_id = user ["email_id"];
+		picture = user ["picture"];
+		created_at = user ["created_at"];
+		school_id = user ["school_id"];
+	}
 	
 	public int getUserId(){
 		return user_id;	

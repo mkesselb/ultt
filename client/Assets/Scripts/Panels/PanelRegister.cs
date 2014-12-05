@@ -10,9 +10,7 @@ public class PanelRegister : MonoBehaviour {
 	//Input fields
 	public Text inputVorname, inputNachname, inputUsername, inputPassword, inputPassword2, inputEmail, inputSchool;
 
-
 	void Start () {
-	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 	}

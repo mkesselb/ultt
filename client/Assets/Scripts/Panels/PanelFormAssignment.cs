@@ -2,10 +2,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class PanelFormAssignment : MonoBehaviour {
+	//test parameter -> to be deleted if form is attached to rest of app
+	private bool first = true;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 	
 	public GameObject assignment;
 	
@@ -17,11 +19,10 @@ public class PanelFormAssignment : MonoBehaviour {
 	//text fields
 	public GameObject btnAddAssignment;
 	public GameObject btnSave;
-	
+
 	// Use this for initialization
 	void Start () {
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		btnAddAssignment.GetComponent<Button> ().onClick.AddListener (() => {addAssignmentForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveAssignments();});
 		init ();
@@ -37,23 +38,20 @@ public class PanelFormAssignment : MonoBehaviour {
 		assignments = new List<GameObject> ();
 		assignment_id = 0;
 		//test id
-		task_id = 2;
+		task_id = 1;
 		//dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 	
 	public void dbInputHandler(string[] response){
-		Debug.Log ("in dbinputhandler of PanelFormQuiz");
+		Debug.Log ("in dbinputhandler of PanelFormAssignment");
 		string target = response [0];
 		string data = response [1];
-		List<string[]> parsedData;
+		JSONNode parsedData;
 		switch (target) {
-		case "taskData": parsedData = jsonparser.JSONparse(data);
-			foreach (string s in parsedData[0]){
-				Debug.Log ("data: "+ s);
-			}
-			//Task task = new Task(task_id, parsedData[0]); 
-			//TODO: get csv data from task
-			loadAssignmentsFromTask("");
+		case "taskData": parsedData = JSONParser.JSONparse(data);
+			Debug.Log (parsedData[0]);
+			Task task = new Task(task_id, parsedData[0]); 
+			loadAssignmentsFromTask(task.getDatafile());
 			break;
 		}
 	}
@@ -63,24 +61,27 @@ public class PanelFormAssignment : MonoBehaviour {
 		if (qu.getQuestions ().Count == 0) {
 			addAssignmentForm();
 		} else {
-			foreach (QuizQuestion q in qu.getQuestions()) {
-				addAssignmentForm(q.getQuestionText(), true);
-				List<string> ans = (List<string>)(((object[])q.getAnswer())[0]);
-				List<int> weig = (List<int>)(((object[])q.getAnswer())[1]);
+			foreach (AssignmentQuestion q in qu.getQuestions()) {
+				List<string> ans = (List<string>)q.getAnswer();
+				addAssignmentForm(ans[0], ans[1]);
 			}
 		}
-		//TODO: assignment load
 	}
 	
-	public void addAssignmentForm(string aname = "Neue Frage", bool load = false){
-		GameObject generatedQuestion = Instantiate (assignment, Vector3.zero, Quaternion.identity) as GameObject;
+	public void addAssignmentForm(string aname = "Neue Zuordnung1", string bname = "Neue Zuordnung2"){
+		if (first) {
+			dbinterface.getTask ("taskData", task_id, gameObject);
+			first = false;
+			return;
+		}
+		GameObject generatedAssignment = Instantiate (assignment, Vector3.zero, Quaternion.identity) as GameObject;
 
-		//TODO: add onload add assignment text
 		int id = assignment_id;
-		generatedQuestion.name = "assignment" + id;
-		generatedQuestion.transform.parent = GameObject.Find ("panelAssignment/assignments").transform;
-		//generatedQuestion.transform.FindChild ("InputField/Text").GetComponent<Text> ().text = aname;
-		assignments.Add (generatedQuestion);
+		generatedAssignment.name = "assignment" + id;
+		generatedAssignment.transform.parent = GameObject.Find ("panelAssignment/assignments").transform;
+		generatedAssignment.transform.FindChild ("formAssign/InputField1/Text").GetComponent<Text> ().text = aname;
+		generatedAssignment.transform.FindChild ("formAssign/InputField2/Text").GetComponent<Text> ().text = bname;
+		assignments.Add (generatedAssignment);
 	
 		assignment_id++;
 	}
@@ -91,18 +92,12 @@ public class PanelFormAssignment : MonoBehaviour {
 			//save question text
 			string assignment1 = assignments[i].transform.FindChild("formAssign/InputField1/Text").GetComponent<Text>().text;
 			string assignment2 = assignments[i].transform.FindChild("formAssign/InputField2/Text").GetComponent<Text>().text;
-
 			AssignmentQuestion assignmentQuestion = new AssignmentQuestion(assignment1, assignment2);
 			assignmentData.addQuestion(assignmentQuestion);
 			
 		}
 		//TODO fill in description
 		dbinterface.editTask ("editTask", task_id, "", assignmentData.getCSV(), gameObject);
-		
-		
-		
-		
-		
 	}
 	
 	public void setTaskId(int id){

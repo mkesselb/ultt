@@ -2,10 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class PanelFormQuiz : MonoBehaviour {
+	//test parameter -> to be deleted if form is attached to rest of app
+	private bool first = true;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 
 	public GameObject question;
 	public GameObject answer;
@@ -23,7 +25,6 @@ public class PanelFormQuiz : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		btnAddQuestion.GetComponent<Button> ().onClick.AddListener (() => {addQuestionForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveQuestions();});
 		init ();
@@ -40,7 +41,7 @@ public class PanelFormQuiz : MonoBehaviour {
 		answers = new List<List<GameObject>> ();
 		question_id = 0;
 		//test id
-		task_id = 2;
+		task_id = 6;
 		//dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
@@ -48,18 +49,15 @@ public class PanelFormQuiz : MonoBehaviour {
 		Debug.Log ("in dbinputhandler of PanelFormQuiz");
 		string target = response [0];
 		string data = response [1];
-		List<string[]> parsedData;
+		JSONNode parsedData;
 		switch (target) {
-		case "taskData": parsedData = jsonparser.JSONparse(data);
-						foreach (string s in parsedData[0]){
-							Debug.Log ("data: "+ s);
-						}
-						//Task task = new Task(task_id, parsedData[0]); 
-						//TODO: get csv data from task
-						loadQuestionsFromTask("");
-						break;
+		case "taskData": parsedData = JSONParser.JSONparse(data);
+			Debug.Log (parsedData[0]);
+			Task task = new Task(task_id, parsedData[0]); 
+			loadQuestionsFromTask(task.getDatafile());
+			break;
 		}
-		}
+	}
 
 	public void loadQuestionsFromTask(string csv){
 		QuizData qu = new QuizData (csv);
@@ -86,6 +84,11 @@ public class PanelFormQuiz : MonoBehaviour {
 	}
 
 	public void addQuestionForm(string qname = "Neue Frage", bool load = false){
+		if (first) {
+			dbinterface.getTask ("taskData", task_id, gameObject);
+			first = false;
+			return;
+		}
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = question_id;

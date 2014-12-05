@@ -2,13 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using SimpleJSON;
 
 public class PanelTeacherClass : MonoBehaviour {
-	
-	
+
 	private Main main;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 	
 	public GameObject panelStudentList;
 
@@ -37,13 +36,11 @@ public class PanelTeacherClass : MonoBehaviour {
 	//contain Gameobjects (= buttons)
 	public List<GameObject> topics;
 	public List<GameObject> students;
-	
-	
+
 	void Start () {
 	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		//teacherClass = GameObject.Find("Scripts").GetComponent<TeacherClass>();
 		
 		tasksBtns = new List<GameObject>();
@@ -51,14 +48,13 @@ public class PanelTeacherClass : MonoBehaviour {
 		students = new List<GameObject>();
 		tasksOverview = new List<TaskOverview> ();
 		init ();
-		
-		
 	}
 	
 	public void init(){
 		//TODO dbinterface.getTeacherClassData("classData", class_id, gameObject);
 		string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
 		teacherClass = new TeacherClass(class_id, temp);
+		//TODO: probably, problem with gameObject here? at least for me
 		dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 		
 		panelStudentList.SetActive(false);
@@ -70,9 +66,6 @@ public class PanelTeacherClass : MonoBehaviour {
 			Destroy(t);	
 		}
 		topics.Clear();
-		
-		
-		
 	}
 	
 	public void dbInputHandler(string[] response){
@@ -82,33 +75,31 @@ public class PanelTeacherClass : MonoBehaviour {
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
-		List<string[]> parsedData;
+		JSONNode parsedData;
 		Debug.Log ("with target: "+target);
 		switch(target){	
-		case "classData": 	parsedData = jsonparser.JSONparse(data);
+		case "classData": 	parsedData = JSONParser.JSONparse(data);
 							teacherClass = new TeacherClass(class_id, parsedData[0]);
 							fieldClassData.GetComponent<Text>().text = teacherClass.getClassname()+"\nclasscode: "+teacherClass.getClassCode();
 							
 							dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 							break;
 		case "classTopics": if(data != "[]"){
-								parsedData = jsonparser.JSONparse(data);
-								if(parsedData[0][0] !="[]"){
-									foreach( string[] s in parsedData){
-										Topic t = new Topic(s);
-										teacherClass.addTopic(t);
-									}
-									dbinterface.getTasksForClass("classTasks", class_id, gameObject);
+								parsedData = JSONParser.JSONparse(data);
+								for(int i = 0; i < parsedData.Count; i++){
+									JSONNode n = parsedData[i];
+									Topic t = new Topic(n);
+									teacherClass.addTopic(t);
 								}
+								dbinterface.getTasksForClass("classTasks", class_id, gameObject);
 							}
 							
 							break;
 		case "classTasks":	if(data != "[]"){
-								parsedData = jsonparser.JSONparse(data);
-								foreach( string[] s in parsedData){
-									//TODO index out of range
-									//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object
-									TaskShort task = new TaskShort(s);
+								parsedData = JSONParser.JSONparse(data);
+								for(int i = 0; i < parsedData.Count; i++){
+									JSONNode n = parsedData[i];
+									TaskShort task = new TaskShort(n);
 									teacherClass.addTask(task);
 								}
 							}
@@ -143,10 +134,6 @@ public class PanelTeacherClass : MonoBehaviour {
 					
 								}
 							}
-								
-		
-											
-			
 							break;
 		case "studentlist":	
 							//delete old studentInList objects
@@ -159,9 +146,10 @@ public class PanelTeacherClass : MonoBehaviour {
 			
 							//parse data in student objects (create student class)
 							if(data != "[]"){
-								parsedData = jsonparser.JSONparse(data);
-								foreach( string[] s in parsedData){
-									Student student = new Student(s);
+								parsedData = JSONParser.JSONparse(data);
+								for(int i = 0; i < parsedData.Count; i++){
+									JSONNode n = parsedData[i];
+									Student student = new Student(n);
 									teacherClass.addStudent(student);
 					
 									//create studentInList object for each student
@@ -180,16 +168,12 @@ public class PanelTeacherClass : MonoBehaviour {
 									students.Add(generatedStudentInList);
 								}
 							}
-						
-							
 							break;
 		case "acceptedStudent":
-							parsedData = jsonparser.JSONparse(data);
-							string[] result = parsedData[0];
-							if(result[1] == "1"){ //success
+							parsedData = JSONParser.JSONparse(data);
+							if(parsedData[0]["success"] == "1"){ //success
 								//refresh overview
 								showStudentList();
-								
 							} else {
 								main.dbErrorHandler("acceptedStudent", "Schüler konnte nicht hinzugefügt werden");
 							}
@@ -203,11 +187,12 @@ public class PanelTeacherClass : MonoBehaviour {
 								Destroy(b);
 							}	
 							tasksBtns.Clear();
-							parsedData = jsonparser.JSONparse(data);
-							
-							foreach (string[] s in parsedData){
-								if(s.Length > 1){	
-									TaskOverview temp = new TaskOverview(s);
+							parsedData = JSONParser.JSONparse(data);
+
+							for(int i = 0; i < parsedData.Count; i++){
+								JSONNode n = parsedData[i];
+								if(n.Count > 0){	
+									TaskOverview temp = new TaskOverview(n);
 									tasksOverview.Add(temp);
 									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
@@ -217,8 +202,7 @@ public class PanelTeacherClass : MonoBehaviour {
 									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId(), currentTopic);});
 								}
 							}	
-							break;	
-		
+							break;
 		case "changed":		//added or deleted task or topic --> refresh view
 							init();
 							break;
@@ -231,7 +215,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							break;
 		case "deletedTask": init ();
 							break;
-		case "startTask":	parsedData = jsonparser.JSONparse(data);
+		case "startTask":	parsedData = JSONParser.JSONparse(data);
 							Task taskToStart = new Task(task_id, parsedData[0]);
 							break;
 		}
@@ -243,7 +227,6 @@ public class PanelTeacherClass : MonoBehaviour {
 		currentTopic = topicId;
 		//TODO dbmethod
 		dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
-
 	}
 
 	public void addTask(int taskId, int topicId){
@@ -251,8 +234,7 @@ public class PanelTeacherClass : MonoBehaviour {
 		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, 1, System.DateTime.Now.ToString(), 1, gameObject);
 		panelAddTask.SetActive (false);
 	}
-	
-	
+		
 	public void startTask(int id){
 		Debug.Log ("Button clicked, try to start Task");
 		task_id = id;

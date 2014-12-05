@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class UserClass {
 
@@ -16,7 +17,7 @@ public class UserClass {
 	private List<Topic> topics;
 	private List<TaskShort> tasks;
 	
-	public UserClass(int id,string[] data){
+	public UserClass(int id, string[] data){
 		user_id = id;
 		class_id = int.Parse(data[1]);
 		classname = data[3];
@@ -26,6 +27,20 @@ public class UserClass {
 		subject_name = data[11];
 		teacher_username = data[13];
 		user_accepted = data[15];
+		topics = new List<Topic>();
+		tasks = new List<TaskShort>();
+	}
+
+	public UserClass(int id, JSONNode uc){
+		user_id = id;
+		class_id = int.Parse (uc ["class_id"]);
+		classname = uc ["classname"];
+		privacy = int.Parse (uc ["privacy"]);
+		school_year = uc ["school_year"];
+		classcode = uc ["classcode"];
+		subject_name = uc ["subject_name"];
+		teacher_username = uc ["username"];
+		user_accepted = uc ["accepted"];
 		topics = new List<Topic>();
 		tasks = new List<TaskShort>();
 	}

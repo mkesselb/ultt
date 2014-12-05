@@ -42,6 +42,7 @@ public class Main : MonoBehaviour {
 	//panels for task forms
 	public GameObject panelFormQuiz;
 	public GameObject panelFormCategory;
+	public GameObject panelFormAssign;
 	
 	//userid
 	public int userid;
@@ -64,7 +65,7 @@ public class Main : MonoBehaviour {
 		messagebox.SetActive (false);
 		panelFormQuiz.SetActive (false);
 		panelFormCategory.SetActive (false);
-		
+		panelFormAssign.SetActive (false);
 	}
 	
 		

@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using SimpleJSON;
 
 public class PanelUserClass : MonoBehaviour {
 	
 	
 	private Main main;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 	
 	public GameObject topic;
 	public GameObject btnTask;
@@ -21,20 +21,10 @@ public class PanelUserClass : MonoBehaviour {
 	//contain Gameobjects (= buttons)
 	public List<GameObject> topics;
 
-	
-	
 	void Start () {
-	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
-
-		
-		
 		topics = new List<GameObject>();
-
-		
-		
 	}
 	
 	public void init(){
@@ -50,7 +40,6 @@ public class PanelUserClass : MonoBehaviour {
 			Destroy(t);	
 		}
 		topics.Clear();	
-		
 	}
 	
 	public void dbInputHandler(string[] response){
@@ -60,28 +49,28 @@ public class PanelUserClass : MonoBehaviour {
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
-		List<string[]> parsedData;
+		JSONNode parsedData;
 		switch(target){	
-		case "classData": 	parsedData = jsonparser.JSONparse(data);
+		case "classData": 	parsedData = JSONParser.JSONparse(data);
 							userClass = new UserClass(class_id, parsedData[0]);
 							fieldClassData.GetComponent<Text>().text = userClass.getClassname();
 							
 							dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 							break;
-		case "classTopics": parsedData = jsonparser.JSONparse(data);
-							if(parsedData[0][0] !="[]"){
-								foreach( string[] s in parsedData){
-									Topic t = new Topic(s);
-									Debug.Log ("Topicid: "+t.getId()+" Name: "+t.getName());
-									userClass.addTopic(t);
-								}
+		case "classTopics": parsedData = JSONParser.JSONparse(data);
+							for(int i = 0; i < parsedData.Count; i++){
+								JSONNode n = parsedData[i];
+								Topic t = new Topic(n);
+								Debug.Log ("Topicid: "+t.getId()+" Name: "+t.getName());
+								userClass.addTopic(t);
 								dbinterface.getTasksForClass("classTasks", class_id, gameObject);
 							}
 							break;
-		case "classTasks":	parsedData = jsonparser.JSONparse(data);
-							foreach( string[] s in parsedData){
+		case "classTasks":	parsedData = JSONParser.JSONparse(data);
+							for(int i = 0; i < parsedData.Count; i++){
+								JSONNode n = parsedData[i];
 								//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object
-								TaskShort task = new TaskShort(s);
+								TaskShort task = new TaskShort(n);
 								Debug.Log ("Taskid: "+task.getTaskId());
 								userClass.addTask(task);
 							}
@@ -105,31 +94,19 @@ public class PanelUserClass : MonoBehaviour {
 										
 									}
 								}
-				
 						}
-							
-		
-											
-			
-							break;
-		
+						break;
 		}	
 	}
-	
-	
-	
+
 	public void startTask(int id, string type){
 		Debug.Log ("Button clicked, try to start Task");
 		if (type == "Quiz") {
 			main.eventHandler("startQuiz", id);
 		}
-
 	}
-
-	
-			
-	public void setClassId(int id){
-		class_id = id;
 		
+	public void setClassId(int id){
+		class_id = id;	
 	}
 }

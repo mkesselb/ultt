@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class TeacherClass{
 
@@ -29,7 +30,22 @@ public class TeacherClass{
 		topics = new List<Topic>();
 		tasks = new List<TaskShort>();
 		students = new List<Student>();
-		
+	}
+
+	public TeacherClass(int id, JSONNode clas){
+		user_id = id;
+		class_id = int.Parse(clas ["class_id"]);
+		classname = clas ["classname"];
+		school_year = clas ["schoolyear"];
+		classcode = clas ["classcode"];
+		string pr = clas ["privacy"];
+		if (pr != "null") {
+			privacy = int.Parse(pr);
+		}
+		subject_name = clas ["subject_name"];
+		topics = new List<Topic>();
+		tasks = new List<TaskShort>();
+		students = new List<Student>();
 	}
 
 	public int getUserId(){

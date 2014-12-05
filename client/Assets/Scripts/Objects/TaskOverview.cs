@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class TaskOverview{
 
@@ -12,6 +13,10 @@ public class TaskOverview{
 		task_name = data [3];
 	}
 
+	public TaskOverview(JSONNode to){
+		task_id = int.Parse (to ["task_id"]);
+		task_name = to ["taskname"];
+	}
 	
 	public int getTaskId(){
 		return task_id;	

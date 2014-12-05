@@ -2,12 +2,12 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class Profile : MonoBehaviour {
 	
 	private Main main;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 	
 	//Objects on standard view
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
@@ -38,7 +38,6 @@ public class Profile : MonoBehaviour {
 	void Start(){
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
 		//only teacherClasses view is actve first
@@ -113,12 +112,12 @@ public class Profile : MonoBehaviour {
 		GameObject generatedBtn;
 		string target = response[0];
 		string data = response[1];
-		List<string[]> parsedData;
+		JSONNode parsedData;
 		Debug.Log ("in dbinputhandler of profile, target "+target);
 		switch(target){	
 		case "userData": 	//parse received user data and save in user object
-							parsedData = jsonparser.JSONparse(data);
-							user = new User(userid, parsedData[0]);
+							parsedData = JSONParser.JSONparse(data);
+							user = new User(parsedData[0]);
 							//write user data to profile screen
 							fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
 			
@@ -137,12 +136,13 @@ public class Profile : MonoBehaviour {
 							teacherClassesBtns.Clear();
 
 							//parse data
-							parsedData = jsonparser.JSONparse(data);
+							parsedData = JSONParser.JSONparse(data);
 			
 							//split parsed data into data packages for one teacherClass)
-							foreach (string[] s in parsedData){
-								if(s.Length > 1){							
-									TeacherClass temp = new TeacherClass(userid,s);
+							for(int i = 0; i < parsedData.Count; i++){
+								JSONNode n = parsedData[i];
+								if(n.Count > 0){						
+									TeacherClass temp = new TeacherClass(userid,n);
 									//add teacherClass to list
 									teacherClasses.Add(temp);
 									//generate button for teacherClass and add to button list
@@ -164,12 +164,13 @@ public class Profile : MonoBehaviour {
 								Destroy(b);
 							}	
 							userClassesBtns.Clear();
-							parsedData = jsonparser.JSONparse(data);
+							parsedData = JSONParser.JSONparse(data);
 
 							//generate buttons
-							foreach (string[] s in parsedData){
-								if(s.Length > 1){	
-									UserClass temp = new UserClass(userid,s);
+							for(int i = 0; i < parsedData.Count; i++){
+								JSONNode n = parsedData[i];
+								if(n.Count > 0){	
+									UserClass temp = new UserClass(userid,n);
 									userClasses.Add(temp);
 									generatedBtn = Instantiate(buttonUserClass, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentKurse").transform;
@@ -187,13 +188,13 @@ public class Profile : MonoBehaviour {
 								Destroy(b);
 							}	
 							tasksBtns.Clear();
-							parsedData = jsonparser.JSONparse(data);
-
+							parsedData = JSONParser.JSONparse(data);
 
 							//generate buttons
-							foreach (string[] s in parsedData){
-								if(s.Length> 1){	
-									TaskOverview temp = new TaskOverview(s);
+							for(int i = 0; i < parsedData.Count; i++){
+								JSONNode n = parsedData[i];
+								if(n.Count > 0){	
+									TaskOverview temp = new TaskOverview(n);
 									tasks.Add(temp);
 									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
@@ -205,9 +206,8 @@ public class Profile : MonoBehaviour {
 							}			
 							break;
 			
-		case "deletedClass":parsedData = jsonparser.JSONparse(data);
-							string[] result = parsedData[0];
-							if(result[1] == "1"){ //success
+		case "deletedClass":parsedData = JSONParser.JSONparse(data);
+							if(parsedData[0]["success"] == "1"){ //success
 								//refresh overview
 								dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							} else {

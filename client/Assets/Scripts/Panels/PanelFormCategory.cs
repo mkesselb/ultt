@@ -2,10 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using SimpleJSON;
 
 public class PanelFormCategory : MonoBehaviour {
+	//test parameter -> to be deleted if form is attached to rest of app
+	private bool first = true;
 	private DBInterface dbinterface;
-	private JSONParser jsonparser;
 
 	public GameObject category;
 	public GameObject member;
@@ -23,7 +25,6 @@ public class PanelFormCategory : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		jsonparser = GameObject.Find ("Scripts").GetComponent<JSONParser>();
 		btnAddCategory.GetComponent<Button> ().onClick.AddListener (() => {addCategoryForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveCategories();});
 		init ();
@@ -40,27 +41,23 @@ public class PanelFormCategory : MonoBehaviour {
 		members = new List<List<GameObject>> ();
 		category_id = 0;
 		//test id
-		task_id = 6;
+		task_id = 5;
 		//dbinterface.getTask ("taskData", task_id, gameObject);
-
 	}
 
 	public void dbInputHandler(string[] response){
-		Debug.Log ("in dbinputhandler of PanelFormCategory");
+		Debug.Log ("in dbinputhandler of PanelFormQuiz");
 		string target = response [0];
 		string data = response [1];
-		List<string[]> parsedData;
+		JSONNode parsedData;
 		switch (target) {
-		case "taskData": parsedData = jsonparser.JSONparse(data);
-						foreach (string s in parsedData[0]){
-				Debug.Log ("data: "+ s);
-						}
-						//Task task = new Task(task_id, parsedData[0]); 
-						//TODO: get csv data from task
-						loadCategoriesFromTask("");
-						break;
+		case "taskData": parsedData = JSONParser.JSONparse(data);
+			Debug.Log (parsedData[0]);
+			Task task = new Task(task_id, parsedData[0]); 
+			loadCategoriesFromTask(task.getDatafile());
+			break;
 		}
-		}
+	}
 
 	public void loadCategoriesFromTask(string csv){
 		CategoryData catData = new CategoryData (csv);
@@ -84,6 +81,11 @@ public class PanelFormCategory : MonoBehaviour {
 	}
 
 	public void addCategoryForm(string catName="Neue Kategorie", bool load = false){
+		if (first) {
+			dbinterface.getTask ("taskData", task_id, gameObject);
+			first = false;
+			return;
+		}
 		GameObject generatedCat = Instantiate (category, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = category_id;
@@ -93,11 +95,10 @@ public class PanelFormCategory : MonoBehaviour {
 		generatedCat.transform.FindChild ("catName/Text").GetComponent<Text> ().text = catName;
 		categories.Add (generatedCat);
 		List<GameObject> membersForCat = new List<GameObject> ();
+		members.Add (membersForCat);
 		if (!load) {
-			members.Add (membersForCat);
+			addMemberForm (generatedCat.name, id);
 		}
-
-		addMemberForm (generatedCat.name, id);
 		category_id++;
 	}
 

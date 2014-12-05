@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class Student : MonoBehaviour {
 
@@ -12,6 +13,12 @@ public class Student : MonoBehaviour {
 		username = data[3];
 		accepted = data[5];
 		Debug.Log ("new student: "+user_id+", "+username+", "+accepted);
+	}
+
+	public Student(JSONNode stud){
+		user_id = int.Parse(stud["user_id"]);
+		username = stud["username"];
+		accepted = stud["accepted"];
 	}
 	
 	public string getName(){
