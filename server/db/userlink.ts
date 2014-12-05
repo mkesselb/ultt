@@ -117,7 +117,7 @@ function registerUserToClass(dbConnection, requestData, callback){
 				}
 				logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 				logger.log(logger.logLevels["info"], "successful registered user to class");
-				callback(null, {"class_id" : class_id});
+				callback(null, [{"class_id" : class_id}]);
 			});
 		});
 	});
@@ -151,7 +151,7 @@ function acceptUserInClass(dbConnection, requestData, callback){
 			}
 			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 			logger.log(logger.logLevels["info"], "successful accepted user to class");
-			callback(null, {"status" : 1});
+			callback(null, [{"status" : 1}]);
 		});
 	});
 };
@@ -191,7 +191,7 @@ function createClass(dbConnection, requestData, callback){
 			}
 			logger.log(logger.logLevels["debug"], "created class with id: " + cl[0].class_id 
 					+ ", classcode: " + classcode);
-			callback(null, {"class_id" : cl[0].class_id, "classcode" : classcode})
+			callback(null, [{"class_id" : cl[0].class_id, "classcode" : classcode}])
 		});
 	});
 };
@@ -213,7 +213,7 @@ function deleteClass(dbConnection, requestData, callback){
 		
 		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 		logger.log(logger.logLevels["debug"], "successful setting delete flag of class");
-		callback(null, {"success" : 1});
+		callback(null, [{"success" : 1}]);
 	});
 };
 

@@ -47,6 +47,6 @@ module.exports = function(dbConnection, userData, callback){
 		logger.log(logger.logLevels["debug"], "input password did match db password, returning success");
 		
 		//returns id on success
-		callback(null, {"user_id" : pw[0].user_id});
+		callback(null, [{"user_id" : pw[0].user_id}]);
 	});
 };

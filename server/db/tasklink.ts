@@ -77,7 +77,7 @@ function createTask(dbConnection, requestData, callback){
 		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 		logger.log(logger.logLevels["info"], "successful task creating");
 		
-		return callback(null, {"success" : 1});
+		return callback(null, [{"success" : 1}]);
 	});
 };
 
@@ -125,7 +125,7 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 				logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 				logger.log(logger.logLevels["info"], "successful task to topic relationship writing");
 				
-				return callback(null, {"success" : 1});
+				return callback(null, [{"success" : 1}]);
 			});
 		} else{
 			logger.log(logger.logLevels["warning"], "task_for_class relationship already exists for the selected topic");
@@ -161,7 +161,7 @@ function editTask(dbConnection, requestData, callback){
 		
 		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 		logger.log(logger.logLevels["debug"], "successful edited task data");
-		callback(null, {"success" : 1});
+		callback(null, [{"success" : 1}]);
 	});
 };
 

@@ -139,7 +139,7 @@ function deleteClassTopic(dbConnection, requestData, callback){
 		
 		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 		logger.log(logger.logLevels["debug"], "successful setting delete flag of class_topic");
-		callback(null, {"success" : 1});
+		callback(null, [{"success" : 1}]);
 	});
 }
 
