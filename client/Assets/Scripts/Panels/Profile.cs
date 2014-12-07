@@ -38,7 +38,7 @@ public class Profile : MonoBehaviour {
 	void Start(){
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
+		//fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
 		//only teacherClasses view is actve first
 		panelCreateClass.SetActive(false);
@@ -119,7 +119,7 @@ public class Profile : MonoBehaviour {
 							parsedData = JSONParser.JSONparse(data);
 							user = new User(parsedData[0]);
 							//write user data to profile screen
-							fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
+							//fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
 			
 							//activate first overview: teacherClasses
 							overviewKurse.SetActive(false);
@@ -148,11 +148,11 @@ public class Profile : MonoBehaviour {
 									//generate button for teacherClass and add to button list
 									generatedBtn = Instantiate(buttonTeacherClass, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentKlassen").transform;
-									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
+									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getClassname();
 									teacherClassesBtns.Add(generatedBtn);
 					
 									//set method to be called at onclick event for main button ("Button") and delete button ("ButtonDelete") on button object
-									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
+									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
 									generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {deleteClass(temp.getClassId());});
 								}
 							}
@@ -174,10 +174,10 @@ public class Profile : MonoBehaviour {
 									userClasses.Add(temp);
 									generatedBtn = Instantiate(buttonUserClass, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentKurse").transform;
-									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getClassname();
+									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getClassname();
 									userClassesBtns.Add(generatedBtn);
 									//set method to be called at onclick event
-									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnUserClasses", temp.getClassId());});
+									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnUserClasses", temp.getClassId());});
 								}
 							}
 							break;
@@ -198,10 +198,10 @@ public class Profile : MonoBehaviour {
 									tasks.Add(temp);
 									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
-									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getTaskName();
+									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getTaskName();
 									tasksBtns.Add(generatedBtn);
 									//set method to be called at onclick event
-									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTasks", temp.getTaskId());});
+									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTasks", temp.getTaskId());});
 								}
 							}			
 							break;
