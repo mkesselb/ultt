@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -40,7 +40,6 @@ public class PanelTeacherClass : MonoBehaviour {
 	void Start () {
 	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		//teacherClass = GameObject.Find("Scripts").GetComponent<TeacherClass>();
 		
 		tasksBtns = new List<GameObject>();
@@ -51,11 +50,11 @@ public class PanelTeacherClass : MonoBehaviour {
 	}
 	
 	public void init(){
-		//TODO dbinterface.getTeacherClassData("classData", class_id, gameObject);
+
 		string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
 		teacherClass = new TeacherClass(class_id, temp);
-		//TODO: probably, problem with gameObject here? at least for me
-		dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+		dbinterface.getTeacherClassData("classData", class_id, gameObject);
 		
 		panelStudentList.SetActive(false);
 		panelAddTopic.SetActive (false);
@@ -75,17 +74,16 @@ public class PanelTeacherClass : MonoBehaviour {
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
-		JSONNode parsedData;
+		JSONNode parsedData = JSONParser.JSONparse(data);
 		Debug.Log ("with target: "+target);
 		switch(target){	
-		case "classData": 	parsedData = JSONParser.JSONparse(data);
+		case "classData": 	
 							teacherClass = new TeacherClass(class_id, parsedData[0]);
-							fieldClassData.GetComponent<Text>().text = teacherClass.getClassname()+"\nclasscode: "+teacherClass.getClassCode();
-							
+							fieldClassData.GetComponent<Text>().text = teacherClass.getClassname()
+								+ " ; " + teacherClass.getSubjectName() + "\nClasscode: "+teacherClass.getClassCode();
 							dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 							break;
 		case "classTopics": if(data != "[]"){
-								parsedData = JSONParser.JSONparse(data);
 								for(int i = 0; i < parsedData.Count; i++){
 									JSONNode n = parsedData[i];
 									Topic t = new Topic(n);
@@ -96,7 +94,6 @@ public class PanelTeacherClass : MonoBehaviour {
 							
 							break;
 		case "classTasks":	if(data != "[]"){
-								parsedData = JSONParser.JSONparse(data);
 								for(int i = 0; i < parsedData.Count; i++){
 									JSONNode n = parsedData[i];
 									TaskShort task = new TaskShort(n);
@@ -146,7 +143,6 @@ public class PanelTeacherClass : MonoBehaviour {
 			
 							//parse data in student objects (create student class)
 							if(data != "[]"){
-								parsedData = JSONParser.JSONparse(data);
 								for(int i = 0; i < parsedData.Count; i++){
 									JSONNode n = parsedData[i];
 									Student student = new Student(n);
@@ -170,8 +166,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							}
 							break;
 		case "acceptedStudent":
-							parsedData = JSONParser.JSONparse(data);
-							if(parsedData[0]["success"] == "1"){ //success
+							if(int.Parse(parsedData[0]["success"]) == 1){ //success
 								//refresh overview
 								showStudentList();
 							} else {
@@ -187,7 +182,6 @@ public class PanelTeacherClass : MonoBehaviour {
 								Destroy(b);
 							}	
 							tasksBtns.Clear();
-							parsedData = JSONParser.JSONparse(data);
 
 							for(int i = 0; i < parsedData.Count; i++){
 								JSONNode n = parsedData[i];
@@ -215,7 +209,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							break;
 		case "deletedTask": init ();
 							break;
-		case "startTask":	parsedData = JSONParser.JSONparse(data);
+		case "startTask":	
 							Task taskToStart = new Task(task_id, parsedData[0]);
 							break;
 		}
@@ -253,8 +247,8 @@ public class PanelTeacherClass : MonoBehaviour {
 	
 	public void addTopic(){
 		string name = fieldTopicToAdd.GetComponent<Text> ().text;
-		Debug.Log ("Button clicked, try to add Topic: "+name);	
-		dbinterface.createClassTopic("addedTopic", class_id, name, gameObject);	
+		Debug.Log ("Button clicked, try to add Topic: "+name);
+		dbinterface.createClassTopic("addedTopic", class_id, name, gameObject);
 		panelAddTopic.SetActive (false);
 	}
 	
@@ -275,6 +269,5 @@ public class PanelTeacherClass : MonoBehaviour {
 			
 	public void setClassId(int id){
 		class_id = id;
-		
 	}
 }

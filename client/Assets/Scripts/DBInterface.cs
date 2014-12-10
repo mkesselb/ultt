@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using SimpleJSON;
 
 public class DBInterface : MonoBehaviour {
 	
@@ -79,10 +80,15 @@ public class DBInterface : MonoBehaviour {
 		WWW www = new WWW(url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
-	
-	//TODO
+
 	public void getTeacherClassData(string target, int classid, GameObject receiver){
 		Debug.Log ("dbinterface TODO: method on server");
+		WWWForm form = new WWWForm();
+		form.AddField("method", "getClass");
+		form.AddField("class_id", classid);
+
+		WWW www = new WWW(url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));	
 	}
 	
 	public void getTopicsForClass(string target, int classid, GameObject receiver){
@@ -202,7 +208,7 @@ public class DBInterface : MonoBehaviour {
 		form.AddField("task_id", task_id);
 		form.AddField("class_topic_id", class_topic_id);
 		form.AddField("obligatory", obligatory);
-		form.AddField("deadine", deadline);
+		form.AddField("deadline", deadline);
 		form.AddField ("max_attempts", max_attempts);
 		
 		WWW www = new WWW (url, form);
@@ -232,24 +238,24 @@ public class DBInterface : MonoBehaviour {
 		WWW www = new WWW (url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
-
-	
-	
-	
 	
 	IEnumerator WaitForRequest(WWW www, string target, GameObject receiver)
     {
         yield return www;
 		Debug.Log ("WaitForRequest, receiver: "+receiver.ToString()+", data: "+www.text);
-	        if (www.error != null) {
-				main.dbErrorHandler(target, www.error);
-			} else { 
+        if (www.error != null) {
+			main.dbErrorHandler(target, www.error);
+		} else { 
 			Debug.Log ("got data: "+www.text);
+			JSONNode resp = JSONParser.JSONparse(www.text);
+			if(resp["error"] != null){
+				//do not send message to receiver, because there was an error
+				//show error box
+				main.dbResponseHandler(int.Parse(resp["error"]));
+			} else{
 				string[] temp = new string[]{target, www.text};
 				receiver.SendMessage("dbInputHandler",temp);
-
-			}  
-			
-    }    
-	
+			}
+		}  
+    }    	
 }

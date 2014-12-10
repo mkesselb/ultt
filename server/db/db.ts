@@ -300,10 +300,10 @@ function get(dbConnection, dbData, callback){
 	var query = "select ";
 	for(d in fetchData){
 		if(fetchData.hasOwnProperty(d)){
-			query += d + ",";
+			query += d + ", ";
 		}
 	}
-	query = query.substr(0, query.length-1) + " from " + table + " where ";
+	query = query.substr(0, query.length-2) + " from " + table + " where ";
 	for(d in matchData){
 		if(matchData.hasOwnProperty(d)){
 			var x = matchData[d];

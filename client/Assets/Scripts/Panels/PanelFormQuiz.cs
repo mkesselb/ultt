@@ -49,10 +49,9 @@ public class PanelFormQuiz : MonoBehaviour {
 		Debug.Log ("in dbinputhandler of PanelFormQuiz");
 		string target = response [0];
 		string data = response [1];
-		JSONNode parsedData;
+		JSONNode parsedData = JSONParser.JSONparse(data);
 		switch (target) {
-		case "taskData": parsedData = JSONParser.JSONparse(data);
-			Debug.Log (parsedData[0]);
+		case "taskData":
 			Task task = new Task(task_id, parsedData[0]); 
 			loadQuestionsFromTask(task.getDatafile());
 			break;

@@ -44,14 +44,12 @@ public class User {
 	public int getUserId(){
 		return user_id;	
 	}
-	
-	
+
 	public string getFirstName(){
 		return name_first;	
 	}
 	
 	public string getLastName(){
 		return name_last;	
-	}
-	
+	}	
 }

@@ -9,7 +9,7 @@ function getClass(dbConnection, requestData, callback){
 		return callback({"error" : 300});
 	}
 	logger.log(logger.logLevels["debug"], "get class info with class id: " + requestData.class_id);
-	var getClass = "select c.classname, c.user_id, c.schoolyear, c.classcode, s.subject_name "
+	var getClass = "select c.classname, c.user_id, c.school_year, c.classcode, s.subject_name "
 		+ "from class c, subject s where c.class_id = " + requestData.class_id + " and c.subject_id = s.subject_id";
 	
 	dbConnection.query(getClass, function(err, clas){
@@ -18,7 +18,7 @@ function getClass(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["info"], "successful class information fetching");
 		logger.log(logger.logLevels["debug"], "fetch result: " + JSON.stringify(clas));
-		callback(nul, clas);
+		callback(null, clas);
 	});
 };
 

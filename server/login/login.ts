@@ -16,6 +16,10 @@ module.exports = function(dbConnection, userData, callback){
 	//var user shall contain user.username and user.password
 	var user = parser(userData);
 	logger.log(logger.logLevels["debug"], "user data received: " + JSON.stringify(user));
+	if(user.username.length === 0){
+		logger.log(logger.logLevels["debug"], "empty username, user does not exist");
+		return callback(null, {"error" : 100});
+	}
 	
 	var pwFetch = [];
 	pwFetch.push("purpose=get");

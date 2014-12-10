@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class Main : MonoBehaviour {
+
+	private ErrorHandler errorhandler;
 	
 	private DBInterface dbinterface;
 	
@@ -52,7 +54,8 @@ public class Main : MonoBehaviour {
 		
 		dbinterface = gameObject.GetComponent<DBInterface>();
 		CSVHelper.addSwap (",", "#csw");
-		
+		errorhandler = new ErrorHandler ("de");
+
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
 		panelRegister.SetActive(false);
@@ -140,6 +143,11 @@ public class Main : MonoBehaviour {
 		writeToMessagebox ("Es konnte keine Verbindung zum Server hergstellt werden.");
 
 	}
+
+	//called by dbinterface when an errorcode is returned from server
+	public void dbResponseHandler(int errorcode){
+		writeToMessagebox(errorhandler.getErrorMessage(errorcode, "de"));
+	}
 	
 	public void errorHandler(string target, string errortext){
 		string displayedErrorText = "";
@@ -168,10 +176,4 @@ public class Main : MonoBehaviour {
 	public int getUserId(){
 		return userid;	
 	}
-	
-	
-
-	
 }
-
-

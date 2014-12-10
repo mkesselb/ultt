@@ -23,7 +23,6 @@ public class PanelUserClass : MonoBehaviour {
 
 	void Start () {
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		topics = new List<GameObject>();
 	}
 	
@@ -31,6 +30,7 @@ public class PanelUserClass : MonoBehaviour {
 		//dbinterface.getUserClassData("classData", class_id, gameObject);
 		string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
 		userClass = new UserClass(class_id, temp);
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 			
 		//destroy userClassObject because it has wrong id
@@ -49,15 +49,15 @@ public class PanelUserClass : MonoBehaviour {
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
-		JSONNode parsedData;
+		JSONNode parsedData = JSONParser.JSONparse(data);
 		switch(target){	
-		case "classData": 	parsedData = JSONParser.JSONparse(data);
+		case "classData": 	
 							userClass = new UserClass(class_id, parsedData[0]);
 							fieldClassData.GetComponent<Text>().text = userClass.getClassname();
 							
 							dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 							break;
-		case "classTopics": parsedData = JSONParser.JSONparse(data);
+		case "classTopics": 
 							for(int i = 0; i < parsedData.Count; i++){
 								JSONNode n = parsedData[i];
 								Topic t = new Topic(n);
@@ -66,7 +66,7 @@ public class PanelUserClass : MonoBehaviour {
 								dbinterface.getTasksForClass("classTasks", class_id, gameObject);
 							}
 							break;
-		case "classTasks":	parsedData = JSONParser.JSONparse(data);
+		case "classTasks":	
 							for(int i = 0; i < parsedData.Count; i++){
 								JSONNode n = parsedData[i];
 								//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object

@@ -112,11 +112,10 @@ public class Profile : MonoBehaviour {
 		GameObject generatedBtn;
 		string target = response[0];
 		string data = response[1];
-		JSONNode parsedData;
+		JSONNode parsedData = JSONParser.JSONparse(data);
 		Debug.Log ("in dbinputhandler of profile, target "+target);
 		switch(target){	
-		case "userData": 	//parse received user data and save in user object
-							parsedData = JSONParser.JSONparse(data);
+		case "userData": 	//save in user object
 							user = new User(parsedData[0]);
 							//write user data to profile screen
 							//fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
@@ -134,14 +133,11 @@ public class Profile : MonoBehaviour {
 								Destroy(b);
 							}	
 							teacherClassesBtns.Clear();
-
-							//parse data
-							parsedData = JSONParser.JSONparse(data);
 			
 							//split parsed data into data packages for one teacherClass)
 							for(int i = 0; i < parsedData.Count; i++){
 								JSONNode n = parsedData[i];
-								if(n.Count > 0){						
+								if(n.Count > 0){
 									TeacherClass temp = new TeacherClass(userid,n);
 									//add teacherClass to list
 									teacherClasses.Add(temp);
@@ -164,7 +160,6 @@ public class Profile : MonoBehaviour {
 								Destroy(b);
 							}	
 							userClassesBtns.Clear();
-							parsedData = JSONParser.JSONparse(data);
 
 							//generate buttons
 							for(int i = 0; i < parsedData.Count; i++){
@@ -188,7 +183,6 @@ public class Profile : MonoBehaviour {
 								Destroy(b);
 							}	
 							tasksBtns.Clear();
-							parsedData = JSONParser.JSONparse(data);
 
 							//generate buttons
 							for(int i = 0; i < parsedData.Count; i++){
@@ -206,8 +200,8 @@ public class Profile : MonoBehaviour {
 							}			
 							break;
 			
-		case "deletedClass":parsedData = JSONParser.JSONparse(data);
-							if(parsedData[0]["success"] == "1"){ //success
+		case "deletedClass":
+							if(int.Parse(parsedData[0]["success"]) == 1){ //success
 								//refresh overview
 								dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							} else {
@@ -254,6 +248,7 @@ public class Profile : MonoBehaviour {
 	public void addClass(){
 		//insert class into db if for filled correctly
 		//TODO check if filled correctly, else: call main.errorhandler
+		//needs validators
 		dbinterface.createClass("addedClass", classname.GetComponent<Text>().text, userid, int.Parse (classsubject.GetComponent<Text>().text), classschoolyear.GetComponent<Text>().text, gameObject); 
 	}
 

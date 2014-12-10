@@ -3,6 +3,7 @@ Overview of error codes on server
 login error codes:
 
 100	:	"user does not exist"
+#also returned if login user name is empty
 101	:	"input password does not match db password"
 
 register error codes:

@@ -32,9 +32,9 @@ public class LogIn : MonoBehaviour {
 	public void dbInputHandler(string[] response){
 		string target = response[0];
 		string data = response[1];
-		JSONNode parsedData;
+		JSONNode parsedData = JSONParser.JSONparse(data);
 		switch(target){	
-		case "logInData": 	parsedData = JSONParser.JSONparse(data);
+		case "logInData": 	
 							JSONNode user = parsedData[0];
 							main.eventHandler("logInSuccess", int.Parse (user["user_id"]));
 							break;

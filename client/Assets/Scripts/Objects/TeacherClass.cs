@@ -15,7 +15,6 @@ public class TeacherClass{
 	private List<Topic> topics;
 	private List<TaskShort> tasks;
 	private List<Student> students;
-
 	
 	public TeacherClass(int id,string[] data){
 		user_id = id;
@@ -33,13 +32,18 @@ public class TeacherClass{
 	}
 
 	public TeacherClass(int id, JSONNode clas){
-		user_id = id;
-		class_id = int.Parse(clas ["class_id"]);
+		if (clas ["user_id"] == null) {
+			user_id = id;
+			class_id = int.Parse (clas ["class_id"]);
+		} else {
+			class_id = id;
+			user_id = int.Parse(clas ["user_id"]);
+		}
 		classname = clas ["classname"];
 		school_year = clas ["schoolyear"];
 		classcode = clas ["classcode"];
 		string pr = clas ["privacy"];
-		if (pr != "null") {
+		if (pr != "null" && clas["privacy"] != null) {
 			privacy = int.Parse(pr);
 		}
 		subject_name = clas ["subject_name"];
@@ -62,6 +66,10 @@ public class TeacherClass{
 	
 	public string getClassCode(){
 		return classcode;	
+	}
+
+	public string getSubjectName(){
+		return this.subject_name;
 	}
 	
 	public void addTopic(Topic t){
@@ -87,5 +95,4 @@ public class TeacherClass{
 	public void addStudent(Student s){
 		students.Add(s);
 	}
-
 }

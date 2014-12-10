@@ -46,10 +46,9 @@ public class PanelFormAssignment : MonoBehaviour {
 		Debug.Log ("in dbinputhandler of PanelFormAssignment");
 		string target = response [0];
 		string data = response [1];
-		JSONNode parsedData;
+		JSONNode parsedData = JSONParser.JSONparse(data);
 		switch (target) {
-		case "taskData": parsedData = JSONParser.JSONparse(data);
-			Debug.Log (parsedData[0]);
+		case "taskData": 
 			Task task = new Task(task_id, parsedData[0]); 
 			loadAssignmentsFromTask(task.getDatafile());
 			break;
