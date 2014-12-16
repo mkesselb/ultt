@@ -44,6 +44,7 @@ public class Main : MonoBehaviour {
 	public GameObject panelQuiz;
 	public GameObject panelFlashcard;
 	public GameObject panelAssign;
+	public GameObject panelCategory;
 
 	//panels for task forms
 	public GameObject panelFormQuiz;
@@ -102,8 +103,18 @@ public class Main : MonoBehaviour {
 								panelUserClass.GetComponent<PanelUserClass>().init ();
 								break;
 		case "startQuiz":		panelQuiz.SetActive(true);
+								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
+		case "startTaskAssign":	panelAssign.SetActive(true);
+								//panelAssign.GetComponent<PanelAssign>().init();
+								//panelAssign.GetComponent<PanelAssign>().setTaskId(id);
+								break;
+		case "startTaskCategory": //panelCategory.SetActive(true);
+								//panelAssign.GetComponent<PanelCategory>().init();
+			//panelAssign.GetComponent<PanelCategory>().setTaskId(id);
+								break;
+		
 		}
 	}
 	
@@ -121,6 +132,7 @@ public class Main : MonoBehaviour {
 				} else if (panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf) {
 						panelProfile.SetActive (false);
 						panelLogInScreen.SetActive (true);
+						panelHeader.SetActive(false);
 						panelProfile.GetComponent<Profile>().clear();
 						btnBackText.GetComponent<Text>().text = "";
 				} else if (panelRegister.activeSelf) {
@@ -189,6 +201,10 @@ public class Main : MonoBehaviour {
 		int[] temp = new int[]{answer, idOfObject};
 		receiver.SendMessage(receiverMethod,temp);
 		dialogbox.SetActive (false);
+	}
+
+	public void setHeaderText(string username){
+		panelHeader.transform.FindChild ("Top/Text").GetComponent<Text> ().text = username;
 	}
 	
 	

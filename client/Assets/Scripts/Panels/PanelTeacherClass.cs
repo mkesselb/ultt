@@ -211,6 +211,10 @@ public class PanelTeacherClass : MonoBehaviour {
 							break;
 		case "startTask":	
 							Task taskToStart = new Task(task_id, parsedData[0]);
+							if(taskToStart.getTypeName() == "Zuordnung"){
+								main.eventHandler("startTaskAssign", taskToStart.getId());
+							}
+
 							break;
 		}
 		
@@ -219,7 +223,6 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void showTasks(int topicId){
 		Debug.Log ("Button clicked, try to add Task to Topic with id "+topicId);
 		currentTopic = topicId;
-		//TODO dbmethod
 		dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
 	}
 

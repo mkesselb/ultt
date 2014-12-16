@@ -117,8 +117,7 @@ public class Profile : MonoBehaviour {
 		switch(target){	
 		case "userData": 	//save in user object
 							user = new User(parsedData[0]);
-							//write user data to profile screen
-							//fieldUserData.text = user.getFirstName()+"\n"+user.getLastName();
+							main.setHeaderText(user.getFirstName());
 			
 							//activate first overview: teacherClasses
 							overviewKurse.SetActive(false);
