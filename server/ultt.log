@@ -18466,3 +18466,192 @@
 [2014-12-10 19:25:08.371] [DEBUG] ultt - get tasks of class with id: 8
 [2014-12-10 19:25:08.371] [INFO] ultt - successful tasks fetching
 [2014-12-10 19:25:08.371] [DEBUG] ultt - fetch result: [{"task_id":6,"taskname":"taskQuiz","type_name":"Quiz","class_topic_id":13},{"task_id":1,"taskname":"task1","type_name":"Zuordnung","class_topic_id":13}]
+[2014-12-15 13:41:12.847] [INFO] ultt - listening on port 80
+[2014-12-15 13:41:12.877] [INFO] ultt - connected to db
+[2014-12-15 13:41:24.429] [INFO] ultt - serving post to /login
+[2014-12-15 13:41:24.429] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-15 13:41:24.439] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-15 13:41:24.439] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-15 13:41:24.449] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-15 13:41:24.449] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-15 13:41:24.459] [DEBUG] ultt - db fetch query: select password, user_id from user where username="comoessl";
+[2014-12-15 13:41:24.479] [INFO] ultt - successful db fetching
+[2014-12-15 13:41:24.489] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-15 13:41:24.489] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-15 13:41:24.489] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-15 13:41:24.699] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:24.699] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-15 13:41:24.709] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-15 13:41:24.709] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 13:41:24.719] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-15 13:41:24.719] [DEBUG] ultt - get user with id: 1
+[2014-12-15 13:41:24.729] [INFO] ultt - successful user fetching
+[2014-12-15 13:41:24.739] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-15 13:41:24.889] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:24.889] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 13:41:24.889] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 13:41:24.899] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 13:41:24.899] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 13:41:24.909] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 13:41:24.929] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 13:41:24.929] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"},{"class_id":7,"classname":"Klasse neu","privacy":null,"school_year":2014,"classcode":"fC34auon5Z","subject_name":"Informatik"}]
+[2014-12-15 13:41:30.359] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:30.359] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-15 13:41:30.359] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-15 13:41:30.359] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 13:41:30.369] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-15 13:41:30.369] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-15 13:41:30.379] [INFO] ultt - successful classes fetching
+[2014-12-15 13:41:30.379] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik","username":"comoessl","accepted":1}]
+[2014-12-15 13:41:31.733] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:31.743] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-15 13:41:31.743] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-15 13:41:31.743] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 13:41:31.743] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-15 13:41:31.753] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-15 13:41:31.773] [INFO] ultt - successful user tasks fetching
+[2014-12-15 13:41:31.773] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"Wiederholung","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":2,"taskname":"Algebra Test","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":3,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":4,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"Name of Task 1","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":6,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":7,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":8,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":9,"taskname":"Name of Task 2","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":10,"taskname":"Name of Task 4","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":11,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":12,"taskname":"Name of Task 6","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":13,"taskname":"Taskname","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":14,"taskname":"Name of Task 12","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":15,"taskname":"Name of Task 7","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":16,"taskname":"Name of Task 8","public":1,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":19,"taskname":"Name of Task 8","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":20,"taskname":"Name of Task 14","public":1,"subject_name":"Geographie","type_name":"Zuordnung"},{"task_id":21,"taskname":"Mein neuer Task","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":22,"taskname":"Name of Task 21","public":1,"subject_name":"Englisch","type_name":"Zuordnung"},{"task_id":23,"taskname":"SuperTask","public":0,"subject_name":"Informatik","type_name":"Zuordnung"}]
+[2014-12-15 13:41:36.083] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:36.083] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 13:41:36.083] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 13:41:36.093] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 13:41:36.093] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 13:41:36.093] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 13:41:36.113] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 13:41:36.113] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"},{"class_id":7,"classname":"Klasse neu","privacy":null,"school_year":2014,"classcode":"fC34auon5Z","subject_name":"Informatik"}]
+[2014-12-15 13:41:41.208] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:41.208] [DEBUG] ultt - received data: method=deleteClass&class_id=7
+[2014-12-15 13:41:41.218] [DEBUG] ultt - --- decoded method=deleteClass
+[2014-12-15 13:41:41.218] [DEBUG] ultt - --- decoded class_id=7
+[2014-12-15 13:41:41.228] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"7"}
+[2014-12-15 13:41:41.238] [DEBUG] ultt - deleting class with id: 7
+[2014-12-15 13:41:41.248] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-12-15 13:41:41.248] [DEBUG] ultt - successful setting delete flag of class
+[2014-12-15 13:41:41.408] [INFO] ultt - serving post to /unity/db
+[2014-12-15 13:41:41.408] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 13:41:41.418] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 13:41:41.418] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 13:41:41.428] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 13:41:41.438] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 13:41:41.438] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 13:41:41.448] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-15 14:20:50.114] [INFO] ultt - listening on port 80
+[2014-12-15 14:20:50.154] [INFO] ultt - connected to db
+[2014-12-15 14:22:03.757] [INFO] ultt - serving post to /login
+[2014-12-15 14:22:03.767] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-15 14:22:03.767] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-15 14:22:03.777] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-15 14:22:03.787] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-15 14:22:03.787] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-15 14:22:03.787] [DEBUG] ultt - db fetch query: select password, user_id from user where username="comoessl";
+[2014-12-15 14:22:03.827] [INFO] ultt - successful db fetching
+[2014-12-15 14:22:03.837] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-15 14:22:03.837] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-15 14:22:03.837] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-15 14:22:04.057] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:22:04.057] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-15 14:22:04.067] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-15 14:22:04.067] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:22:04.077] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-15 14:22:04.077] [DEBUG] ultt - get user with id: 1
+[2014-12-15 14:22:04.087] [INFO] ultt - successful user fetching
+[2014-12-15 14:22:04.107] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-15 14:22:04.307] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:22:04.307] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 14:22:04.307] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 14:22:04.317] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:22:04.317] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 14:22:04.327] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 14:22:04.347] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 14:22:04.347] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-15 14:22:15.997] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:22:16.007] [DEBUG] ultt - received data: method=createClass&classname=neue+Klasse&user_id=1&subject_id=1&school_year=2014
+[2014-12-15 14:22:16.007] [DEBUG] ultt - --- decoded method=createClass
+[2014-12-15 14:22:16.017] [DEBUG] ultt - --- decoded classname=neue Klasse
+[2014-12-15 14:22:16.017] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:22:16.017] [DEBUG] ultt - --- decoded subject_id=1
+[2014-12-15 14:22:16.027] [DEBUG] ultt - --- decoded school_year=2014
+[2014-12-15 14:22:16.027] [DEBUG] ultt - full data received on db: {"method":"createClass","classname":"neue Klasse","user_id":"1","subject_id":"1","school_year":"2014"}
+[2014-12-15 14:22:16.037] [DEBUG] ultt - creating class neue Klasse for user_id 1, subject_id 1 and school_year 2014
+[2014-12-15 14:22:17.147] [DEBUG] ultt - insert data: {"classname":"neue Klasse","user_id":"1","school_year":"2014","classcode":"BXPi53WPKZ","subject_id":"1"}
+[2014-12-15 14:22:17.157] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":8,"serverStatus":2,"warningCount":1,"message":"","protocol41":true,"changedRows":0}
+[2014-12-15 14:22:17.157] [INFO] ultt - successful class creating
+[2014-12-15 14:22:17.167] [DEBUG] ultt - created class with id: 8, classcode: BXPi53WPKZ
+[2014-12-15 14:22:17.307] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:22:17.307] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 14:22:17.307] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 14:22:17.317] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:22:17.317] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 14:22:17.317] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 14:22:17.327] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 14:22:17.327] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"},{"class_id":8,"classname":"neue Klasse","privacy":null,"school_year":2014,"classcode":"BXPi53WPKZ","subject_name":"Informatik"}]
+[2014-12-15 14:23:56.379] [INFO] ultt - serving post to /login
+[2014-12-15 14:23:56.379] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-15 14:23:56.389] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-15 14:23:56.389] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-15 14:23:56.389] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-15 14:23:56.399] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-15 14:23:56.399] [DEBUG] ultt - db fetch query: select password, user_id from user where username="comoessl";
+[2014-12-15 14:23:56.409] [INFO] ultt - successful db fetching
+[2014-12-15 14:23:56.409] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-15 14:23:56.409] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-15 14:23:56.419] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-15 14:23:56.629] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:23:56.629] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-15 14:23:56.629] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-15 14:23:56.639] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:23:56.639] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-15 14:23:56.649] [DEBUG] ultt - get user with id: 1
+[2014-12-15 14:23:56.649] [INFO] ultt - successful user fetching
+[2014-12-15 14:23:56.659] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-15 14:23:56.809] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:23:56.809] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 14:23:56.819] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 14:23:56.819] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:23:56.829] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 14:23:56.839] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 14:23:56.839] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 14:23:56.839] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"},{"class_id":8,"classname":"neue Klasse","privacy":null,"school_year":2014,"classcode":"BXPi53WPKZ","subject_name":"Informatik"}]
+[2014-12-15 14:23:59.039] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:23:59.049] [DEBUG] ultt - received data: method=deleteClass&class_id=8
+[2014-12-15 14:23:59.049] [DEBUG] ultt - --- decoded method=deleteClass
+[2014-12-15 14:23:59.059] [DEBUG] ultt - --- decoded class_id=8
+[2014-12-15 14:23:59.059] [DEBUG] ultt - full data received on db: {"method":"deleteClass","class_id":"8"}
+[2014-12-15 14:23:59.069] [DEBUG] ultt - deleting class with id: 8
+[2014-12-15 14:23:59.069] [DEBUG] ultt - db response: {"fieldCount":0,"affectedRows":1,"insertId":0,"serverStatus":2,"warningCount":0,"message":"(Rows matched: 1  Changed: 1  Warnings: 0","protocol41":true,"changedRows":1}
+[2014-12-15 14:23:59.079] [DEBUG] ultt - successful setting delete flag of class
+[2014-12-15 14:23:59.229] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:23:59.229] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 14:23:59.229] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 14:23:59.229] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:23:59.239] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 14:23:59.239] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 14:23:59.239] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 14:23:59.239] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]
+[2014-12-15 14:25:28.586] [INFO] ultt - serving post to /login
+[2014-12-15 14:25:28.586] [DEBUG] ultt - received login data: username=comoessl&password=qwe
+[2014-12-15 14:25:28.586] [DEBUG] ultt - --- decoded username=comoessl
+[2014-12-15 14:25:28.586] [DEBUG] ultt - --- decoded password=qwe
+[2014-12-15 14:25:28.596] [DEBUG] ultt - user data received: {"username":"comoessl","password":"qwe"}
+[2014-12-15 14:25:28.596] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"comoessl","password":"null","user_id":"null"}
+[2014-12-15 14:25:28.596] [DEBUG] ultt - db fetch query: select password, user_id from user where username="comoessl";
+[2014-12-15 14:25:28.606] [INFO] ultt - successful db fetching
+[2014-12-15 14:25:28.606] [DEBUG] ultt - fetch result: [{"password":"qwe","user_id":1}]
+[2014-12-15 14:25:28.616] [DEBUG] ultt - password fetched: [{"password":"qwe","user_id":1}]
+[2014-12-15 14:25:28.616] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-15 14:25:28.826] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:25:28.826] [DEBUG] ultt - received data: method=getUser&user_id=1
+[2014-12-15 14:25:28.826] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-15 14:25:28.826] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:25:28.836] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"1"}
+[2014-12-15 14:25:28.836] [DEBUG] ultt - get user with id: 1
+[2014-12-15 14:25:28.836] [INFO] ultt - successful user fetching
+[2014-12-15 14:25:28.846] [DEBUG] ultt - fetch result: [{"user_id":1,"token":1,"username":"comoessl","name_first":"Corinna","name_last":"Mößlacher","email_id":"como@uni","picture":"/web/image/default.jpg","created_at":"2014-11-17T09:15:35.000Z","school_id":"1"}]
+[2014-12-15 14:25:29.026] [INFO] ultt - serving post to /unity/db
+[2014-12-15 14:25:29.026] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-15 14:25:29.036] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-15 14:25:29.036] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-15 14:25:29.036] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-15 14:25:29.046] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-15 14:25:29.056] [INFO] ultt - successful teacher classes fetching
+[2014-12-15 14:25:29.056] [DEBUG] ultt - fetch result: [{"class_id":1,"classname":"Mathe 1a","privacy":null,"school_year":2014,"classcode":"vUZL7U6iDl","subject_name":"Informatik"},{"class_id":5,"classname":"Meine neue klasse","privacy":null,"school_year":"0000","classcode":"B6BrqcXFjv","subject_name":"Informatik"}]

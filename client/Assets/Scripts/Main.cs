@@ -31,10 +31,14 @@ public class Main : MonoBehaviour {
 	//panel on panelteacherClass
 	public GameObject panelStudentList;
 
+	//panel for Header
+	public GameObject panelHeader;
+
 	//objects on panelHeader
 	public Text headerText;
 	public Text btnBackText;
 	public GameObject messagebox;
+	public GameObject dialogbox;
 
 	//panels for tasks
 	public GameObject panelQuiz;
@@ -58,6 +62,7 @@ public class Main : MonoBehaviour {
 
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
+		panelHeader.SetActive (false);
 		panelRegister.SetActive(false);
 		panelProfile.SetActive(false);
 		panelTeacherClass.SetActive(false);
@@ -66,6 +71,7 @@ public class Main : MonoBehaviour {
 		panelFlashcard.SetActive (false);
 		panelAssign.SetActive (false);
 		messagebox.SetActive (false);
+		dialogbox.SetActive (false);
 		panelFormQuiz.SetActive (false);
 		panelFormCategory.SetActive (false);
 		panelFormAssign.SetActive (false);
@@ -75,6 +81,7 @@ public class Main : MonoBehaviour {
 	public void eventHandler(string eventname, int id){
 		switch(eventname){
 		case "logInSuccess": 	panelLogInScreen.SetActive(false);
+								panelHeader.SetActive(true);
 								panelProfile.SetActive(true);
 								panelProfile.GetComponent<Profile>().setUserId(id);
 								break;	
@@ -167,6 +174,21 @@ public class Main : MonoBehaviour {
 
 	public void deactivateMessagebox(){
 		messagebox.SetActive (false);
+	}
+
+	public void activateDialogbox(string question, int idOfObjectToDelete, GameObject receiver, string receiverMethod){
+		dialogbox.SetActive (true);
+		dialogbox.transform.FindChild ("Text").GetComponent<Text> ().text = question;
+		dialogbox.transform.FindChild ("ButtonNo/Text").GetComponent<Text> ().text = "no";
+		dialogbox.transform.FindChild ("ButtonYes/Text").GetComponent<Text> ().text = "yes";
+		dialogbox.transform.FindChild("ButtonNo").GetComponent<Button>().onClick.AddListener(()=> {returnDialogboxResult(0, idOfObjectToDelete,receiver, receiverMethod);});
+		dialogbox.transform.FindChild("ButtonYes").GetComponent<Button>().onClick.AddListener(()=> {returnDialogboxResult(1, idOfObjectToDelete, receiver, receiverMethod);});
+	}
+
+	public void returnDialogboxResult(int answer, int idOfObject, GameObject receiver, string receiverMethod){
+		int[] temp = new int[]{answer, idOfObject};
+		receiver.SendMessage(receiverMethod,temp);
+		dialogbox.SetActive (false);
 	}
 	
 	

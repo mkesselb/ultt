@@ -149,7 +149,7 @@ public class Profile : MonoBehaviour {
 					
 									//set method to be called at onclick event for main button ("Button") and delete button ("ButtonDelete") on button object
 									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
-									generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {deleteClass(temp.getClassId());});
+									generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {confirmDeleteClass(temp.getClassId());});
 								}
 							}
 							break;
@@ -263,10 +263,18 @@ public class Profile : MonoBehaviour {
 		                       gameObject); 
 	}
 				
-	public void deleteClass(int class_id){
+	public void confirmDeleteClass(int class_id){
 		Debug.Log ("button clicked, try to delete class");	
-		//delete class
-		dbinterface.deleteClass("deletedClass", class_id, gameObject);
+		main.activateDialogbox ("Do you want to delete this class?", class_id, gameObject, "deleteClass");
+
+	}
+
+	public void deleteClass(int[] temp){
+		int answer = temp [0];
+		int id = temp [1];
+		if (answer == 1) {
+			dbinterface.deleteClass ("deletedClass", id, gameObject);
+		}
 	}
 	
 	public void showRegisterToClassForm(){
