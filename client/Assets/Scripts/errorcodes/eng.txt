@@ -1,0 +1,18 @@
+100;Username cannot be found
+101;Username or password not correct
+
+200;Password length must be between 6-12 characters
+201;Password length must be between 6-12 characters
+202;Username is empty
+203;User is already registered
+
+300;malformed id
+301;No class could be found for the provided classcode
+302;User is already registered to selected class
+303;User is not registered to selected class
+304;A Task cannot be linked to one class and topic twice
+
+400;A database error occured
+401;A login error occured
+402;A registration error occured
+403;A database error occured

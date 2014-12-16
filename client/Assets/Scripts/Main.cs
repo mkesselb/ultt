@@ -59,7 +59,7 @@ public class Main : MonoBehaviour {
 		
 		dbinterface = gameObject.GetComponent<DBInterface>();
 		CSVHelper.addSwap (",", "#csw");
-		errorhandler = new ErrorHandler ("de");
+		errorhandler = new ErrorHandler ("eng");
 
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
