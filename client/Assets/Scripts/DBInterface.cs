@@ -257,5 +257,16 @@ public class DBInterface : MonoBehaviour {
 				receiver.SendMessage("dbInputHandler",temp);
 			}
 		}  
-    }    	
+    }
+    
+    //TODO: form validation method
+    //	-> send to receiver GameObject the errors, so that the faulty input fields can be marked
+    //main.MarkInputFields(receiver, dict);
+    //~like in main.returnDialogboxResult
+    //variable names: http://stackoverflow.com/questions/15103964/c-sharp-variable-name-to-string
+    
+    //--> OR take approach of form with gameObjects (for the InputFields),
+    //	and directly colour them in the form, no messages needed
+    //	also the dbinterface methods do not need value-params then, but Gameobjects which have the input values
+    //toggle need not be validated?!
 }

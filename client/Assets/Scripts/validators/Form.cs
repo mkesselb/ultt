@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class Form{
 	private Dictionary<string, string> formValues;
+	private List<GameObject> formFields;
 	private Dictionary<string, IValidator> formValidators;
 
 	public Form(List<string> formValues, List<IValidator> formValidators){
@@ -16,11 +17,23 @@ public class Form{
 		}
 	}
 
-	public Form(Dictionary<string, string> formValues, Dictionary<string, IValidator> formValidators){
+	public Form(Dictionary<string, string> formFields, Dictionary<string, IValidator> formValidators){
 		//both dicts shall have the same key strings
 		this.formValues = formValues;
 		this.formValidators = formValidators;
 	}
+	
+	public Form(List<GameObject> formFields, List<IValidator> formValidators){
+		Dictionary<string, IValidator> formValids = new Dictionary<string, IValidator>(); 
+		for(int i = 0; i < formFields.Count; i++){
+			formValids.Add(i.ToString(), formValidators[i]);
+		}
+		this.formFields = formFields;
+		this.formValidators = formValids;
+	}
+	
+	//TODO: form with GameObjects...to set them e.g. red
+	//init of panels with input fields -> set them white
 
 	public Dictionary<string, string> validateForm(){
 		Dictionary<string, string> validation = new Dictionary<string, string> ();
