@@ -8,6 +8,7 @@ public class PanelFormQuiz : MonoBehaviour {
 	//test parameter -> to be deleted if form is attached to rest of app
 	private bool first = true;
 	private DBInterface dbinterface;
+	private Main main;
 
 	public GameObject question;
 	public GameObject answer;
@@ -24,9 +25,6 @@ public class PanelFormQuiz : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		btnAddQuestion.GetComponent<Button> ().onClick.AddListener (() => {addQuestionForm ();});
-		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveQuestions();});
 		init ();
 	}
 	
@@ -36,13 +34,19 @@ public class PanelFormQuiz : MonoBehaviour {
 	}
 
 	public void init(){
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+		main = GameObject.Find ("Scripts").GetComponent<Main>();
+		btnAddQuestion.GetComponent<Button> ().onClick.AddListener (() => {addQuestionForm ();});
+		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveQuestions();});
+		foreach (GameObject q in questions){
+			Destroy(q);	
+		}
+		questions.Clear();
 
 		questions = new List<GameObject> ();
 		answers = new List<List<GameObject>> ();
 		question_id = 0;
-		//test id
-		task_id = 6;
-		//dbinterface.getTask ("taskData", task_id, gameObject);
+		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
 	public void dbInputHandler(string[] response){
@@ -53,7 +57,15 @@ public class PanelFormQuiz : MonoBehaviour {
 		switch (target) {
 		case "taskData":
 			Task task = new Task(task_id, parsedData[0]); 
+			Debug.Log("received datafile for quiz: "+task.getDatafile());
 			loadQuestionsFromTask(task.getDatafile());
+			break;
+		case "editTask":
+			if(int.Parse(parsedData[0]["success"]) == 1){ //success
+				main.writeToMessagebox("Die Änderungen wurden erfolgreich gespeichert.");
+			} else {
+				main.writeToMessagebox("Die Änderungen konnten nicht gespeichert werden.");
+			}
 			break;
 		}
 	}
@@ -83,11 +95,11 @@ public class PanelFormQuiz : MonoBehaviour {
 	}
 
 	public void addQuestionForm(string qname = "Neue Frage", bool load = false){
-		if (first) {
+		/*if (first) {
 			dbinterface.getTask ("taskData", task_id, gameObject);
 			first = false;
 			return;
-		}
+		}*/
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = question_id;

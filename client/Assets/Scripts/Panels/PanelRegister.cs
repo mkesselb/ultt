@@ -17,10 +17,8 @@ public class PanelRegister : MonoBehaviour {
 	
 	public void clickedBtnRegister(){
 		if(inputVorname.text == "Vorname" || inputNachname.text == "Nachname" || inputUsername.text == "Username" || inputPassword.text == "Passwort" || inputPassword2.text == "Passwort erneut eingeben" || inputEmail.text == "Email" || inputSchool.text == "Schule"){
-			Debug.Log ("error");
 			main.errorHandler("registerFormNotCorrectlyFilled", "Ein Feld wurde nicht richtig ausgefüllt.");
 		} else if (inputPassword.text != inputPassword2.text) {
-			Debug.Log("error2");
 			main.errorHandler("registerFormNotCorrectlyFilled", "Der Inhalt der Passwort-Felder stimmt nicht überein.");
 		} else {
 			WWWForm form = new WWWForm();
@@ -39,8 +37,7 @@ public class PanelRegister : MonoBehaviour {
 		string target = response[0];
 		string data = response[1];
 		switch(target){	
-		case "register":	Debug.Log ("Register erfolgreich"); 
-							main.eventHandler("registered", 0);
+		case "register":	main.eventHandler("registered", 0);
 							break;
 		}
 	}

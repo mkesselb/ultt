@@ -61,7 +61,6 @@ public class PanelUserClass : MonoBehaviour {
 							for(int i = 0; i < parsedData.Count; i++){
 								JSONNode n = parsedData[i];
 								Topic t = new Topic(n);
-								Debug.Log ("Topicid: "+t.getId()+" Name: "+t.getName());
 								userClass.addTopic(t);
 								dbinterface.getTasksForClass("classTasks", class_id, gameObject);
 							}
@@ -71,7 +70,6 @@ public class PanelUserClass : MonoBehaviour {
 								JSONNode n = parsedData[i];
 								//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object
 								TaskShort task = new TaskShort(n);
-								Debug.Log ("Taskid: "+task.getTaskId());
 								userClass.addTask(task);
 							}
 					
@@ -103,6 +101,12 @@ public class PanelUserClass : MonoBehaviour {
 		Debug.Log ("Button clicked, try to start Task");
 		if (type == "Quiz") {
 			main.eventHandler("startQuiz", id);
+		}
+		if(type == "Zuordnung"){
+			main.eventHandler("startTaskAssign", id);
+		}
+		if(type == "Kategorie"){
+			main.eventHandler("startTaskCategory", id);
 		}
 	}
 		

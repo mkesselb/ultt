@@ -123,7 +123,7 @@ public class PanelTeacherClass : MonoBehaviour {
 												//define button actions: start task and delete task
 												int taskId = ts.getTaskId();
 												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(taskId);});
-												generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTask(taskId);});
+												generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=>{confirmDeleteTask(taskId);});
 												
 											}
 										}
@@ -247,10 +247,19 @@ public class PanelTeacherClass : MonoBehaviour {
 		task_id = id;
 		dbinterface.getTask ("startTask", id, gameObject);
 	}
+
+	public void confirmDeleteTask(int topic_id){
+		Debug.Log ("button clicked, try to delete task");	
+		main.activateDialogbox ("Do you want to delete this task?", topic_id, gameObject, "deleteTask");
+	}
 	
-	public void deleteTask(int id){
-		Debug.Log ("Button clicked, TODO try to delete Task");	
-		//delete task with target "deletedTask"
+	public void deleteTask(int[] temp){
+		int answer = temp [0];
+		int id = temp [1];
+		if (answer == 1) {
+			//TODO dbmethod delete topic
+			Debug.Log("TODO: call dbmethod for deleting task");
+		}
 	}
 
 	public void activatePanelAddTopic(){

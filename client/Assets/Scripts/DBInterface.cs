@@ -39,7 +39,6 @@ public class DBInterface : MonoBehaviour {
 		WWWForm form = new WWWForm();
 		form.AddField("username", username);
 		form.AddField("password", password);
-		Debug.Log ("try to send request with: "+ username+", "+password);
        
 		WWW www = new WWW(baseUrl + "login", form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
@@ -52,7 +51,6 @@ public class DBInterface : MonoBehaviour {
 	}
 
 	public void getMeineKlassen(string target, int userid, GameObject receiver){
-		Debug.Log ("called getMeineKlassen");
 		WWWForm form = new WWWForm();
 		form.AddField("method", "getTeacherClasses");
 		form.AddField("user_id", userid);
@@ -62,7 +60,6 @@ public class DBInterface : MonoBehaviour {
 	}
 	
 	public void getMeineKurse(string target, int userid, GameObject receiver){
-		Debug.Log ("called getMeineKurse");
 		WWWForm form = new WWWForm();
 		form.AddField("method", "getUserClasses");
 		form.AddField("user_id", userid);
@@ -72,7 +69,6 @@ public class DBInterface : MonoBehaviour {
 	}
 	
 	public void getMeineTasks(string target, int userid, GameObject receiver){
-		Debug.Log ("called getMeineTasks");
 		WWWForm form = new WWWForm();
 		form.AddField("method", "getUserTasks");
 		form.AddField("user_id", userid);
@@ -82,7 +78,6 @@ public class DBInterface : MonoBehaviour {
 	}
 
 	public void getTeacherClassData(string target, int classid, GameObject receiver){
-		Debug.Log ("dbinterface TODO: method on server");
 		WWWForm form = new WWWForm();
 		form.AddField("method", "getClass");
 		form.AddField("class_id", classid);
@@ -246,7 +241,6 @@ public class DBInterface : MonoBehaviour {
         if (www.error != null) {
 			main.dbErrorHandler(target, www.error);
 		} else { 
-			Debug.Log ("got data: "+www.text);
 			JSONNode resp = JSONParser.JSONparse(www.text);
 			if(resp["error"] != null){
 				//do not send message to receiver, because there was an error

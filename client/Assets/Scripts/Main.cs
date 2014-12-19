@@ -42,7 +42,6 @@ public class Main : MonoBehaviour {
 
 	//panels for tasks
 	public GameObject panelQuiz;
-	public GameObject panelFlashcard;
 	public GameObject panelAssign;
 	public GameObject panelCategory;
 
@@ -69,7 +68,6 @@ public class Main : MonoBehaviour {
 		panelTeacherClass.SetActive(false);
 		panelUserClass.SetActive(false);
 		panelQuiz.SetActive (false);
-		panelFlashcard.SetActive (false);
 		panelAssign.SetActive (false);
 		messagebox.SetActive (false);
 		dialogbox.SetActive (false);
@@ -132,39 +130,55 @@ public class Main : MonoBehaviour {
 	
 	public void back(){	
 				if (panelProfile.activeSelf && panelCreateClass.activeSelf) {
-						panelCreateClass.SetActive (false);
-						btnBackText.GetComponent<Text>().text = "zurück";
-				} else if (panelProfile.activeSelf && panelCreateTask.activeSelf) {
-						panelCreateTask.SetActive (false);
-						btnBackText.GetComponent<Text>().text = "zurück";
-				} else if (panelProfile.activeSelf && panelRegistration.activeSelf) {
-						panelRegistration.SetActive (false);
-						panelLogInScreen.SetActive (true);
-						btnBackText.GetComponent<Text>().text = "";
-				} else if (panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf) {
-						panelProfile.SetActive (false);
-						panelLogInScreen.SetActive (true);
-						panelHeader.SetActive(false);
-						panelProfile.GetComponent<Profile>().clear();
-						btnBackText.GetComponent<Text>().text = "";
-				} else if (panelRegister.activeSelf) {
-						panelRegister.SetActive (false);
-						panelLogInScreen.SetActive (true);
-						btnBackText.GetComponent<Text>().text = "zurück";
-				} else if (panelTeacherClass.activeSelf && panelStudentList.activeSelf) {
-						panelStudentList.SetActive (false);
-						btnBackText.GetComponent<Text>().text = "zurück";
-				} else if (panelTeacherClass.activeSelf && !panelStudentList.activeSelf) {
-						panelTeacherClass.SetActive (false);
-						panelProfile.SetActive (true);
-						btnBackText.GetComponent<Text>().text = "abmelden";
-				} else if (panelUserClass.activeSelf) {
-						panelUserClass.SetActive (false);
-						panelProfile.SetActive (true);
-						btnBackText.GetComponent<Text>().text = "zurück";
-				} else if(panelQuiz.activeSelf){
-						Debug.Log ("do not stop task!");
-				}
+			panelCreateClass.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelProfile.activeSelf && panelCreateTask.activeSelf) {
+			panelCreateTask.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelProfile.activeSelf && panelRegistration.activeSelf) {
+			panelRegistration.SetActive (false);
+			panelLogInScreen.SetActive (true);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelRegister.activeSelf) {
+			panelRegister.SetActive (false);
+			panelLogInScreen.SetActive (true);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelTeacherClass.activeSelf && panelStudentList.activeSelf) {
+			panelStudentList.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelTeacherClass.activeSelf && !panelStudentList.activeSelf) {
+			panelTeacherClass.SetActive (false);
+			panelProfile.SetActive (true);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelUserClass.activeSelf) {
+			panelUserClass.SetActive (false);
+			panelProfile.SetActive (true);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelQuiz.activeSelf) {
+			panelQuiz.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelAssign.activeSelf) {
+			panelAssign.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelCategory.activeSelf) {
+			panelCategory.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelFormQuiz.activeSelf) {
+			panelFormQuiz.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelFormAssign.activeSelf) {
+			panelFormAssign.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelFormCategory.activeSelf) {
+			panelFormCategory.SetActive (false);
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		} else if (panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf) {
+			panelProfile.SetActive (false);
+			panelLogInScreen.SetActive (true);
+			panelHeader.SetActive (false);
+			panelProfile.GetComponent<Profile> ().clear ();
+			btnBackText.GetComponent<Text> ().text = "zurück";
+		}
 	}
 		
 	//called by dbinterface when received www form contains an error

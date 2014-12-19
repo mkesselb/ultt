@@ -229,7 +229,9 @@ public class Profile : MonoBehaviour {
 									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getTaskName();
 									tasksBtns.Add(generatedBtn);
 									//set method to be called at onclick event
-					generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("openTaskForm",temp.getTaskId(), temp.getTypeName());});
+									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("openTaskForm",temp.getTaskId(), temp.getTypeName());});
+					generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {confirmDeleteTask(temp.getTaskId());});
+									
 								}
 							}			
 							break;
@@ -320,6 +322,20 @@ public class Profile : MonoBehaviour {
 		int id = temp [1];
 		if (answer == 1) {
 			dbinterface.deleteClass ("deletedClass", id, gameObject);
+		}
+	}
+
+	public void confirmDeleteTask(int topic_id){
+		Debug.Log ("button clicked, try to delete task");	
+		main.activateDialogbox ("Do you want to delete this task?", topic_id, gameObject, "deleteTask");
+	}
+
+	public void deleteTask(int[] temp){
+		int answer = temp [0];
+		int id = temp [1];
+		if (answer == 1) {
+			//TODO dbmethod delete topic
+			Debug.Log("TODO: call dbmethod for deleting task");
 		}
 	}
 	
