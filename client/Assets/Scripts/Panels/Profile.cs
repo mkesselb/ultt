@@ -13,11 +13,13 @@ public class Profile : MonoBehaviour {
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
 	//creation form (to create new class)
 	public GameObject panelCreateClass;
-	public GameObject panelCreateTask;
 	//objects on creation form
 	public Text classname, classsubject, classschoolyear;
+	//creation form for task
+	public GameObject panelCreateTask;
 	//objects on task creation form
-	public Text taskname, tasksubject, tasktype, taskpublic;
+	public Text taskname, tasksubject, taskpublic;
+	public Toggle toggleAssignment, toggleQuiz, toggleCategory;
 	//registration form (to register to existing class via classcode)
 	public GameObject panelRegistration;
 	//object on registration form
@@ -27,6 +29,9 @@ public class Profile : MonoBehaviour {
 	
 	//Button prefab to dynamically generate buttons
 	public GameObject button, buttonUserClass, buttonTeacherClass, buttonTasks;
+
+	//Menu buttons
+	public GameObject menuUserClass, menuTeacherClass, menuTasks;
 	
 	public int userid;
 	public User user;
@@ -45,6 +50,11 @@ public class Profile : MonoBehaviour {
 		panelCreateTask.SetActive (false);
 		panelRegistration.SetActive(false);
 		overviewKlassen.SetActive(true);
+
+		menuTeacherClass.GetComponent<Button> ().interactable = false;
+		menuUserClass.GetComponent<Button> ().interactable = true;
+		menuTasks.GetComponent<Button> ().interactable = true;
+
 
 		//userid = main.getUserId();
 		userClasses = new List<UserClass>();
@@ -68,44 +78,69 @@ public class Profile : MonoBehaviour {
 							overviewKlassen.SetActive(true);
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(false);
+							menuTeacherClass.GetComponent<Button> ().interactable = false;
+							menuUserClass.GetComponent<Button> ().interactable = true;
+							menuTasks.GetComponent<Button> ().interactable = true;
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
 		case "btnKurse": 	//show overview of courses
 							overviewKlassen.SetActive(false);
 							overviewKurse.SetActive(true);
 							overviewTasks.SetActive(false);
+							menuTeacherClass.GetComponent<Button> ().interactable = true;
+							menuUserClass.GetComponent<Button> ().interactable = false;
+							menuTasks.GetComponent<Button> ().interactable = true;
 							dbinterface.getMeineKurse("Kurse", userid, gameObject);
 							break;
 		case "btnTasks":	//show overview of tasks
 							overviewKlassen.SetActive(false);
 							overviewKurse.SetActive(false);
 							overviewTasks.SetActive(true);
+							menuTeacherClass.GetComponent<Button> ().interactable = true;
+							menuUserClass.GetComponent<Button> ().interactable = true;
+							menuTasks.GetComponent<Button> ().interactable = false;
 							dbinterface.getMeineTasks("Tasks", userid, gameObject);
 							break;
 		}
 	}
 
 	//action performed after clicking on a certain teacherClass, course or task
-	public void clickedBtn(string target, int id){
+	public void clickedBtn(string target, int id, string type = ""){
 		switch(target){
-		case "btnTeacherClasses":
-							Debug.Log ("clicked in teacherClassesButton with classid: "+id);
+		case "openTeacherClass":
 							//getClassId to load corresponding class
 							main.eventHandler("openTeacherClass", id);
 							break;
-		case "btnUserClasses":
-							Debug.Log ("clicked in userClassesButton with classid: "+id);
+		case "openUserClass":
 							//getClassId to load corresponding class
 							main.eventHandler("openUserClass", id);
 							break;
-		case "btnTasks":
-							Debug.Log ("clicked in taskButton with taskid: "+id);
-							//open taskedit form
-							main.eventHandler("openTaskEdit", id);
+		case "openTaskForm": switch(type){
+			case "Zuordnung": main.eventHandler("openPanelFormAssignment", id);
 							break;
+			case "Quiz": 	main.eventHandler("openPanelFormQuiz", id);
+							break;
+			case "Kategorie": main.eventHandler ("openPanelFormCategory", id);
+							break;
+							}
+							break;
+		
 		}
 			
 	}
+
+	/*public void openTaskForm(int task_id){
+		switch (type) {
+		case "Quiz":	main.eventHandler("openPanelFormQuiz", task_id);
+						break;
+		case "Assignment": main.eventHandler("openPanelFormAssignment", task_id);
+						break;
+		case "Category": main.eventHandler ("openPanelFormCategory", task_id);
+						break;
+
+		}
+
+	}*/
 
 	//called by dbinterface to handle input data: set user data, generate new buttons, delete buttons
 	public void dbInputHandler(string[] response){
@@ -147,7 +182,7 @@ public class Profile : MonoBehaviour {
 									teacherClassesBtns.Add(generatedBtn);
 					
 									//set method to be called at onclick event for main button ("Button") and delete button ("ButtonDelete") on button object
-									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTeacherClasses", temp.getClassId());});
+									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("openTeacherClass", temp.getClassId());});
 									generatedBtn.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(() => {confirmDeleteClass(temp.getClassId());});
 								}
 							}
@@ -171,7 +206,7 @@ public class Profile : MonoBehaviour {
 									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getClassname();
 									userClassesBtns.Add(generatedBtn);
 									//set method to be called at onclick event
-									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnUserClasses", temp.getClassId());});
+									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("openUserClass", temp.getClassId());});
 								}
 							}
 							break;
@@ -194,7 +229,7 @@ public class Profile : MonoBehaviour {
 									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getTaskName();
 									tasksBtns.Add(generatedBtn);
 									//set method to be called at onclick event
-									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("btnTasks", temp.getTaskId());});
+					generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("openTaskForm",temp.getTaskId(), temp.getTypeName());});
 								}
 							}			
 							break;
@@ -253,12 +288,24 @@ public class Profile : MonoBehaviour {
 
 	public void addTask(){
 		//add task into db
+		//TODO use ids/names from helper class
+		int type = 0;
+		if (toggleCategory.isOn) {
+			type = 2;
+		}
+		if (toggleAssignment.isOn) {
+			type = 1;
+		}
+		if (toggleQuiz.isOn) {
+			type = 3;
+		}
+
 		dbinterface.createTask("addedTask", 
 		                       taskname.GetComponent<Text>().text, 
 		                       int.Parse(taskpublic.GetComponent<Text>().text), 
 		                       userid,
 		                       int.Parse(tasksubject.GetComponent<Text>().text), 
-		                       int.Parse (tasktype.GetComponent<Text>().text),
+		                       type,
 		                       gameObject); 
 	}
 				

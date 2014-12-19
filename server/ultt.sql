@@ -50,7 +50,7 @@ INSERT INTO `subject` (`subject_id`, `subject_name`) VALUES
 (2, 'Mathematik'),
 (3, 'Deutsch'),
 (4, 'Englisch'),
-(5, 'Französisch'),
+(5, 'Franzoesisch'),
 (6, 'Spanisch'),
 (7, 'Biologie'),
 (8, 'Geographie');

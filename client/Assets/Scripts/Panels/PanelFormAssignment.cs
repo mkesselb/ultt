@@ -37,8 +37,6 @@ public class PanelFormAssignment : MonoBehaviour {
 		
 		assignments = new List<GameObject> ();
 		assignment_id = 0;
-		//test id
-		task_id = 1;
 		//dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 	

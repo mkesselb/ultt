@@ -102,17 +102,29 @@ public class Main : MonoBehaviour {
 								panelUserClass.GetComponent<PanelUserClass>().setClassId(id);
 								panelUserClass.GetComponent<PanelUserClass>().init ();
 								break;
-		case "startQuiz":		panelQuiz.SetActive(true);
+		case "openPanelFormQuiz": panelFormQuiz.SetActive(true);
+								panelFormQuiz.GetComponent<PanelFormQuiz>().setTaskId(id);
+								panelFormQuiz.GetComponent<PanelFormQuiz>().init();
+								break;
+		case "openPanelFormCategory": panelFormCategory.SetActive(true);
+								panelFormCategory.GetComponent<PanelFormCategory>().setTaskId(id);
+								panelFormCategory.GetComponent<PanelFormCategory>().init();
+								break;
+		case "openPanelFormAssignment": panelFormAssign.SetActive(true);
+								panelFormAssign.GetComponent<PanelFormAssignment>().setTaskId(id);
+								panelFormAssign.GetComponent<PanelFormAssignment>().init();
+								break;
+		case "startTaskQuiz":		panelQuiz.SetActive(true);
 								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
-		case "startTaskAssign":	panelAssign.SetActive(true);
-								//panelAssign.GetComponent<PanelAssign>().init();
+		case "startTaskAssign":	//panelAssign.SetActive(true);
 								//panelAssign.GetComponent<PanelAssign>().setTaskId(id);
+								//panelAssign.GetComponent<PanelAssign>().init();
 								break;
 		case "startTaskCategory": //panelCategory.SetActive(true);
+								//panelAssign.GetComponent<PanelCategory>().setTaskId(id);
 								//panelAssign.GetComponent<PanelCategory>().init();
-			//panelAssign.GetComponent<PanelCategory>().setTaskId(id);
 								break;
 		
 		}

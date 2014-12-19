@@ -1,13 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\validators\Form.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Main.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main.cs" Line="63" Column="1" />
-      <File FileName="Assets\Scripts\validators\IValidator.cs" Line="1" Column="19" />
-      <File FileName="Assets\Scripts\validators\NumberValidator.cs" Line="2" Column="33" />
-      <File FileName="Assets\Scripts\validators\TextValidator.cs" Line="2" Column="31" />
-      <File FileName="Assets\Scripts\validators\DateValidator.cs" Line="2" Column="31" />
-      <File FileName="Assets\Scripts\validators\Form.cs" Line="12" Column="63" />
+      <File FileName="Assets\Scripts\DBInterface.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\DBInterface.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Panels\Profile.cs" Line="94" Column="14" />
+      <File FileName="Assets\Scripts\Objects\TaskOverview.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Main.cs" Line="125" Column="31" />
+      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="221" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

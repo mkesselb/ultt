@@ -214,7 +214,12 @@ public class PanelTeacherClass : MonoBehaviour {
 							if(taskToStart.getTypeName() == "Zuordnung"){
 								main.eventHandler("startTaskAssign", taskToStart.getId());
 							}
-
+							if(taskToStart.getTypeName() == "Kategorie"){
+								main.eventHandler("startTaskCategory", taskToStart.getId());
+							}
+							if(taskToStart.getTypeName() == "Quiz"){
+								main.eventHandler("startTaskQuiz", taskToStart.getId());
+							}
 							break;
 		}
 		
@@ -228,7 +233,12 @@ public class PanelTeacherClass : MonoBehaviour {
 
 	public void addTask(int taskId, int topicId){
 		//TODO change params
-		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, 1, System.DateTime.Now.ToString(), 1, gameObject);
+		int obligatory = 0;
+		if (panelAddTask.transform.FindChild ("Panel/toggleObligatory").GetComponent<Toggle> ().isOn) {
+			obligatory = 1;
+		}
+		Debug.Log ("--------------- "+panelAddTask.transform.FindChild("InputField/Text").GetComponent<Text>().text);
+		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, obligatory, System.DateTime.Now.ToString(), int.Parse(panelAddTask.transform.FindChild("InputField/Text").GetComponent<Text>().text), gameObject);
 		panelAddTask.SetActive (false);
 	}
 		

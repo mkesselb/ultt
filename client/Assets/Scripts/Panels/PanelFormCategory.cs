@@ -40,8 +40,6 @@ public class PanelFormCategory : MonoBehaviour {
 		categories = new List<GameObject> ();
 		members = new List<List<GameObject>> ();
 		category_id = 0;
-		//test id
-		task_id = 5;
 		//dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
