@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using SimpleJSON;
 
-public class PanelFormAssignment : MonoBehaviour {
+public class PanelTaskAssignment : MonoBehaviour {
 	//test parameter -> to be deleted if form is attached to rest of app
 	private bool first = true;
 	private DBInterface dbinterface;
@@ -17,14 +17,12 @@ public class PanelFormAssignment : MonoBehaviour {
 	public int assignment_id;
 	
 	//text fields
-	public GameObject btnAddAssignment;
-	public GameObject btnSave;
+	public GameObject btnRelease;
 
 	// Use this for initialization
 	void Start () {
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		btnAddAssignment.GetComponent<Button> ().onClick.AddListener (() => {addAssignmentForm ();});
-		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveAssignments();});
+		btnRelease.GetComponent<Button> ().onClick.AddListener (() => {releaseAssignments();});
 		init ();
 	}
 	
@@ -75,15 +73,15 @@ public class PanelFormAssignment : MonoBehaviour {
 
 		int id = assignment_id;
 		generatedAssignment.name = "assignment" + id;
-		generatedAssignment.transform.parent = GameObject.Find ("panelAssignment/assignments").transform;
-		generatedAssignment.transform.FindChild ("formAssign/InputField1/Text").GetComponent<Text> ().text = aname;
-		generatedAssignment.transform.FindChild ("formAssign/InputField2/Text").GetComponent<Text> ().text = bname;
+		generatedAssignment.transform.parent = GameObject.Find ("panelAssignmentLeft/panelLeft").transform;
+		generatedAssignment.transform.FindChild ("panelAssignmentLeft/InputField1/Text").GetComponent<Text> ().text = aname;
+		generatedAssignment.transform.FindChild ("panelAssignmentRight/InputField2/Text").GetComponent<Text> ().text = bname;
 		assignments.Add (generatedAssignment);
 	
 		assignment_id++;
 	}
 	
-	public void saveAssignments(){
+	public void releaseAssignments(){
 		AssignmentData assignmentData = new AssignmentData ("");
 		for (int i = 0; i < assignments.Count; i++){
 			//save question text
