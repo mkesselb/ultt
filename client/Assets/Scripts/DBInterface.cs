@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using SimpleJSON;
+using System.Collections.Generic;
 
 public class DBInterface : MonoBehaviour {
 	
@@ -23,8 +24,23 @@ public class DBInterface : MonoBehaviour {
 		Debug.Log (url + ";" + baseUrl);
 		main = gameObject.GetComponent<Main>();
 	}
-	
-	
+
+	public void getSubjects(string target, GameObject receiver){
+		WWWForm form = new WWWForm ();
+		form.AddField("method", "getSubjects");
+		Debug.Log (target);
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
+	public void getTaskTypes(string target, GameObject receiver){
+		WWWForm form = new WWWForm ();
+		form.AddField("method", "getTaskTypes");
+		Debug.Log (target);
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
 	public void getUserData(string target, int id, GameObject receiver){
 		WWWForm form = new WWWForm();
 		form.AddField("method", "getUser");
@@ -32,17 +48,17 @@ public class DBInterface : MonoBehaviour {
 		
         WWW www = new WWW(url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
-		
 	}
 	
-	public void sendLogInData(string target, string username, string password, GameObject receiver){
-		WWWForm form = new WWWForm();
-		form.AddField("username", username);
-		form.AddField("password", password);
-       
-		WWW www = new WWW(baseUrl + "login", form);
-		StartCoroutine(WaitForRequest(www, target, receiver));
-		
+	public void sendLogInData(string target, Form vform, GameObject receiver){
+		if (validateInputForm (vform)) {
+			WWWForm form = new WWWForm();
+			form.AddField("username", vform.getValue("username"));
+			form.AddField("password", vform.getValue("password"));
+			
+			WWW www = new WWW(baseUrl + "login", form);
+			StartCoroutine(WaitForRequest(www, target, receiver));
+		}
 	}
 	
 	public void sendRegisterData(string target, WWWForm form, GameObject receiver){
@@ -148,6 +164,17 @@ public class DBInterface : MonoBehaviour {
         WWW www = new WWW(url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
+
+	public void removeStudentFromClass(string target, int user_id, int class_id, GameObject receiver){
+		//response: {"success": 1}
+		WWWForm form = new WWWForm();
+		form.AddField("method", "removeStudentFromClass");
+		form.AddField("user_id", user_id);
+		form.AddField("class_id", class_id);
+		
+		WWW www = new WWW(url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
 	
 	public void createClass(string target, string classname, int user_id, int subject_id, string school_year, GameObject receiver){
 		//response: class_id, classcode
@@ -195,6 +222,15 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 
+	public void deleteTask(string target, int task_id, GameObject receiver){
+		WWWForm form = new WWWForm();
+		form.AddField("method", "deleteTask");
+		form.AddField("task_id", task_id);
+
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
 	public void assignTaskToTopic(string target, int class_id, int task_id, int class_topic_id, int obligatory, string deadline, int max_attempts, GameObject receiver){
 		//response: {"success" : 1}
 		WWWForm form = new WWWForm();
@@ -208,7 +244,17 @@ public class DBInterface : MonoBehaviour {
 		
 		WWW www = new WWW (url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
 
+	public void deleteTaskFromTopic(string target, int class_id, int task_id, int class_topic_id, GameObject receiver){
+		WWWForm form = new WWWForm();
+		form.AddField("method", "deleteTaskFromTopic");
+		form.AddField("class_id", class_id);
+		form.AddField("task_id", task_id);
+		form.AddField("class_topic_id", class_topic_id);
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 
 	public void getTask(string target, int task_id, GameObject receiver){
@@ -252,15 +298,20 @@ public class DBInterface : MonoBehaviour {
 			}
 		}  
     }
-    
-    //TODO: form validation method
-    //	-> send to receiver GameObject the errors, so that the faulty input fields can be marked
-    //main.MarkInputFields(receiver, dict);
-    //~like in main.returnDialogboxResult
-    //variable names: http://stackoverflow.com/questions/15103964/c-sharp-variable-name-to-string
-    
-    //--> OR take approach of form with gameObjects (for the InputFields),
-    //	and directly colour them in the form, no messages needed
-    //	also the dbinterface methods do not need value-params then, but Gameobjects which have the input values
-    //toggle need not be validated?!
+
+	public bool validateInputForm(Form form){
+		//validate method automatically renders errors on input fields, just show any errors here
+		Dictionary<string, string> validate = form.validateForm ();
+		if (validate.Count == 0) {
+			return true;
+		} else {
+			string errors = "Validation errors\n";
+			foreach(string s in validate.Keys){
+				errors += s + ": " + validate[s] + "\n";
+			}
+			Debug.Log(errors);
+			main.writeToMessagebox(errors);
+			return false;
+		}
+	}
 }

@@ -15,14 +15,18 @@ public class AssignmentData : TaskData{
 	}
 
 	//index parameter is the index of the field, that is either 0 (first) or 1 (second)
-	public AssignmentQuestion getQuestionWithField(string field, int index){
+	//list contains all questions which have the field in the index
+	public List<AssignmentQuestion> getQuestionWithField(string field, int index){
+		List<AssignmentQuestion> aq = new List<AssignmentQuestion> ();
+
 		foreach(AssignmentQuestion a in taskQuestions){
 			List<string> ans = (List<string>)a.getAnswer();
 			if(ans[index].Equals(field)){
-				return a;
+				aq.Add (a);
 			}
 		}
-		//null should not happen in normal program flow, as only the already contained key words should be checked
-		return null;
+
+		//list should not be empty!
+		return aq;
 	}
 }

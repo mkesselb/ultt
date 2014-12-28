@@ -2,10 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Form{
 	private Dictionary<string, string> formValues;
-	private List<GameObject> formFields;
+
+	private Color defaultColor;
+	private Color errorColor;
+	private Dictionary<string, GameObject> formFields;
 	private Dictionary<string, IValidator> formValidators;
 
 	public Form(List<string> formValues, List<IValidator> formValidators){
@@ -24,25 +28,41 @@ public class Form{
 		this.formValidators = formValidators;
 	}
 	
-	public Form(List<GameObject> formFields, List<IValidator> formValidators){
-		Dictionary<string, IValidator> formValids = new Dictionary<string, IValidator>(); 
-		for(int i = 0; i < formFields.Count; i++){
-			formValids.Add(i.ToString(), formValidators[i]);
+	public Form(List<string> formKeys, List<GameObject> formFields, List<IValidator> formValidators, Color defaultColor, Color errorColor){
+		//all lists shall correspond in positions
+		this.formFields = new Dictionary<string, GameObject>(); 
+		this.formValidators = new Dictionary<string, IValidator>(); 
+		this.defaultColor = defaultColor;
+		this.errorColor = errorColor;
+		for(int i = 0; i < formKeys.Count; i++){
+			//reset all colors
+			formFields[i].GetComponent<Image>().color = defaultColor;
+			this.formFields.Add(formKeys[i], formFields[i]);
+			this.formValidators.Add(formKeys[i], formValidators[i]);
 		}
-		this.formFields = formFields;
-		this.formValidators = formValids;
 	}
-	
-	//TODO: form with GameObjects...to set them e.g. red
-	//init of panels with input fields -> set them white
+
+	public string getValue(string key){
+		if (formFields.ContainsKey (key)) {
+			return formFields[key].transform.FindChild("Text").GetComponent<Text> ().text;
+		}
+
+		return "";
+	}
 
 	public Dictionary<string, string> validateForm(){
 		Dictionary<string, string> validation = new Dictionary<string, string> ();
 
-		foreach (string key in formValues.Keys) {
-			string v = formValidators[key].validateInput(formValues[key]);
+		foreach (string key in formFields.Keys) {
+			string text = (formFields[key].transform.FindChild("Text").GetComponent<Text> ().text == null 
+			              	? "" : formFields[key].transform.FindChild("Text").GetComponent<Text> ().text);
+			string v = formValidators[key].validateInput(text);
 			if(v.Length > 0){
+				//validation error, paint error color
 				validation.Add(key, v);
+				formFields[key].GetComponent<Image>().color = this.errorColor;
+			} else{
+				formFields[key].GetComponent<Image>().color = this.defaultColor;
 			}
 		}
 

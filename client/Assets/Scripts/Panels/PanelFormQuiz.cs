@@ -25,7 +25,7 @@ public class PanelFormQuiz : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		init ();
+		//init ();
 	}
 	
 	// Update is called once per frame

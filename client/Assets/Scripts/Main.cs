@@ -7,8 +7,9 @@ using System.Collections.Generic;
 public class Main : MonoBehaviour {
 
 	private ErrorHandler errorhandler;
-	
+	private IdHandler idhandler;
 	private DBInterface dbinterface;
+	private string lang = "de";
 	
 	//LogIn Screen
 	public GameObject panelLogInScreen;
@@ -52,13 +53,13 @@ public class Main : MonoBehaviour {
 	
 	//userid
 	public int userid;
-
 	
 	void Start(){
-		
 		dbinterface = gameObject.GetComponent<DBInterface>();
+		idhandler = gameObject.GetComponent<IdHandler>();
+		idhandler.setupMapping ();
 		CSVHelper.addSwap (",", "#csw");
-		errorhandler = new ErrorHandler ("eng");
+		errorhandler = new ErrorHandler (lang);
 
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
@@ -75,8 +76,7 @@ public class Main : MonoBehaviour {
 		panelFormCategory.SetActive (false);
 		panelFormAssign.SetActive (false);
 	}
-	
-		
+
 	public void eventHandler(string eventname, int id){
 		switch(eventname){
 		case "logInSuccess": 	panelLogInScreen.SetActive(false);
@@ -124,7 +124,6 @@ public class Main : MonoBehaviour {
 								//panelAssign.GetComponent<PanelCategory>().setTaskId(id);
 								//panelAssign.GetComponent<PanelCategory>().init();
 								break;
-		
 		}
 	}
 	
@@ -186,12 +185,11 @@ public class Main : MonoBehaviour {
 		Debug.Log ("Error message from db on target "+target+": "+errortext);
 
 		writeToMessagebox ("Es konnte keine Verbindung zum Server hergstellt werden.");
-
 	}
 
 	//called by dbinterface when an errorcode is returned from server
 	public void dbResponseHandler(int errorcode){
-		writeToMessagebox(errorhandler.getErrorMessage(errorcode, "de"));
+		writeToMessagebox(errorhandler.getErrorMessage(errorcode, lang));
 	}
 	
 	public void errorHandler(string target, string errortext){
@@ -199,8 +197,7 @@ public class Main : MonoBehaviour {
 		switch(target){
 		case "registerFormNotCorrectlyFilled": 	Debug.Log ("Register form not correctly filled: "+errortext);
 			displayedErrorText = errortext;
-												break;
-		
+			break;
 		}
 		writeToMessagebox (displayedErrorText);
 	}
@@ -232,8 +229,7 @@ public class Main : MonoBehaviour {
 	public void setHeaderText(string username){
 		panelHeader.transform.FindChild ("Top/Text").GetComponent<Text> ().text = username;
 	}
-	
-	
+
 	public void setUserId(int id){
 		userid = id;	
 	}

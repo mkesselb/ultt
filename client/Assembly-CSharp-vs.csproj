@@ -39,15 +39,16 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Uni/Unity4.6.1/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Uni/Unity4.6.1/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\DBInterface.cs" />
      <Compile Include="Assets\Scripts\ErrorHandler.cs" />
+     <Compile Include="Assets\Scripts\IdHandler.cs" />
      <Compile Include="Assets\Scripts\JSONParser.cs" />
      <Compile Include="Assets\Scripts\LogIn.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
@@ -90,7 +91,7 @@
      <None Include="Assets\Scripts\errorcodes\eng.txt" />
      <None Include="Assets\Scripts\errorcodes\de.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Uni/Unity4.6.1/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Projects/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
