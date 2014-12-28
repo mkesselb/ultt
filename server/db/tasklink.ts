@@ -34,7 +34,7 @@ function deleteTask(dbConnection, requestData, callback){
 	}
 	logger.log(logger.logLevels["debug"], "deleting task with id " + requestData.task_id);
 	
-	dbConnection.query("update task set ? where task_id = ", 
+	dbConnection.query("update task set ? where task_id = ?", 
 			[{"deleted" : 1}, requestData.task_id], 
 			function(err, result){
 		if(err){

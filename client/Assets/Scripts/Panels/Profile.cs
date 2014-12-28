@@ -8,17 +8,23 @@ public class Profile : MonoBehaviour {
 	
 	private Main main;
 	private DBInterface dbinterface;
+	private IdHandler idhandler;
 	
 	//Objects on standard view
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
 	//creation form (to create new class)
 	public GameObject panelCreateClass;
+	public GameObject subjectToggle;
+	private Form createClassForm;
+
 	//objects on creation form
-	public Text classname, classsubject, classschoolyear;
+	public Text classname, classschoolyear;
 	//creation form for task
 	public GameObject panelCreateTask;
+	private Form createTaskForm;
+
 	//objects on task creation form
-	public Text taskname, tasksubject, taskpublic;
+	public Text taskname, taskpublic;
 	public Toggle toggleAssignment, toggleQuiz, toggleCategory;
 	//registration form (to register to existing class via classcode)
 	public GameObject panelRegistration;
@@ -43,6 +49,7 @@ public class Profile : MonoBehaviour {
 	void Start(){
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+		idhandler = GameObject.Find ("Scripts").GetComponent<IdHandler>();
 		//fieldUserData = GameObject.Find ("fieldUserData").GetComponent<Text>();
 		
 		//only teacherClasses view is actve first
@@ -50,7 +57,6 @@ public class Profile : MonoBehaviour {
 		panelCreateTask.SetActive (false);
 		panelRegistration.SetActive(false);
 		overviewKlassen.SetActive(true);
-
 		menuTeacherClass.GetComponent<Button> ().interactable = false;
 		menuUserClass.GetComponent<Button> ().interactable = true;
 		menuTasks.GetComponent<Button> ().interactable = true;
@@ -66,7 +72,59 @@ public class Profile : MonoBehaviour {
 		
 		Debug.Log ("Send request for user data");
 		dbinterface.getUserData("userData", userid, gameObject);
-	
+		initCreateClassForm ();
+		initCreateTaskForm ();
+	}
+
+	private void initCreateTaskForm(){
+		List<string> keys = new List<string> ();
+		keys.Add ("taskname");
+		List<GameObject> formFields = new List<GameObject> ();
+		formFields.Add (panelCreateTask.transform.Find("inputName").gameObject);
+		List<IValidator> formValidators = new List<IValidator> ();
+		formValidators.Add (new TextValidator ());
+		this.createTaskForm = new Form (keys, formFields, formValidators, new Color(0.75f,0.75f,0.75f,1), Color.red);
+
+		//also init panel for subjects
+		bool first = true;
+		foreach(string s in idhandler.getAllNames("subjects")){
+			GameObject subjectT = Instantiate (subjectToggle, Vector3.zero, Quaternion.identity) as GameObject;
+			
+			subjectT.transform.parent = panelCreateTask.transform.FindChild("panelSubject/subjects");
+			subjectT.transform.FindChild ("Label").GetComponent<Text> ().text = s;
+			subjectT.GetComponent<Toggle>().isOn = first;
+			subjectT.GetComponent<Toggle>().group = subjectT.transform.parent.GetComponent<ToggleGroup>();
+			if(first){
+				first = false;
+			}
+		}
+	}
+
+	private void initCreateClassForm(){
+		List<string> keys = new List<string> ();
+		keys.Add ("classname");
+		keys.Add ("school_year");
+		List<GameObject> formFields = new List<GameObject> ();
+		formFields.Add (panelCreateClass.transform.Find("inputName").gameObject);
+		formFields.Add (panelCreateClass.transform.Find("inputSchoolyear").gameObject);
+		List<IValidator> formValidators = new List<IValidator> ();
+		formValidators.Add (new TextValidator ());
+		formValidators.Add (new TextValidator ());
+		this.createClassForm = new Form (keys, formFields, formValidators, new Color(0.75f,0.75f,0.75f,1), Color.red);
+
+		//also init panel for subjects
+		bool first = true;
+		foreach(string s in idhandler.getAllNames("subjects")){
+			GameObject subjectT = Instantiate (subjectToggle, Vector3.zero, Quaternion.identity) as GameObject;
+
+			subjectT.transform.parent = panelCreateClass.transform.FindChild("panelSubject/subjects");
+			subjectT.transform.FindChild ("Label").GetComponent<Text> ().text = s;
+			subjectT.GetComponent<Toggle>().isOn = first;
+			subjectT.GetComponent<Toggle>().group = subjectT.transform.parent.GetComponent<ToggleGroup>();
+			if(first){
+				first = false;
+			}
+		}
 	}
 
 	//action performed after clicking on menu items teacherClasses, courses or tasks
@@ -178,7 +236,8 @@ public class Profile : MonoBehaviour {
 									//generate button for teacherClass and add to button list
 									generatedBtn = Instantiate(buttonTeacherClass, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentKlassen").transform;
-									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getClassname();
+									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getClassname()
+										+ "\n" + temp.getSubjectName();
 									teacherClassesBtns.Add(generatedBtn);
 					
 									//set method to be called at onclick event for main button ("Button") and delete button ("ButtonDelete") on button object
@@ -226,7 +285,9 @@ public class Profile : MonoBehaviour {
 									tasks.Add(temp);
 									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
 									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
-									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getTaskName();
+									generatedBtn.transform.FindChild("Button/Text").GetComponent<Text>().text = temp.getTaskName()
+										+ "\n" + temp.getSubjectName()
+										+ " ; " + temp.getTypeName();
 									tasksBtns.Add(generatedBtn);
 									//set method to be called at onclick event
 									generatedBtn.transform.FindChild("Button").GetComponent<Button>().onClick.AddListener(() => {clickedBtn("openTaskForm",temp.getTaskId(), temp.getTypeName());});
@@ -247,6 +308,14 @@ public class Profile : MonoBehaviour {
 		case "addedClass":	//TODO check if successfull, else: call main.dberrorhandler
 							panelCreateClass.SetActive(false);
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
+							break;
+		case "deletedTask": 
+							if(int.Parse(parsedData[0]["success"]) == 1){ //success
+								//refresh overview
+								dbinterface.getMeineTasks("Tasks", userid, gameObject);
+							} else {
+								main.dbErrorHandler("deleteClass", "Löschen fehlgeschlagen");
+							}
 							break;
 		case "addedTask":	
 							panelCreateTask.SetActive(false);
@@ -283,32 +352,38 @@ public class Profile : MonoBehaviour {
 	
 	public void addClass(){
 		//insert class into db if for filled correctly
-		//TODO check if filled correctly, else: call main.errorhandler
-		//needs validators
-		dbinterface.createClass("addedClass", classname.GetComponent<Text>().text, userid, int.Parse (classsubject.GetComponent<Text>().text), classschoolyear.GetComponent<Text>().text, gameObject); 
+		int subject_id = 0;
+		for (int i = 0; i < panelCreateClass.transform.FindChild ("panelSubject/subjects").childCount; i++){
+			Transform tr = panelCreateClass.transform.FindChild ("panelSubject/subjects").GetChild (i);
+			if(tr.GetComponent<Toggle>().isOn){
+				subject_id = idhandler.getFromName(tr.Find ("Label").GetComponent<Text>().text, "subjects");
+			}
+		}
+		dbinterface.createClass("addedClass", this.createClassForm, userid, subject_id, gameObject); 
 	}
 
 	public void addTask(){
 		//add task into db
-		//TODO use ids/names from helper class
+		//TODO: toggle for privacy
 		int type = 0;
 		if (toggleCategory.isOn) {
-			type = 2;
+			type = idhandler.getFromName("Kategorie", "tasktypes");
 		}
 		if (toggleAssignment.isOn) {
-			type = 1;
+			type = idhandler.getFromName("Zuordnung", "tasktypes");
 		}
 		if (toggleQuiz.isOn) {
-			type = 3;
+			type = idhandler.getFromName("Quiz", "tasktypes");
 		}
 
-		dbinterface.createTask("addedTask", 
-		                       taskname.GetComponent<Text>().text, 
-		                       int.Parse(taskpublic.GetComponent<Text>().text), 
-		                       userid,
-		                       int.Parse(tasksubject.GetComponent<Text>().text), 
-		                       type,
-		                       gameObject); 
+		int subject_id = 0;
+		for (int i = 0; i < panelCreateTask.transform.FindChild ("panelSubject/subjects").childCount; i++){
+			Transform tr = panelCreateTask.transform.FindChild ("panelSubject/subjects").GetChild (i);
+			if(tr.GetComponent<Toggle>().isOn){
+				subject_id = idhandler.getFromName(tr.Find ("Label").GetComponent<Text>().text, "subjects");
+			}
+		}
+		dbinterface.createTask("addedTask", this.createTaskForm, int.Parse(taskpublic.GetComponent<Text>().text), userid, subject_id, type, gameObject); 
 	}
 				
 	public void confirmDeleteClass(int class_id){
@@ -334,8 +409,7 @@ public class Profile : MonoBehaviour {
 		int answer = temp [0];
 		int id = temp [1];
 		if (answer == 1) {
-			//TODO dbmethod delete topic
-			Debug.Log("TODO: call dbmethod for deleting task");
+			dbinterface.deleteTask("deletedTask", id, gameObject);
 		}
 	}
 	

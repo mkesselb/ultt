@@ -21,6 +21,7 @@ public class LogIn : MonoBehaviour {
 		keys.Add ("password");
 		List<GameObject> formFields = new List<GameObject> ();
 		formFields.Add (GameObject.Find ("inputUsername"));
+		//TODO: hide password of user on ui
 		formFields.Add (GameObject.Find ("inputPassword"));
 		List<IValidator> formValidaotrs = new List<IValidator> ();
 		formValidaotrs.Add (new TextValidator ());

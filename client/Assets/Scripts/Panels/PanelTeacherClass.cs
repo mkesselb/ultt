@@ -36,7 +36,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	//contain Gameobjects (= buttons)
 	public List<GameObject> topics;
 	public List<GameObject> students;
-
+	//TODO: add form validation for addtopic, addtask
 	void Start () {
 	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();

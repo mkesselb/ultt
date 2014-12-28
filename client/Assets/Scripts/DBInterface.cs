@@ -61,9 +61,19 @@ public class DBInterface : MonoBehaviour {
 		}
 	}
 	
-	public void sendRegisterData(string target, WWWForm form, GameObject receiver){
-		 WWW www = new WWW(baseUrl + "register", form);
-		StartCoroutine(WaitForRequest(www, target, receiver));	
+	public void sendRegisterData(string target, Form vform, GameObject receiver){
+		if (validateInputForm (vform)) {
+			WWWForm form = new WWWForm();
+			form.AddField("name_first", vform.getValue("name_first"));
+			form.AddField("name_last", vform.getValue("name_last"));
+			form.AddField("username", vform.getValue("username"));
+			form.AddField("password", vform.getValue("password"));
+			form.AddField("email_id", vform.getValue("email_id"));
+			form.AddField("school_id", vform.getValue("school_id"));
+
+			WWW www = new WWW(baseUrl + "register", form);
+			StartCoroutine(WaitForRequest(www, target, receiver));	
+		}
 	}
 
 	public void getMeineKlassen(string target, int userid, GameObject receiver){
@@ -176,17 +186,19 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 	
-	public void createClass(string target, string classname, int user_id, int subject_id, string school_year, GameObject receiver){
+	public void createClass(string target, Form vform, int user_id, int subject_id, GameObject receiver){
 		//response: class_id, classcode
-		WWWForm form = new WWWForm();
-		form.AddField("method", "createClass");
-		form.AddField("classname", classname);
-		form.AddField ("user_id", user_id);
-		form.AddField("subject_id", subject_id);
-		form.AddField ("school_year", school_year);
-		
-        WWW www = new WWW(url, form);
-		StartCoroutine(WaitForRequest(www, target, receiver));	
+		if (validateInputForm (vform)) {
+			WWWForm form = new WWWForm();
+			form.AddField("method", "createClass");
+			form.AddField("user_id", user_id);
+			form.AddField("subject_id", subject_id);
+			form.AddField("classname", vform.getValue("classname"));
+			form.AddField("school_year", vform.getValue("school_year"));
+			
+			WWW www = new WWW(url, form);
+			StartCoroutine(WaitForRequest(www, target, receiver));	
+		}
 	}
 	
 	public void deleteClass(string target, int class_id, GameObject receiver){
@@ -209,17 +221,19 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 
-	public void createTask(string target, string taskname, int pub, int user_id, int subject_id, int tasktype_id, GameObject receiver){
-		WWWForm form = new WWWForm();
-		form.AddField("method", "createTask");
-		form.AddField("taskname", taskname);
-		form.AddField("public", pub);
-		form.AddField("user_id", user_id);
-		form.AddField("subject_id", subject_id);
-		form.AddField("tasktype_id", tasktype_id);
-
-		WWW www = new WWW (url, form);
-		StartCoroutine(WaitForRequest(www, target, receiver));
+	public void createTask(string target, Form vform, int pub, int user_id, int subject_id, int tasktype_id, GameObject receiver){
+		if (validateInputForm (vform)) {
+			WWWForm form = new WWWForm();
+			form.AddField("method", "createTask");
+			form.AddField("taskname", vform.getValue("taskname"));
+			form.AddField("public", pub);
+			form.AddField("user_id", user_id);
+			form.AddField("subject_id", subject_id);
+			form.AddField("tasktype_id", tasktype_id);
+			
+			WWW www = new WWW (url, form);
+			StartCoroutine(WaitForRequest(www, target, receiver));
+		}
 	}
 
 	public void deleteTask(string target, int task_id, GameObject receiver){

@@ -51,6 +51,19 @@ public class IdHandler : MonoBehaviour
 		return "";
 	}
 
+	public List<string> getAllNames(string type){
+		List<string> vals = new List<string>();
+		if (idNameMapping.ContainsKey (type)) {
+			foreach(int key in idNameMapping[type].Keys){
+				vals.Add(idNameMapping[type][key]);
+			}
+
+			return vals;
+		}
+
+		return null;
+	}
+
 	public void dbInputHandler(string[] response){
 		GameObject generatedBtn;
 		string target = response[0];
