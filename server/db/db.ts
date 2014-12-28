@@ -90,12 +90,32 @@ module.exports = function(dbConnection, dbData, callback){
 			return callback(null, result);
 		});
 	}
+	
+	if(parsedDbData.method === "removeStudentFromClass"){
+		userlink.removeStudentFromClass(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method removeStudentFromClass");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
 
 	/* tasklink */
 	if(parsedDbData.method === "getTask"){
 		tasklink.getTask(dbConnection, parsedDbData, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error on method getTask");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "deleteTask"){
+		tasklink.deleteTask(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method deleteTask");
 				return callback(err);
 			}
 			return callback(null, result);
@@ -136,6 +156,36 @@ module.exports = function(dbConnection, dbData, callback){
 		tasklink.editTask(dbConnection, parsedDbData, function(err, result){
 			if(err){
 				logger.log(logger.logLevels["error"], "error on method editTask");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "getSubjects"){
+		tasklink.getSubjects(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getSubjects");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "getTaskTypes"){
+		tasklink.getTaskTypes(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method getTaskTypes");
+				return callback(err);
+			}
+			return callback(null, result);
+		});
+	}
+	
+	if(parsedDbData.method === "deleteTaskFromTopic"){
+		tasklink.deleteTaskFromTopic(dbConnection, parsedDbData, function(err, result){
+			if(err){
+				logger.log(logger.logLevels["error"], "error on method deleteTaskFromTopic");
 				return callback(err);
 			}
 			return callback(null, result);

@@ -156,6 +156,30 @@ function acceptUserInClass(dbConnection, requestData, callback){
 	});
 };
 
+/* removes parameter student from a class-relationship.
+ * required parameter: user_id, class_id */
+function removeStudentFromClass(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.user_id) || !validator.validateID(requestData.class_id)){
+		//malformed id
+		return callback({"error" : 300});
+	}
+	logger.log(lologger.logLevels["debug"], "deleting user " + requestData.user_id
+			+ " from class " + requestData.class_id);
+	
+	var ids = {};
+	ids["user_id"] = requestData.user_id;
+	ids["class_id"] = requestData.class_id;
+	dbConnection.query("delete from user_is_in_class where ?", ids, function(callback, err){
+		if(err){
+			return callback(err);
+		}
+		
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+		logger.log(logger.logLevels["debug"], "successful deleting user from user_is_in_class relation");
+		callback(null, [{"success" : 1}]);
+	});
+};
+
 /* creates a class. 
  * required parameter are classname, user_id (of the teacher), school_year, subject_id */
 function createClass(dbConnection, requestData, callback){
@@ -224,5 +248,6 @@ module.exports = {
 		getUserClasses 		: getUserClasses,
 		getTeacherClasses	: getTeacherClasses,
 		acceptUserInClass	: acceptUserInClass,
-		registerUserToClass	: registerUserToClass
+		registerUserToClass	: registerUserToClass,
+		removeStudentFromClass : removeStudentFromClass
 };

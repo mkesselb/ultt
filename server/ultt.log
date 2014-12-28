@@ -25931,3 +25931,795 @@
 [2014-12-19 12:04:45.690] [DEBUG] ultt - fetching task information for task 2
 [2014-12-19 12:04:45.690] [INFO] ultt - successful task data fetching
 [2014-12-19 12:04:45.690] [DEBUG] ultt - fetch result: [{"taskname":"Mathequiz","public":0,"user_id":1,"data_file":"0,Ist Mathe cool?,ja,1,nein,0\n1,Schaffe ich die neue Matura?,nein,0,ja,1\n2,Ist Mathe cool?,ja,1,nein,0\n3,Schaffe ich die neue Matura?,nein,0,ja,1\n4,Ist Mathe cool?,ja,1,nein,0\n5,Schaffe ich die neue Matura?,nein,0,ja,1\n6,Ist Mathe cool?,ja,1,nein,0\n7,Schaffe ich die neue Matura?,nein,0,ja,1\n8,Neue Frage,Neue Antwort,1,Neue Antwort,0\n9,,Neue Antwort,0,Neue Antwort,1\n","subject_name":"Informatik","type_name":"Quiz","description":""}]
+[2014-12-27 16:26:34.374] [INFO] ultt - listening on port 80
+[2014-12-27 16:26:34.420] [INFO] ultt - connected to db
+[2014-12-27 18:08:23.071] [INFO] ultt - listening on port 80
+[2014-12-27 18:08:23.081] [INFO] ultt - connected to db
+[2014-12-27 18:29:59.271] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:29:59.271] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:29:59.281] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:29:59.281] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:29:59.281] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:29:59.281] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:29:59.281] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:29:59.291] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:29:59.291] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:29:59.291] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:29:59.291] [INFO] ultt - successful user fetching
+[2014-12-27 18:29:59.291] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:29:59.291] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:29:59.291] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:29:59.291] [INFO] ultt - successful class information fetching
+[2014-12-27 18:29:59.291] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:30:21.863] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:30:21.863] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:30:21.863] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:30:21.863] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:30:21.863] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:30:21.863] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:30:21.863] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:30:21.863] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:30:21.863] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:30:21.863] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:30:21.863] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:30:21.863] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:30:21.863] [INFO] ultt - successful class information fetching
+[2014-12-27 18:30:21.863] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:30:21.863] [INFO] ultt - successful user fetching
+[2014-12-27 18:30:21.863] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:30:47.153] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:30:47.153] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:30:47.153] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:30:47.153] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:30:47.153] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:30:47.153] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:30:47.153] [INFO] ultt - successful user fetching
+[2014-12-27 18:30:47.153] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:30:47.163] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:30:47.163] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:30:47.163] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:30:47.163] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:30:47.163] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:30:47.163] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:30:47.163] [INFO] ultt - successful class information fetching
+[2014-12-27 18:30:47.163] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:31:19.033] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:31:19.033] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:31:19.033] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:31:19.033] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:31:19.033] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:31:19.033] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:31:19.033] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:31:19.033] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:31:19.033] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:31:19.033] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:31:19.033] [INFO] ultt - successful user fetching
+[2014-12-27 18:31:19.033] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:31:19.033] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:31:19.033] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:31:19.033] [INFO] ultt - successful class information fetching
+[2014-12-27 18:31:19.033] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:31:48.665] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:31:48.665] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:31:48.665] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:31:48.665] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:31:48.665] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:31:48.665] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:31:48.665] [INFO] ultt - successful class information fetching
+[2014-12-27 18:31:48.665] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:31:48.675] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:31:48.675] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:31:48.675] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:31:48.675] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:31:48.675] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:31:48.675] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:31:48.675] [INFO] ultt - successful user fetching
+[2014-12-27 18:31:48.675] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:32:02.125] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:32:02.125] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:32:02.125] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:32:02.125] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:32:02.125] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:32:02.125] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:32:02.125] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:32:02.125] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:32:02.125] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:32:02.125] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:32:02.125] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:32:02.125] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:32:02.125] [INFO] ultt - successful class information fetching
+[2014-12-27 18:32:02.125] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:32:02.125] [INFO] ultt - successful user fetching
+[2014-12-27 18:32:02.125] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:32:51.815] [INFO] ultt - listening on port 80
+[2014-12-27 18:32:51.825] [INFO] ultt - connected to db
+[2014-12-27 18:33:30.515] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:33:30.515] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:33:30.515] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:33:30.515] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:33:30.515] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:33:30.515] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:33:30.515] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:33:30.515] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:33:30.515] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:33:30.515] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:33:30.515] [INFO] ultt - successful user fetching
+[2014-12-27 18:33:30.525] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:33:30.525] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:33:30.525] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:33:30.525] [INFO] ultt - successful class information fetching
+[2014-12-27 18:33:30.525] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:33:45.135] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:33:45.135] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:33:45.145] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:33:45.145] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:33:45.145] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:33:45.145] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:33:45.145] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:33:45.145] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:33:45.145] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:33:45.145] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:33:45.145] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:33:45.145] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:33:45.145] [INFO] ultt - successful user fetching
+[2014-12-27 18:33:45.145] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:33:45.145] [INFO] ultt - successful class information fetching
+[2014-12-27 18:33:45.145] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:35:07.875] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:07.885] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:35:07.885] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:35:07.885] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:35:07.885] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:07.885] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:35:07.885] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:35:07.885] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:35:07.885] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:35:07.885] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:35:07.885] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:35:07.885] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:35:07.885] [INFO] ultt - successful user fetching
+[2014-12-27 18:35:07.885] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:35:07.885] [INFO] ultt - successful class information fetching
+[2014-12-27 18:35:07.885] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:35:37.745] [INFO] ultt - serving post to /login
+[2014-12-27 18:35:37.745] [DEBUG] ultt - received login data: username=pasan&password=password
+[2014-12-27 18:35:37.745] [DEBUG] ultt - --- decoded username=pasan
+[2014-12-27 18:35:37.745] [DEBUG] ultt - --- decoded password=password
+[2014-12-27 18:35:37.745] [DEBUG] ultt - user data received: {"username":"pasan","password":"password"}
+[2014-12-27 18:35:37.745] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"pasan","password":"null","user_id":"null"}
+[2014-12-27 18:35:37.745] [DEBUG] ultt - db fetch query: select password, user_id from user where username="pasan";
+[2014-12-27 18:35:37.745] [INFO] ultt - successful db fetching
+[2014-12-27 18:35:37.745] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-12-27 18:35:37.745] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-12-27 18:35:37.745] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-27 18:35:45.805] [INFO] ultt - serving post to /login
+[2014-12-27 18:35:45.805] [DEBUG] ultt - received login data: username=pasan&password=password
+[2014-12-27 18:35:45.805] [DEBUG] ultt - --- decoded username=pasan
+[2014-12-27 18:35:45.805] [DEBUG] ultt - --- decoded password=password
+[2014-12-27 18:35:45.805] [DEBUG] ultt - user data received: {"username":"pasan","password":"password"}
+[2014-12-27 18:35:45.805] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"pasan","password":"null","user_id":"null"}
+[2014-12-27 18:35:45.805] [DEBUG] ultt - db fetch query: select password, user_id from user where username="pasan";
+[2014-12-27 18:35:45.805] [INFO] ultt - successful db fetching
+[2014-12-27 18:35:45.805] [DEBUG] ultt - fetch result: [{"password":"password","user_id":1}]
+[2014-12-27 18:35:45.805] [DEBUG] ultt - password fetched: [{"password":"password","user_id":1}]
+[2014-12-27 18:35:45.805] [DEBUG] ultt - input password did match db password, returning success
+[2014-12-27 18:35:47.865] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:47.865] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-27 18:35:47.865] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-27 18:35:47.865] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-27 18:35:47.865] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-27 18:35:47.865] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-27 18:35:47.905] [INFO] ultt - successful classes fetching
+[2014-12-27 18:35:47.905] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:35:48.445] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:48.445] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-27 18:35:48.445] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-27 18:35:48.445] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-27 18:35:48.445] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-27 18:35:48.445] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-27 18:35:48.465] [INFO] ultt - successful teacher classes fetching
+[2014-12-27 18:35:48.465] [DEBUG] ultt - fetch result: [{"class_id":8,"classname":"klasse","privacy":null,"school_year":2014,"classcode":"TSiVQKE7cw","subject_name":"Informatik"},{"class_id":12,"classname":"class1","privacy":null,"school_year":2015,"classcode":"mC2bFn3pj9","subject_name":"Informatik"}]
+[2014-12-27 18:35:49.975] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:49.975] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-27 18:35:49.975] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-27 18:35:49.975] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-27 18:35:49.975] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-27 18:35:49.975] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-27 18:35:49.975] [INFO] ultt - successful classes fetching
+[2014-12-27 18:35:49.975] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:35:50.635] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:50.635] [DEBUG] ultt - received data: method=getUserTasks&user_id=1
+[2014-12-27 18:35:50.635] [DEBUG] ultt - --- decoded method=getUserTasks
+[2014-12-27 18:35:50.635] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-27 18:35:50.635] [DEBUG] ultt - full data received on db: {"method":"getUserTasks","user_id":"1"}
+[2014-12-27 18:35:50.635] [DEBUG] ultt - fetching tasks for user 1
+[2014-12-27 18:35:50.665] [INFO] ultt - successful user tasks fetching
+[2014-12-27 18:35:50.665] [DEBUG] ultt - fetch result: [{"task_id":1,"taskname":"task1","public":0,"subject_name":"Informatik","type_name":"Zuordnung"},{"task_id":5,"taskname":"taskCat","public":0,"subject_name":"Deutsch","type_name":"Kategorie"},{"task_id":6,"taskname":"taskQuiz","public":0,"subject_name":"Deutsch","type_name":"Quiz"},{"task_id":7,"taskname":"task2","public":0,"subject_name":"Deutsch","type_name":"Quiz"}]
+[2014-12-27 18:35:51.305] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:51.305] [DEBUG] ultt - received data: method=getUserClasses&user_id=1
+[2014-12-27 18:35:51.305] [DEBUG] ultt - --- decoded method=getUserClasses
+[2014-12-27 18:35:51.305] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-27 18:35:51.305] [DEBUG] ultt - full data received on db: {"method":"getUserClasses","user_id":"1"}
+[2014-12-27 18:35:51.305] [DEBUG] ultt - get classes of user with id: 1
+[2014-12-27 18:35:51.305] [INFO] ultt - successful classes fetching
+[2014-12-27 18:35:51.305] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:35:51.785] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:35:51.785] [DEBUG] ultt - received data: method=getTeacherClasses&user_id=1
+[2014-12-27 18:35:51.785] [DEBUG] ultt - --- decoded method=getTeacherClasses
+[2014-12-27 18:35:51.785] [DEBUG] ultt - --- decoded user_id=1
+[2014-12-27 18:35:51.785] [DEBUG] ultt - full data received on db: {"method":"getTeacherClasses","user_id":"1"}
+[2014-12-27 18:35:51.785] [DEBUG] ultt - get classes of teacher user with id: 1
+[2014-12-27 18:35:51.785] [INFO] ultt - successful teacher classes fetching
+[2014-12-27 18:35:51.785] [DEBUG] ultt - fetch result: [{"class_id":8,"classname":"klasse","privacy":null,"school_year":2014,"classcode":"TSiVQKE7cw","subject_name":"Informatik"},{"class_id":12,"classname":"class1","privacy":null,"school_year":2015,"classcode":"mC2bFn3pj9","subject_name":"Informatik"}]
+[2014-12-27 18:36:40.345] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:36:40.345] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:36:40.345] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:36:40.345] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:36:40.345] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:36:40.345] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:36:40.345] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:36:40.345] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:36:40.345] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:36:40.345] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:36:40.345] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:36:40.345] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:36:40.345] [INFO] ultt - successful class information fetching
+[2014-12-27 18:36:40.345] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:36:40.345] [INFO] ultt - successful user fetching
+[2014-12-27 18:36:40.345] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:36:51.085] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:36:51.085] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:36:51.085] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:36:51.085] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:36:51.085] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:36:51.085] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:36:51.085] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:36:51.085] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:36:51.085] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:36:51.085] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:36:51.085] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:36:51.085] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:36:51.085] [INFO] ultt - successful user fetching
+[2014-12-27 18:36:51.085] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:36:51.085] [INFO] ultt - successful class information fetching
+[2014-12-27 18:36:51.085] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:37:05.425] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:37:05.425] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:37:05.425] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:37:05.425] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:37:05.425] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:37:05.425] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:37:05.425] [INFO] ultt - successful class information fetching
+[2014-12-27 18:37:05.425] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:37:05.435] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:37:05.435] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:37:05.435] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:37:05.435] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:37:05.435] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:37:05.435] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:37:05.435] [INFO] ultt - successful user fetching
+[2014-12-27 18:37:05.435] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:39:02.317] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:39:02.317] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:39:02.317] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:39:02.317] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:39:02.317] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:39:02.317] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:39:02.317] [INFO] ultt - successful class information fetching
+[2014-12-27 18:39:02.317] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:39:02.327] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:39:02.327] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:39:02.327] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:39:02.327] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:39:02.327] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:39:02.327] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:39:02.327] [INFO] ultt - successful user fetching
+[2014-12-27 18:39:02.327] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:40:24.670] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:40:24.670] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 18:40:24.670] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 18:40:24.670] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 18:40:24.670] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 18:40:24.670] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 18:40:24.670] [INFO] ultt - successful class information fetching
+[2014-12-27 18:40:24.670] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:40:24.670] [INFO] ultt - serving post to /unity/db
+[2014-12-27 18:40:24.670] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 18:40:24.670] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 18:40:24.670] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 18:40:24.670] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 18:40:24.670] [DEBUG] ultt - get user with id: 0
+[2014-12-27 18:40:24.670] [INFO] ultt - successful user fetching
+[2014-12-27 18:40:24.670] [DEBUG] ultt - fetch result: []
+[2014-12-27 18:58:57.742] [INFO] ultt - listening on port 80
+[2014-12-27 18:58:57.742] [INFO] ultt - connected to db
+[2014-12-27 19:03:17.389] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:03:17.389] [DEBUG] ultt - received data: method=getUser&user_id=0
+[2014-12-27 19:03:17.389] [DEBUG] ultt - --- decoded method=getUser
+[2014-12-27 19:03:17.389] [DEBUG] ultt - --- decoded user_id=0
+[2014-12-27 19:03:17.389] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:03:17.389] [DEBUG] ultt - received data: method=getClass&class_id=0
+[2014-12-27 19:03:17.389] [DEBUG] ultt - --- decoded method=getClass
+[2014-12-27 19:03:17.389] [DEBUG] ultt - --- decoded class_id=0
+[2014-12-27 19:03:17.389] [DEBUG] ultt - full data received on db: {"method":"getUser","user_id":"0"}
+[2014-12-27 19:03:17.389] [DEBUG] ultt - get user with id: 0
+[2014-12-27 19:03:17.389] [INFO] ultt - successful user fetching
+[2014-12-27 19:03:17.389] [DEBUG] ultt - fetch result: []
+[2014-12-27 19:03:17.399] [DEBUG] ultt - full data received on db: {"method":"getClass","class_id":"0"}
+[2014-12-27 19:03:17.399] [DEBUG] ultt - get class info with class id: 0
+[2014-12-27 19:03:17.399] [INFO] ultt - successful class information fetching
+[2014-12-27 19:03:17.399] [DEBUG] ultt - fetch result: []
+[2014-12-27 19:11:26.685] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:11:26.685] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:11:26.685] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:11:26.685] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:11:26.685] [DEBUG] ultt - fetching task types
+[2014-12-27 19:11:26.685] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:11:26.685] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:11:26.695] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:11:26.695] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:11:26.695] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:11:26.695] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:11:26.695] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:11:26.695] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:11:26.695] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 19:13:53.065] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:13:53.065] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:13:53.065] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:13:53.065] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:13:53.065] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:13:53.065] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:13:53.065] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:13:53.065] [DEBUG] ultt - fetching task types
+[2014-12-27 19:13:53.065] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:13:53.065] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:13:53.065] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:13:53.065] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:13:53.065] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:13:53.065] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 19:14:23.297] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:14:23.297] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:14:23.297] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:14:23.297] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:14:23.297] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:14:23.297] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:14:23.297] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:14:23.297] [DEBUG] ultt - fetching task types
+[2014-12-27 19:14:23.297] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:14:23.297] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:14:23.297] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:14:23.297] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:14:23.297] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:14:23.297] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 19:15:04.537] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:15:04.537] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:15:04.537] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:15:04.537] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:15:04.537] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:15:04.537] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:15:04.537] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:15:04.537] [DEBUG] ultt - fetching task types
+[2014-12-27 19:15:04.537] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:15:04.537] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:15:04.537] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:15:04.537] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:15:04.537] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:15:04.537] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 19:16:44.690] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:16:44.690] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:16:44.690] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:16:44.690] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:16:44.690] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:16:44.690] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:16:44.690] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:16:44.690] [DEBUG] ultt - fetching task types
+[2014-12-27 19:16:44.690] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:16:44.690] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:16:44.690] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:16:44.690] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:16:44.690] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:16:44.690] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 19:17:36.810] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:17:36.810] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:17:36.810] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:17:36.810] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:17:36.810] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:17:36.810] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:17:36.810] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:17:36.810] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:17:36.820] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:17:36.820] [DEBUG] ultt - fetching task types
+[2014-12-27 19:17:36.820] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:17:36.820] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 19:17:36.820] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:17:36.820] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:18:11.680] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:18:11.680] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-27 19:18:11.680] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-27 19:18:11.680] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-27 19:18:11.680] [DEBUG] ultt - fetching task types
+[2014-12-27 19:18:11.680] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-27 19:18:11.680] [DEBUG] ultt - successful fetched task types
+[2014-12-27 19:18:11.690] [INFO] ultt - serving post to /unity/db
+[2014-12-27 19:18:11.690] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-27 19:18:11.690] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-27 19:18:11.690] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-27 19:18:11.690] [DEBUG] ultt - fetching subjects
+[2014-12-27 19:18:11.690] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-27 19:18:11.690] [DEBUG] ultt - successful fetched subjects
+[2014-12-27 20:01:32.849] [INFO] ultt - listening on port 80
+[2014-12-27 20:01:32.859] [INFO] ultt - connected to db
+[2014-12-27 20:07:53.234] [INFO] ultt - listening on port 81
+[2014-12-27 20:07:53.244] [INFO] ultt - connected to db
+[2014-12-27 20:10:10.449] [INFO] ultt - listening on port 81
+[2014-12-27 20:10:10.459] [INFO] ultt - connected to db
+[2014-12-28 00:25:31.959] [INFO] ultt - listening on port 80
+[2014-12-28 00:25:31.969] [INFO] ultt - connected to db
+[2014-12-28 00:25:38.589] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:25:38.589] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:25:38.589] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:25:38.589] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:25:38.589] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:25:38.599] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:25:38.599] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:25:38.599] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:25:38.619] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:25:38.619] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:25:38.629] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:25:38.629] [DEBUG] ultt - fetching task types
+[2014-12-28 00:25:38.639] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:25:38.649] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:27:15.694] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:27:15.694] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:27:15.694] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:27:15.704] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:27:15.704] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:27:15.704] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:27:15.704] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:27:15.704] [DEBUG] ultt - fetching task types
+[2014-12-28 00:27:15.704] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:27:15.704] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:27:15.704] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:27:15.704] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:27:15.704] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:27:15.704] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:27:32.664] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:27:32.664] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:27:32.664] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:27:32.664] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:27:32.664] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:27:32.664] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:27:32.664] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:27:32.664] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:27:32.664] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:27:32.664] [DEBUG] ultt - fetching task types
+[2014-12-28 00:27:32.664] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:27:32.664] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:27:32.664] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:27:32.664] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:29:22.545] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:29:22.545] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:29:22.545] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:29:22.545] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:29:22.545] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:29:22.545] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:29:22.545] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:29:22.545] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:29:22.545] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:29:22.545] [DEBUG] ultt - fetching task types
+[2014-12-28 00:29:22.545] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:29:22.545] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:29:22.545] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:29:22.545] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:30:15.054] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:30:15.054] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:30:15.054] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:30:15.054] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:30:15.054] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:30:15.054] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:30:15.054] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:30:15.054] [DEBUG] ultt - fetching task types
+[2014-12-28 00:30:15.054] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:30:15.054] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:30:15.054] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:30:15.054] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:30:15.054] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:30:15.054] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:31:55.968] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:31:55.968] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:31:55.968] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:31:55.968] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:31:55.968] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:31:55.968] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:31:55.968] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:31:55.978] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:31:55.978] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:31:55.978] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:31:55.978] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:31:55.978] [DEBUG] ultt - fetching task types
+[2014-12-28 00:31:55.978] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:31:55.978] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:33:40.692] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:33:40.692] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:33:40.692] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:33:40.692] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:33:40.692] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:33:40.692] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:33:40.692] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:33:40.692] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:33:40.692] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:33:40.692] [DEBUG] ultt - fetching task types
+[2014-12-28 00:33:40.692] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:33:40.692] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:33:40.702] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:33:40.702] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:34:29.412] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:34:29.422] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:34:29.422] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:34:29.422] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:34:29.422] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:34:29.422] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:34:29.422] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:34:29.422] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:34:29.422] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:34:29.422] [DEBUG] ultt - fetching task types
+[2014-12-28 00:34:29.422] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:34:29.422] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:34:29.422] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:34:29.422] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:34:59.264] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:34:59.264] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:34:59.264] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:34:59.264] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:34:59.264] [DEBUG] ultt - fetching task types
+[2014-12-28 00:34:59.264] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:34:59.264] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:34:59.274] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:34:59.274] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:34:59.274] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:34:59.274] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:34:59.274] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:34:59.274] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:34:59.274] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:35:18.644] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:35:18.644] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:35:18.644] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:35:18.644] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:35:18.644] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:35:18.644] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:35:18.644] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:35:18.644] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:35:18.644] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:35:18.644] [DEBUG] ultt - fetching task types
+[2014-12-28 00:35:18.644] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:35:18.644] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:35:18.644] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:35:18.644] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:36:54.948] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:36:54.948] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:36:54.948] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:36:54.948] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:36:54.948] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:36:54.958] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:36:54.958] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:36:54.958] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:36:54.958] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:36:54.958] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:36:54.958] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:36:54.958] [DEBUG] ultt - fetching task types
+[2014-12-28 00:36:54.958] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:36:54.958] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:38:06.040] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:38:06.040] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:38:06.040] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:38:06.040] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:38:06.040] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:38:06.040] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:38:06.040] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:38:06.040] [DEBUG] ultt - fetching task types
+[2014-12-28 00:38:06.040] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:38:06.040] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:38:06.040] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:38:06.040] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:38:06.040] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:38:06.040] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:38:22.270] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:38:22.270] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:38:22.270] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:38:22.270] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:38:22.270] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:38:22.270] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:38:22.270] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:38:22.270] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:38:22.270] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:38:22.270] [DEBUG] ultt - fetching task types
+[2014-12-28 00:38:22.270] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:38:22.270] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:38:22.270] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:38:22.270] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:38:47.422] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:38:47.422] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:38:47.422] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:38:47.422] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:38:47.422] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:38:47.422] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:38:47.422] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:38:47.432] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:38:47.432] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:38:47.432] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:38:47.432] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:38:47.432] [DEBUG] ultt - fetching task types
+[2014-12-28 00:38:47.432] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:38:47.432] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:38:53.092] [INFO] ultt - serving post to /login
+[2014-12-28 00:38:53.092] [DEBUG] ultt - received login data: username=1&password=cdeewf
+[2014-12-28 00:38:53.092] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:38:53.092] [DEBUG] ultt - --- decoded password=cdeewf
+[2014-12-28 00:38:53.092] [DEBUG] ultt - user data received: {"username":"1","password":"cdeewf"}
+[2014-12-28 00:38:53.092] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:38:53.092] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:38:53.122] [INFO] ultt - successful db fetching
+[2014-12-28 00:38:53.122] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:38:53.122] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:38:53.122] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:40:11.675] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:40:11.675] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:40:11.675] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:40:11.675] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:40:11.675] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:40:11.675] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:40:11.675] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:40:11.685] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:40:11.685] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:40:11.685] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:40:11.685] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:40:11.685] [DEBUG] ultt - fetching task types
+[2014-12-28 00:40:11.685] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:40:11.685] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:40:13.695] [INFO] ultt - serving post to /login
+[2014-12-28 00:40:13.695] [DEBUG] ultt - received login data: username=1&password=123123
+[2014-12-28 00:40:13.695] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:40:13.695] [DEBUG] ultt - --- decoded password=123123
+[2014-12-28 00:40:13.695] [DEBUG] ultt - user data received: {"username":"1","password":"123123"}
+[2014-12-28 00:40:13.695] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:40:13.695] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:40:13.695] [INFO] ultt - successful db fetching
+[2014-12-28 00:40:13.695] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:40:13.695] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:40:13.695] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:40:25.935] [INFO] ultt - serving post to /login
+[2014-12-28 00:40:25.935] [DEBUG] ultt - received login data: username=1&password=123123
+[2014-12-28 00:40:25.935] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:40:25.935] [DEBUG] ultt - --- decoded password=123123
+[2014-12-28 00:40:25.945] [DEBUG] ultt - user data received: {"username":"1","password":"123123"}
+[2014-12-28 00:40:25.945] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:40:25.945] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:40:25.945] [INFO] ultt - successful db fetching
+[2014-12-28 00:40:25.945] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:40:25.945] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:40:25.945] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:41:52.937] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:41:52.937] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:41:52.937] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:41:52.937] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:41:52.937] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:41:52.937] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:41:52.937] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:41:52.947] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:41:52.947] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:41:52.947] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:41:52.947] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:41:52.947] [DEBUG] ultt - fetching task types
+[2014-12-28 00:41:52.947] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:41:52.947] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:41:55.647] [INFO] ultt - serving post to /login
+[2014-12-28 00:41:55.647] [DEBUG] ultt - received login data: username=1&password=123123
+[2014-12-28 00:41:55.647] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:41:55.647] [DEBUG] ultt - --- decoded password=123123
+[2014-12-28 00:41:55.647] [DEBUG] ultt - user data received: {"username":"1","password":"123123"}
+[2014-12-28 00:41:55.647] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:41:55.647] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:41:55.647] [INFO] ultt - successful db fetching
+[2014-12-28 00:41:55.647] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:41:55.657] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:41:55.657] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:41:58.037] [INFO] ultt - serving post to /login
+[2014-12-28 00:41:58.037] [DEBUG] ultt - received login data: username=1&password=1231232
+[2014-12-28 00:41:58.037] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:41:58.037] [DEBUG] ultt - --- decoded password=1231232
+[2014-12-28 00:41:58.037] [DEBUG] ultt - user data received: {"username":"1","password":"1231232"}
+[2014-12-28 00:41:58.037] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:41:58.037] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:41:58.037] [INFO] ultt - successful db fetching
+[2014-12-28 00:41:58.037] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:41:58.037] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:41:58.037] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:42:43.799] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:42:43.799] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:42:43.809] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:42:43.809] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:42:43.809] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:42:43.809] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:42:43.809] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:42:43.809] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:42:43.809] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:42:43.809] [DEBUG] ultt - fetching task types
+[2014-12-28 00:42:43.809] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:42:43.809] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:42:43.809] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:42:43.809] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:42:44.479] [INFO] ultt - serving post to /login
+[2014-12-28 00:42:44.479] [DEBUG] ultt - received login data: username=1&password=123123
+[2014-12-28 00:42:44.479] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:42:44.479] [DEBUG] ultt - --- decoded password=123123
+[2014-12-28 00:42:44.479] [DEBUG] ultt - user data received: {"username":"1","password":"123123"}
+[2014-12-28 00:42:44.479] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:42:44.489] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:42:44.489] [INFO] ultt - successful db fetching
+[2014-12-28 00:42:44.489] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:42:44.499] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:42:44.499] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:43:10.759] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:43:10.759] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:43:10.759] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:43:10.769] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:43:10.769] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:43:10.769] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:43:10.769] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:43:10.769] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:43:10.769] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:43:10.769] [DEBUG] ultt - fetching task types
+[2014-12-28 00:43:10.769] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:43:10.769] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:43:10.769] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:43:10.769] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:43:11.779] [INFO] ultt - serving post to /login
+[2014-12-28 00:43:11.779] [DEBUG] ultt - received login data: username=1&password=123123
+[2014-12-28 00:43:11.779] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:43:11.779] [DEBUG] ultt - --- decoded password=123123
+[2014-12-28 00:43:11.779] [DEBUG] ultt - user data received: {"username":"1","password":"123123"}
+[2014-12-28 00:43:11.779] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:43:11.779] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:43:11.779] [INFO] ultt - successful db fetching
+[2014-12-28 00:43:11.779] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:43:11.789] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:43:11.789] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:43:13.409] [INFO] ultt - serving post to /login
+[2014-12-28 00:43:13.409] [DEBUG] ultt - received login data: username=1&password=123123
+[2014-12-28 00:43:13.409] [DEBUG] ultt - --- decoded username=1
+[2014-12-28 00:43:13.409] [DEBUG] ultt - --- decoded password=123123
+[2014-12-28 00:43:13.409] [DEBUG] ultt - user data received: {"username":"1","password":"123123"}
+[2014-12-28 00:43:13.409] [DEBUG] ultt - full data received on db: {"purpose":"get","table":"user","username":"1","password":"null","user_id":"null"}
+[2014-12-28 00:43:13.419] [DEBUG] ultt - db fetch query: select password, user_id from user where username=1;
+[2014-12-28 00:43:13.419] [INFO] ultt - successful db fetching
+[2014-12-28 00:43:13.419] [DEBUG] ultt - fetch result: []
+[2014-12-28 00:43:13.419] [DEBUG] ultt - password fetched: []
+[2014-12-28 00:43:13.419] [DEBUG] ultt - empty fetch result, likewise user does not exist
+[2014-12-28 00:45:12.133] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:45:12.133] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:45:12.133] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:45:12.133] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:45:12.133] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:45:12.133] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:45:12.133] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:45:12.133] [DEBUG] ultt - fetching task types
+[2014-12-28 00:45:12.133] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:45:12.133] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:45:12.133] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:45:12.133] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:45:12.133] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:45:12.133] [DEBUG] ultt - successful fetched subjects
+[2014-12-28 00:46:51.377] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:46:51.377] [DEBUG] ultt - received data: method=getTaskTypes
+[2014-12-28 00:46:51.377] [DEBUG] ultt - --- decoded method=getTaskTypes
+[2014-12-28 00:46:51.377] [INFO] ultt - serving post to /unity/db
+[2014-12-28 00:46:51.377] [DEBUG] ultt - received data: method=getSubjects
+[2014-12-28 00:46:51.377] [DEBUG] ultt - --- decoded method=getSubjects
+[2014-12-28 00:46:51.377] [DEBUG] ultt - full data received on db: {"method":"getTaskTypes"}
+[2014-12-28 00:46:51.377] [DEBUG] ultt - fetching task types
+[2014-12-28 00:46:51.377] [DEBUG] ultt - full data received on db: {"method":"getSubjects"}
+[2014-12-28 00:46:51.377] [DEBUG] ultt - fetching subjects
+[2014-12-28 00:46:51.377] [DEBUG] ultt - db response: [{"tasktype_id":1,"type_name":"Zuordnung"},{"tasktype_id":2,"type_name":"Kategorie"},{"tasktype_id":3,"type_name":"Quiz"},{"tasktype_id":4,"type_name":"Sequenz"}]
+[2014-12-28 00:46:51.377] [DEBUG] ultt - successful fetched task types
+[2014-12-28 00:46:51.377] [DEBUG] ultt - db response: [{"subject_id":1,"subject_name":"Informatik"},{"subject_id":2,"subject_name":"Mathematik"},{"subject_id":3,"subject_name":"Deutsch"},{"subject_id":4,"subject_name":"Englisch"},{"subject_id":5,"subject_name":"Französisch"},{"subject_id":6,"subject_name":"Spanisch"},{"subject_id":7,"subject_name":"Biologie"},{"subject_id":8,"subject_name":"Geographie"}]
+[2014-12-28 00:46:51.377] [DEBUG] ultt - successful fetched subjects

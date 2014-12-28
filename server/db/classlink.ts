@@ -55,7 +55,7 @@ function getClassTasks(dbConnection, requestData, callback){
 	var fetchTasks = "select t.task_id, t.taskname, tt.type_name, tc.class_topic_id "
 		+ "from task t, tasktype tt, task_for_class tc "
 		+ "where tc.class_id = " + requestData.class_id + " and tc.task_id = t.task_id "
-		+ "and t.tasktype_id = tt.tasktype_id";
+		+ "and t.tasktype_id = tt.tasktype_id and tc.deleted = 0 and t.deleted = 0";
 	
 	dbConnection.query(fetchTasks, function(err, tasks){
 		if(err){

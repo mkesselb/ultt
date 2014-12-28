@@ -38,7 +38,7 @@ var server = ultt.listen(port, function(err){
 	if(err){
 		logger.log(logger.logLevels["error"], "error listening on port "
 				+ server.address().port + ": " + err.toString());
-		throw err;
+		return;
 	}
 	
 	logger.log(logger.logLevels["info"], "listening on port " + server.address().port);
