@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelFormQuiz : MonoBehaviour {
-	//test parameter -> to be deleted if form is attached to rest of app
-	private bool first = true;
 	private DBInterface dbinterface;
 	private Main main;
 
@@ -25,6 +23,8 @@ public class PanelFormQuiz : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		btnAddQuestion.GetComponent<Button> ().onClick.AddListener (() => {addQuestionForm ();});
+		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveQuestions();});
 		//init ();
 	}
 	
@@ -36,8 +36,7 @@ public class PanelFormQuiz : MonoBehaviour {
 	public void init(){
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
-		btnAddQuestion.GetComponent<Button> ().onClick.AddListener (() => {addQuestionForm ();});
-		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveQuestions();});
+
 		foreach (GameObject q in questions){
 			Destroy(q);	
 		}
@@ -89,24 +88,19 @@ public class PanelFormQuiz : MonoBehaviour {
 	public void addAnswerForm(string questionName, int id, string answerText = "Neue Antwort", bool correct = false){
 		GameObject generatedAnswer = Instantiate (answer, Vector3.zero, Quaternion.identity) as GameObject;
 		generatedAnswer.transform.parent = GameObject.Find(questionName+"/answers").transform;
-		generatedAnswer.transform.FindChild ("InputField/Text").GetComponent<Text> ().text = answerText;
+		generatedAnswer.transform.FindChild ("InputField").GetComponent<InputField> ().text = answerText;
 		generatedAnswer.transform.FindChild ("Toggle").GetComponent<Toggle> ().isOn = correct;
 		answers [id].Add (generatedAnswer);
 	}
 
 	public void addQuestionForm(string qname = "Neue Frage", bool load = false){
-		/*if (first) {
-			dbinterface.getTask ("taskData", task_id, gameObject);
-			first = false;
-			return;
-		}*/
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = question_id;
 		generatedQuestion.name = "question" + id;
 		generatedQuestion.transform.parent = GameObject.Find ("panelQuestions/questions").transform;
 		generatedQuestion.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener (() => {addAnswerForm(generatedQuestion.name, id);});	
-		generatedQuestion.transform.FindChild ("InputField/Text").GetComponent<Text> ().text = qname;
+		generatedQuestion.transform.FindChild ("InputField").GetComponent<InputField> ().text = qname;
 		questions.Add (generatedQuestion);
 		List<GameObject> answersForQuestion = new List<GameObject> ();
 		answers.Add (answersForQuestion);
@@ -121,13 +115,13 @@ public class PanelFormQuiz : MonoBehaviour {
 		QuizData quizData = new QuizData ("");
 		for (int i = 0; i < questions.Count; i++){
 			//save question text
-			string questionText = questions[i].transform.FindChild("InputField/Text").GetComponent<Text>().text;
+			string questionText = questions[i].transform.FindChild("InputField").GetComponent<InputField>().text;
 			List<string> questionAns = new List<string>();
 			List<int> questionWeight = new List<int>();
 			//save answers
 			List<GameObject> answerList = answers[i];
 			foreach(GameObject obj in answerList){
-				questionAns.Add (obj.transform.FindChild("InputField/Text").GetComponent<Text>().text);
+				questionAns.Add (obj.transform.FindChild("InputField").GetComponent<InputField>().text);
 				questionWeight.Add (obj.transform.FindChild("Toggle").GetComponent<Toggle>().isOn? 1 : 0);
 			}
 			Debug.Log (questionAns.ToString());
@@ -138,11 +132,6 @@ public class PanelFormQuiz : MonoBehaviour {
 		}
 		//TODO fill in description
 		dbinterface.editTask ("editTask", task_id, "", quizData.getCSV(), gameObject);
-
-
-
-
-
 	}
 
 	public void setTaskId(int id){

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelFormAssignment : MonoBehaviour {
-	//test parameter -> to be deleted if form is attached to rest of app
-	private bool first = true;
 	private DBInterface dbinterface;
 	
 	public GameObject assignment;
@@ -22,22 +20,18 @@ public class PanelFormAssignment : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		btnAddAssignment.GetComponent<Button> ().onClick.AddListener (() => {addAssignmentForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveAssignments();});
-		init ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		//init ();
 	}
 	
 	public void init(){
-		
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+
+
 		assignments = new List<GameObject> ();
 		assignment_id = 0;
-		//dbinterface.getTask ("taskData", task_id, gameObject);
+		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 	
 	public void dbInputHandler(string[] response){
@@ -66,18 +60,13 @@ public class PanelFormAssignment : MonoBehaviour {
 	}
 	
 	public void addAssignmentForm(string aname = "Neue Zuordnung1", string bname = "Neue Zuordnung2"){
-		if (first) {
-			dbinterface.getTask ("taskData", task_id, gameObject);
-			first = false;
-			return;
-		}
 		GameObject generatedAssignment = Instantiate (assignment, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = assignment_id;
 		generatedAssignment.name = "assignment" + id;
 		generatedAssignment.transform.parent = GameObject.Find ("panelAssignment/assignments").transform;
-		generatedAssignment.transform.FindChild ("formAssign/InputField1/Text").GetComponent<Text> ().text = aname;
-		generatedAssignment.transform.FindChild ("formAssign/InputField2/Text").GetComponent<Text> ().text = bname;
+		generatedAssignment.transform.FindChild ("formAssign/InputField1").GetComponent<InputField> ().text = aname;
+		generatedAssignment.transform.FindChild ("formAssign/InputField2").GetComponent<InputField> ().text = bname;
 		assignments.Add (generatedAssignment);
 	
 		assignment_id++;
@@ -87,8 +76,8 @@ public class PanelFormAssignment : MonoBehaviour {
 		AssignmentData assignmentData = new AssignmentData ("");
 		for (int i = 0; i < assignments.Count; i++){
 			//save question text
-			string assignment1 = assignments[i].transform.FindChild("formAssign/InputField1/Text").GetComponent<Text>().text;
-			string assignment2 = assignments[i].transform.FindChild("formAssign/InputField2/Text").GetComponent<Text>().text;
+			string assignment1 = assignments[i].transform.FindChild("formAssign/InputField1").GetComponent<InputField>().text;
+			string assignment2 = assignments[i].transform.FindChild("formAssign/InputField2").GetComponent<InputField>().text;
 			AssignmentQuestion assignmentQuestion = new AssignmentQuestion(assignment1, assignment2);
 			assignmentData.addQuestion(assignmentQuestion);
 			

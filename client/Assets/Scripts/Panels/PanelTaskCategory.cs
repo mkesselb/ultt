@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelTaskCategory : MonoBehaviour {
-	//test parameter -> to be deleted if form is attached to rest of app
-	private bool first = true;
 	private DBInterface dbinterface;
 
 	public GameObject categoryToggle;
@@ -17,30 +15,34 @@ public class PanelTaskCategory : MonoBehaviour {
 	private CategoryData catData;
 	private List<string> phrases;
 
-	private double answers = -1;
-	private double points = 0;
+	private double answers;
+	private double points;
 
 	public int task_id = 5;
 
 	// Use this for initialization
 	void Start () {
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		btnNextPhrase.GetComponent<Button> ().onClick.AddListener (() => {invokeNextPhrase ();});
 	}
 
 	public void init(){
+		//first, destroy all toggles
+		for (int i = 0; i < gameObject.transform.FindChild("panelCategories/categories").childCount; i++){
+			Destroy(gameObject.transform.FindChild("panelCategories/categories").GetChild (i).gameObject);
+		}
+		btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = "nächstes Wort";
+
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+
+		answers = -1;
+		points = 0;
+
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
 	public void invokeNextPhrase(bool first = false){
-		if (this.first) {
-			this.first = false;
-			this.task_id = 5;
-			dbinterface.getTask ("taskData", task_id, gameObject);
-			return;
-		}
 		//check current categorization
-		if (!first) {
+		if (!first && answers < phrases.Count) {
 			string answ = currentPhrase.GetComponent<Text> ().text;
 			string selectedCat = "";
 			for (int i = 0; i < gameObject.transform.FindChild("panelCategories/categories").childCount; i++){
@@ -53,15 +55,19 @@ public class PanelTaskCategory : MonoBehaviour {
 			points += success;
 		}
 
-		if (answers < (phrases.Count-1)) {
+		if (answers < phrases.Count-1) {
 			//update status
-			statusText.GetComponent<Text>().text = "Bearbeitet: " + (++answers) + " / " + phrases.Count + "\nRichtig: " + points;
+			answers += 1;
+			statusText.GetComponent<Text>().text = "Bearbeitet: " + (answers) + " / " + phrases.Count + "\nRichtig: " + points;
 
 			//get next phrase from list
 			currentPhrase.GetComponent<Text>().text = phrases[(int)answers];
 		} else {
+			answers = phrases.Count;
 			//ready to be handed in ;)
 			statusText.GetComponent<Text>().text = "Bearbeitet: " + phrases.Count + " / " + phrases.Count + "\nRichtig: " + points;
+
+			btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = "Ergebnisse prüfen";
 			//TODO: automatic handing-in or with button-press?
 		}
 	}

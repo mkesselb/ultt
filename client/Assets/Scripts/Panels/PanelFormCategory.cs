@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelFormCategory : MonoBehaviour {
-	//test parameter -> to be deleted if form is attached to rest of app
-	private bool first = true;
 	private DBInterface dbinterface;
 
 	public GameObject category;
@@ -24,23 +22,22 @@ public class PanelFormCategory : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		btnAddCategory.GetComponent<Button> ().onClick.AddListener (() => {addCategoryForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveCategories();});
-		init ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+		//init ();
 	}
 
 	public void init(){
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+
+		foreach (GameObject go in categories) {
+			Destroy (go);
+		}
 
 		categories = new List<GameObject> ();
 		members = new List<List<GameObject>> ();
 		category_id = 0;
-		//dbinterface.getTask ("taskData", task_id, gameObject);
+		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
 	public void dbInputHandler(string[] response){
@@ -73,23 +70,18 @@ public class PanelFormCategory : MonoBehaviour {
 	public void addMemberForm(string memberName, int id, string memberText = "Phrase für Kategorie"){
 		GameObject generatedMember = Instantiate (member, Vector3.zero, Quaternion.identity) as GameObject;
 		generatedMember.transform.parent = GameObject.Find(memberName+"/members").transform;
-		generatedMember.transform.FindChild ("InputField/Text").GetComponent<Text> ().text = memberText;
+		generatedMember.transform.FindChild ("InputField").GetComponent<InputField> ().text = memberText;
 		members [id].Add (generatedMember);
 	}
 
 	public void addCategoryForm(string catName="Neue Kategorie", bool load = false){
-		if (first) {
-			dbinterface.getTask ("taskData", task_id, gameObject);
-			first = false;
-			return;
-		}
 		GameObject generatedCat = Instantiate (category, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = category_id;
 		generatedCat.name = "category" + id;
 		generatedCat.transform.parent = GameObject.Find ("panelCategories/categories").transform;
 		generatedCat.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener (() => {addMemberForm(generatedCat.name, id);});	
-		generatedCat.transform.FindChild ("catName/Text").GetComponent<Text> ().text = catName;
+		generatedCat.transform.FindChild ("catName").GetComponent<InputField> ().text = catName;
 		categories.Add (generatedCat);
 		List<GameObject> membersForCat = new List<GameObject> ();
 		members.Add (membersForCat);
@@ -104,12 +96,12 @@ public class PanelFormCategory : MonoBehaviour {
 		for (int i = 0; i < categories.Count; i++){
 			//save cat name
 			Debug.Log (categories[i].ToString());
-			string catName = categories[i].transform.FindChild("catName/Text").GetComponent<Text>().text;
+			string catName = categories[i].transform.FindChild("catName").GetComponent<InputField>().text;
 			List<string> catMembers = new List<string>();
 			//save members
 			List<GameObject> membersList = members[i];
 			foreach(GameObject obj in membersList){
-				catMembers.Add (obj.transform.FindChild("InputField/Text").GetComponent<Text>().text);
+				catMembers.Add (obj.transform.FindChild("InputField").GetComponent<InputField>().text);
 			}
 			Debug.Log (catMembers.ToString());
 			CategoryQuestion quizQuestion = new CategoryQuestion(catName, catMembers);
