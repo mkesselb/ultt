@@ -44,7 +44,7 @@ public class PanelFormCategory : MonoBehaviour {
 	}
 
 	public void dbInputHandler(string[] response){
-		Debug.Log ("in dbinputhandler of PanelFormQuiz");
+		Debug.Log ("in dbinputhandler of PanelFormCategory");
 		string target = response [0];
 		string data = response [1];
 		JSONNode parsedData = JSONParser.JSONparse(data);

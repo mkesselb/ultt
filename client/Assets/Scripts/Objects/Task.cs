@@ -36,7 +36,12 @@ public class Task {
 	public Task(int id_, JSONNode task){
 		this.id = id_;
 		name = task ["taskname"];
-		isPublic = int.Parse(task ["public"]);
+		if (task ["public"] != null) {
+			isPublic = int.Parse (task ["public"]);
+		} else {
+			//default public
+			isPublic = 1;
+		}
 		user_id = int.Parse (task ["user_id"]);
 		if (task ["data_file"] != null){
 			datafile = task ["data_file"];

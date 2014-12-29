@@ -70,9 +70,11 @@
      <Compile Include="Assets\Scripts\Panels\PanelQuiz.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelRegister.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelTaskAssignment.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelTaskCategory.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelTeacherClass.cs" />
      <Compile Include="Assets\Scripts\Panels\PanelUserClass.cs" />
      <Compile Include="Assets\Scripts\Panels\Profile.cs" />
+     <Compile Include="Assets\Scripts\lib\Shuffle.cs" />
      <Compile Include="Assets\Scripts\lib\SimpleJSON.cs" />
      <Compile Include="Assets\Scripts\taskdata\AssignmentData.cs" />
      <Compile Include="Assets\Scripts\taskdata\AssignmentQuestion.cs" />

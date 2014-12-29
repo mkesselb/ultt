@@ -43,8 +43,8 @@ public class Main : MonoBehaviour {
 
 	//panels for tasks
 	public GameObject panelQuiz;
-	public GameObject panelAssign;
-	public GameObject panelCategory;
+	public GameObject panelTaskAssignment;
+	public GameObject panelTaskCategory;
 
 	//panels for task forms
 	public GameObject panelFormQuiz;
@@ -69,12 +69,15 @@ public class Main : MonoBehaviour {
 		panelTeacherClass.SetActive(false);
 		panelUserClass.SetActive(false);
 		panelQuiz.SetActive (false);
-		panelAssign.SetActive (false);
 		messagebox.SetActive (false);
 		dialogbox.SetActive (false);
+
 		panelFormQuiz.SetActive (false);
 		panelFormCategory.SetActive (false);
 		panelFormAssign.SetActive (false);
+
+		panelTaskAssignment.SetActive (false);
+		panelTaskCategory.SetActive (false);
 	}
 
 	public void eventHandler(string eventname, int id){
@@ -112,17 +115,18 @@ public class Main : MonoBehaviour {
 								panelFormAssign.GetComponent<PanelFormAssignment>().setTaskId(id);
 								panelFormAssign.GetComponent<PanelFormAssignment>().init();
 								break;
-		case "startTaskQuiz":		panelQuiz.SetActive(true);
+		case "startTaskQuiz":	panelQuiz.SetActive(true);
 								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
-		case "startTaskAssign":	//panelAssign.SetActive(true);
-								//panelAssign.GetComponent<PanelAssign>().setTaskId(id);
-								//panelAssign.GetComponent<PanelAssign>().init();
+		case "startTaskAssign":	panelTaskAssignment.SetActive(true);
+								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskId(id);
+								panelTaskAssignment.GetComponent<PanelTaskAssignment>().init();
 								break;
-		case "startTaskCategory": //panelCategory.SetActive(true);
-								//panelAssign.GetComponent<PanelCategory>().setTaskId(id);
-								//panelAssign.GetComponent<PanelCategory>().init();
+		case "startTaskCategory":
+								panelTaskCategory.SetActive(true);
+								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskId(id);
+								panelTaskCategory.GetComponent<PanelTaskCategory>().init();
 								break;
 		}
 	}
@@ -156,11 +160,11 @@ public class Main : MonoBehaviour {
 		} else if (panelQuiz.activeSelf) {
 			panelQuiz.SetActive (false);
 			btnBackText.GetComponent<Text> ().text = "zurück";
-		} else if (panelAssign.activeSelf) {
-			panelAssign.SetActive (false);
+		} else if (panelTaskAssignment.activeSelf) {
+			panelTaskAssignment.SetActive (false);
 			btnBackText.GetComponent<Text> ().text = "zurück";
-		} else if (panelCategory.activeSelf) {
-			panelCategory.SetActive (false);
+		} else if (panelTaskCategory.activeSelf) {
+			panelTaskCategory.SetActive (false);
 			btnBackText.GetComponent<Text> ().text = "zurück";
 		} else if (panelFormQuiz.activeSelf) {
 			panelFormQuiz.SetActive (false);
