@@ -79,6 +79,7 @@ public class Main : MonoBehaviour {
 
 		panelTaskAssignment.SetActive (false);
 		panelTaskCategory.SetActive (false);
+		
 	}
 
 	public void eventHandler(string eventname, int id){
@@ -129,6 +130,9 @@ public class Main : MonoBehaviour {
 								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskId(id);
 								panelTaskCategory.GetComponent<PanelTaskCategory>().init();
 								break;
+		case "finishTask":		panelQuiz.SetActive (false);
+								break;
+
 		}
 	}
 	
