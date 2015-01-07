@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\ErrorHandler.cs" />
      <Compile Include="Assets\Scripts\IdHandler.cs" />
      <Compile Include="Assets\Scripts\JSONParser.cs" />
+     <Compile Include="Assets\Scripts\LocaleHandler.cs" />
      <Compile Include="Assets\Scripts\LogIn.cs" />
      <Compile Include="Assets\Scripts\Main.cs" />
      <Compile Include="Assets\Scripts\Objects\Course.cs" />
@@ -91,6 +92,7 @@
      <Compile Include="Assets\Scripts\validators\NumberValidator.cs" />
      <Compile Include="Assets\Scripts\validators\TextValidator.cs" />
      <None Include="Assets\Scripts\errorcodes\eng.txt" />
+     <None Include="Assets\Scripts\locales\de.txt" />
      <None Include="Assets\Scripts\errorcodes\de.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Projects/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

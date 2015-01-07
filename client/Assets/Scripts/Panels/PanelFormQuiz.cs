@@ -42,6 +42,14 @@ public class PanelFormQuiz : MonoBehaviour {
 		}
 		questions.Clear();
 
+		GameObject.Find ("panelQuestions/Text").GetComponent<Text> ().text = LocaleHandler.getText ("quiz-info", main.getLang());
+		btnAddQuestion.transform.FindChild("Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-quiz-add-question", main.getLang());
+		btnSave.transform.FindChild("Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-quiz-save", main.getLang());
+		question.transform.FindChild("ButtonAdd/Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-quiz-add-answer", main.getLang());
+
 		questions = new List<GameObject> ();
 		answers = new List<List<GameObject>> ();
 		question_id = 0;

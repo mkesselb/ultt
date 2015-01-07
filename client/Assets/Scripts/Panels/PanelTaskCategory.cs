@@ -6,6 +6,7 @@ using SimpleJSON;
 
 public class PanelTaskCategory : MonoBehaviour {
 	private DBInterface dbinterface;
+	private Main main;
 
 	public GameObject categoryToggle;
 	public GameObject currentPhrase;
@@ -26,16 +27,27 @@ public class PanelTaskCategory : MonoBehaviour {
 	}
 
 	public void init(){
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+		main = GameObject.Find ("Scripts").GetComponent<Main>();
+
 		//first, destroy all toggles
 		for (int i = 0; i < gameObject.transform.FindChild("panelCategories/categories").childCount; i++){
 			Destroy(gameObject.transform.FindChild("panelCategories/categories").GetChild (i).gameObject);
 		}
-		btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = "nächstes Wort";
-
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 
 		answers = -1;
 		points = 0;
+
+		gameObject.transform.FindChild("Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("info-nextword", main.getLang());
+		btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text
+			= LocaleHandler.getText ("button-cat-next", main.getLang());
+
+		/*info-nextword;Nächstes Wort
+		info-cat-num-answers;Bearbeitet:
+		info-cat-num-correct;Richtig:
+		button-cat-next;nächstes Wort
+		button-cat-end;Ergebnisse prüfen*/
 
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
@@ -58,16 +70,20 @@ public class PanelTaskCategory : MonoBehaviour {
 		if (answers < phrases.Count-1) {
 			//update status
 			answers += 1;
-			statusText.GetComponent<Text>().text = "Bearbeitet: " + (answers) + " / " + phrases.Count + "\nRichtig: " + points;
+			statusText.GetComponent<Text>().text = LocaleHandler.getText ("info-cat-num-answers", main.getLang()) 
+				+ (answers) + " / " + phrases.Count 
+				+ "\n" + LocaleHandler.getText ("info-cat-num-correct", main.getLang()) + points;
 
 			//get next phrase from list
 			currentPhrase.GetComponent<Text>().text = phrases[(int)answers];
 		} else {
 			answers = phrases.Count;
 			//ready to be handed in ;)
-			statusText.GetComponent<Text>().text = "Bearbeitet: " + phrases.Count + " / " + phrases.Count + "\nRichtig: " + points;
+			statusText.GetComponent<Text>().text = LocaleHandler.getText ("info-cat-num-answers", main.getLang()) 
+				+ phrases.Count + " / " + phrases.Count
+					+ "\n" + LocaleHandler.getText ("info-cat-num-correct", main.getLang()) + points;
 
-			btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = "Ergebnisse prüfen";
+			btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = LocaleHandler.getText ("button-cat-end", main.getLang());
 			//TODO: automatic handing-in or with button-press?
 		}
 	}

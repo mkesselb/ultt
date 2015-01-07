@@ -60,6 +60,7 @@ public class Main : MonoBehaviour {
 		idhandler.setupMapping ();
 		CSVHelper.addSwap (",", "#csw");
 		errorhandler = new ErrorHandler (lang);
+		LocaleHandler.setupMapping (lang);
 
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
@@ -134,53 +135,53 @@ public class Main : MonoBehaviour {
 	public void back(){	
 				if (panelProfile.activeSelf && panelCreateClass.activeSelf) {
 			panelCreateClass.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelProfile.activeSelf && panelCreateTask.activeSelf) {
 			panelCreateTask.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelProfile.activeSelf && panelRegistration.activeSelf) {
 			panelRegistration.SetActive (false);
 			panelLogInScreen.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelRegister.activeSelf) {
 			panelRegister.SetActive (false);
 			panelLogInScreen.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelTeacherClass.activeSelf && panelStudentList.activeSelf) {
 			panelStudentList.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelTeacherClass.activeSelf && !panelStudentList.activeSelf) {
 			panelTeacherClass.SetActive (false);
 			panelProfile.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelUserClass.activeSelf) {
 			panelUserClass.SetActive (false);
 			panelProfile.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelQuiz.activeSelf) {
 			panelQuiz.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelTaskAssignment.activeSelf) {
 			panelTaskAssignment.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelTaskCategory.activeSelf) {
 			panelTaskCategory.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelFormQuiz.activeSelf) {
 			panelFormQuiz.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelFormAssign.activeSelf) {
 			panelFormAssign.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelFormCategory.activeSelf) {
 			panelFormCategory.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		} else if (panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf) {
 			panelProfile.SetActive (false);
 			panelLogInScreen.SetActive (true);
 			panelHeader.SetActive (false);
 			panelProfile.GetComponent<Profile> ().clear ();
-			btnBackText.GetComponent<Text> ().text = "zurück";
+			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
 		}
 	}
 		
@@ -188,7 +189,7 @@ public class Main : MonoBehaviour {
 	public void dbErrorHandler(string target, string errortext){
 		Debug.Log ("Error message from db on target "+target+": "+errortext);
 
-		writeToMessagebox ("Es konnte keine Verbindung zum Server hergstellt werden.");
+		writeToMessagebox (LocaleHandler.getText("noserver-connection", lang));
 	}
 
 	//called by dbinterface when an errorcode is returned from server
@@ -218,8 +219,8 @@ public class Main : MonoBehaviour {
 	public void activateDialogbox(string question, int idOfObjectToDelete, GameObject receiver, string receiverMethod){
 		dialogbox.SetActive (true);
 		dialogbox.transform.FindChild ("Text").GetComponent<Text> ().text = question;
-		dialogbox.transform.FindChild ("ButtonNo/Text").GetComponent<Text> ().text = "no";
-		dialogbox.transform.FindChild ("ButtonYes/Text").GetComponent<Text> ().text = "yes";
+		dialogbox.transform.FindChild ("ButtonNo/Text").GetComponent<Text> ().text = LocaleHandler.getText("dialog-no", lang);
+		dialogbox.transform.FindChild ("ButtonYes/Text").GetComponent<Text> ().text = LocaleHandler.getText("dialog-yes", lang);
 		dialogbox.transform.FindChild("ButtonNo").GetComponent<Button>().onClick.AddListener(()=> {returnDialogboxResult(0, idOfObjectToDelete,receiver, receiverMethod);});
 		dialogbox.transform.FindChild("ButtonYes").GetComponent<Button>().onClick.AddListener(()=> {returnDialogboxResult(1, idOfObjectToDelete, receiver, receiverMethod);});
 	}
@@ -239,5 +240,9 @@ public class Main : MonoBehaviour {
 	}
 	public int getUserId(){
 		return userid;	
+	}
+
+	public string getLang(){
+		return lang;
 	}
 }

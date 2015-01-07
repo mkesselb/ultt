@@ -6,6 +6,7 @@ using SimpleJSON;
 
 public class PanelFormAssignment : MonoBehaviour {
 	private DBInterface dbinterface;
+	private Main main;
 	
 	public GameObject assignment;
 	
@@ -26,8 +27,17 @@ public class PanelFormAssignment : MonoBehaviour {
 	}
 	
 	public void init(){
+		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 
+		foreach (GameObject go in assignments) {
+			Destroy (go);
+		}
+
+		btnAddAssignment.transform.FindChild("Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-assig-add", main.getLang());
+		btnSave.transform.FindChild("Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-assig-save", main.getLang());
 
 		assignments = new List<GameObject> ();
 		assignment_id = 0;

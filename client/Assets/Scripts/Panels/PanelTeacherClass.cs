@@ -41,7 +41,29 @@ public class PanelTeacherClass : MonoBehaviour {
 	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		//teacherClass = GameObject.Find("Scripts").GetComponent<TeacherClass>();
-		
+
+		//add localization of texts
+		gameObject.transform.FindChild("btnShowStudents/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("student-results", main.getLang());
+		gameObject.transform.FindChild("OverviewTasksInClass/ContentTasksForTopic/ButtonAdd/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("button-add-topic", main.getLang());
+		gameObject.transform.FindChild("panelAddTopic/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("topicname-info", main.getLang());
+		gameObject.transform.FindChild("panelAddTopic/Button/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("button-add-topicok", main.getLang());
+		topic.transform.FindChild("btnAddTask/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("button-add-tasktotopic", main.getLang());
+
+		//add task to topic
+		gameObject.transform.FindChild("panelAddTask/textTask").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("info-select-task", main.getLang());
+		gameObject.transform.FindChild("panelAddTask/textAttempts").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("info-task-maxattempts", main.getLang());
+		gameObject.transform.FindChild("panelAddTask/Panel/toggleNotObligatory/Label").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("info-notobligatory", main.getLang());
+		gameObject.transform.FindChild("panelAddTask/Panel/toggleObligatory/Label").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("info-obligatory", main.getLang());
+
 		tasksBtns = new List<GameObject>();
 		topics = new List<GameObject>();
 		students = new List<GameObject>();

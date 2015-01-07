@@ -6,6 +6,7 @@ using SimpleJSON;
 
 public class PanelFormCategory : MonoBehaviour {
 	private DBInterface dbinterface;
+	private Main main;
 
 	public GameObject category;
 	public GameObject member;
@@ -28,11 +29,19 @@ public class PanelFormCategory : MonoBehaviour {
 	}
 
 	public void init(){
+		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 
 		foreach (GameObject go in categories) {
 			Destroy (go);
 		}
+		
+		btnAddCategory.transform.FindChild("Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-cat-addcat", main.getLang());
+		category.transform.FindChild("ButtonAdd/Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-cat-addphrase", main.getLang());
+		btnSave.transform.FindChild("Text").GetComponent<Text>().text
+			= LocaleHandler.getText ("button-cat-save", main.getLang());
 
 		categories = new List<GameObject> ();
 		members = new List<List<GameObject>> ();

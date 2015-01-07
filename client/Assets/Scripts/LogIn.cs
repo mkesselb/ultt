@@ -16,6 +16,9 @@ public class LogIn : MonoBehaviour {
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 
+		GameObject.Find ("btnLogIn/Text").GetComponent<Text> ().text = LocaleHandler.getText ("login-button", main.getLang());
+		GameObject.Find ("btnRegister/Text").GetComponent<Text> ().text = LocaleHandler.getText ("register-button", main.getLang());
+
 		List<string> keys = new List<string> ();
 		keys.Add ("username");
 		keys.Add ("password");

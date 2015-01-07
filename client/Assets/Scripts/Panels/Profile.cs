@@ -61,6 +61,52 @@ public class Profile : MonoBehaviour {
 		menuUserClass.GetComponent<Button> ().interactable = true;
 		menuTasks.GetComponent<Button> ().interactable = true;
 
+		//set text to correct locale
+		GameObject.Find ("btnKlassen/Text").GetComponent<Text> ().text = LocaleHandler.getText ("class-tab", main.getLang());
+		GameObject.Find ("btnKurse/Text").GetComponent<Text> ().text = LocaleHandler.getText ("course-tab", main.getLang());
+		GameObject.Find ("btnTasks/Text").GetComponent<Text> ().text = LocaleHandler.getText ("task-tab", main.getLang());
+		gameObject.transform.FindChild("OverviewKlassen/ContentKlassen/ButtonAdd/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("add-class", main.getLang());
+		gameObject.transform.FindChild("OverviewKurse/ContentKurse/ButtonAdd/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("add-course", main.getLang());
+		gameObject.transform.FindChild("OverviewTasks/ContentTasks/ButtonAdd/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("add-task", main.getLang());
+
+		//create class form localization
+		gameObject.transform.FindChild("panelCreateClass/fieldHeadline").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("class-add-info", main.getLang());
+		gameObject.transform.FindChild("panelCreateClass/textClassName").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("class-name", main.getLang());
+		gameObject.transform.FindChild("panelCreateClass/textYear").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("class-year", main.getLang());
+		gameObject.transform.FindChild("panelCreateClass/textSubject").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("class-subject", main.getLang());
+		gameObject.transform.FindChild("panelCreateClass/btnCreate/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("button-add-class", main.getLang());
+
+		//course registration form localization
+		gameObject.transform.FindChild("panelRegisterToClass/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("course-info1", main.getLang()) + "\n" 
+				+ LocaleHandler.getText ("course-info2", main.getLang()) + "\n" 
+				+ LocaleHandler.getText ("course-info3", main.getLang());
+		gameObject.transform.FindChild("panelRegisterToClass/fieldHeadline").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("course-code-info", main.getLang());
+		gameObject.transform.FindChild("panelRegisterToClass/btnRegister/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("button-add-course", main.getLang());
+
+		//task creation form localization
+		gameObject.transform.FindChild("panelCreateTask/fieldHeadline").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("task-add-info", main.getLang());
+		gameObject.transform.FindChild("panelCreateTask/textName").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("task-name", main.getLang());
+		gameObject.transform.FindChild("panelCreateTask/textPrivacy").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("task-privacy", main.getLang());
+		gameObject.transform.FindChild("panelCreateTask/textSubject").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("task-subject", main.getLang());
+		gameObject.transform.FindChild("panelCreateTask/textType").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("tasktype", main.getLang());
+		gameObject.transform.FindChild("panelCreateTask/btnCreate/Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("button-add-task", main.getLang());
 
 		//userid = main.getUserId();
 		userClasses = new List<UserClass>();

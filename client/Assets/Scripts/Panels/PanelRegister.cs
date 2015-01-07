@@ -16,6 +16,9 @@ public class PanelRegister : MonoBehaviour {
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 
+		GameObject.Find ("fieldHeadline").GetComponent<Text> ().text = LocaleHandler.getText ("register-info", main.getLang());
+		GameObject.Find ("btnRegister/Text").GetComponent<Text> ().text = LocaleHandler.getText ("register-button", main.getLang());
+
 		List<string> keys = new List<string> ();
 		keys.Add ("firstname");
 		keys.Add ("lastname");

@@ -1,0 +1,77 @@
+#dialog and other messages
+dialog-yes;Ja
+dialog-no;Nein
+noserver-connection;Es konnte keine Verbindung zum Server hergstellt werden.
+
+#login and register panels
+back-button;zurück
+logout-button;ausloggen
+login-button;einloggen
+register-button;anmelden
+register-info;Bitte Anmeldedaten eingeben
+
+#profile tabs
+class-tab;Meine Klassen
+course-tab;Meine Kurse
+task-tab;Meine Aufgaben
+
+#add class panel
+add-class;Klasse hinzufügen
+class-add-info;Bitte Klassendaten eingeben:
+class-name;Klassenname
+class-year;Schuljahr
+class-subject;Fach
+button-add-class;erstellen
+
+#teacher class panel
+student-results;Schülerinnen-ergebnisse
+button-add-topic;Thema hinzufügen
+button-add-topicok;OK
+topicname-info;Themenname eintragen
+button-add-tasktotopic;Aufgabe hinzufügen
+#add task to topic
+info-select-task;Aufgabe auswählen
+info-task-maxattempts;maximale Anzahl der Versuche
+info-notobligatory;Übung
+info-obligatory;Überprüfung
+
+#register to course panel
+add-course;Kursregistrierung
+course-info1;Um dich zu einem Kurs anmelden zu können, benötigst du den Anmeldungscode des Kurses. Diesen bekommst du vom Lehrer des Kurses.
+course-info2;Wenn du den Code in das untenstehende Feld eingibst und bestätigst, bist du in diesem Kurs angemeldet. 
+course-info3;Der Lehrer entscheidet, ob er dich in den Kurs aufnehmen will. Du kannst den Kurs dann in deinem Profil unter "Meine Kurse" finden.
+course-code-info;Code eingeben:
+button-add-course;registrieren
+
+#add task panel
+add-task;Aufgabenerstellung
+task-add-info;Bitte Daten der Aufgabe eingeben:
+task-name;Name
+task-privacy;öffentlich?
+task-subject;Fach
+tasktype;Aufgabentyp
+button-add-task;erstellen
+
+#form quiz
+quiz-info;Bearbeite das Quiz, indem du Fragen und Antworten hinzufügst. Markiere die richtigen Antworten.
+button-quiz-add-answer;Antwort hinzufügen
+button-quiz-add-question;Frage hinzufügen
+button-quiz-save;speichern
+
+#form category
+cat-info;
+button-cat-addphrase;Phrase hinzufügen
+button-cat-addcat;Kategorie hinzufügen
+button-cat-save;speichern
+
+#form assigment
+assig-info;
+button-assig-add;Zuordnung hinzufügen
+button-assig-save;speichern
+
+#task execution category
+info-nextword;Nächstes Wort
+info-cat-num-answers;Bearbeitet: 
+info-cat-num-correct;Richtig: 
+button-cat-next;nächstes Wort
+button-cat-end;Ergebnisse prüfen
