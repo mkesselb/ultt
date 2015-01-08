@@ -68,7 +68,7 @@ public class PanelTeacherClass : MonoBehaviour {
 		topics = new List<GameObject>();
 		students = new List<GameObject>();
 		tasksOverview = new List<TaskOverview> ();
-		init ();
+		//init ();
 	}
 	
 	public void init(){

@@ -23,7 +23,7 @@ public class PanelTaskAssignment : MonoBehaviour {
 	void Start () {
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		btnRelease.GetComponent<Button> ().onClick.AddListener (() => {releaseAssignments();});
-		init ();
+		//init ();
 	}
 	
 	// Update is called once per frame
