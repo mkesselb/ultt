@@ -30,4 +30,8 @@ public class AssignmentQuestion : TaskQuestion{
 	override public string getCSVRepresentation(){
 		return CSVHelper.swapEncode(fields[0]) + "," + CSVHelper.swapEncode(fields[1]);
 	}
+
+	override public void shuffleAnswers(){
+		return;
+	}
 }

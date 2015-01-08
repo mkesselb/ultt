@@ -56,6 +56,6 @@ public class CategoryQuestion : TaskQuestion{
 	}
 
 	override public void shuffleAnswers(){
-
+		Shuffle.shuffle (categoryMembers);
 	}
 }
