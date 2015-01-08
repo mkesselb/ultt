@@ -53,6 +53,8 @@ public class Main : MonoBehaviour {
 	
 	//userid
 	public int userid;
+
+	private List<GameObject> panelStack;
 	
 	void Start(){
 		dbinterface = gameObject.GetComponent<DBInterface>();
@@ -64,7 +66,9 @@ public class Main : MonoBehaviour {
 
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
-		panelHeader.SetActive (false);
+		panelHeader.SetActive (true);
+		panelHeader.transform.FindChild ("Top").gameObject.SetActive (false);
+		panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (false);
 		panelRegister.SetActive(false);
 		panelProfile.SetActive(false);
 		panelTeacherClass.SetActive(false);
@@ -79,113 +83,96 @@ public class Main : MonoBehaviour {
 
 		panelTaskAssignment.SetActive (false);
 		panelTaskCategory.SetActive (false);
-		
+
+		panelStack = new List<GameObject> ();
+		panelStack.Add (panelLogInScreen);
 	}
 
 	public void eventHandler(string eventname, int id){
 		switch(eventname){
-		case "logInSuccess": 	panelLogInScreen.SetActive(false);
-								panelHeader.SetActive(true);
+		case "logInSuccess": 	//panelLogInScreen.SetActive(false);
+								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
+								panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (true);
 								panelProfile.SetActive(true);
+								panelStack.Add(panelProfile);
 								panelProfile.GetComponent<Profile>().setUserId(id);
 								break;	
-		case "register":		panelLogInScreen.SetActive(false);
+		case "register":		//panelLogInScreen.SetActive(false);
 								panelRegister.SetActive(true);
+								panelStack.Add(panelRegister);
+								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
+								panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (true);
 								break;
-		case "registered": 		panelRegister.SetActive(false);
-								panelLogInScreen.SetActive(true);
+		case "registered": 		
+								back();
+								/*panelRegister.SetActive(false);
+								panelLogInScreen.SetActive(true);*/
 								break;
-		case "openTeacherClass": panelProfile.SetActive(false);
+		case "openTeacherClass":
+								panelStack.Add(panelTeacherClass);
+								panelProfile.SetActive(false);
 								panelTeacherClass.SetActive(true);
 								panelTeacherClass.GetComponent<PanelTeacherClass>().setClassId(id);
 								panelTeacherClass.GetComponent<PanelTeacherClass>().init();
 								break;
-		case "openUserClass": 	panelProfile.SetActive(false);
+		case "openUserClass": 	
+								panelStack.Add(panelUserClass);
+								panelProfile.SetActive(false);
 								panelUserClass.SetActive(true);
 								panelUserClass.GetComponent<PanelUserClass>().setClassId(id);
 								panelUserClass.GetComponent<PanelUserClass>().init ();
 								break;
-		case "openPanelFormQuiz": panelFormQuiz.SetActive(true);
+		case "openPanelFormQuiz":
+								panelStack.Add(panelFormQuiz);
+								panelFormQuiz.SetActive(true);
 								panelFormQuiz.GetComponent<PanelFormQuiz>().setTaskId(id);
 								panelFormQuiz.GetComponent<PanelFormQuiz>().init();
 								break;
-		case "openPanelFormCategory": panelFormCategory.SetActive(true);
+		case "openPanelFormCategory": 
+								panelStack.Add(panelFormCategory);
+								panelFormCategory.SetActive(true);
 								panelFormCategory.GetComponent<PanelFormCategory>().setTaskId(id);
 								panelFormCategory.GetComponent<PanelFormCategory>().init();
 								break;
-		case "openPanelFormAssignment": panelFormAssign.SetActive(true);
+		case "openPanelFormAssignment": 
+								panelStack.Add(panelFormAssign);
+								panelFormAssign.SetActive(true);
 								panelFormAssign.GetComponent<PanelFormAssignment>().setTaskId(id);
 								panelFormAssign.GetComponent<PanelFormAssignment>().init();
 								break;
-		case "startTaskQuiz":	panelQuiz.SetActive(true);
+		case "startTaskQuiz":	
+								panelStack.Add(panelQuiz);
+								panelQuiz.SetActive(true);
 								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
-		case "startTaskAssign":	panelTaskAssignment.SetActive(true);
+		case "startTaskAssign":	
+								panelStack.Add(panelTaskAssignment);
+								panelTaskAssignment.SetActive(true);
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskId(id);
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().init();
 								break;
 		case "startTaskCategory":
+								panelStack.Add(panelTaskCategory);
 								panelTaskCategory.SetActive(true);
 								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskId(id);
 								panelTaskCategory.GetComponent<PanelTaskCategory>().init();
 								break;
-		case "finishTask":		panelQuiz.SetActive (false);
+		case "finishTask":		back();
+								//panelQuiz.SetActive (false);
 								break;
 
 		}
 	}
 	
 	public void back(){	
-				if (panelProfile.activeSelf && panelCreateClass.activeSelf) {
-			panelCreateClass.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelProfile.activeSelf && panelCreateTask.activeSelf) {
-			panelCreateTask.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelProfile.activeSelf && panelRegistration.activeSelf) {
-			panelRegistration.SetActive (false);
-			panelLogInScreen.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelRegister.activeSelf) {
-			panelRegister.SetActive (false);
-			panelLogInScreen.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelTeacherClass.activeSelf && panelStudentList.activeSelf) {
-			panelStudentList.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelTeacherClass.activeSelf && !panelStudentList.activeSelf) {
-			panelTeacherClass.SetActive (false);
-			panelProfile.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelUserClass.activeSelf) {
-			panelUserClass.SetActive (false);
-			panelProfile.SetActive (true);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelQuiz.activeSelf) {
-			panelQuiz.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelTaskAssignment.activeSelf) {
-			panelTaskAssignment.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelTaskCategory.activeSelf) {
-			panelTaskCategory.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelFormQuiz.activeSelf) {
-			panelFormQuiz.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelFormAssign.activeSelf) {
-			panelFormAssign.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelFormCategory.activeSelf) {
-			panelFormCategory.SetActive (false);
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
-		} else if (panelProfile.activeSelf && !panelCreateClass.activeSelf && !panelRegistration.activeSelf) {
-			panelProfile.SetActive (false);
-			panelLogInScreen.SetActive (true);
-			panelHeader.SetActive (false);
-			panelProfile.GetComponent<Profile> ().clear ();
-			btnBackText.GetComponent<Text> ().text = LocaleHandler.getText("back-button", lang);
+		int c = panelStack.Count-1;
+		panelStack [c].SetActive (false);
+		panelStack.RemoveAt (c);
+		panelStack [c - 1].SetActive (true);
+		if (panelStack [c - 1] == panelLogInScreen) {
+			panelHeader.transform.FindChild ("Top").gameObject.SetActive (false);
+			panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (false);
 		}
 	}
 		
@@ -248,5 +235,9 @@ public class Main : MonoBehaviour {
 
 	public string getLang(){
 		return lang;
+	}
+
+	public void addToPanelStack(GameObject g){
+		this.panelStack.Add (g);
 	}
 }

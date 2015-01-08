@@ -28,14 +28,15 @@ public class PanelRegister : MonoBehaviour {
 		keys.Add ("email");
 		keys.Add ("school");
 		List<GameObject> formFields = new List<GameObject> ();
-		formFields.Add (GameObject.Find ("inputVorname"));
-		formFields.Add (GameObject.Find ("inputNachname"));
-		formFields.Add (GameObject.Find ("inputUsername"));
-		formFields.Add (GameObject.Find ("inputPassword"));
-		formFields.Add (GameObject.Find ("inputPassword2"));
-		formFields.Add (GameObject.Find ("inputEmail"));
-		formFields.Add (GameObject.Find ("inputSchool"));
+		formFields.Add (gameObject.transform.FindChild("inputVorname").gameObject);
+		formFields.Add (gameObject.transform.FindChild("inputNachname").gameObject);
+		formFields.Add (gameObject.transform.FindChild("inputUsername").gameObject);
+		formFields.Add (gameObject.transform.FindChild("inputPassword").gameObject);
+		formFields.Add (gameObject.transform.FindChild("inputPassword2").gameObject);
+		formFields.Add (gameObject.transform.FindChild("inputEmail").gameObject);
+		formFields.Add (gameObject.transform.FindChild("inputSchool").gameObject);
 		List<IValidator> formValidaotrs = new List<IValidator> ();
+		//TODO: false red paints on errors
 		formValidaotrs.Add (new TextValidator ());
 		formValidaotrs.Add (new TextValidator ());
 		formValidaotrs.Add (new TextValidator ());

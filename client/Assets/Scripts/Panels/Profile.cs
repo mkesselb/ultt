@@ -387,12 +387,14 @@ public class Profile : MonoBehaviour {
 	public void showTaskCreation(){
 		Debug.Log ("button clicked for show task creation");
 		panelCreateTask.SetActive (true);
+		main.addToPanelStack (panelCreateTask);
 	}
 	
 	public void showCreationFormForClass(){
 		Debug.Log ("button clicked, show creation form");	
 		//activate form to insert class data
 		panelCreateClass.SetActive(true);
+		main.addToPanelStack (panelCreateClass);
 		//wait until button "create" is clicked (button calls addClass)
 	}
 	
@@ -462,6 +464,7 @@ public class Profile : MonoBehaviour {
 	public void showRegisterToClassForm(){
 		Debug.Log ("button clicked, show registration form");	
 		panelRegistration.SetActive(true);
+		main.addToPanelStack (panelRegistration);
 		//wait until button "register" is clicked (button calls register) 
 	}
 	

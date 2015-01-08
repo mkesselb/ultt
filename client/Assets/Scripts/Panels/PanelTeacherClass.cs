@@ -186,6 +186,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							students.Clear();
 
 							panelStudentList.SetActive(true);
+							main.addToPanelStack(panelStudentList);
 			
 							//parse data in student objects (create student class)
 							if(data != "[]"){
@@ -220,6 +221,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							}
 							break;
 		case "tasks":		panelAddTask.SetActive(true);
+							main.addToPanelStack(panelAddTask);
 							//generate buttons
 							GameObject generatedBtn;
 							//delete old buttons and clear all references
@@ -313,6 +315,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void activatePanelAddTopic(){
 		Debug.Log ("activate panel");
 		panelAddTopic.SetActive (true);
+		main.addToPanelStack (panelAddTopic);
 	}
 	
 	public void addTopic(){
