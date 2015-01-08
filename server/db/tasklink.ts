@@ -120,7 +120,7 @@ function assignTaskToTopic(dbConnection, requestData, callback){
 	//first, perform fetch to see whether the task is already linked to same class+topic
 	var fetch = "select task_for_class_id from task_for_class "
 		+ "where class_id = " + requestData.class_id 
-		+ " and task_id = " + requestData.class_id 
+		+ " and task_id = " + requestData.task_id
 		+ " and class_topic_id = " + requestData.class_topic_id
 		+ " and deleted = 0";
 	
