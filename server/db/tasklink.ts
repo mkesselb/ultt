@@ -167,11 +167,8 @@ function deleteTaskFromTopic(dbConnection, requestData, callback){
 	logger.log(logger.logLevels["debug"], "deleting from task_for_class relationship");
 	
 	var ids = {};
-	ids["class_topic_id"] = requestData.class_topic_id;
-	ids["task_id"] = requestData.task_id;
-	ids["class_id"] = requestData.class_id;
-	dbConnection.query("update task_for_class set ? where ?", 
-			[{"deleted" : 1}, ids], 
+	dbConnection.query("update task_for_class set ? where class_topic_id = ? and task_id = ? and class_id = ?", 
+			[{"deleted" : 1}, requestData.class_topic_id, requestData.task_id, requestData.class_id], 
 			function(err, result){
 		if(err){
 			return callback(err);

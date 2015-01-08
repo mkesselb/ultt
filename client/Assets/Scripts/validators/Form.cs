@@ -44,7 +44,11 @@ public class Form{
 
 	public string getValue(string key){
 		if (formFields.ContainsKey (key)) {
-			return formFields[key].transform.FindChild("Text").GetComponent<Text> ().text;
+			if(formFields[key].GetComponent<InputField>().contentType == InputField.ContentType.Password){
+				return formFields[key].GetComponent<InputField>().text;
+			} else{
+				return formFields[key].transform.FindChild("Text").GetComponent<Text> ().text;
+			}
 		}
 
 		return "";
@@ -54,8 +58,9 @@ public class Form{
 		Dictionary<string, string> validation = new Dictionary<string, string> ();
 
 		foreach (string key in formFields.Keys) {
-			string text = (formFields[key].transform.FindChild("Text").GetComponent<Text> ().text == null 
-			              	? "" : formFields[key].transform.FindChild("Text").GetComponent<Text> ().text);
+			string text = getValue (key);
+			/*string text = (formFields[key].transform.FindChild("Text").GetComponent<Text> ().text == null 
+			              	? "" : formFields[key].transform.FindChild("Text").GetComponent<Text> ().text);*/
 			string v = formValidators[key].validateInput(text);
 			if(v.Length > 0){
 				//validation error, paint error color

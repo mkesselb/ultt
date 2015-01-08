@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelTeacherClass.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\taskdata\AssignmentQuestion.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="20" Column="31" />
+      <File FileName="Assets\Scripts\Main.cs" Line="17" Column="19" />
+      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="42" Column="2" />
+      <File FileName="Assets\Scripts\DBInterface.cs" Line="326" Column="1" />
+      <File FileName="Assets\Scripts\taskdata\AssignmentQuestion.cs" Line="34" Column="23" />
+      <File FileName="Assets\Scripts\taskdata\CategoryQuestion.cs" Line="58" Column="37" />
+      <File FileName="Assets\Scripts\taskdata\TaskData.cs" Line="59" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
