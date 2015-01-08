@@ -17,4 +17,5 @@ public abstract class TaskQuestion{
 	public abstract double checkAnswer(TaskQuestion answer);
 	public abstract object getAnswer();
 	public abstract string getCSVRepresentation();
+	public abstract void shuffleAnswers();
 }

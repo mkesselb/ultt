@@ -54,4 +54,8 @@ public class CategoryQuestion : TaskQuestion{
 
 		return csv;
 	}
+
+	override public void shuffleAnswers(){
+
+	}
 }

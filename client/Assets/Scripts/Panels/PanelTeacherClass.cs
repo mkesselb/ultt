@@ -32,11 +32,14 @@ public class PanelTeacherClass : MonoBehaviour {
 	private TeacherClass teacherClass;
 	
 	public Text fieldClassData;
+
+	private Form addTaskForm;
+	private Form topicForm;
 	
 	//contain Gameobjects (= buttons)
 	public List<GameObject> topics;
 	public List<GameObject> students;
-	//TODO: add form validation for addtopic, addtask
+
 	void Start () {
 	
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
@@ -69,10 +72,31 @@ public class PanelTeacherClass : MonoBehaviour {
 		students = new List<GameObject>();
 		tasksOverview = new List<TaskOverview> ();
 		//init ();
+		initAddTaskForm ();
+		initTopicForm ();
+	}
+
+	public void initTopicForm(){
+		List<string> keys = new List<string> ();
+		keys.Add ("topic_name");
+		List<GameObject> formFields = new List<GameObject> ();
+		formFields.Add (panelAddTopic.transform.FindChild("InputField").gameObject);
+		List<IValidator> formValidators = new List<IValidator> ();
+		formValidators.Add (new TextValidator());
+		topicForm = new Form (keys, formFields, formValidators, new Color(0.75f,0.75f,0.75f,1), Color.red);
+	}
+
+	public void initAddTaskForm(){
+		List<string> keys = new List<string> ();
+		keys.Add ("max_attempts");
+		List<GameObject> formFields = new List<GameObject> ();
+		formFields.Add (panelAddTask.transform.FindChild("InputField").gameObject);
+		List<IValidator> formValidators = new List<IValidator> ();
+		formValidators.Add (new NumberValidator (false, 0, int.MaxValue));
+		addTaskForm = new Form (keys, formFields, formValidators, new Color(0.75f,0.75f,0.75f,1), Color.red);
 	}
 	
 	public void init(){
-
 		string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
 		teacherClass = new TeacherClass(class_id, temp);
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
@@ -256,12 +280,13 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void addTask(int taskId, int topicId){
 		//TODO change params
 		int obligatory = 0;
-		if (panelAddTask.transform.FindChild ("Panel/toggleObligatory").GetComponent<Toggle> ().isOn) {
+		if (panelAddTask.transform.FindChild ("Panel/toggleObligatory").GetComponent<Toggle> ().isOn){
 			obligatory = 1;
 		}
 		Debug.Log ("--------------- "+panelAddTask.transform.FindChild("InputField/Text").GetComponent<Text>().text);
-		dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, obligatory, System.DateTime.Now.ToString(), int.Parse(panelAddTask.transform.FindChild("InputField/Text").GetComponent<Text>().text), gameObject);
-		panelAddTask.SetActive (false);
+		if (dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, obligatory, System.DateTime.Now.ToString (), addTaskForm, gameObject)) {
+			panelAddTask.SetActive (false);
+		}
 	}
 		
 	public void startTask(int id){
@@ -292,8 +317,9 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void addTopic(){
 		string name = fieldTopicToAdd.GetComponent<Text> ().text;
 		Debug.Log ("Button clicked, try to add Topic: "+name);
-		dbinterface.createClassTopic("addedTopic", class_id, name, gameObject);
-		panelAddTopic.SetActive (false);
+		if (dbinterface.createClassTopic ("addedTopic", class_id, topicForm, gameObject)) {
+			panelAddTopic.SetActive (false);
+		}
 	}
 	
 	public void deleteTopic(int id){

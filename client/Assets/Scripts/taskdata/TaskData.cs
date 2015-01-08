@@ -49,6 +49,13 @@ public abstract class TaskData{
 		return taskQ;
 	}
 
+	public void shuffleQuestions(){
+		Shuffle.shuffle (taskQuestions);
+		foreach (TaskQuestion t in taskQuestions) {
+			t.shuffleAnswers();
+		}
+	}
+
 	/* abstract methods */
 	public abstract TaskQuestion constructTaskQuestion (string csvLine);
 }

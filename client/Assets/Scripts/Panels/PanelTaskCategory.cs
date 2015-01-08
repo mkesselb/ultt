@@ -43,12 +43,6 @@ public class PanelTaskCategory : MonoBehaviour {
 		btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text
 			= LocaleHandler.getText ("button-cat-next", main.getLang());
 
-		/*info-nextword;Nächstes Wort
-		info-cat-num-answers;Bearbeitet:
-		info-cat-num-correct;Richtig:
-		button-cat-next;nächstes Wort
-		button-cat-end;Ergebnisse prüfen*/
-
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 

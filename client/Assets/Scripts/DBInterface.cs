@@ -122,15 +122,19 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));	
 	}
 	
-	public void createClassTopic(string target, int class_id, string topic_name, GameObject receiver){
+	public bool createClassTopic(string target, int class_id, Form vform, GameObject receiver){
 		//response: class_topic_id
-		WWWForm form = new WWWForm();
-		form.AddField("method", "createClassTopic");
-		form.AddField("class_id", class_id);
-		form.AddField("topic_name", topic_name);
-		
-        WWW www = new WWW(url, form);
-		StartCoroutine(WaitForRequest(www, target, receiver));	
+		if (validateInputForm (vform)) {
+			WWWForm form = new WWWForm();
+			form.AddField("method", "createClassTopic");
+			form.AddField("class_id", class_id);
+			form.AddField("topic_name", vform.getValue("topic_name"));
+			
+			WWW www = new WWW(url, form);
+			StartCoroutine(WaitForRequest(www, target, receiver));	
+			return true;
+		}
+		return false;
 	}
 	
 	public void deleteClassTopic(string target, int class_topic_id, GameObject receiver){
@@ -245,19 +249,23 @@ public class DBInterface : MonoBehaviour {
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 
-	public void assignTaskToTopic(string target, int class_id, int task_id, int class_topic_id, int obligatory, string deadline, int max_attempts, GameObject receiver){
+	public bool assignTaskToTopic(string target, int class_id, int task_id, int class_topic_id, int obligatory, string deadline, Form vform, GameObject receiver){
 		//response: {"success" : 1}
-		WWWForm form = new WWWForm();
-		form.AddField("method", "assignTaskToTopic");
-		form.AddField("class_id", class_id);
-		form.AddField("task_id", task_id);
-		form.AddField("class_topic_id", class_topic_id);
-		form.AddField("obligatory", obligatory);
-		form.AddField("deadline", deadline);
-		form.AddField ("max_attempts", max_attempts);
-		
-		WWW www = new WWW (url, form);
-		StartCoroutine(WaitForRequest(www, target, receiver));
+		if (validateInputForm (vform)) {
+			WWWForm form = new WWWForm();
+			form.AddField("method", "assignTaskToTopic");
+			form.AddField("class_id", class_id);
+			form.AddField("task_id", task_id);
+			form.AddField("class_topic_id", class_topic_id);
+			form.AddField("obligatory", obligatory);
+			form.AddField("deadline", deadline);
+			form.AddField ("max_attempts", vform.getValue("max_attempts"));
+			
+			WWW www = new WWW (url, form);
+			StartCoroutine(WaitForRequest(www, target, receiver));
+			return true;
+		}
+		return false;
 	}
 
 	public void deleteTaskFromTopic(string target, int class_id, int task_id, int class_topic_id, GameObject receiver){
