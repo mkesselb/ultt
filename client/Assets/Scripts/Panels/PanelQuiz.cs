@@ -69,6 +69,7 @@ public class PanelQuiz : MonoBehaviour {
 		case "taskData":
 			Task task = new Task(task_id, parsedData[0]); 
 			quizData = new QuizData(task.getDatafile());
+			quizData.shuffleQuestions();
 			break;
 		}
 		showNextQuestion ();

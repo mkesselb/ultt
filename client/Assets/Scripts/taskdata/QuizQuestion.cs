@@ -92,4 +92,20 @@ public class QuizQuestion : TaskQuestion{
 		}
 		return csv;
 	}
+
+	override public void shuffleAnswers(){
+		List<int> indices = new List<int> ();
+		for (int i = 0; i < questionAnswers.Count; i++) {
+			indices.Add (i);
+		}
+		Shuffle.shuffle (indices);
+		List<string> answers = new List<string> (questionAnswers);
+		List<int> weigths = new List<int>(questionWeights);
+		questionAnswers.Clear ();
+		questionWeights.Clear ();
+		foreach (int i in indices) {
+			questionAnswers.Add (answers[i]);
+			questionWeights.Add (weigths[i]);
+		}
+	}
 }
