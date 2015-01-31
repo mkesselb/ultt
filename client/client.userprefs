@@ -1,12 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelRegister.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\Profile.cs">
     <Files>
-      <File FileName="Assets\Scripts\Main.cs" Line="161" Column="19" />
-      <File FileName="Assets\Scripts\DBInterface.cs" Line="275" Column="37" />
-      <File FileName="Assets\Scripts\Panels\PanelTaskCategory.cs" Line="38" Column="16" />
-      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="318" Column="40" />
-      <File FileName="Assets\Scripts\Panels\PanelRegister.cs" Line="30" Column="57" />
+      <File FileName="Assets\Scripts\Panels\PanelUserClass.cs" Line="43" Column="3" />
+      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="234" Column="8" />
+      <File FileName="Assets\Scripts\Main.cs" Line="125" Column="28" />
+      <File FileName="Assets\Scripts\Objects\TeacherClass.cs" Line="70" Column="2" />
+      <File FileName="Assets\Scripts\Objects\UserClass.cs" Line="38" Column="5" />
+      <File FileName="Assets\Scripts\Panels\Profile.cs" Line="307" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

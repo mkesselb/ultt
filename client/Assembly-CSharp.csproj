@@ -1,101 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A2859A56-AB4A-51F9-60BB-1B6FC96E8C70}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <BaseDirectory>Assets</BaseDirectory>
+	<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+	<ProductVersion>10.0.20506</ProductVersion>
+	<SchemaVersion>2.0</SchemaVersion>
+	<ProjectGuid>{A2859A56-AB4A-51F9-60BB-1B6FC96E8C70}</ProjectGuid>
+	<OutputType>Library</OutputType>
+	<AppDesignerFolder>Properties</AppDesignerFolder>
+	<RootNamespace></RootNamespace>
+	<AssemblyName>Assembly-CSharp</AssemblyName>
+	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>True</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>False</Optimize>
-    <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_4_6_1;UNITY_4_6;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugSymbols>true</DebugSymbols>
+	<DebugType>full</DebugType>
+	<Optimize>false</Optimize>
+	<OutputPath>Temp\bin\Debug\</OutputPath>
+	<DefineConstants>DEBUG;TRACE;UNITY_4_6_0;UNITY_4_6;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_UNITYEVENTS;ENABLE_NEW_HIERARCHY ;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_4_6_FEATURES;INCLUDE_WP_BLUE_SUPPORT;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>True</Optimize>
-    <OutputPath>Temp\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <NoWarn>0169</NoWarn>
+	<DebugType>pdbonly</DebugType>
+	<Optimize>true</Optimize>
+	<OutputPath>Temp\bin\Release\</OutputPath>
+	<DefineConstants>TRACE</DefineConstants>
+	<ErrorReport>prompt</ErrorReport>
+	<WarningLevel>4</WarningLevel>
+	<NoWarn>0169</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="UnityEngine">
-      <HintPath>F:\Unity\Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>F:\Unity\Data\Managed\UnityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml" />
+	<Reference Include="System" />
+    <Reference Include="System.XML" />
+	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
+	<Reference Include="UnityEngine">
+	  <HintPath>C:/Program Files (x86)/Unity4_6/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity4_6/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	</Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\DBInterface.cs" />
-    <Compile Include="Assets\Scripts\ErrorHandler.cs" />
-    <Compile Include="Assets\Scripts\IdHandler.cs" />
-    <Compile Include="Assets\Scripts\JSONParser.cs" />
-    <Compile Include="Assets\Scripts\LocaleHandler.cs" />
-    <Compile Include="Assets\Scripts\LogIn.cs" />
-    <Compile Include="Assets\Scripts\Main.cs" />
-    <Compile Include="Assets\Scripts\Objects\Course.cs" />
-    <Compile Include="Assets\Scripts\Objects\Question.cs" />
-    <Compile Include="Assets\Scripts\Objects\Student.cs" />
-    <Compile Include="Assets\Scripts\Objects\Task.cs" />
-    <Compile Include="Assets\Scripts\Objects\TaskOverview.cs" />
-    <Compile Include="Assets\Scripts\Objects\TaskShort.cs" />
-    <Compile Include="Assets\Scripts\Objects\TeacherClass.cs" />
-    <Compile Include="Assets\Scripts\Objects\Topic.cs" />
-    <Compile Include="Assets\Scripts\Objects\User.cs" />
-    <Compile Include="Assets\Scripts\Objects\UserClass.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelAssign.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelFlashcard.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelFormAssignment.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelFormCategory.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelFormQuiz.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelQuiz.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelRegister.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelTaskAssignment.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelTeacherClass.cs" />
-    <Compile Include="Assets\Scripts\Panels\PanelUserClass.cs" />
-    <Compile Include="Assets\Scripts\Panels\Profile.cs" />
-    <Compile Include="Assets\Scripts\lib\Shuffle.cs" />
-    <Compile Include="Assets\Scripts\lib\SimpleJSON.cs" />
-    <Compile Include="Assets\Scripts\taskdata\AssignmentData.cs" />
-    <Compile Include="Assets\Scripts\taskdata\AssignmentQuestion.cs" />
-    <Compile Include="Assets\Scripts\taskdata\CSVHelper.cs" />
-    <Compile Include="Assets\Scripts\taskdata\CategoryData.cs" />
-    <Compile Include="Assets\Scripts\taskdata\CategoryQuestion.cs" />
-    <Compile Include="Assets\Scripts\taskdata\QuizData.cs" />
-    <Compile Include="Assets\Scripts\taskdata\QuizQuestion.cs" />
-    <Compile Include="Assets\Scripts\taskdata\TaskData.cs" />
-    <Compile Include="Assets\Scripts\taskdata\TaskQuestion.cs" />
-    <Compile Include="Assets\Scripts\validators\DateValidator.cs" />
-    <Compile Include="Assets\Scripts\validators\Form.cs" />
-    <Compile Include="Assets\Scripts\validators\IValidator.cs" />
-    <Compile Include="Assets\Scripts\validators\NumberValidator.cs" />
-    <Compile Include="Assets\Scripts\validators\TextValidator.cs" />
-    <None Include="Assets\Scripts\errorcodes\eng.txt" />
-    <None Include="Assets\Scripts\locales\de.txt" />
-    <None Include="Assets\Scripts\errorcodes\de.txt" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>F:\Unity\Data\UnityExtensions\Unity\GUISystem\4.6.1\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Compile Include="Assets\Scripts\Panels\PanelTaskCategory.cs" />
+     <Compile Include="Assets\Scripts\DBInterface.cs" />
+     <Compile Include="Assets\Scripts\ErrorHandler.cs" />
+     <Compile Include="Assets\Scripts\IdHandler.cs" />
+     <Compile Include="Assets\Scripts\JSONParser.cs" />
+     <Compile Include="Assets\Scripts\LocaleHandler.cs" />
+     <Compile Include="Assets\Scripts\LogIn.cs" />
+     <Compile Include="Assets\Scripts\Main.cs" />
+     <Compile Include="Assets\Scripts\Objects\Course.cs" />
+     <Compile Include="Assets\Scripts\Objects\Question.cs" />
+     <Compile Include="Assets\Scripts\Objects\Student.cs" />
+     <Compile Include="Assets\Scripts\Objects\StudentListDetailEntry.cs" />
+     <Compile Include="Assets\Scripts\Objects\Task.cs" />
+     <Compile Include="Assets\Scripts\Objects\TaskOverview.cs" />
+     <Compile Include="Assets\Scripts\Objects\TaskShort.cs" />
+     <Compile Include="Assets\Scripts\Objects\TeacherClass.cs" />
+     <Compile Include="Assets\Scripts\Objects\Topic.cs" />
+     <Compile Include="Assets\Scripts\Objects\User.cs" />
+     <Compile Include="Assets\Scripts\Objects\UserClass.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelAssign.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFlashcard.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFormAssignment.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFormCategory.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelFormQuiz.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelQuiz.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelRegister.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelTaskAssignment.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelTaskCategory.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelTeacherClass.cs" />
+     <Compile Include="Assets\Scripts\Panels\PanelUserClass.cs" />
+     <Compile Include="Assets\Scripts\Panels\Profile.cs" />
+     <Compile Include="Assets\Scripts\lib\Shuffle.cs" />
+     <Compile Include="Assets\Scripts\lib\SimpleJSON.cs" />
+     <Compile Include="Assets\Scripts\taskdata\AssignmentData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\AssignmentQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\CSVHelper.cs" />
+     <Compile Include="Assets\Scripts\taskdata\CategoryData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\CategoryQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\QuizData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\QuizQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\TaskData.cs" />
+     <Compile Include="Assets\Scripts\taskdata\TaskQuestion.cs" />
+     <Compile Include="Assets\Scripts\validators\DateValidator.cs" />
+     <Compile Include="Assets\Scripts\validators\Form.cs" />
+     <Compile Include="Assets\Scripts\validators\IValidator.cs" />
+     <Compile Include="Assets\Scripts\validators\NumberValidator.cs" />
+     <Compile Include="Assets\Scripts\validators\TextValidator.cs" />
+     <None Include="Assets\Scripts\errorcodes\eng.txt" />
+     <None Include="Assets\Scripts\locales\de.txt" />
+     <None Include="Assets\Scripts\errorcodes\de.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files (x86)/Unity4_6/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -105,4 +107,5 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  
 </Project>

@@ -28,10 +28,10 @@ public class PanelUserClass : MonoBehaviour {
 	
 	public void init(){
 		//dbinterface.getUserClassData("classData", class_id, gameObject);
-		string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
-		userClass = new UserClass(class_id, temp);
+		//string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
+		//userClass = new UserClass(class_id, temp);
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
+
 			
 		//destroy userClassObject because it has wrong id
 		//Destroy(userClass);
@@ -40,12 +40,13 @@ public class PanelUserClass : MonoBehaviour {
 			Destroy(t);	
 		}
 		topics.Clear();	
+		dbinterface.getTeacherClassData("classData", class_id, gameObject); 
 	}
 	
 	public void dbInputHandler(string[] response){
-		Debug.Log ("in dbinputhandler of PanelUserClass");
 		string target = response[0];
 		string data = response[1];
+		Debug.Log ("in dbinputhandler of PanelUserClass with target: "+target);
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
@@ -86,9 +87,9 @@ public class PanelUserClass : MonoBehaviour {
 										//generate task, add it to hierarchy and change shown text
 										generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
 										generatedButton.transform.parent = generatedTopic.transform;
-										generatedButton.transform.FindChild("Text").GetComponent<Text>().text = ts.getTaskName();
+										generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
 										//define button actions: start task and delete task
-										generatedButton.GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId(), ts.getTaskType());});
+										generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId(), ts.getTaskType());});
 										
 									}
 								}

@@ -10,6 +10,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	private DBInterface dbinterface;
 	
 	public GameObject panelStudentList;
+	public GameObject panelStudentListDetail;
 
 	//panelAddTopic
 	public GameObject panelAddTopic;
@@ -25,6 +26,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	public GameObject topic;
 	public GameObject btnTask;
 	public GameObject studentInList_unaccepted, studentInList_accepted;
+	public GameObject studentDetailEntry;
 	
 	public int class_id;
 	public int task_id;
@@ -39,6 +41,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	//contain Gameobjects (= buttons)
 	public List<GameObject> topics;
 	public List<GameObject> students;
+	public List<GameObject> studentDetailEntries;
 
 	void Start () {
 	
@@ -97,8 +100,8 @@ public class PanelTeacherClass : MonoBehaviour {
 	}
 	
 	public void init(){
-		string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
-		teacherClass = new TeacherClass(class_id, temp);
+		//string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
+		//teacherClass = new TeacherClass(class_id, temp);
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
 		dbinterface.getTeacherClassData("classData", class_id, gameObject);
 		
@@ -120,6 +123,7 @@ public class PanelTeacherClass : MonoBehaviour {
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
+		GameObject generatedStudentDetailEntry;
 		JSONNode parsedData = JSONParser.JSONparse(data);
 		Debug.Log ("with target: "+target);
 		switch(target){	
@@ -206,9 +210,38 @@ public class PanelTeacherClass : MonoBehaviour {
 									}
 									//add studentInList objects to hierarchy
 									generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
-									generatedStudentInList.transform.FindChild("Text").GetComponent<Text>().text = student.getName();
-									
+									generatedStudentInList.transform.FindChild("btnName/Text").GetComponent<Text>().text = student.getName();
+									//TODO compute result and write to child "btnResult/Text"
+									int student_id = student.getId();
+									generatedStudentInList.transform.FindChild("btnName").GetComponent<Button>().onClick.AddListener(()=> {clickedStudent(student_id);});
 									students.Add(generatedStudentInList);
+								}
+							}
+							break;
+		case "studentlistDetail": /*TODO 	
+											generate exam entries with result lists
+											add entries to list of exam entries
+							*/
+
+							//delete old studentDetailEntry objects
+							foreach (GameObject s in studentDetailEntries){
+								Destroy(s);	
+							}
+							studentDetailEntries.Clear();
+							
+							panelStudentListDetail.SetActive(true);
+							main.addToPanelStack(panelStudentListDetail);
+							
+							//parse data in entry objects (create student class)
+							if(data != "[]"){
+								for(int i = 0; i < parsedData.Count; i++){
+									JSONNode n = parsedData[i];
+									//TODO studentListDetailEntry object
+									
+									//create studentListDetailEntry object for each entry
+									//generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
+									
+									
 								}
 							}
 							break;
@@ -334,6 +367,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void showStudentList(){
 		Debug.Log ("Button clicked, show panel studentList");	
 		dbinterface.getClassUsers("studentlist", class_id, gameObject);
+		//TODO dbinterface.getResultofStudents("studentlist", class_id, gameObject);
 	}
 	
 	public void acceptStudent(Student s){
@@ -343,5 +377,10 @@ public class PanelTeacherClass : MonoBehaviour {
 			
 	public void setClassId(int id){
 		class_id = id;
+	}
+
+	public void clickedStudent(int student_id){
+		Debug.Log ("clicked Student wit id: "+student_id);
+		//dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, gameObject);
 	}
 }

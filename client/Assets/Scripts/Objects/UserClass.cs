@@ -35,7 +35,7 @@ public class UserClass {
 		user_id = id;
 		class_id = int.Parse (uc ["class_id"]);
 		classname = uc ["classname"];
-		privacy = int.Parse (uc ["privacy"]);
+		//privacy = int.Parse (uc ["privacy"]);
 		school_year = uc ["school_year"];
 		classcode = uc ["classcode"];
 		subject_name = uc ["subject_name"];
