@@ -301,6 +301,29 @@ public class DBInterface : MonoBehaviour {
 		WWW www = new WWW (url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
+
+	public void getResultOfStudents(string target, int class_id, bool obligatory, GameObject receiver){
+		//response: {"success" : 1} 
+		WWWForm form = new WWWForm();
+		form.AddField("method", "getResultOfStudents");
+		form.AddField("class_id", class_id);
+		form.AddField ("obligatory", obligatory.ToString());
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
+	public void getResultOfStudent(string target, int class_id, int user_id, bool obligatory, GameObject receiver){
+		//response: {"success" : 1} 
+		WWWForm form = new WWWForm();
+		form.AddField("method", "getResultOfStudent");
+		form.AddField("class_id", class_id);
+		form.AddField ("user_id", user_id);
+		form.AddField ("obligatory", obligatory.ToString());
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
 	
 	IEnumerator WaitForRequest(WWW www, string target, GameObject receiver)
     {

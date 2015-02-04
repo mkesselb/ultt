@@ -53,52 +53,60 @@ public class PanelUserClass : MonoBehaviour {
 		JSONNode parsedData = JSONParser.JSONparse(data);
 		switch(target){	
 		case "classData": 	
-							userClass = new UserClass(class_id, parsedData[0]);
+							userClass = new UserClass(class_id, parsedData[0], true);
 							fieldClassData.GetComponent<Text>().text = userClass.getClassname();
 							
 							dbinterface.getTopicsForClass("classTopics", class_id, gameObject); 
 							break;
-		case "classTopics": 
-							for(int i = 0; i < parsedData.Count; i++){
-								JSONNode n = parsedData[i];
-								Topic t = new Topic(n);
-								userClass.addTopic(t);
+		case "classTopics": if(data != "[]"){
+								for(int i = 0; i < parsedData.Count; i++){
+									JSONNode n = parsedData[i];
+									Topic t = new Topic(n);
+									userClass.addTopic(t);
+								}
 								dbinterface.getTasksForClass("classTasks", class_id, gameObject);
 							}
 							break;
 		case "classTasks":	
-							for(int i = 0; i < parsedData.Count; i++){
-								JSONNode n = parsedData[i];
-								//create TaskShort objects (they contain all task data that is needed now), and add it to the teacherClass object
-								TaskShort task = new TaskShort(n);
-								userClass.addTask(task);
-							}
-					
-							foreach(Topic t in userClass.getTopicList()){
-								//generate topic, add it to hierarchy and change shown text
-								generatedTopic = Instantiate(topic, Vector3.zero, Quaternion.identity) as GameObject;
-								generatedTopic.transform.parent = GameObject.Find("ContentTasksForTopic").transform;
-								generatedTopic.transform.FindChild("TopicHeadline/Text").GetComponent<Text>().text = t.getName();
-								
-								topics.Add(generatedTopic);
-								foreach(TaskShort ts in userClass.getTaskList()){
-									//find all tasks that belong to this topic
-									if(ts.getTopicId() == t.getId()){
-										//generate task, add it to hierarchy and change shown text
-										generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
-										generatedButton.transform.parent = generatedTopic.transform;
-										generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
-										//define button actions: start task and delete task
-										generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(ts.getTaskId(), ts.getTaskType());});
-										
-									}
+							if(data != "[]"){
+								for(int i = 0; i < parsedData.Count; i++){
+									JSONNode n = parsedData[i];
+									TaskShort task = new TaskShort(n);
+									userClass.addTask(task);
 								}
-						}
-						break;
+							}
+							
+							if(userClass.getTopicList().Count>0){
+								foreach(Topic t in userClass.getTopicList()){
+									//generate topic, add it to hierarchy and change shown text
+									generatedTopic = Instantiate(topic, Vector3.zero, Quaternion.identity) as GameObject;
+									generatedTopic.transform.parent = GameObject.Find("ContentTasksForTopic").transform;
+									generatedTopic.transform.FindChild("TopicHeadline/Text").GetComponent<Text>().text = t.getName();
+									//define button actions: add task and delete topic
+									int topicId = t.getId();
+									topics.Add(generatedTopic);
+									if(userClass.getTaskList().Count>0){
+										foreach(TaskShort ts in userClass.getTaskList()){
+											//find all tasks that belong to this topic
+											if(ts.getTopicId() == topicId){
+												//generate task, add it to hierarchy and change shown text
+												generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
+												generatedButton.transform.parent = generatedTopic.transform;
+												generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
+												//define button actions: start task and delete task
+												int taskId = ts.getTaskId();
+												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(taskId);});
+											}
+										}
+									}
+									
+								}
+							}
+							break;
 		}	
 	}
 
-	public void startTask(int id, string type){
+	/*public void startTask(int id, string type){
 		Debug.Log ("Button clicked, try to start Task");
 		if (type == "Quiz") {
 			main.eventHandler("startQuiz", id);
@@ -109,6 +117,11 @@ public class PanelUserClass : MonoBehaviour {
 		if(type == "Kategorie"){
 			main.eventHandler("startTaskCategory", id);
 		}
+	}*/
+
+	public void startTask(int id){
+		Debug.Log ("Button clicked, try to start Task");
+		dbinterface.getTask ("startTask", id, gameObject);
 	}
 		
 	public void setClassId(int id){

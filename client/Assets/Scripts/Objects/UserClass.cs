@@ -37,12 +37,30 @@ public class UserClass {
 		classname = uc ["classname"];
 		//privacy = int.Parse (uc ["privacy"]);
 		school_year = uc ["school_year"];
-		classcode = uc ["classcode"];
+		classcode = uc ["classcode"]; //
 		subject_name = uc ["subject_name"];
-		teacher_username = uc ["username"];
-		user_accepted = uc ["accepted"];
+		teacher_username = uc ["username"]; //
+		user_accepted = uc ["accepted"]; //
 		topics = new List<Topic>();
 		tasks = new List<TaskShort>();
+
+	}
+
+	public UserClass(int class_id, JSONNode uc, bool inPanelUserClass){
+		if (inPanelUserClass) {
+						class_id = class_id;
+						user_id = int.Parse (uc ["user_id"]);
+						classname = uc ["classname"];
+						//privacy = int.Parse (uc ["privacy"]);
+						school_year = uc ["school_year"];
+						classcode = uc ["classcode"]; //
+						subject_name = uc ["subject_name"];
+						//teacher_username = uc ["username"]; //
+						//user_accepted = uc ["accepted"]; //
+						topics = new List<Topic> ();
+						tasks = new List<TaskShort> ();
+				}
+		
 	}
 	
 	public string getClassname(){
