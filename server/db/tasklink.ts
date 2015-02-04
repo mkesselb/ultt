@@ -239,14 +239,155 @@ function getSubjects(dbConnection, requestData, callback){
 	});
 }
 
+/* saves the task execution of a user.
+ * required data: user_id, task_for_class_id, fulfill_time, results */
+function saveTask(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.user_id) || !validator.validateID(requestData.task_for_class_id)){
+		//malformed id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "saving task with user_id " 
+			+ requestData.user_id + ", task_for_class_id " + requestData.task_for_class_id);
+	
+	var insertData = {};
+	insertData["user_id"] = requestData.user_id;
+	insertData["fulfill_time"] = requestData.fulfill_time;
+	insertData["results"] = requestData.results;
+	insertData["task_for_class_id"] = requestData.task_for_class_id;
+	dbConnection.query("insert into user_fulfill_task set ?", insertData, function(err, result){
+		if(err){
+			return callback(err);
+		}
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
+		logger.log(logger.logLevels["info"], "successful task execution saving");
+		
+		//fetch and return created topic id
+		callback(null, [{"success" : 1}]);
+	});
+};
+
+/* fetches all results of a single task.
+ * required data: class_id, task_id, obligatory */
+function getResultOfTask(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.class_id) || !validator.validateID(requestData.task_id)){
+		//malformed id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "fetching task result of class " + requestData.class_id 
+			+ ", task " + requestData.task_id);
+	
+	//first, fetch all task_for_class_id's for this class.
+	dbConnection.query("select task_for_class_id from task_for_class where class_id = " + requestData.class_id 
+			+ " and task_id = " + requestData.task_id + " and obligatory = " + requestData.obligatory 
+			+ " and deleted = 0", function(err, ids){
+		if(err){
+			return callback(err);
+		}
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+		logger.log(logger.logLevels["debug"], "successful fetched task_for_class ids");
+		
+		var inIds = "(";
+		for(var i = 0; i < ids.length; i++){
+			inIds += ids[i];
+			if(i < (ids.length-1)){
+				inIds += ",";
+			} else{
+				inIds += ")";
+			}
+		}
+		dbConnection.query("select user_id, fulfill_time, results, task_for_class_id " +
+				"from user_fulfill_task " +
+				"where task_for_class_id in " + inIds,
+				function(error, result){
+			if(error){
+				return callback(error);
+			}
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+			logger.log(logger.logLevels["debug"], "successful fetched task result");
+			
+			return callback(null, result);
+		});
+	});
+};
+
+/* fetches the results of all tasks.
+ * required data: class_id, obligatory */
+function getResultOfTasks(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.class_id)){
+		//malformed id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "fetching task results of class " + requestData.class_id);
+	
+	//first, fetch all task_for_class_id's for this class.
+	dbConnection.query("select task_for_class_id from task_for_class where class_id = " + requestData.class_id 
+			+ " and obligatory = " + requestData.obligatory + " and deleted = 0", function(err, ids){
+		if(err){
+			return callback(err);
+		}
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+		logger.log(logger.logLevels["debug"], "successful fetched task_for_class ids");
+		
+		var inIds = "(";
+		for(var i = 0; i < ids.length; i++){
+			inIds += ids[i];
+			if(i < (ids.length-1)){
+				inIds += ",";
+			} else{
+				inIds += ")";
+			}
+		}
+		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
+				"from user_fulfill_task f, task_for_class t " +
+				"where f.task_for_class_id in " + inIds + " and f.task_for_class_id = t.task_for_class_id",
+				function(error, result){
+			if(error){
+				return callback(error);
+			}
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+			logger.log(logger.logLevels["debug"], "successful fetched task results");
+			
+			return callback(null, result);
+		});
+	});
+};
+
+/* fetches data from the task_for_class relation.
+ * required parameter: class_id, task_id, class_topic_id */
+function getTaskForClass(dbConnection, requestData, callback){
+	if(!validator.validateID(requestData.class_id) || !validator.validateID(requestData.task_id)
+			|| !validator.validateID(requestData.class_topic_id)){
+		//malformed id
+		return callback({"error" : 300});
+	}
+	logger.log(logger.logLevels["debug"], "fetching task in class relation");
+	
+	dbConnetion.query("select assign_time, obligatory, deadline, max_attemps from task_for_class " +
+			"where class_id = " + requestData.class_id + 
+			" and task_id = " + requestData.task_id + 
+			" and class_topic_id = " + requestData.class_topic_id + " and deleted = 0", function(err, result){
+		if(err){
+			return callback(err)
+		}
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+		logger.log(logger.logLevels["debug"], "successful fetched task data");
+		
+		return callback(null, results);
+	});
+};
+
 module.exports = {
 		getTask				: getTask,
 		editTask			: editTask,
+		saveTask			: saveTask,
 		createTask			: createTask,
 		deleteTask			: deleteTask,
 		getSubjects			: getSubjects,
 		getTaskTypes		: getTaskTypes,
 		getUserTasks		: getUserTasks,
+		getTaskForClass		: getTaskForClass,
+		getResultOfTask		: getResultOfTask,
+		getResultOfTasks	: getResultOfTasks,
 		assignTaskToTopic	: assignTaskToTopic,
 		deleteTaskFromTopic : deleteTaskFromTopic
 };

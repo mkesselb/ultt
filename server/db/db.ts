@@ -14,6 +14,21 @@ var userlink = require('./userlink.ts');
 var classlink = require('./classlink.ts');
 var tasklink = require('./tasklink.ts');
 
+var userMethods = [];
+userMethods.push("getUser", "getTeacherClasses", "getUserClasses", 
+		"registerUserToClass", "acceptUserInClass", "createClass", 
+		"deleteClass", "removeStudentFromClass", "getResultOfStudent",
+		"getResultOfStudents");
+var classMethods = [];
+classMethods.push("getClass", "getClassUsers", "getClassTasks", 
+		"getClassTopics", "createClassTopic", "deleteClassTopic")
+var taskMethods = [];
+taskMethods.push("getTask", "editTask", "saveTask", 
+		"createTask", "deleteTask", "getSubjects", 
+		"getTaskTypes", "getUserTasks", "getTaskForClass", 
+		"getResultOfTask", "getResultOfTasks", "assignTaskToTopic", 
+		"deleteTaskFromTopic");
+
 module.exports = function(dbConnection, dbData, callback){
 	//parsing the dbdata, and deciding which purpose is the sent
 	var parsedDbData = parser(dbData);
@@ -21,80 +36,10 @@ module.exports = function(dbConnection, dbData, callback){
 
 	//deciding on route
 	/* userlink */
-	if(parsedDbData.method === "getUser"){
-		userlink.getUser(dbConnection, parsedDbData, function(err, result){
+	if(userMethods.indexOf(parsedDbData.method) > -1){
+		userlink[parsedDbData.method](dbConnection, parsedDbData, function(err, result){
 			if(err){
-				logger.log(logger.logLevels["error"], "error on method getUser");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-
-	if(parsedDbData.method === "getTeacherClasses"){
-		userlink.getTeacherClasses(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getTeacherClasses");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getUserClasses"){
-		userlink.getUserClasses(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getUserClasses");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "registerUserToClass"){
-		userlink.registerUserToClass(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method registerUserToClass");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "acceptUserInClass"){
-		userlink.acceptUserInClass(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method acceptUserInClass");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "createClass"){
-		userlink.createClass(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method createClass");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "deleteClass"){
-		userlink.deleteClass(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method deleteClass");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "removeStudentFromClass"){
-		userlink.removeStudentFromClass(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method removeStudentFromClass");
+				logger.log(logger.logLevels["error"], "error on method " + parsedDbData.method);
 				return callback(err);
 			}
 			return callback(null, result);
@@ -102,90 +47,10 @@ module.exports = function(dbConnection, dbData, callback){
 	}
 
 	/* tasklink */
-	if(parsedDbData.method === "getTask"){
-		tasklink.getTask(dbConnection, parsedDbData, function(err, result){
+	if(taskMethods.indexOf(parsedDbData.method) > -1){
+		tasklink[parsedDbData.method](dbConnection, parsedDbData, function(err, result){
 			if(err){
-				logger.log(logger.logLevels["error"], "error on method getTask");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "deleteTask"){
-		tasklink.deleteTask(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method deleteTask");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getUserTasks"){
-		tasklink.getUserTasks(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getUserTasks");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "createTask"){
-		tasklink.createTask(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method createTask");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "assignTaskToTopic"){
-		tasklink.assignTaskToTopic(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method assignTaskToTopic");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "editTask"){
-		tasklink.editTask(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method editTask");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getSubjects"){
-		tasklink.getSubjects(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getSubjects");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getTaskTypes"){
-		tasklink.getTaskTypes(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getTaskTypes");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "deleteTaskFromTopic"){
-		tasklink.deleteTaskFromTopic(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method deleteTaskFromTopic");
+				logger.log(logger.logLevels["error"], "error on method " + parsedDbData.method);
 				return callback(err);
 			}
 			return callback(null, result);
@@ -193,60 +58,10 @@ module.exports = function(dbConnection, dbData, callback){
 	}
 	
 	/* classlink */
-	if(parsedDbData.method === "getClass"){
-		classlink.getClass(dbConnection, parsedDbData, function(err, result){
+	if(classMethods.indexOf(parsedDbData.method) > -1){
+		classlink[parsedDbData.method](dbConnection, parsedDbData, function(err, result){
 			if(err){
-				logger.log(logger.logLevels["error"], "error on method getClass");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getClassUsers"){
-		classlink.getClassUsers(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getClassUsers");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getClassTasks"){
-		classlink.getClassTasks(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getClassTasks");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "getClassTopics"){
-		classlink.getClassTopics(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method getClassTopics");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "createClassTopic"){
-		classlink.createClassTopic(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method createClassTopic");
-				return callback(err);
-			}
-			return callback(null, result);
-		});
-	}
-	
-	if(parsedDbData.method === "deleteClassTopic"){
-		classlink.deleteClassTopic(dbConnection, parsedDbData, function(err, result){
-			if(err){
-				logger.log(logger.logLevels["error"], "error on method deleteClassTopic");
+				logger.log(logger.logLevels["error"], "error on method " + parsedDbData.method);
 				return callback(err);
 			}
 			return callback(null, result);
