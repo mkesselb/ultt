@@ -303,14 +303,18 @@ function getResultOfStudents(dbConnection, requestData, callback){
 		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
 		logger.log(logger.logLevels["debug"], "successful fetched task_for_class ids");
 		
-		var inIds = "(";
-		for(i = 0; i < ids.length; i++){
-			inIds += ids[i];
-			if(i < (ids.length-1)){
-				inIds += ",";
+		if(ids.length > 0){
+			var inIds = "(";
+			for(i = 0; i < ids.length; i++){
+				inIds += ids[i].task_for_class_id;
+				if(i < (ids.length-1)){
+					inIds += ",";
+				}
 			}
+			inIds += ")";
+		} else{
+			inIds = "(-1)";
 		}
-		inIds += ")";
 		logger.log(logger.logLevels["debug"], inIds);
 		
 		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
