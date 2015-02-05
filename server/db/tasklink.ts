@@ -307,7 +307,7 @@ function getResultOfTask(dbConnection, requestData, callback){
 			if(error){
 				return callback(error);
 			}
-			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 			logger.log(logger.logLevels["debug"], "successful fetched task result");
 			
 			return callback(null, result);
@@ -354,7 +354,7 @@ function getResultOfTasks(dbConnection, requestData, callback){
 			if(error){
 				return callback(error);
 			}
-			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 			logger.log(logger.logLevels["debug"], "successful fetched task results");
 			
 			return callback(null, result);
@@ -379,7 +379,7 @@ function getTaskForClass(dbConnection, requestData, callback){
 		if(err){
 			return callback(err)
 		}
-		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 		logger.log(logger.logLevels["debug"], "successful fetched task data");
 		
 		return callback(null, results);

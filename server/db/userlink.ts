@@ -282,7 +282,7 @@ function getResultOfStudent(dbConnection, requestData, callback){
 			if(error){
 				return callback(error);
 			}
-			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 			logger.log(logger.logLevels["debug"], "successful fetched user result");
 			
 			return callback(null, result);
@@ -329,7 +329,7 @@ function getResultOfStudents(dbConnection, requestData, callback){
 			if(error){
 				return callback(error);
 			}
-			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(ids));
+			logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 			logger.log(logger.logLevels["debug"], "successful fetched user results");
 			
 			return callback(null, result);
