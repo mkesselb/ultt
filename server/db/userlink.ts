@@ -265,10 +265,10 @@ function getResultOfStudent(dbConnection, requestData, callback){
 			inIds += ids[i];
 			if(i < (ids.length-1)){
 				inIds += ",";
-			} else{
-				inIds += ")";
 			}
 		}
+		inIds += ")";
+		
 		dbConnection.query("select f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
 				"from user_fulfill_task f, task_for_class t " +
 				"where f.user_id = " + requestData.user_id + 
@@ -308,10 +308,11 @@ function getResultOfStudents(dbConnection, requestData, callback){
 			inIds += ids[i];
 			if(i < (ids.length-1)){
 				inIds += ",";
-			} else{
-				inIds += ")";
 			}
 		}
+		inIds += ")";
+		logger.log(logger.logLevels["debug"], inIds);
+		
 		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
 				"from user_fulfill_task f, task_for_class t " +
 				"where f.task_for_class_id in " + inIds + " and f.task_for_class_id = t.task_for_class_id",
