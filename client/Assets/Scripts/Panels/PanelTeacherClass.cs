@@ -212,7 +212,7 @@ public class PanelTeacherClass : MonoBehaviour {
 									generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
 									generatedStudentInList.transform.FindChild("btnName/Text").GetComponent<Text>().text = student.getName();
 									//TODO compute result and write to child "btnResult/Text"
-									dbinterface.getResultOfStudents("", class_id, true, gameObject);
+									//dbinterface.getResultOfStudents("", class_id, true, gameObject);
 									int student_id = student.getId();
 									generatedStudentInList.transform.FindChild("btnName").GetComponent<Button>().onClick.AddListener(()=> {clickedStudent(student_id);});
 									students.Add(generatedStudentInList);
@@ -368,7 +368,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void showStudentList(){
 		Debug.Log ("Button clicked, show panel studentList");	
 		//dbinterface.getClassUsers("studentlist", class_id, gameObject);
-		dbinterface.getResultOfStudents ("studentlist", class_id, true, gameObject);
+		dbinterface.getResultOfStudents ("studentlist", class_id, 1, gameObject);
 	}
 	
 	public void acceptStudent(Student s){
@@ -382,7 +382,6 @@ public class PanelTeacherClass : MonoBehaviour {
 
 	public void clickedStudent(int student_id){
 		Debug.Log ("clicked Student wit id: "+student_id);
-		//true ... obligatory
-		dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, true, gameObject);
+		//dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, true, gameObject);
 	}
 }

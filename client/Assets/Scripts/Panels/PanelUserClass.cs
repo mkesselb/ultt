@@ -14,6 +14,7 @@ public class PanelUserClass : MonoBehaviour {
 	public GameObject btnTask;
 	
 	public int class_id;
+	public int task_id;
 	private UserClass userClass;
 	
 	public Text fieldClassData;
@@ -103,6 +104,18 @@ public class PanelUserClass : MonoBehaviour {
 								}
 							}
 							break;
+		case "startTask":	
+							Task taskToStart = new Task(task_id, parsedData[0]);
+							if(taskToStart.getTypeName() == "Zuordnung"){
+								main.eventHandler("startTaskAssign", taskToStart.getId());
+							}
+							if(taskToStart.getTypeName() == "Kategorie"){
+								main.eventHandler("startTaskCategory", taskToStart.getId());
+							}
+							if(taskToStart.getTypeName() == "Quiz"){
+								main.eventHandler("startTaskQuiz", taskToStart.getId());
+							}
+							break;
 		}	
 	}
 
@@ -120,6 +133,7 @@ public class PanelUserClass : MonoBehaviour {
 	}*/
 
 	public void startTask(int id){
+		task_id = id;
 		Debug.Log ("Button clicked, try to start Task");
 		dbinterface.getTask ("startTask", id, gameObject);
 	}
