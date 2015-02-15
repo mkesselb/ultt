@@ -17,4 +17,9 @@ public class QuizData : TaskData{
 		}
 		return new QuizQuestion(CSVHelper.swapDecode(p[1]), answers, weights);
 	}
+
+	override public int getFullPoints(){
+		//TODO: decide on full points == num questions or num answers?
+		return this.taskQuestions.Count;
+	}
 }

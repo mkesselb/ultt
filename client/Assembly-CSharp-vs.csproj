@@ -85,6 +85,8 @@
      <Compile Include="Assets\Scripts\taskdata\CategoryQuestion.cs" />
      <Compile Include="Assets\Scripts\taskdata\QuizData.cs" />
      <Compile Include="Assets\Scripts\taskdata\QuizQuestion.cs" />
+     <Compile Include="Assets\Scripts\taskdata\Result.cs" />
+     <Compile Include="Assets\Scripts\taskdata\ResultContainer.cs" />
      <Compile Include="Assets\Scripts\taskdata\TaskData.cs" />
      <Compile Include="Assets\Scripts\taskdata\TaskQuestion.cs" />
      <Compile Include="Assets\Scripts\validators\DateValidator.cs" />

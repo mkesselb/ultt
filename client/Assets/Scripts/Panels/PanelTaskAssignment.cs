@@ -12,6 +12,8 @@ public class PanelTaskAssignment : MonoBehaviour {
 	public GameObject assignment;
 	
 	public int task_id;
+	public int task_for_class_id;
+	public int user_id;
 	
 	public List<GameObject> assignments;
 	public int assignment_id;
@@ -97,5 +99,13 @@ public class PanelTaskAssignment : MonoBehaviour {
 	
 	public void setTaskId(int id){
 		task_id = id;
+	}
+
+	public void setTaskForClassId(int id){
+		task_for_class_id = id;
+	}
+	
+	public void setUserId(int id){
+		user_id = id;
 	}
 }

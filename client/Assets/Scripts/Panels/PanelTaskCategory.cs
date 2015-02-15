@@ -19,7 +19,12 @@ public class PanelTaskCategory : MonoBehaviour {
 	private double answers;
 	private double points;
 
-	public int task_id = 5;
+	private Dictionary<string, List<int>> correctAnswers;
+	private CategoryData userAnswers;
+
+	public int task_id;
+	public int task_for_class_id;
+	public int user_id;
 
 	// Use this for initialization
 	void Start () {
@@ -59,6 +64,9 @@ public class PanelTaskCategory : MonoBehaviour {
 			}
 			double success = catData.getForCategory (selectedCat).checkSingleAnswer (answ);
 			points += success;
+
+			userAnswers.getForCategory(selectedCat).addMember(answ);
+			correctAnswers[selectedCat].Add((int)success);
 		}
 
 		if (answers < phrases.Count-1) {
@@ -77,8 +85,19 @@ public class PanelTaskCategory : MonoBehaviour {
 				+ phrases.Count + " / " + phrases.Count
 					+ "\n" + LocaleHandler.getText ("info-cat-num-correct", main.getLang()) + points;
 
-			btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = LocaleHandler.getText ("button-cat-end", main.getLang());
-			//TODO: automatic handing-in or with button-press?
+			//btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = LocaleHandler.getText ("button-cat-end", main.getLang());
+			//automatic handing-in?
+			int p = (int)(100 * (double)points / catData.getFullPoints());
+			string results = p + "\n";
+			foreach(string key in correctAnswers.Keys){
+				results += key + ",";
+				foreach(int i in correctAnswers[key]){
+					results += i + ",";
+				}
+			}
+			results += "\n" + userAnswers.getCSV();
+
+			dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
 		}
 	}
 
@@ -92,11 +111,27 @@ public class PanelTaskCategory : MonoBehaviour {
 			Task task = new Task(task_id, parsedData[0]); 
 			loadCategoriesFromTask(task.getDatafile());
 			break;
+		case "savedTask":
+			main.writeToMessagebox("Ergebnis gespeichert: " + points + "/" + catData.getFullPoints());
+			finishTask();
+			/*GameObject btn;
+			
+			btn = Instantiate (btnNext, Vector3.zero, Quaternion.identity) as GameObject;
+			btn.transform.parent = GameObject.Find ("contentQuestion").transform;
+			btn.transform.FindChild("Text").GetComponent<Text>().text = "Ergebnis gespeichert: " + points + "/" + catData.getFullPoints();
+			btn.GetComponent<Button>().onClick.AddListener (() => {finishTask ();});*/
+			break;
 		}
+	}
+
+	public void finishTask(){
+		main.eventHandler ("finishTask", task_id);
 	}
 
 	public void loadCategoriesFromTask(string csv){
 		this.catData = new CategoryData (csv);
+		this.userAnswers = new CategoryData ("");
+		this.correctAnswers = new Dictionary<string, List<int>> ();
 
 		//populate toggle group
 		bool first = true;
@@ -109,6 +144,9 @@ public class PanelTaskCategory : MonoBehaviour {
 			if(first){
 				first = false;
 			}
+
+			userAnswers.addQuestion(new CategoryQuestion(s, new List<string>()));
+			correctAnswers.Add(s, new List<int>());
 		}
 
 		//save all words in list + shuffle
@@ -119,5 +157,13 @@ public class PanelTaskCategory : MonoBehaviour {
 
 	public void setTaskId(int id){
 		task_id = id;
+	}
+
+	public void setTaskForClassId(int id){
+		task_for_class_id = id;
+	}
+
+	public void setUserId(int id){
+		user_id = id;
 	}
 }

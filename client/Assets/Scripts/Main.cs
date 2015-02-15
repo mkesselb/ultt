@@ -3,6 +3,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System;
 
 public class Main : MonoBehaviour {
 
@@ -88,7 +89,7 @@ public class Main : MonoBehaviour {
 		panelStack.Add (panelLogInScreen);
 	}
 
-	public void eventHandler(string eventname, int id){
+	public void eventHandler(string eventname, int id, int id2 = 0){
 		switch(eventname){
 		case "logInSuccess": 	//panelLogInScreen.SetActive(false);
 								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
@@ -96,6 +97,7 @@ public class Main : MonoBehaviour {
 								panelProfile.SetActive(true);
 								panelStack.Add(panelProfile);
 								panelProfile.GetComponent<Profile>().setUserId(id);
+								this.setUserId(id);
 								break;	
 		case "register":		//panelLogInScreen.SetActive(false);
 								panelRegister.SetActive(true);
@@ -143,19 +145,31 @@ public class Main : MonoBehaviour {
 		case "startTaskQuiz":	
 								panelStack.Add(panelQuiz);
 								panelQuiz.SetActive(true);
+								Debug.Log (id + ";" + userid + ";" + id2);
 								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
+								panelQuiz.GetComponent<PanelTaskCategory>().setUserId(userid);
+								panelQuiz.GetComponent<PanelTaskCategory>().setTaskForClassId(id2);
+
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
 		case "startTaskAssign":	
 								panelStack.Add(panelTaskAssignment);
 								panelTaskAssignment.SetActive(true);
+								Debug.Log (id + ";" + userid + ";" + id2);
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskId(id);
+								panelTaskAssignment.GetComponent<PanelTaskCategory>().setUserId(userid);
+								panelTaskAssignment.GetComponent<PanelTaskCategory>().setTaskForClassId(id2);
+
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().init();
 								break;
 		case "startTaskCategory":
 								panelStack.Add(panelTaskCategory);
 								panelTaskCategory.SetActive(true);
+								Debug.Log (id + ";" + userid + ";" + id2);
 								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskId(id);
+								panelTaskCategory.GetComponent<PanelTaskCategory>().setUserId(userid);
+								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskForClassId(id2);
+
 								panelTaskCategory.GetComponent<PanelTaskCategory>().init();
 								break;
 		case "finishTask":		back();

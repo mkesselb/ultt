@@ -287,7 +287,18 @@ public class DBInterface : MonoBehaviour {
 		
 		WWW www = new WWW (url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
 
+	public void getTaskForClass(string target, int task_id, int class_id, int class_topic_id, GameObject receiver){
+		//response: taskname, public, user_id, data_file, subject_name, type_name, description, task_for_cass_id
+		WWWForm form = new WWWForm();
+		form.AddField("method", "getTaskForClass");
+		form.AddField("task_id", task_id);
+		form.AddField("class_id", class_id);
+		form.AddField("class_topic_id", class_topic_id);
+		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
 	}
 
 	public void editTask(string target, int task_id, string description, string data_file, GameObject receiver){
@@ -298,6 +309,18 @@ public class DBInterface : MonoBehaviour {
 		form.AddField ("description", description);
 		form.AddField ("data_file", data_file);
 		
+		WWW www = new WWW (url, form);
+		StartCoroutine(WaitForRequest(www, target, receiver));
+	}
+
+	public void saveTask(string target, int user_id, int task_for_class_id, string results, GameObject receiver){
+		//response: {"success" : 1}
+		WWWForm form = new WWWForm();
+		form.AddField("method", "saveTask");
+		form.AddField("user_id", user_id);
+		form.AddField("task_for_class_id", task_for_class_id);
+		form.AddField("results", results);
+
 		WWW www = new WWW (url, form);
 		StartCoroutine(WaitForRequest(www, target, receiver));
 	}

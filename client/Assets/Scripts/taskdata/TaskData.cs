@@ -58,4 +58,5 @@ public abstract class TaskData{
 
 	/* abstract methods */
 	public abstract TaskQuestion constructTaskQuestion (string csvLine);
+	public abstract int getFullPoints();
 }

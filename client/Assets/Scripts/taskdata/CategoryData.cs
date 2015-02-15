@@ -44,4 +44,14 @@ public class CategoryData : TaskData{
 
 		return null;
 	}
+
+	override public int getFullPoints(){
+		int points = 0;
+
+		foreach (TaskQuestion t in this.taskQuestions) {
+			points += ((List<String>) t.getAnswer()).Count;
+		}
+
+		return points;
+	}
 }

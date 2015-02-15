@@ -274,7 +274,7 @@ function getResultOfStudent(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["debug"], inIds);
 		
-		dbConnection.query("select f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
+		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
 				"from user_fulfill_task f, task_for_class t " +
 				"where f.user_id = " + requestData.user_id + 
 				" and f.task_for_class_id in " + inIds + " and f.task_for_class_id = t.task_for_class_id",

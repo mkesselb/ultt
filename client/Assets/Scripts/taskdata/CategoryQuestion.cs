@@ -58,4 +58,8 @@ public class CategoryQuestion : TaskQuestion{
 	override public void shuffleAnswers(){
 		Shuffle.shuffle (categoryMembers);
 	}
+
+	public void addMember(string member){
+		this.categoryMembers.Add (member);
+	}
 }

@@ -172,7 +172,7 @@ public class PanelTeacherClass : MonoBehaviour {
 												generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
 												//define button actions: start task and delete task
 												int taskId = ts.getTaskId();
-												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(taskId);});
+												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(taskId, topicId);});
 												generatedButton.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener(()=>{confirmDeleteTask(taskId, topicId);});
 												
 											}
@@ -293,14 +293,15 @@ public class PanelTeacherClass : MonoBehaviour {
 							break;
 		case "startTask":	
 							Task taskToStart = new Task(task_id, parsedData[0]);
+							int task_for_class_id = int.Parse (parsedData[0]["task_for_class_id"]);
 							if(taskToStart.getTypeName() == "Zuordnung"){
-								main.eventHandler("startTaskAssign", taskToStart.getId());
+								main.eventHandler("startTaskAssign", task_id, task_for_class_id);
 							}
 							if(taskToStart.getTypeName() == "Kategorie"){
-								main.eventHandler("startTaskCategory", taskToStart.getId());
+								main.eventHandler("startTaskCategory", task_id, task_for_class_id);
 							}
 							if(taskToStart.getTypeName() == "Quiz"){
-								main.eventHandler("startTaskQuiz", taskToStart.getId());
+								main.eventHandler("startTaskQuiz", task_id, task_for_class_id);
 							}
 							break;
 		}
@@ -325,10 +326,12 @@ public class PanelTeacherClass : MonoBehaviour {
 		}
 	}
 		
-	public void startTask(int id){
+	public void startTask(int id, int topicId){
 		Debug.Log ("Button clicked, try to start Task");
+		Debug.Log (id + ";" + topicId + ";" + class_id);
 		task_id = id;
-		dbinterface.getTask ("startTask", id, gameObject);
+		//dbinterface.getTask ("startTask", id, gameObject);
+		dbinterface.getTaskForClass ("startTask", id, class_id, topicId, gameObject);
 	}
 
 	public void confirmDeleteTask(int task_id, int topic_id){

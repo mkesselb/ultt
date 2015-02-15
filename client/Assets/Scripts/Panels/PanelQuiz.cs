@@ -11,6 +11,9 @@ public class PanelQuiz : MonoBehaviour {
 	private DBInterface dbinterface;
 
 	public int task_id;
+	public int task_for_class_id;
+	public int user_id;
+
 	public QuizData quizData;
 
 	public GameObject toggleAnswer;
@@ -32,14 +35,10 @@ public class PanelQuiz : MonoBehaviour {
 
 	void Start () {
 	}
-	
 
 	void Update () {
 
 	}
-
-
-
 
 	public void init(){
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
@@ -57,7 +56,6 @@ public class PanelQuiz : MonoBehaviour {
 		answers.Clear ();
 		answers = new List<GameObject> ();
 		dbinterface.getTask ("taskData", task_id, gameObject);
-
 	}
 
 	public void dbInputHandler(string[] response){
@@ -73,7 +71,6 @@ public class PanelQuiz : MonoBehaviour {
 			break;
 		}
 		showNextQuestion ();
-
 	}
 
 	public void showNextQuestion(){
@@ -133,7 +130,6 @@ public class PanelQuiz : MonoBehaviour {
 						btn.transform.parent = GameObject.Find ("contentQuestion").transform;
 						btn.transform.FindChild("Text").GetComponent<Text>().text = "beenden";
 						btn.GetComponent<Button>().onClick.AddListener (() => {finishTask ();});	
-						
 				}
 	}
 
@@ -169,10 +165,7 @@ public class PanelQuiz : MonoBehaviour {
 		
 		btn = Instantiate (btnNext, Vector3.zero, Quaternion.identity) as GameObject;
 		btn.transform.parent = GameObject.Find ("contentQuestion").transform;
-		btn.GetComponent<Button>().onClick.AddListener (() => {next ();});	
-			
-		
-
+		btn.GetComponent<Button>().onClick.AddListener (() => {next ();});
 	}
 
 	public void finishTask(){
@@ -183,4 +176,11 @@ public class PanelQuiz : MonoBehaviour {
 			task_id = id;
 	}
 
+	public void setTaskForClassId(int id){
+		task_for_class_id = id;
+	}
+	
+	public void setUserId(int id){
+		user_id = id;
+	}
 }

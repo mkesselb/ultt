@@ -29,4 +29,8 @@ public class AssignmentData : TaskData{
 		//list should not be empty!
 		return aq;
 	}
+
+	override public int getFullPoints(){
+		return this.taskQuestions.Count;
+	}
 }

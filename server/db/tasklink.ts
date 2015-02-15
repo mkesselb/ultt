@@ -240,7 +240,7 @@ function getSubjects(dbConnection, requestData, callback){
 }
 
 /* saves the task execution of a user.
- * required data: user_id, task_for_class_id, fulfill_time, results */
+ * required data: user_id, task_for_class_id, results */
 function saveTask(dbConnection, requestData, callback){
 	if(!validator.validateID(requestData.user_id) || !validator.validateID(requestData.task_for_class_id)){
 		//malformed id
@@ -251,7 +251,6 @@ function saveTask(dbConnection, requestData, callback){
 	
 	var insertData = {};
 	insertData["user_id"] = requestData.user_id;
-	insertData["fulfill_time"] = requestData.fulfill_time;
 	insertData["results"] = requestData.results;
 	insertData["task_for_class_id"] = requestData.task_for_class_id;
 	dbConnection.query("insert into user_fulfill_task set ?", insertData, function(err, result){
@@ -372,17 +371,21 @@ function getTaskForClass(dbConnection, requestData, callback){
 	}
 	logger.log(logger.logLevels["debug"], "fetching task in class relation");
 	
-	dbConnetion.query("select assign_time, obligatory, deadline, max_attemps from task_for_class " +
-			"where class_id = " + requestData.class_id + 
-			" and task_id = " + requestData.task_id + 
-			" and class_topic_id = " + requestData.class_topic_id + " and deleted = 0", function(err, result){
+	var fetchTask = "select t.taskname, t.public, t.user_id, t.data_file, s.subject_name, tt.type_name, t.description, tc.task_for_class_id " 
+		+ "from task t, subject s, tasktype tt, task_for_class tc "
+		+ "where t.task_id = " + requestData.task_id + " and t.subject_id = s.subject_id "
+		+ "and t.tasktype_id = tt.tasktype_id and t.deleted = 0 "
+		+ "and tc.task_id = t.task_id and tc.class_id = " + requestData.class_id  
+		+ " and tc.class_topic_id = " + requestData.class_topic_id;
+	
+	dbConnection.query(fetchTask, function(err, result){
 		if(err){
 			return callback(err)
 		}
 		logger.log(logger.logLevels["debug"], "db response: " + JSON.stringify(result));
 		logger.log(logger.logLevels["debug"], "successful fetched task data");
 		
-		return callback(null, results);
+		return callback(null, result);
 	});
 };
 

@@ -253,7 +253,7 @@ public class Profile : MonoBehaviour {
 		string data = response[1];
 		JSONNode parsedData = JSONParser.JSONparse(data);
 		Debug.Log ("in dbinputhandler of profile, target "+target);
-		switch(target){	
+		switch(target){
 		case "userData": 	//save in user object
 							user = new User(parsedData[0]);
 							main.setHeaderText(user.getFirstName());
