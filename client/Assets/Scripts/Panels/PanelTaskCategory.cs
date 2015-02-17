@@ -114,12 +114,6 @@ public class PanelTaskCategory : MonoBehaviour {
 		case "savedTask":
 			main.writeToMessagebox("Ergebnis gespeichert: " + points + "/" + catData.getFullPoints());
 			finishTask();
-			/*GameObject btn;
-			
-			btn = Instantiate (btnNext, Vector3.zero, Quaternion.identity) as GameObject;
-			btn.transform.parent = GameObject.Find ("contentQuestion").transform;
-			btn.transform.FindChild("Text").GetComponent<Text>().text = "Ergebnis gespeichert: " + points + "/" + catData.getFullPoints();
-			btn.GetComponent<Button>().onClick.AddListener (() => {finishTask ();});*/
 			break;
 		}
 	}

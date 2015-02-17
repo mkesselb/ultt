@@ -26,6 +26,9 @@ public class PanelQuiz : MonoBehaviour {
 	public int correctAnswers;
 	public int totalAnswers;
 
+	public QuizData userAnswers;
+	public Dictionary<string, List<int>> cAns;
+
 	public List<GameObject> answers;
 	public List<Question> questions;
 
@@ -68,14 +71,20 @@ public class PanelQuiz : MonoBehaviour {
 			Task task = new Task(task_id, parsedData[0]); 
 			quizData = new QuizData(task.getDatafile());
 			quizData.shuffleQuestions();
+			userAnswers = new QuizData("");
+			cAns = new Dictionary<string, List<int>>();
+			showNextQuestion ();
+			break;
+		case "savedTask":
+			main.writeToMessagebox("Ergebnis gespeichert: " + correctAnswers + "/" + quizData.getFullPoints());
+			finishTask();
 			break;
 		}
-		showNextQuestion ();
+
 	}
 
 	public void showNextQuestion(){
 		if (questionNr < quizData.getQuestions().Count) {
-			
 						GameObject generatedAns;
 						//delete old answer buttons
 						foreach (GameObject b in answers) {
@@ -120,16 +129,30 @@ public class PanelQuiz : MonoBehaviour {
 						answers.Clear ();
 						Destroy(GameObject.Find ("contentQuestion/btnCheck(Clone)"));
 						Destroy(GameObject.Find ("contentQuestion/btnNext(Clone)"));
-						//show result
 
-						textQuestion.GetComponent<Text> ().text = correctAnswers+"/"+totalAnswers;
+						//show result
+						//textQuestion.GetComponent<Text> ().text = correctAnswers+"/"+totalAnswers;
+
+						//save results
+						int p = (int)(100 * (double)correctAnswers / quizData.getFullPoints());
+						string results = p + "\n";
+						foreach(string key in cAns.Keys){
+							results += key + ",";
+							foreach(int i in cAns[key]){
+								results += i + ",";
+							}
+						}
+						results += "\n" + userAnswers.getCSV();
+						
+						dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+
 						//finish button
-						GameObject btn;
+						/*GameObject btn;
 			
 						btn = Instantiate (btnNext, Vector3.zero, Quaternion.identity) as GameObject;
 						btn.transform.parent = GameObject.Find ("contentQuestion").transform;
 						btn.transform.FindChild("Text").GetComponent<Text>().text = "beenden";
-						btn.GetComponent<Button>().onClick.AddListener (() => {finishTask ();});	
+						btn.GetComponent<Button>().onClick.AddListener (() => {finishTask ();});*/
 				}
 	}
 
@@ -158,7 +181,8 @@ public class PanelQuiz : MonoBehaviour {
 
 		Destroy(GameObject.Find ("contentQuestion/btnCheck(Clone)"));
 
-		//TODO save result
+		userAnswers.addQuestion (answer);
+		cAns.Add (answer.getQuestionText (), results);
 
 		//next button
 		GameObject btn;

@@ -79,6 +79,10 @@ public class QuizQuestion : TaskQuestion{
 
 		return score / totalWeights;
 	}
+
+	public int getNumAnswers(){
+		return questionAnswers.Count;
+	}
 	
 	override public object getAnswer(){
 		return new object[] {questionAnswers, questionWeights};

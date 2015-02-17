@@ -18,8 +18,18 @@ public class QuizData : TaskData{
 		return new QuizQuestion(CSVHelper.swapDecode(p[1]), answers, weights);
 	}
 
+	public void addQuizQuestion(QuizQuestion q){
+		this.taskQuestions.Add (q);
+	}
+
 	override public int getFullPoints(){
 		//TODO: decide on full points == num questions or num answers?
-		return this.taskQuestions.Count;
+		int points = 0;
+
+		foreach (TaskQuestion q in this.taskQuestions) {
+			points += ((QuizQuestion)q).getNumAnswers();
+		}
+
+		return points;
 	}
 }

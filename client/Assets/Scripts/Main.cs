@@ -147,8 +147,8 @@ public class Main : MonoBehaviour {
 								panelQuiz.SetActive(true);
 								Debug.Log (id + ";" + userid + ";" + id2);
 								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
-								panelQuiz.GetComponent<PanelTaskCategory>().setUserId(userid);
-								panelQuiz.GetComponent<PanelTaskCategory>().setTaskForClassId(id2);
+								panelQuiz.GetComponent<PanelQuiz>().setUserId(userid);
+								panelQuiz.GetComponent<PanelQuiz>().setTaskForClassId(id2);
 
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
@@ -157,8 +157,8 @@ public class Main : MonoBehaviour {
 								panelTaskAssignment.SetActive(true);
 								Debug.Log (id + ";" + userid + ";" + id2);
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskId(id);
-								panelTaskAssignment.GetComponent<PanelTaskCategory>().setUserId(userid);
-								panelTaskAssignment.GetComponent<PanelTaskCategory>().setTaskForClassId(id2);
+								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setUserId(userid);
+								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskForClassId(id2);
 
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().init();
 								break;

@@ -222,6 +222,11 @@ public class PanelTeacherClass : MonoBehaviour {
 		case "studentlistDetail": /*TODO 	
 											generate exam entries with result lists
 											add entries to list of exam entries
+											
+											use ResultContainer: call getResultOfStudent/s; getResultOfTask/s
+											give the returned jsonNode object into ResultContainer constructor
+											-> then call methods to receive list of results of it
+											
 							*/
 
 							//delete old studentDetailEntry objects
@@ -241,8 +246,7 @@ public class PanelTeacherClass : MonoBehaviour {
 									
 									//create studentListDetailEntry object for each entry
 									//generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
-									
-									
+										
 								}
 							}
 							break;
