@@ -5,39 +5,108 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelTaskAssignment : MonoBehaviour {
-	//test parameter -> to be deleted if form is attached to rest of app
-	private bool first = true;
 	private DBInterface dbinterface;
+	private Main main;
 	
-	public GameObject assignment;
+	public GameObject assignmentToggleLeft;
+	public GameObject assignmentToggleRight;
+	//public GameObject statusText;
+	public GameObject btnNextAssignment;
+	//public GameObject btnRelease;
+	
+	private AssignmentData assData;
+	private AssignmentData userAnswer;
+	
+	public List<int> correctFlag;
+	
+	private double answers;
+	private double points;
 	
 	public int task_id;
 	public int task_for_class_id;
 	public int user_id;
 	
-	public List<GameObject> assignments;
-	public int assignment_id;
 	
-	//text fields
-	public GameObject btnRelease;
-
-	// Use this for initialization
 	void Start () {
-		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
-		btnRelease.GetComponent<Button> ().onClick.AddListener (() => {releaseAssignments();});
-		//init ();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+		btnNextAssignment.GetComponent<Button> ().onClick.AddListener (() => {nextAssignment ();});
+		btnNextAssignment.transform.FindChild ("Text").GetComponent<Text> ().text = "überprüfen";
 	}
 	
 	public void init(){
 		
-		assignments = new List<GameObject> ();
-		assignment_id = 0;
-		//dbinterface.getTask ("taskData", task_id, gameObject);
+		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
+		main = GameObject.Find ("Scripts").GetComponent<Main>();
+		
+		//first, destroy all toggles
+		for (int i = 0; i < gameObject.transform.FindChild("panelAssignmentLeft/panelLeft").childCount; i++){
+			Destroy(gameObject.transform.FindChild("panelAssigmentLeft/panelLeft").GetChild (i).gameObject);
+		}
+		for (int i = 0; i < gameObject.transform.FindChild("panelAssignmentRight/panelRight").childCount; i++){
+			Destroy(gameObject.transform.FindChild("panelAssignmentRight/panelRight").GetChild (i).gameObject);
+		}
+		
+		answers = -1;
+		points = 0;
+		
+		/*gameObject.transform.FindChild("Text").GetComponent<Text> ().text 
+			= LocaleHandler.getText ("info-nextword", main.getLang());*/
+
+		dbinterface.getTask ("taskData", task_id, gameObject);
+	}
+	
+	public void nextAssignment(bool first = false){
+		//check current assignment
+		string selectedAssLeft = "";
+		string selectedAssRight = "";
+		
+		//find toggled answer on left side
+		for (int i = 0; i < gameObject.transform.FindChild("panelAssignmentLeft/panelLeft").childCount; i++){
+			Transform trLeft = gameObject.transform.FindChild("panelAssignmentLeft/panelLeft").GetChild (i);
+			if(trLeft.GetComponent<Toggle>().isOn){
+				selectedAssLeft = trLeft.Find ("Label").GetComponent<Text>().text;
+				//remove entry from list
+				Destroy (trLeft.gameObject);
+			}
+		}
+		//find toggled answer on right side
+		for (int i = 0; i < gameObject.transform.FindChild("panelAssignmentRight/panelRight").childCount; i++){
+			Transform trRight = gameObject.transform.FindChild("panelAssignmentRight/panelRight").GetChild (i);
+			if(trRight.GetComponent<Toggle>().isOn){
+				selectedAssRight = trRight.Find ("Label").GetComponent<Text>().text;
+				//remove entry from list
+				Destroy (trRight.gameObject);
+			}
+		}
+		
+		//check if assigment is correct
+		Debug.Log ("selected:" + selectedAssLeft + ";" + selectedAssRight);
+		AssignmentQuestion check = new AssignmentQuestion (selectedAssLeft, selectedAssRight);
+		int isCorrect = 0;
+		foreach (AssignmentQuestion aq in assData.getQuestionWithField (selectedAssLeft, 0)) {;
+			if (aq.checkAnswer(check) == 1) {
+				points++;
+				isCorrect = 1;
+				break;
+			}
+		}
+		
+		//add true [1] or false [0] to correctFlag 
+		correctFlag.Add (isCorrect);
+		userAnswer.addQuestion(check);
+		answers--;
+		
+		//leave task after the last couple
+		if (answers == 0) {
+			//call to saveTask
+			int p = (int)(100 * (double)points / assData.getFullPoints());
+			string results = p + "\n";
+			foreach(int i in correctFlag){
+				results += i + ",";
+			}
+			results += "\n" + userAnswer.getCSV();
+			
+			dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+		}
 	}
 	
 	public void dbInputHandler(string[] response){
@@ -50,57 +119,54 @@ public class PanelTaskAssignment : MonoBehaviour {
 			Task task = new Task(task_id, parsedData[0]); 
 			loadAssignmentsFromTask(task.getDatafile());
 			break;
+		case "savedTask":
+			main.writeToMessagebox("Ergebnis gespeichert: " + points + "/" + assData.getFullPoints());
+			finishTask();
+			break;
 		}
+	}
+
+	public void finishTask(){
+		main.eventHandler ("finishTask", task_id);
 	}
 	
 	public void loadAssignmentsFromTask(string csv){
-		AssignmentData qu = new AssignmentData (csv);
-		if (qu.getQuestions ().Count == 0) {
-			addAssignmentForm();
-		} else {
-			foreach (AssignmentQuestion q in qu.getQuestions()) {
-				List<string> ans = (List<string>)q.getAnswer();
-				addAssignmentForm(ans[0], ans[1]);
-			}
+		this.assData = new AssignmentData (csv);
+		this.userAnswer = new AssignmentData ("");
+		this.correctFlag = new List<int> ();
+		List<string> left = new List<string> ();
+		List<string> right = new List<string> ();
+		
+		//populate toggle group
+		bool active = false;
+		foreach (AssignmentQuestion ts in assData.getQuestions()) {
+			List<string> a = (List<string>) ts.getAnswer();
+			left.Add(a[0]);
+			right.Add(a[1]);
 		}
-	}
-	
-	public void addAssignmentForm(string aname = "Neue Zuordnung1", string bname = "Neue Zuordnung2"){
-		if (first) {
-			dbinterface.getTask ("taskData", task_id, gameObject);
-			first = false;
-			return;
+		
+		Shuffle.shuffle (left);
+		Shuffle.shuffle (right);
+		answers = left.Count;
+		
+		for (int i = 0; i < left.Count; i++) {
+			GameObject assLeft = Instantiate (assignmentToggleLeft, Vector3.zero, Quaternion.identity) as GameObject;
+			GameObject assRight = Instantiate (assignmentToggleRight, Vector3.zero, Quaternion.identity) as GameObject;
+			assLeft.transform.parent = gameObject.transform.FindChild ("panelAssignmentLeft/panelLeft");
+			assRight.transform.parent = gameObject.transform.FindChild ("panelAssignmentRight/panelRight");
+			assLeft.transform.FindChild ("Label").GetComponent<Text> ().text = left[i];
+			assRight.transform.FindChild ("Label").GetComponent<Text> ().text = right[i];
+			assLeft.GetComponent<Toggle>().isOn = active;
+			assRight.GetComponent<Toggle>().isOn = active;
+			assLeft.GetComponent<Toggle>().group = assLeft.transform.parent.GetComponent<ToggleGroup>();
+			assRight.GetComponent<Toggle>().group = assRight.transform.parent.GetComponent<ToggleGroup>();
 		}
-		GameObject generatedAssignment = Instantiate (assignment, Vector3.zero, Quaternion.identity) as GameObject;
-
-		int id = assignment_id;
-		generatedAssignment.name = "assignment" + id;
-		generatedAssignment.transform.parent = GameObject.Find ("panelAssignmentLeft/panelLeft").transform;
-		generatedAssignment.transform.FindChild ("panelAssignmentLeft/InputField1/Text").GetComponent<Text> ().text = aname;
-		generatedAssignment.transform.FindChild ("panelAssignmentRight/InputField2/Text").GetComponent<Text> ().text = bname;
-		assignments.Add (generatedAssignment);
-	
-		assignment_id++;
-	}
-	
-	public void releaseAssignments(){
-		AssignmentData assignmentData = new AssignmentData ("");
-		for (int i = 0; i < assignments.Count; i++){
-			//save question text
-			string assignment1 = assignments[i].transform.FindChild("formAssign/InputField1/Text").GetComponent<Text>().text;
-			string assignment2 = assignments[i].transform.FindChild("formAssign/InputField2/Text").GetComponent<Text>().text;
-			AssignmentQuestion assignmentQuestion = new AssignmentQuestion(assignment1, assignment2);
-			assignmentData.addQuestion(assignmentQuestion);
-			
-		}
-		//TODO fill in description
-		dbinterface.editTask ("editTask", task_id, "", assignmentData.getCSV(), gameObject);
 	}
 	
 	public void setTaskId(int id){
 		task_id = id;
 	}
-
+	
 	public void setTaskForClassId(int id){
 		task_for_class_id = id;
 	}
