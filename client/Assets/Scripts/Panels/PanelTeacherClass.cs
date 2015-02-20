@@ -182,10 +182,11 @@ public class PanelTeacherClass : MonoBehaviour {
 								}
 							}
 							break;
-		case "studentlist":	
+		case "studentlist_students":	
 							//delete old studentInList objects
-							foreach (GameObject s in students){
-								Destroy(s);	
+							foreach (GameObject st in students){
+				Debug.Log (st.name);
+								Destroy(st);	
 							}
 							students.Clear();
 
@@ -198,7 +199,11 @@ public class PanelTeacherClass : MonoBehaviour {
 									JSONNode n = parsedData[i];
 									Student student = new Student(n);
 									teacherClass.addStudent(student);
-					
+									/*Debug.Log ("result: "+n.ToString());
+									ResultContainer resultContainer = new ResultContainer(n);
+									//Student student = new Student(n);
+									//teacherClass.addStudent(student);
+									generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
 									//create studentInList object for each student
 									if(student.isAccepted()){
 										generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
@@ -210,14 +215,38 @@ public class PanelTeacherClass : MonoBehaviour {
 									}
 									//add studentInList objects to hierarchy
 									generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
-									generatedStudentInList.transform.FindChild("btnName/Text").GetComponent<Text>().text = student.getName();
-									//TODO compute result and write to child "btnResult/Text"
-									//dbinterface.getResultOfStudents("", class_id, true, gameObject);
-									int student_id = student.getId();
-									generatedStudentInList.transform.FindChild("btnName").GetComponent<Button>().onClick.AddListener(()=> {clickedStudent(student_id);});
-									students.Add(generatedStudentInList);
+									generatedStudentInList.transform.FindChild("btnName/Text").GetComponent<Text>().text = 	"user";	//student.getName();
+									generatedStudentInList.transform.FindChild("fieldResult/Text").GetComponent<Text>().text = resultContainer.getResultOfStudent(3)[0].ToString();
+
+									//int student_id = student.getId();
+									//generatedStudentInList.transform.FindChild("btnName").GetComponent<Button>().onClick.AddListener(()=> {clickedStudent(student_id);});
+									students.Add(generatedStudentInList);*/
+
 								}
 							}
+							dbinterface.getResultOfStudents ("studentlist_results", class_id, 0, gameObject);
+							break;
+		case "studentlist_results":
+							ResultContainer resultContainer = new ResultContainer(parsedData);
+							foreach(Student student in teacherClass.getStudentList()){
+								//create studentInList object for each student
+								if(student.isAccepted()){
+									generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
+								} else {
+									// studentInList_unaccepted object containa an add button
+									generatedStudentInList = Instantiate(studentInList_unaccepted, Vector3.zero, Quaternion.identity) as GameObject;
+									//define button action: add student to class
+									generatedStudentInList.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener(()=> {acceptStudent(student);});
+								}
+								//add studentInList objects to hierarchy
+								generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
+								generatedStudentInList.transform.FindChild("btnName/Text").GetComponent<Text>().text = 	student.getName();
+								int student_id = student.getId();
+								generatedStudentInList.transform.FindChild("fieldResult").GetComponent<Text>().text = resultContainer.getAverageResultOfStudent(student_id)+"%";
+								generatedStudentInList.transform.FindChild("btnName").GetComponent<Button>().onClick.AddListener(()=> {clickedStudent(student_id);});
+								students.Add(generatedStudentInList);
+							}
+
 							break;
 		case "studentlistDetail": /*TODO 	
 											generate exam entries with result lists
@@ -238,17 +267,18 @@ public class PanelTeacherClass : MonoBehaviour {
 							panelStudentListDetail.SetActive(true);
 							main.addToPanelStack(panelStudentListDetail);
 							
-							//parse data in entry objects (create student class)
-							if(data != "[]"){
-								for(int i = 0; i < parsedData.Count; i++){
-									JSONNode n = parsedData[i];
-									//TODO studentListDetailEntry object
-									
-									//create studentListDetailEntry object for each entry
-									//generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
-										
-								}
+							ResultContainer resultContainerStudent = new ResultContainer(parsedData);
+								panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getUserName (resultContainerStudent.getResults()[0].getUserId());
+							
+							foreach(Result r in resultContainerStudent.getResults()){					
+							//create studentListDetailEntry object for each entry
+								generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
+								generatedStudentDetailEntry.transform.parent = gameObject.transform.FindChild("StudentListDetail/ContentStudentsDetail").transform;
+								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getTaskName(r.getTaskForClassId());
+								generatedStudentDetailEntry.transform.FindChild("Text").GetComponent<Text>().text = r.getResult()+"%";
+								studentDetailEntries.Add (generatedStudentDetailEntry);
 							}
+										
 							break;
 		case "acceptedStudent":
 							if(int.Parse(parsedData[0]["success"]) == 1){ //success
@@ -374,8 +404,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	
 	public void showStudentList(){
 		Debug.Log ("Button clicked, show panel studentList");	
-		//dbinterface.getClassUsers("studentlist", class_id, gameObject);
-		dbinterface.getResultOfStudents ("studentlist", class_id, 1, gameObject);
+		dbinterface.getClassUsers ("studentlist_students", class_id, gameObject);
 	}
 	
 	public void acceptStudent(Student s){
@@ -389,6 +418,6 @@ public class PanelTeacherClass : MonoBehaviour {
 
 	public void clickedStudent(int student_id){
 		Debug.Log ("clicked Student wit id: "+student_id);
-		//dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, true, gameObject);
+		dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, 0, gameObject);
 	}
 }

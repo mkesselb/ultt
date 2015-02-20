@@ -58,6 +58,15 @@ public class ResultContainer{
 		return results;
 	}
 
+	public int getAverageResultOfStudent(int user_id){
+		int averageResult = 0;
+		foreach (Result r in getResultOfStudent (user_id)) {
+			averageResult += r.getResult();
+		}
+		averageResult = averageResult / getResultOfStudent (user_id).Count;
+		return averageResult;
+	}
+
 	public List<Result> getResultOfTask(int task_for_class_id){
 		List<Result> results = new List<Result>();
 		

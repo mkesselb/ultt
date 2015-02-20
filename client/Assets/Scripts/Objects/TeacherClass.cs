@@ -95,4 +95,24 @@ public class TeacherClass{
 	public void addStudent(Student s){
 		students.Add(s);
 	}
+
+	public string getTaskName(int task_id){
+		string name = "";
+		foreach(TaskShort task in tasks){
+			if(task.getTaskId() == task_id){
+				name = task.getTaskName();
+			}
+		}
+		return name;
+	}
+
+	public string getUserName(int user_id){
+		string name = "";
+		foreach(Student s in students){
+			if(s.getId() == user_id){
+				name = s.getName();
+			}
+		}
+		return name;
+	}
 }
