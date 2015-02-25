@@ -71,16 +71,51 @@ public class ResultContainer{
 		return results;
 	}
 
+	public List<int> getResultOfStudentOfTask(int user_id, int task_id){
+		List<int> res = new List<int> ();
+		foreach(Result r in this.getResults()){
+			if(r.getTaskId() == task_id && r.getUserId() == user_id){
+				res.Add (r.getResult());
+			}
+		}
+		return res;
+	}
+
 	public int getAverageResultOfStudent(int user_id){
 		int averageResult = 0;
-		foreach (Result r in getResultOfStudent (user_id)) {
-			averageResult += r.getResult();
-		}
-		averageResult = averageResult / getResultOfStudent (user_id).Count;
+		if (getResultOfStudent (user_id).Count != 0) {
+						foreach (Result r in getResultOfStudent (user_id)) {
+								averageResult += r.getResult ();
+						}
+						averageResult = averageResult / getResultOfStudent (user_id).Count;
+				}
 		return averageResult;
 	}
 
-	public List<Result> getResultOfTask(int task_for_class_id){
+	public int getAverageResultOfTask(int task_id){
+		int averageResult = 0;
+		if (getResultOfTask (task_id).Count != 0) {
+						foreach (Result r in getResultOfTask (task_id)) {
+								averageResult += r.getResult ();
+						}
+						averageResult = averageResult / getResultOfTask (task_id).Count;
+		}
+		return averageResult;
+	}
+
+	public List<Result> getResultOfTask(int task_id){
+		List<Result> results = new List<Result>();
+		
+		foreach (Result r in this.resultList) {
+			if(r.getTaskId() == task_id){
+				results.Add(r);
+			}
+		}
+		
+		return results;
+	}
+
+	/*public List<Result> getResultOfTask(int task_for_class_id){
 		List<Result> results = new List<Result>();
 		
 		foreach (Result r in this.resultList) {
@@ -90,5 +125,5 @@ public class ResultContainer{
 		}
 		
 		return results;
-	}
+	}*/
 }

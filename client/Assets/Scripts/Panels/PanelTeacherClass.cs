@@ -270,15 +270,85 @@ public class PanelTeacherClass : MonoBehaviour {
 							ResultContainer resultContainerStudent = new ResultContainer(parsedData);
 								panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getUserName (resultContainerStudent.getResults()[0].getUserId());
 							
-							foreach(Result r in resultContainerStudent.getResults()){					
+							
+							foreach(TaskShort t in teacherClass.getTaskList()){
+								generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
+								generatedStudentDetailEntry.transform.parent = gameObject.transform.FindChild("StudentListDetail/ContentStudentsDetail").transform;
+								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getTaskName(t.getTaskId());
+								string resultString = "";
+								foreach(int result in resultContainerStudent.getResultOfStudentOfTask(resultContainerStudent.getResults()[0].getUserId(), t.getTaskId())){
+									resultString += result+"%, ";
+								}
+								if(resultString == ""){
+									resultString = "-";
+								}
+
+								generatedStudentDetailEntry.transform.FindChild("Text").GetComponent<Text>().text = resultString;
+								studentDetailEntries.Add (generatedStudentDetailEntry);
+
+							}
+
+							/*foreach(Result r in resultContainerStudent.getResults()){					
 							//create studentListDetailEntry object for each entry
 								generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
 								generatedStudentDetailEntry.transform.parent = gameObject.transform.FindChild("StudentListDetail/ContentStudentsDetail").transform;
-								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getTaskName(r.getTaskForClassId());
+								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getTaskName(r.getTaskId());
 								generatedStudentDetailEntry.transform.FindChild("Text").GetComponent<Text>().text = r.getResult()+"%";
 								studentDetailEntries.Add (generatedStudentDetailEntry);
-							}
+							}*/
 										
+							break;
+		case "examResults":	foreach (GameObject st in students){ //TODO change list "students" to "resultObjects"?
+								Debug.Log (st.name);
+								Destroy(st);	
+							}
+								students.Clear();
+								
+								panelStudentList.SetActive(true);
+								main.addToPanelStack(panelStudentList);
+							ResultContainer resultContainer2 = new ResultContainer(parsedData);
+							foreach(TaskShort task in teacherClass.getTaskList()){
+								//create studentInList object for each task
+								generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
+								//add objects to hierarchy
+								generatedStudentInList.transform.parent = gameObject.transform.FindChild("StudentList/ContentStudents").transform;
+								generatedStudentInList.transform.FindChild("btnName/Text").GetComponent<Text>().text = task.getTaskName();
+								int task_id = task.getTaskId();
+								generatedStudentInList.transform.FindChild("fieldResult").GetComponent<Text>().text = resultContainer2.getAverageResultOfTask(task_id)+"%";
+								generatedStudentInList.transform.FindChild("btnName").GetComponent<Button>().onClick.AddListener(()=> {clickedTaskResultObject(task_id);});
+								students.Add(generatedStudentInList);
+							}
+
+							break;
+		case "examResultsDetail":
+							foreach (GameObject s in studentDetailEntries){
+								Destroy(s);	
+							}
+							studentDetailEntries.Clear();
+							
+							panelStudentListDetail.SetActive(true);
+							main.addToPanelStack(panelStudentListDetail);
+							
+							ResultContainer resultContainerStudent2 = new ResultContainer(parsedData);
+							panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getTaskName (resultContainerStudent2.getResults()[0].getTaskId());
+							
+							
+							foreach(Student s in teacherClass.getStudentList()){
+								generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
+								generatedStudentDetailEntry.transform.parent = gameObject.transform.FindChild("StudentListDetail/ContentStudentsDetail").transform;
+								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getUserName(s.getId());
+								string resultString = "";
+								foreach(int result in resultContainerStudent2.getResultOfStudentOfTask(resultContainerStudent2.getResults()[0].getUserId(), task_id)){
+									resultString += result+"%, ";
+								}
+								if(resultString == ""){
+									resultString = "-";
+								}
+								
+								generatedStudentDetailEntry.transform.FindChild("Text").GetComponent<Text>().text = resultString;
+								studentDetailEntries.Add (generatedStudentDetailEntry);
+								
+							}
 							break;
 		case "acceptedStudent":
 							if(int.Parse(parsedData[0]["success"]) == 1){ //success
@@ -419,5 +489,15 @@ public class PanelTeacherClass : MonoBehaviour {
 	public void clickedStudent(int student_id){
 		Debug.Log ("clicked Student wit id: "+student_id);
 		dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, 0, gameObject);
+	}
+
+	public void showExamResults(){
+		Debug.Log ("Button clicked, show exam results");	
+		dbinterface.getResultOfStudents ("examResults", teacherClass.getClassId (), 0, gameObject);
+	}
+
+	public void clickedTaskResultObject(int task_id){
+		this.task_id = task_id;
+		dbinterface.getResultOfStudents ("examResultsDetail", teacherClass.getClassId (), 0, gameObject);
 	}
 }
