@@ -14,7 +14,8 @@ public class ResultContainer{
 		for (int i = 0; i < results.Count; i++) {
 			JSONNode result = results[i];
 			resultList.Add(new Result(int.Parse(result["user_id"]), DateTime.Parse(result["fulfill_time"]), 
-			                          result["results"], int.Parse(result["task_for_class_id"])));
+			                          result["results"], int.Parse(result["task_for_class_id"]), 
+			                          int.Parse(result["task_id"])));
 		}
 	}
 
@@ -34,11 +35,23 @@ public class ResultContainer{
 		return results;
 	}
 
-	public List<Result> extractTaskResults(int task_for_class_id, List<Result> res){
+	public List<Result> extractTaskClassResults(int task_for_class_id, List<Result> res){
 		List<Result> results = new List<Result>();
 		
 		foreach (Result r in res) {
 			if(r.getTaskForClassId() == task_for_class_id){
+				results.Add(r);
+			}
+		}
+		
+		return results;
+	}
+	
+	public List<Result> extractTaskResults(int task_id, List<Result> res){
+		List<Result> results = new List<Result>();
+		
+		foreach (Result r in res) {
+			if(r.getTaskId() == task_id){
 				results.Add(r);
 			}
 		}

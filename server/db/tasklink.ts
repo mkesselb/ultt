@@ -299,9 +299,9 @@ function getResultOfTask(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["debug"], inIds);
 		
-		dbConnection.query("select user_id, fulfill_time, results, task_for_class_id " +
-				"from user_fulfill_task " +
-				"where task_for_class_id in " + inIds,
+		dbConnection.query("select u.user_id, u.fulfill_time, u.results, u.task_for_class_id, t.task_id " +
+				"from user_fulfill_task u, task_for_class t " +
+				"where u.task_for_class_id in " + inIds +  " and u.task_for_class_id = t.task_for_class_id",
 				function(error, result){
 			if(error){
 				return callback(error);

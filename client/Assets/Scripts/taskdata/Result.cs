@@ -13,15 +13,15 @@ public class Result{
 
 	private int taskForClassId;
 
-	//private int task_id;
+	private int task_id;
 
-	public Result(int userid, DateTime fulfillT, string res, int taskForClassid){
+	public Result(int userid, DateTime fulfillT, string res, int taskForClassid, int taskid){
 		this.user_id = userid;
 		this.fulfillTime = fulfillT;
 		this.result = int.Parse(res.Substring (0, res.IndexOf ("\n")));
 		this.answers = res.Substring(res.IndexOf("\n")+1);
 		this.taskForClassId = taskForClassid;
-		//this.task_id = taskid;
+		this.task_id = taskid;
 	}
 
 	public int getUserId(){
@@ -44,7 +44,7 @@ public class Result{
 		return this.taskForClassId;
 	}
 
-	/*public int getTaskId(){
+	public int getTaskId(){
 		return this.task_id;
-	}*/
+	}
 }
