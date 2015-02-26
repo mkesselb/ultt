@@ -25,7 +25,7 @@ public class PanelTaskAssignment : MonoBehaviour {
 	public int task_id;
 	public int task_for_class_id;
 	public int user_id;
-	
+	public bool isTeacher;
 	
 	void Start () {
 		btnNextAssignment.GetComponent<Button> ().onClick.AddListener (() => {nextAssignment ();});
@@ -104,8 +104,13 @@ public class PanelTaskAssignment : MonoBehaviour {
 				results += i + ",";
 			}
 			results += "\n" + userAnswer.getCSV();
-			
-			dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+
+			if(isTeacher){
+				main.writeToMessagebox("Ergebnis: " + points + "/" + assData.getFullPoints());
+				finishTask();
+			} else{
+				dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+			}
 		}
 	}
 	
@@ -173,5 +178,9 @@ public class PanelTaskAssignment : MonoBehaviour {
 	
 	public void setUserId(int id){
 		user_id = id;
+	}
+
+	public void setIsTeacher(bool isteacher){
+		this.isTeacher = isteacher;
 	}
 }

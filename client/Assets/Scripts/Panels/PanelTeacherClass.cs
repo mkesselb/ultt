@@ -399,13 +399,13 @@ public class PanelTeacherClass : MonoBehaviour {
 							Task taskToStart = new Task(task_id, parsedData[0]);
 							int task_for_class_id = int.Parse (parsedData[0]["task_for_class_id"]);
 							if(taskToStart.getTypeName() == "Zuordnung"){
-								main.eventHandler("startTaskAssign", task_id, task_for_class_id);
+								main.eventHandler("startTaskAssign", task_id, task_for_class_id, true);
 							}
 							if(taskToStart.getTypeName() == "Kategorie"){
-								main.eventHandler("startTaskCategory", task_id, task_for_class_id);
+								main.eventHandler("startTaskCategory", task_id, task_for_class_id, true);
 							}
 							if(taskToStart.getTypeName() == "Quiz"){
-								main.eventHandler("startTaskQuiz", task_id, task_for_class_id);
+								main.eventHandler("startTaskQuiz", task_id, task_for_class_id, true);
 							}
 							break;
 		}

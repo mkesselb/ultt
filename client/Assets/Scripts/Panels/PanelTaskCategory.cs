@@ -25,6 +25,7 @@ public class PanelTaskCategory : MonoBehaviour {
 	public int task_id;
 	public int task_for_class_id;
 	public int user_id;
+	public bool isTeacher;
 
 	// Use this for initialization
 	void Start () {
@@ -97,7 +98,12 @@ public class PanelTaskCategory : MonoBehaviour {
 			}
 			results += "\n" + userAnswers.getCSV();
 
-			dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+			if(isTeacher){
+				main.writeToMessagebox("Ergebnis: " + points + "/" + catData.getFullPoints());
+				finishTask();
+			} else{
+				dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+			}
 		}
 	}
 
@@ -159,5 +165,9 @@ public class PanelTaskCategory : MonoBehaviour {
 
 	public void setUserId(int id){
 		user_id = id;
+	}
+
+	public void setIsTeacher(bool isteacher){
+		this.isTeacher = isteacher;
 	}
 }

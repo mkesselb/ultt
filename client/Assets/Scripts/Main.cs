@@ -89,7 +89,7 @@ public class Main : MonoBehaviour {
 		panelStack.Add (panelLogInScreen);
 	}
 
-	public void eventHandler(string eventname, int id, int id2 = 0){
+	public void eventHandler(string eventname, int id, int id2 = 0, bool isTeacher = false){
 		switch(eventname){
 		case "logInSuccess": 	//panelLogInScreen.SetActive(false);
 								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
@@ -149,6 +149,7 @@ public class Main : MonoBehaviour {
 								panelQuiz.GetComponent<PanelQuiz>().setTaskId(id);
 								panelQuiz.GetComponent<PanelQuiz>().setUserId(userid);
 								panelQuiz.GetComponent<PanelQuiz>().setTaskForClassId(id2);
+								panelQuiz.GetComponent<PanelQuiz>().setIsTeacher(isTeacher);
 
 								panelQuiz.GetComponent<PanelQuiz>().init();
 								break;
@@ -159,6 +160,7 @@ public class Main : MonoBehaviour {
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskId(id);
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setUserId(userid);
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setTaskForClassId(id2);
+								panelTaskAssignment.GetComponent<PanelTaskAssignment>().setIsTeacher(isTeacher);
 
 								panelTaskAssignment.GetComponent<PanelTaskAssignment>().init();
 								break;
@@ -169,6 +171,7 @@ public class Main : MonoBehaviour {
 								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskId(id);
 								panelTaskCategory.GetComponent<PanelTaskCategory>().setUserId(userid);
 								panelTaskCategory.GetComponent<PanelTaskCategory>().setTaskForClassId(id2);
+								panelTaskCategory.GetComponent<PanelTaskCategory>().setIsTeacher(isTeacher);
 
 								panelTaskCategory.GetComponent<PanelTaskCategory>().init();
 								break;

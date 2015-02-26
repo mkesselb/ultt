@@ -13,6 +13,7 @@ public class PanelQuiz : MonoBehaviour {
 	public int task_id;
 	public int task_for_class_id;
 	public int user_id;
+	public bool isTeacher;
 
 	public QuizData quizData;
 
@@ -144,8 +145,13 @@ public class PanelQuiz : MonoBehaviour {
 						}
 						results += "\n" + userAnswers.getCSV();
 						
-						dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
-
+						if(isTeacher){
+							main.writeToMessagebox("Ergebnis: " + correctAnswers + "/" + quizData.getFullPoints());
+							finishTask();
+						} else{
+							dbinterface.saveTask("savedTask", user_id, task_for_class_id, results, gameObject);
+						}
+						
 						//finish button
 						/*GameObject btn;
 			
@@ -206,5 +212,9 @@ public class PanelQuiz : MonoBehaviour {
 	
 	public void setUserId(int id){
 		user_id = id;
+	}
+
+	public void setIsTeacher(bool isteacher){
+		this.isTeacher = isteacher;
 	}
 }
