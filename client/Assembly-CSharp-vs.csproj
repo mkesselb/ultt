@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>F:/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>F:/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Projects/Unity/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -98,7 +98,7 @@
      <None Include="Assets\Scripts\locales\de.txt" />
      <None Include="Assets\Scripts\errorcodes\de.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>F:/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Projects/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

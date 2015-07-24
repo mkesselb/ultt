@@ -87,6 +87,12 @@ public class Main : MonoBehaviour {
 
 		panelStack = new List<GameObject> ();
 		panelStack.Add (panelLogInScreen);
+
+
+
+		//dbinterface.getResultOfStudent("studentlistDetail", 15, student_id, 0, gameObject);
+		//dbinterface.getResultOfStudents ("examResults", teacherClass.getClassId (), 0, gameObject);
+
 	}
 
 	public void eventHandler(string eventname, int id, int id2 = 0, bool isTeacher = false){

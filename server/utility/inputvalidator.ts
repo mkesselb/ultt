@@ -2,7 +2,7 @@
 
 /* returns true if validation is successful, false otherwise */
 function validateID(id){
-	//id shall be a number, and not zero-lenght
+	//id shall be a number, and not zero-length
 	if(isNaN(id) || id.length===0){
 		return false;
 	}
@@ -10,5 +10,5 @@ function validateID(id){
 }
 
 module.exports = {
-		validateID				: validateID 
+		validateID	: validateID 
 };

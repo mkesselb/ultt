@@ -1,3 +1,7 @@
+#simple translation file for GUI texsts
+#following format:
+#text-identifier;translated text in target language
+
 #dialog and other messages
 dialog-yes;Ja
 dialog-no;Nein
