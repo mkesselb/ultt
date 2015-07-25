@@ -3,13 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class QuizQuestion : TaskQuestion{
+
+	/// <summary>
+	/// String list of question answers.
+	/// </summary>
 	private List<string> questionAnswers;
+
+	/* the lists should be tied by indices.
+	 * the list of questionweights allows to give weights to correct answers.
+	 * giving the same weight for each answer (e.g. 1) can be used for normal questions, or for answers where selected ones get >0, non-selected get 0
+	 */
+
+	/// <summary>
+	/// Integer list of question weights.
+	/// </summary>
 	private List<int> questionWeights;
-	//the lists should be tied by indices.
-	//the list of questionweights allows to give weights to correct answers.
-	//giving the same weight for each answer (e.g. 1) can be used for normal questions, or for answers where selected ones get >0, non-selected get 0
+
+	/// <summary>
+	/// Number of total weights of the answers. Used for score computation.
+	/// </summary>
 	private int totalWeights = 0;
 
+	/// <summary>
+	/// Initializes a new instance of the <see cref="QuizQuestion"/> class.
+	/// Sets up the internal lists of answers and weights.
+	/// </summary>
+	/// 
+	/// <param name="questionText">string question text.</param>
+	/// <param name="questionAns">list of string question answers.</param>
+	/// <param name="questionWeigh">list of integer question weights.</param>
 	public QuizQuestion(string questionText, List<string> questionAns, List<int> questionWeigh) : base(questionText){
 		questionAnswers = questionAns;
 		questionWeights = questionWeigh;
@@ -18,12 +40,19 @@ public class QuizQuestion : TaskQuestion{
 		}
 	}
 
-	//the following outcomes are possible for each index:
-	//0:	false answer, not selected
-	//1:	right answer, selected
-	//2:	false answer, selected
-	//3:	right answer, not selected
-	//parameter answer QuizQuestion shall have the same questions as this object, with the weights as 0 for non-selected and >0 for selected answers
+	/// <summary>
+	/// For parameter user-supplied answer, checks the selections (weights) of the quiz answers and rates them to the true weights of the question.
+	/// Returns a list of integers, corresponding to the list of answers.
+	/// The list contains the following possible outcomes:
+	/// 1: false answer, not selected.
+	/// 2: right answer, selected.
+	/// 3: false answer, selected.
+	/// 4: right answer, not selected.
+	/// </summary>
+	/// 
+	/// <returns>a int list which contains ratings for the supplied answers.</returns>
+	/// 
+	/// <param name="answer">the user-supplied answer to be checked.</param>
 	public List<int> checkAnswerIndices(QuizQuestion answer){
 		object[] aw_ = (object[])answer.getAnswer();
 		List<string> answerQ = (List<string>)aw_[0];
@@ -56,8 +85,20 @@ public class QuizQuestion : TaskQuestion{
 		return annotatedIndices;
 	}
 
-	//parameter answer QuizQuestion shall have the same questions as this object, with the weights as 0 for non-selected and >0 for selected answers
+	/// <summary>
+	/// Checks the parameter answer against the internal answer.
+	/// Is intended to be used with a user-supplied answer (parameter) against the internal correct answer (which is built
+	/// from the saved task configuration).
+	/// 
+	/// Checks the parameter TaskQuestion answer weights against the internal answer weights.
+	/// The score is based on the fraction of achieved / total weights.
+	/// </summary>
+	/// 
+	/// <returns>The score of achieved / total weights [0,1].</returns>
+	/// 
+	/// <param name="answer">user-supplied answer to be checked.</param>
 	override public double checkAnswer(TaskQuestion answer){
+		//parameter answer QuizQuestion shall have the same questions as this object, with the weights as 0 for non-selected and >0 for selected answers
 		QuizQuestion ans = (QuizQuestion)answer;
 		object[] aw_ = (object[])ans.getAnswer();
 		List<string> answerQ = (List<string>)aw_[0];
@@ -80,14 +121,23 @@ public class QuizQuestion : TaskQuestion{
 		return score / totalWeights;
 	}
 
+	/// <returns>The number of answers.</returns>
 	public int getNumAnswers(){
 		return questionAnswers.Count;
 	}
-	
+
+	/// <returns>An array of [questionAnswers, questionWeights].</returns>
 	override public object getAnswer(){
 		return new object[] {questionAnswers, questionWeights};
 	}
-	
+
+	/// <summary>
+	/// Gets the CSV representation of this TaskQuestion. Implementation is left for extention classes.
+	/// This method is important for .csv string message exchange with the server.
+	/// 
+	/// The .csv representation of a qiz question is the question text, followed by the question answers and corresponding weights:
+	/// qText,qAnswer1,qWeight1,...,qAnswerN,qWeightN
+	/// </summary>
 	override public string getCSVRepresentation(){
 		string csv = CSVHelper.swapEncode(this.getQuestionText());
 		for(int i = 0; i < questionAnswers.Count; i++){
@@ -97,6 +147,9 @@ public class QuizQuestion : TaskQuestion{
 		return csv;
 	}
 
+	/// <summary>
+	/// Provides a randomization of the quiz questions and answers.
+	/// </summary>
 	override public void shuffleAnswers(){
 		List<int> indices = new List<int> ();
 		for (int i = 0; i < questionAnswers.Count; i++) {
