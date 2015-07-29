@@ -6,20 +6,49 @@ using SimpleJSON;
 
 public class PanelUserClass : MonoBehaviour {
 	
-	
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
-	
+
+	/// <summary>
+	/// The topic prefab.
+	/// </summary>
 	public GameObject topic;
+
+	/// <summary>
+	/// The task button prefab.
+	/// </summary>
 	public GameObject btnTask;
-	
+
+	/// <summary>
+	/// The class_id.
+	/// </summary>
 	public int class_id;
+
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
+
+	/// <summary>
+	/// The Userclass object.
+	/// </summary>
 	private UserClass userClass;
-	
+
+	/// <summary>
+	/// The class data textfield.
+	/// </summary>
 	public Text fieldClassData;
 	
-	//contain Gameobjects (= buttons)
+	/// <summary>
+	/// The list of topic objects.
+	/// </summary>
 	public List<GameObject> topics;
 
 	void Start () {
@@ -42,7 +71,12 @@ public class PanelUserClass : MonoBehaviour {
 		topics.Clear();	
 		dbinterface.getTeacherClassData("classData", class_id, gameObject); 
 	}
-	
+
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		string target = response[0];
 		string data = response[1];
@@ -132,6 +166,12 @@ public class PanelUserClass : MonoBehaviour {
 		}
 	}*/
 
+	/// <summary>
+	/// Starts task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id.</param>
+	/// <param name="topicId">topic id.</param>
 	public void startTask(int id, int topicId){
 		/*task_id = id;
 		Debug.Log ("Button clicked, try to start Task");
@@ -143,6 +183,11 @@ public class PanelUserClass : MonoBehaviour {
 		dbinterface.getTaskForClass ("startTask", id, class_id, topicId, gameObject);
 	}
 		
+	/// <summary>
+	/// Set class id.
+	/// </summary>
+	/// 
+	/// <param name="id">class id.</param>
 	public void setClassId(int id){
 		class_id = id;	
 	}

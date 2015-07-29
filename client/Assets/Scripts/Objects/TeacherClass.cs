@@ -163,6 +163,10 @@ public class TeacherClass{
 		return students;	
 	}
 
+	public void deleteStudentList(){
+		students.Clear ();
+	}
+
 	/// <summary>
 	/// Adds the student.
 	/// </summary>

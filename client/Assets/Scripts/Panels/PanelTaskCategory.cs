@@ -5,26 +5,84 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelTaskCategory : MonoBehaviour {
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
 
+	/// <summary>
+	/// The toggle object.
+	/// </summary>
 	public GameObject categoryToggle;
+
+	/// <summary>
+	/// The phrase textfield
+	/// </summary>
 	public GameObject currentPhrase;
+
+	/// <summary>
+	/// The status textfield
+	/// </summary>
 	public GameObject statusText;
+
+	/// <summary>
+	/// The next button.
+	/// </summary>
 	public GameObject btnNextPhrase;
 
+	/// <summary>
+	/// The category data.
+	/// </summary>
 	private CategoryData catData;
+
+	/// <summary>
+	/// The list of phrases.
+	/// </summary>
 	private List<string> phrases;
 
+	/// <summary>
+	/// The number of answers.
+	/// </summary>
 	private double answers;
+
+	/// <summary>
+	/// The number of points.
+	/// </summary>
 	private double points;
 
+	/// <summary>
+	/// The correct answers.
+	/// </summary>
 	private Dictionary<string, List<int>> correctAnswers;
+
+	/// <summary>
+	/// The user answers.
+	/// </summary>
 	private CategoryData userAnswers;
 
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
+
+	/// <summary>
+	/// The task_for_class_id.
+	/// </summary>
 	public int task_for_class_id;
+
+	/// <summary>
+	/// The user_id.
+	/// </summary>
 	public int user_id;
+
+	/// <summary>
+	/// The teacher flag.
+	/// </summary>
 	public bool isTeacher;
 
 	// Use this for initialization
@@ -52,6 +110,11 @@ public class PanelTaskCategory : MonoBehaviour {
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
+	/// <summary>
+	/// Invoke next phrase.
+	/// </summary>
+	///
+	/// <param name="first">flag for first phrase.</param>
 	public void invokeNextPhrase(bool first = false){
 		//check current categorization
 		if (!first && answers < phrases.Count) {
@@ -107,6 +170,11 @@ public class PanelTaskCategory : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelTaskCategory");
 		string target = response [0];
@@ -124,10 +192,18 @@ public class PanelTaskCategory : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Finishes task.
+	/// </summary>
 	public void finishTask(){
 		main.eventHandler ("finishTask", task_id);
 	}
 
+	// <summary>
+	/// Loads categories.
+	/// </summary>
+	/// 
+	/// <param name="csv">category data.</param>
 	public void loadCategoriesFromTask(string csv){
 		this.catData = new CategoryData (csv);
 		this.userAnswers = new CategoryData ("");
@@ -155,14 +231,29 @@ public class PanelTaskCategory : MonoBehaviour {
 		invokeNextPhrase (true);
 	}
 
+	/// <summary>
+	/// Set task id.
+	/// </summary>
+	/// 
+	/// <param name="id">task id.</param>
 	public void setTaskId(int id){
 		task_id = id;
 	}
 
+	/// <summary>
+	/// Set task_for_class_id.
+	/// </summary>
+	/// 
+	/// <param name="id">task_for_class_id.</param>
 	public void setTaskForClassId(int id){
 		task_for_class_id = id;
 	}
 
+	/// <summary>
+	/// Set user_id.
+	/// </summary>
+	/// 
+	/// <param name="id">user id.</param>
 	public void setUserId(int id){
 		user_id = id;
 	}

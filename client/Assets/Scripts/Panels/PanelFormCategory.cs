@@ -5,23 +5,56 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelFormCategory : MonoBehaviour {
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
 
+	/// <summary>
+	/// The category prefab.
+	/// </summary>
 	public GameObject category;
+
+	/// <summary>
+	/// The member prefab.
+	/// </summary>
 	public GameObject member;
 
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
 
+	/// <summary>
+	/// The list of categories.
+	/// </summary>
 	public List<GameObject> categories;
+
+	/// <summary>
+	/// The category_id.
+	/// </summary>
 	public int category_id;
 
-	//text fields
+	/// <summary>
+	/// The list of all members of the categories.
+	/// </summary>
 	public List<List<GameObject>> members;
+
+	/// <summary>
+	/// The button to add a new Category
+	/// </summary>
 	public GameObject btnAddCategory;
+
+	/// <summary>
+	/// The button for saving the form.
+	/// </summary>
 	public GameObject btnSave;
 
-	// Use this for initialization
 	void Start () {
 		btnAddCategory.GetComponent<Button> ().onClick.AddListener (() => {addCategoryForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveCategories();});
@@ -49,6 +82,11 @@ public class PanelFormCategory : MonoBehaviour {
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelFormCategory");
 		string target = response [0];
@@ -62,6 +100,11 @@ public class PanelFormCategory : MonoBehaviour {
 		}
 	}
 
+	// <summary>
+	/// Loads saved categories to form.
+	/// </summary>
+	/// 
+	/// <param name="csv">already saved category data.</param>
 	public void loadCategoriesFromTask(string csv){
 		CategoryData catData = new CategoryData (csv);
 		if (catData.getQuestions ().Count == 0) {
@@ -76,6 +119,13 @@ public class PanelFormCategory : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Adds member to form.
+	/// </summary>
+	/// 
+	/// <param name="memberName">name of the member.</param>
+	/// <param name="id">id of the member.</param>
+	/// <param name="memberText">text of the member.</param>
 	public void addMemberForm(string memberName, int id, string memberText = "Phrase für Kategorie"){
 		GameObject generatedMember = Instantiate (member, Vector3.zero, Quaternion.identity) as GameObject;
 		generatedMember.transform.parent = GameObject.Find(memberName+"/members").transform;
@@ -83,6 +133,12 @@ public class PanelFormCategory : MonoBehaviour {
 		members [id].Add (generatedMember);
 	}
 
+	/// <summary>
+	/// Adds category to form.
+	/// </summary>
+	/// 
+	/// <param name="catName">name of the category.</param>
+	/// <param name="load">flag for adding member to category.</param>
 	public void addCategoryForm(string catName="Neue Kategorie", bool load = false){
 		GameObject generatedCat = Instantiate (category, Vector3.zero, Quaternion.identity) as GameObject;
 
@@ -100,6 +156,9 @@ public class PanelFormCategory : MonoBehaviour {
 		category_id++;
 	}
 
+	/// <summary>
+	/// Saves category data from form.
+	/// </summary>
 	public void saveCategories(){
 		CategoryData catData = new CategoryData ("");
 		for (int i = 0; i < categories.Count; i++){
@@ -121,6 +180,11 @@ public class PanelFormCategory : MonoBehaviour {
 		dbinterface.editTask ("editTask", task_id, "", catData.getCSV(), gameObject);
 	}
 
+	/// <summary>
+	/// Set task id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id of currently edited task.</param>
 	public void setTaskId(int id){
 		task_id = id;
 	}

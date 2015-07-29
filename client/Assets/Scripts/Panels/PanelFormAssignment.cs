@@ -5,27 +5,52 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelFormAssignment : MonoBehaviour {
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
-	
+
+	/// <summary>
+	/// assignment prefab.
+	/// </summary>
 	public GameObject assignment;
-	
+
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
-	
+
+	/// <summary>
+	/// The list of assignment gameobjects in the form.
+	/// </summary>
 	public List<GameObject> assignments;
+
+	/// <summary>
+	/// The current assignment_id.
+	/// </summary>
 	public int assignment_id;
 	
-	//text fields
+	/// <summary>
+	/// The button for adding an assignment to the form.
+	/// </summary>
 	public GameObject btnAddAssignment;
+
+	/// <summary>
+	/// The button for saving the form.
+	/// </summary>
 	public GameObject btnSave;
 
-	// Use this for initialization
 	void Start () {
 		btnAddAssignment.GetComponent<Button> ().onClick.AddListener (() => {addAssignmentForm ();});
 		btnSave.GetComponent<Button> ().onClick.AddListener (() => {saveAssignments();});
 		//init ();
 	}
-	
+
 	public void init(){
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
 		dbinterface = GameObject.Find ("Scripts").GetComponent<DBInterface>();
@@ -43,7 +68,12 @@ public class PanelFormAssignment : MonoBehaviour {
 		assignment_id = 0;
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
-	
+
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelFormAssignment");
 		string target = response [0];
@@ -56,7 +86,12 @@ public class PanelFormAssignment : MonoBehaviour {
 			break;
 		}
 	}
-	
+
+	/// <summary>
+	/// Loads saved assignments to form.
+	/// </summary>
+	/// 
+	/// <param name="csv">already saved assignment data.</param>
 	public void loadAssignmentsFromTask(string csv){
 		AssignmentData qu = new AssignmentData (csv);
 		if (qu.getQuestions ().Count == 0) {
@@ -68,7 +103,13 @@ public class PanelFormAssignment : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	/// <summary>
+	/// Adds assignment to form.
+	/// </summary>
+	/// 
+	/// <param name="aname">text in first column of assignment.</param>
+	/// <param name="bname">text in second column of assignment.</param>
 	public void addAssignmentForm(string aname = "Neue Zuordnung1", string bname = "Neue Zuordnung2"){
 		GameObject generatedAssignment = Instantiate (assignment, Vector3.zero, Quaternion.identity) as GameObject;
 
@@ -81,7 +122,10 @@ public class PanelFormAssignment : MonoBehaviour {
 	
 		assignment_id++;
 	}
-	
+
+	/// <summary>
+	/// Saves assignment data from form.
+	/// </summary>
 	public void saveAssignments(){
 		AssignmentData assignmentData = new AssignmentData ("");
 		for (int i = 0; i < assignments.Count; i++){
@@ -95,7 +139,12 @@ public class PanelFormAssignment : MonoBehaviour {
 		//TODO fill in description
 		dbinterface.editTask ("editTask", task_id, "", assignmentData.getCSV(), gameObject);
 	}
-	
+
+	/// <summary>
+	/// Set task id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id of currently edited task.</param>
 	public void setTaskId(int id){
 		task_id = id;
 	}

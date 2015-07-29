@@ -5,35 +5,107 @@ using UnityEngine.UI;
 using SimpleJSON;
 
 public class PanelQuiz : MonoBehaviour {
-	//multiple choice, one right answer
 
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
 
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
+
+	/// <summary>
+	/// The task_for_class_id.
+	/// </summary>
 	public int task_for_class_id;
+
+	/// <summary>
+	/// The user_id.
+	/// </summary>
 	public int user_id;
+
+	/// <summary>
+	/// The teacher flag.
+	/// </summary>
 	public bool isTeacher;
 
+	/// <summary>
+	/// The quizdata object.
+	/// </summary>
 	public QuizData quizData;
 
+	/// <summary>
+	/// The toggle prefab.
+	/// </summary>
 	public GameObject toggleAnswer;
+
+	/// <summary>
+	/// The question textfield.
+	/// </summary>
 	public Text textQuestion;
+
+	/// <summary>
+	/// The question number textfield.
+	/// </summary>
 	public Text textQuestionNr;
+
+	/// <summary>
+	/// The check button.
+	/// </summary>
 	public GameObject btnCheck;
+
+	/// <summary>
+	/// The next button.
+	/// </summary>
 	public GameObject btnNext;
 
+	/// <summary>
+	/// The question number.
+	/// </summary>
 	public int questionNr;
+
+	/// <summary>
+	/// The number of correct answers.
+	/// </summary>
 	public int correctAnswers;
+
+	/// <summary>
+	/// The number of answers.
+	/// </summary>
 	public int totalAnswers;
 
+	/// <summary>
+	/// The quizdata object with the user answers.
+	/// </summary>
 	public QuizData userAnswers;
+
 	public Dictionary<string, List<int>> cAns;
 
+	/// <summary>
+	/// The list of answer gameobjects.
+	/// </summary>
 	public List<GameObject> answers;
+
+	/// <summary>
+	/// The list of questions.
+	/// </summary>
 	public List<Question> questions;
 
+	/// <summary>
+	/// The color for correct answers.
+	/// </summary>
 	public Color colorCorrect;
+
+	/// <summary>
+	/// The color for wrong answers.
+	/// </summary>
 	public Color colorWrong;
 
 
@@ -62,6 +134,11 @@ public class PanelQuiz : MonoBehaviour {
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
+	/// <summary>
+	/// Handles incoming data from the database.
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelQuiz");
 		string target = response [0];
@@ -84,6 +161,9 @@ public class PanelQuiz : MonoBehaviour {
 
 	}
 
+	/// <summary>
+	/// Shows next quiz question.
+	/// </summary>
 	public void showNextQuestion(){
 		if (questionNr < quizData.getQuestions().Count) {
 						GameObject generatedAns;
@@ -162,11 +242,19 @@ public class PanelQuiz : MonoBehaviour {
 				}
 	}
 
+	/// <summary>
+	/// Go to next question.
+	/// </summary>
 	private void next() {
 		Debug.Log ("clicked");
 		showNextQuestion ();
 	}
 
+	/// <summary>
+	/// Check the user answer.
+	/// </summary>
+	/// 
+	/// <param name="questionnr">number of answered question.</param>
 	public void checkAnswers(int questionnr){
 		QuizQuestion question =  (QuizQuestion)quizData.getQuestion(questionnr);
 		List<int> a = new List<int>();
@@ -198,18 +286,36 @@ public class PanelQuiz : MonoBehaviour {
 		btn.GetComponent<Button>().onClick.AddListener (() => {next ();});
 	}
 
+	/// <summary>
+	/// Finished task.
+	/// </summary>
 	public void finishTask(){
 		main.eventHandler ("finishTask", task_id);
 	}
 
+	/// <summary>
+	/// Set task id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id of currently edited task.</param>
 	public void setTaskId(int id){
 			task_id = id;
 	}
 
+	/// <summary>
+	/// Set task_for_class_id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id of currently edited task.</param>
 	public void setTaskForClassId(int id){
 		task_for_class_id = id;
 	}
-	
+
+	/// <summary>
+	/// Set user_id.
+	/// </summary>
+	/// 
+	/// <param name="id">user_id.</param>
 	public void setUserId(int id){
 		user_id = id;
 	}

@@ -4,12 +4,25 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class PanelRegister : MonoBehaviour {
-	
+
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The register form.
+	/// </summary>
 	private Form registerForm;
 	
-	//Input fields
+	/// <summary>
+	/// The input fields.
+	/// </summary>
 	public Text inputVorname, inputNachname, inputUsername, inputPassword, inputPassword2, inputEmail, inputSchool;
 
 	void Start () {
@@ -46,11 +59,19 @@ public class PanelRegister : MonoBehaviour {
 		formValidaotrs.Add (new TextValidator ());
 		registerForm = new Form (keys, formFields, formValidaotrs, new Color(0.75f,0.75f,0.75f,1), Color.red);
 	}
-	
+
+	/// <summary>
+	/// Saves registration data.
+	/// </summary>
 	public void clickedBtnRegister(){
 		dbinterface.sendRegisterData("register", registerForm, gameObject);
 	}
-	
+
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		string target = response[0];
 		string data = response[1];

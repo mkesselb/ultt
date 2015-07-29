@@ -101,6 +101,7 @@ public class Main : MonoBehaviour {
 								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
 								panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (true);
 								panelProfile.SetActive(true);
+			panelStack.Clear();
 								panelStack.Add(panelProfile);
 								panelProfile.GetComponent<Profile>().setUserId(id);
 								this.setUserId(id);

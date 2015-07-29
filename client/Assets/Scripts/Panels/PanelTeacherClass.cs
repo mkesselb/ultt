@@ -5,42 +5,130 @@ using UnityEngine.UI;
 using SimpleJSON;
 
 public class PanelTeacherClass : MonoBehaviour {
-
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
-	
+
+	/// <summary>
+	/// The panel for the student list.
+	/// </summary>
 	public GameObject panelStudentList;
+
+	/// <summary>
+	/// The panel for the student detail list.
+	/// </summary>
 	public GameObject panelStudentListDetail;
 
-	//panelAddTopic
+	/// <summary>
+	/// The panel with form to add topic.
+	/// </summary>
 	public GameObject panelAddTopic;
+
+	/// <summary>
+	/// The topic text field in the form.
+	/// </summary>
 	public Text fieldTopicToAdd;
 
-	//panelAddTask
+	/// <summary>
+	/// The panel with form to add topic.
+	/// </summary>
 	public GameObject panelAddTask;
+
+	/// <summary>
+	/// The list of tasks.
+	/// </summary>
 	public List<TaskShort> tasks;
 	public List<TaskOverview> tasksOverview;
+
+	/// <summary>
+	/// The list of task buttons.
+	/// </summary>
 	public List<GameObject> tasksBtns;
+
+	/// <summary>
+	/// The task button prefab.
+	/// </summary>
 	public GameObject buttonTasks;
 
+	/// <summary>
+	/// The topic prefab.
+	/// </summary>
 	public GameObject topic;
+
+	/// <summary>
+	/// The task button prefab.
+	/// </summary>
 	public GameObject btnTask;
+
+	/// <summary>
+	/// The student list prefabs.
+	/// </summary>
 	public GameObject studentInList_unaccepted, studentInList_accepted;
+
+	/// <summary>
+	/// The student detail list prefab.
+	/// </summary>
 	public GameObject studentDetailEntry;
-	
+
+	/// <summary>
+	/// The class_id.
+	/// </summary>
 	public int class_id;
+
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
+
+	/// <summary>
+	/// The student_id.
+	/// </summary>
+	public int student_id;
+
+	/// <summary>
+	/// The current topic id.
+	/// </summary>
 	public int currentTopic;
+
+	/// <summary>
+	/// The teacher class object.
+	/// </summary>
 	private TeacherClass teacherClass;
-	
+
+	/// <summary>
+	/// The class dat textfield.
+	/// </summary>
 	public Text fieldClassData;
 
+	/// <summary>
+	/// The form to add task.
+	/// </summary>
 	private Form addTaskForm;
+
+	/// <summary>
+	/// The form to add topic.
+	/// </summary>
 	private Form topicForm;
 	
-	//contain Gameobjects (= buttons)
+	/// <summary>
+	/// The list of topic objects.
+	/// </summary>
 	public List<GameObject> topics;
+
+	/// <summary>
+	/// The list of student objects.
+	/// </summary>
 	public List<GameObject> students;
+
+	/// <summary>
+	/// The list of student detail objects.
+	/// </summary>
 	public List<GameObject> studentDetailEntries;
 
 	void Start () {
@@ -79,6 +167,9 @@ public class PanelTeacherClass : MonoBehaviour {
 		initTopicForm ();
 	}
 
+	// <summary>
+	/// Initialize the topic form.
+	/// </summary>
 	public void initTopicForm(){
 		List<string> keys = new List<string> ();
 		keys.Add ("topic_name");
@@ -89,6 +180,9 @@ public class PanelTeacherClass : MonoBehaviour {
 		topicForm = new Form (keys, formFields, formValidators, new Color(0.75f,0.75f,0.75f,1), Color.red);
 	}
 
+	// <summary>
+	/// Initialize the form to add a task.
+	/// </summary>
 	public void initAddTaskForm(){
 		List<string> keys = new List<string> ();
 		keys.Add ("max_attempts");
@@ -98,7 +192,10 @@ public class PanelTeacherClass : MonoBehaviour {
 		formValidators.Add (new NumberValidator (false, 0, int.MaxValue));
 		addTaskForm = new Form (keys, formFields, formValidators, new Color(0.75f,0.75f,0.75f,1), Color.red);
 	}
-	
+
+	// <summary>
+	/// Initialize the panel.
+	/// </summary>
 	public void init(){
 		//string[] temp = new string[]{"","1","","","","0","","","","","","","","","",""};
 		//teacherClass = new TeacherClass(class_id, temp);
@@ -115,7 +212,12 @@ public class PanelTeacherClass : MonoBehaviour {
 		}
 		topics.Clear();
 	}
-	
+
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelTeacherClass");
 		string target = response[0];
@@ -185,10 +287,11 @@ public class PanelTeacherClass : MonoBehaviour {
 		case "studentlist_students":	
 							//delete old studentInList objects
 							foreach (GameObject st in students){
-				Debug.Log (st.name);
+								Debug.Log (st.name);
 								Destroy(st);	
 							}
 							students.Clear();
+							teacherClass.deleteStudentList();
 
 							panelStudentList.SetActive(true);
 							main.addToPanelStack(panelStudentList);
@@ -229,6 +332,8 @@ public class PanelTeacherClass : MonoBehaviour {
 		case "studentlist_results":
 							ResultContainer resultContainer = new ResultContainer(parsedData);
 							foreach(Student student in teacherClass.getStudentList()){
+
+							Debug.Log("add student: "+student.getName());
 								//create studentInList object for each student
 								if(student.isAccepted()){
 									generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
@@ -268,25 +373,29 @@ public class PanelTeacherClass : MonoBehaviour {
 							main.addToPanelStack(panelStudentListDetail);
 							
 							ResultContainer resultContainerStudent = new ResultContainer(parsedData);
-								panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getUserName (resultContainerStudent.getResults()[0].getUserId());
+							 
 							
 							
+							panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getUserName (student_id);			
+			
 							foreach(TaskShort t in teacherClass.getTaskList()){
 								generatedStudentDetailEntry = Instantiate(studentDetailEntry, Vector3.zero, Quaternion.identity) as GameObject;
 								generatedStudentDetailEntry.transform.parent = gameObject.transform.FindChild("StudentListDetail/ContentStudentsDetail").transform;
 								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getTaskName(t.getTaskId());
 								string resultString = "";
-								foreach(int result in resultContainerStudent.getResultOfStudentOfTask(resultContainerStudent.getResults()[0].getUserId(), t.getTaskId())){
+								
+								foreach(int result in resultContainerStudent.getResultOfStudentOfTask(student_id, t.getTaskId())){
 									resultString += result+"%, ";
 								}
 								if(resultString == ""){
 									resultString = "-";
 								}
 
-								generatedStudentDetailEntry.transform.FindChild("Text").GetComponent<Text>().text = resultString;
+				generatedStudentDetailEntry.transform.FindChild("Text").GetComponent<Text>().text = resultString;
 								studentDetailEntries.Add (generatedStudentDetailEntry);
 
 							}
+							
 
 							/*foreach(Result r in resultContainerStudent.getResults()){					
 							//create studentListDetailEntry object for each entry
@@ -298,7 +407,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							}*/
 										
 							break;
-		case "examResults":	foreach (GameObject st in students){ //TODO change list "students" to "resultObjects"?
+		case "examResults":	foreach (GameObject st in students){
 								Debug.Log (st.name);
 								Destroy(st);	
 							}
@@ -306,8 +415,8 @@ public class PanelTeacherClass : MonoBehaviour {
 								
 								panelStudentList.SetActive(true);
 								main.addToPanelStack(panelStudentList);
-							ResultContainer resultContainer2 = new ResultContainer(parsedData);
-							foreach(TaskShort task in teacherClass.getTaskList()){
+								ResultContainer resultContainer2 = new ResultContainer(parsedData);
+								foreach(TaskShort task in teacherClass.getTaskList()){
 								//create studentInList object for each task
 								generatedStudentInList = Instantiate(studentInList_accepted, Vector3.zero, Quaternion.identity) as GameObject;
 								//add objects to hierarchy
@@ -330,7 +439,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							main.addToPanelStack(panelStudentListDetail);
 							
 							ResultContainer resultContainerStudent2 = new ResultContainer(parsedData);
-							panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getTaskName (resultContainerStudent2.getResults()[0].getTaskId());
+							panelStudentListDetail.transform.FindChild("ContentStudentsDetail/Text").GetComponent<Text>().text = teacherClass.getTaskName (task_id);
 							
 							
 							foreach(Student s in teacherClass.getStudentList()){
@@ -338,7 +447,7 @@ public class PanelTeacherClass : MonoBehaviour {
 								generatedStudentDetailEntry.transform.parent = gameObject.transform.FindChild("StudentListDetail/ContentStudentsDetail").transform;
 								generatedStudentDetailEntry.transform.FindChild("fieldExamName").GetComponent<Text>().text = teacherClass.getUserName(s.getId());
 								string resultString = "";
-								foreach(int result in resultContainerStudent2.getResultOfStudentOfTask(resultContainerStudent2.getResults()[0].getUserId(), task_id)){
+								foreach(int result in resultContainerStudent2.getResultOfStudentOfTask(s.getId(), task_id)){
 									resultString += result+"%, ";
 								}
 								if(resultString == ""){
@@ -411,13 +520,24 @@ public class PanelTeacherClass : MonoBehaviour {
 		}
 		
 	}
-	
+
+	/// <summary>
+	/// Shows tasks.
+	/// </summary>
+	/// 
+	/// <param name="topicId">id of topic for the tasks.</param>
 	public void showTasks(int topicId){
 		Debug.Log ("Button clicked, try to add Task to Topic with id "+topicId);
 		currentTopic = topicId;
 		dbinterface.getMeineTasks("tasks", teacherClass.getUserId(), gameObject);
 	}
 
+	/// <summary>
+	/// Adds task to teacher class.
+	/// </summary>
+	/// 
+	/// <param name="taskId">task id</param>
+	/// <param name="topicId">topic id</param>
 	public void addTask(int taskId, int topicId){
 		//TODO change param -> deadline
 		int obligatory = 0;
@@ -430,6 +550,12 @@ public class PanelTeacherClass : MonoBehaviour {
 		}
 	}
 		
+	/// <summary>
+	/// Starts task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id</param>
+	/// <param name="topicId">topic id</param>
 	public void startTask(int id, int topicId){
 		Debug.Log ("Button clicked, try to start Task");
 		Debug.Log (id + ";" + topicId + ";" + class_id);
@@ -438,12 +564,23 @@ public class PanelTeacherClass : MonoBehaviour {
 		dbinterface.getTaskForClass ("startTask", id, class_id, topicId, gameObject);
 	}
 
+	/// <summary>
+	/// Confirms delete of a task.
+	/// </summary>
+	/// 
+	/// <param name="task_id">task id</param>
+	/// <param name="topicId">topic id</param>
 	public void confirmDeleteTask(int task_id, int topic_id){
 		Debug.Log ("button clicked, try to delete task");
 		this.task_id = task_id;
 		main.activateDialogbox ("Do you want to delete this task?", topic_id, gameObject, "deleteTask");
 	}
-	
+
+	/// <summary>
+	/// Delete a task.
+	/// </summary>
+	/// 
+	/// <param name="temp">answer and topic id</param>
 	public void deleteTask(int[] temp){
 		int answer = temp [0];
 		int id = temp [1];
@@ -453,12 +590,18 @@ public class PanelTeacherClass : MonoBehaviour {
 		task_id = -1;
 	}
 
+	/// <summary>
+	/// Activate panel with form to add topic.
+	/// </summary>
 	public void activatePanelAddTopic(){
 		Debug.Log ("activate panel");
 		panelAddTopic.SetActive (true);
 		main.addToPanelStack (panelAddTopic);
 	}
-	
+
+	/// <summary>
+	/// Add topic to teacher class
+	/// </summary>
 	public void addTopic(){
 		string name = fieldTopicToAdd.GetComponent<Text> ().text;
 		Debug.Log ("Button clicked, try to add Topic: "+name);
@@ -466,36 +609,68 @@ public class PanelTeacherClass : MonoBehaviour {
 			panelAddTopic.SetActive (false);
 		}
 	}
-	
+
+	/// <summary>
+	/// Delete a topic.
+	/// </summary>
+	/// 
+	/// <param name="id">topic id</param>
 	public void deleteTopic(int id){
 		Debug.Log ("Button clicked, try to delete Topic with id "+id);	
 		dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
 	}
-	
+
+	/// <summary>
+	/// Show lis of students.
+	/// </summary>
 	public void showStudentList(){
 		Debug.Log ("Button clicked, show panel studentList");	
 		dbinterface.getClassUsers ("studentlist_students", class_id, gameObject);
 	}
-	
+
+	/// <summary>
+	/// Accepts student in class
+	/// </summary>
+	///
+	/// <param name="s">student to accept</param>
 	public void acceptStudent(Student s){
 		Debug.Log ("Button clicked, try to accept user");	
 		dbinterface.acceptUserInClass("acceptedStudent", s.getId(), class_id, gameObject);	
 	}
-			
+
+	// <summary>
+	/// Set class id.
+	/// </summary>
+	/// 
+	/// <param name="id">class id.</param>
 	public void setClassId(int id){
 		class_id = id;
 	}
 
-	public void clickedStudent(int student_id){
+	// <summary>
+	/// Handles click on student object.
+	/// </summary>
+	/// 
+	/// <param name="id">student id.</param>
+	public void clickedStudent(int id){
+		student_id = id;
 		Debug.Log ("clicked Student wit id: "+student_id);
 		dbinterface.getResultOfStudent("studentlistDetail", class_id, student_id, 0, gameObject);
 	}
 
+	// <summary>
+	/// Shows results of exams in the teacher class.
+	/// </summary>
 	public void showExamResults(){
 		Debug.Log ("Button clicked, show exam results");	
 		dbinterface.getResultOfStudents ("examResults", teacherClass.getClassId (), 0, gameObject);
 	}
 
+	// <summary>
+	/// Handles click on task result object.
+	/// </summary>
+	/// 
+	/// <param name="task_id">task id.</param>
 	public void clickedTaskResultObject(int task_id){
 		this.task_id = task_id;
 		dbinterface.getResultOfStudents ("examResultsDetail", teacherClass.getClassId (), 0, gameObject);

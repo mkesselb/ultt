@@ -5,45 +5,119 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class Profile : MonoBehaviour {
-	
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The id handler
+	/// </summary>
 	private IdHandler idhandler;
 	
-	//Objects on standard view
+	/// <summary>
+	/// The sub panels.
+	/// </summary>
 	public GameObject overviewKlassen, overviewKurse, overviewTasks;
-	//creation form (to create new class)
+
+	/// <summary>
+	/// The panel with form to create a class.
+	/// </summary>
 	public GameObject panelCreateClass;
+
+	/// <summary>
+	/// The subject toggle in the form.
+	/// </summary>
 	public GameObject subjectToggle;
+
+	/// <summary>
+	/// The form to create a class.
+	/// </summary>
 	private Form createClassForm;
 
-	//objects on creation form
+	/// <summary>
+	/// The class text fields.
+	/// </summary>
 	public Text classname, classschoolyear;
-	//creation form for task
+
+	/// <summary>
+	/// The panel with form t create task.
+	/// </summary>
 	public GameObject panelCreateTask;
+
+	/// <summary>
+	/// The form to create a task.
+	/// </summary>
 	private Form createTaskForm;
 
-	//objects on task creation form
+	/// <summary>
+	/// The textfields on the task creation form.
+	/// </summary>
 	public Text taskname, taskpublic;
+
+	/// <summary>
+	/// The toggles on the task creation form.
+	/// </summary>
 	public Toggle toggleAssignment, toggleQuiz, toggleCategory;
-	//registration form (to register to existing class via classcode)
+
+	/// <summary>
+	/// The panel with registration form.
+	/// </summary>
 	public GameObject panelRegistration;
-	//object on registration form
+
+	/// <summary>
+	/// The textfield for the class code on creation form.
+	/// </summary>
 	public Text classcode;
-	
+
+	/// <summary>
+	/// The textfield for the user data.
+	/// </summary>
 	public Text fieldUserData;
 	
-	//Button prefab to dynamically generate buttons
+	/// <summary>
+	/// The button prefabs.
+	/// </summary>
 	public GameObject button, buttonUserClass, buttonTeacherClass, buttonTasks;
 
-	//Menu buttons
+	/// <summary>
+	/// The menu buttons.
+	/// </summary>
 	public GameObject menuUserClass, menuTeacherClass, menuTasks;
-	
+
+	/// <summary>
+	/// The user_id.
+	/// </summary>
 	public int userid;
+
+	/// <summary>
+	/// The user object.
+	/// </summary>
 	public User user;
+
+	/// <summary>
+	/// The list of user classes.
+	/// </summary>
 	public List<UserClass> userClasses;
+
+	/// <summary>
+	/// The list of teacher classes.
+	/// </summary>
 	public List<TeacherClass> teacherClasses;
+
+	/// <summary>
+	/// The list of tasks.
+	/// </summary>
 	public List<TaskOverview> tasks;
+
+	/// <summary>
+	/// The lists of buttons.
+	/// </summary>
 	public List<GameObject> userClassesBtns, teacherClassesBtns, tasksBtns;
 
 	void Start(){
@@ -122,6 +196,9 @@ public class Profile : MonoBehaviour {
 		initCreateTaskForm ();
 	}
 
+	// <summary>
+	/// Initialize the form for creating tasks.
+	/// </summary>
 	private void initCreateTaskForm(){
 		List<string> keys = new List<string> ();
 		keys.Add ("taskname");
@@ -146,6 +223,9 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
+	// <summary>
+	/// Initialize the form for creating a class.
+	/// </summary>
 	private void initCreateClassForm(){
 		List<string> keys = new List<string> ();
 		keys.Add ("classname");
@@ -173,7 +253,11 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
-	//action performed after clicking on menu items teacherClasses, courses or tasks
+	// <summary>
+	/// Handles clicking on menu items teacherClasses, courses or tasks.
+	/// </summary>
+	///
+	/// <param name="target">clicked button name.</param>
 	public void clickedBtn(string target){
 		
 		//cases: button of each class, course, task
@@ -208,7 +292,13 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
-	//action performed after clicking on a certain teacherClass, course or task
+	// <summary>
+	/// Handles clicking on a certain teacherClass, course or task
+	/// </summary>
+	///
+	/// <param name="target">type of clicked button.</param>
+	/// <param name="id">task id.</param>
+	/// <param name="type">task form type.</param>
 	public void clickedBtn(string target, int id, string type = ""){
 		switch(target){
 		case "openTeacherClass":
@@ -246,7 +336,11 @@ public class Profile : MonoBehaviour {
 
 	}*/
 
-	//called by dbinterface to handle input data: set user data, generate new buttons, delete buttons
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		GameObject generatedBtn;
 		string target = response[0];
@@ -374,7 +468,9 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
-	//delete profile data at log out
+	/// <summary>
+	/// Deletes profile data at log out.
+	/// </summary>
 	public void clear(){
 		userClasses.Clear ();
 		teacherClasses.Clear ();
@@ -384,12 +480,18 @@ public class Profile : MonoBehaviour {
 		setUserId (0);
 	}
 
+	/// <summary>
+	/// Shows task creation panel.
+	/// </summary>
 	public void showTaskCreation(){
 		Debug.Log ("button clicked for show task creation");
 		panelCreateTask.SetActive (true);
 		main.addToPanelStack (panelCreateTask);
 	}
-	
+
+	/// <summary>
+	/// Shows creation form for class.
+	/// </summary>
 	public void showCreationFormForClass(){
 		Debug.Log ("button clicked, show creation form");	
 		//activate form to insert class data
@@ -397,7 +499,10 @@ public class Profile : MonoBehaviour {
 		main.addToPanelStack (panelCreateClass);
 		//wait until button "create" is clicked (button calls addClass)
 	}
-	
+
+	/// <summary>
+	/// Add class from the form.
+	/// </summary>
 	public void addClass(){
 		//insert class into db if for filled correctly
 		int subject_id = 0;
@@ -410,6 +515,9 @@ public class Profile : MonoBehaviour {
 		dbinterface.createClass("addedClass", this.createClassForm, userid, subject_id, gameObject); 
 	}
 
+	/// <summary>
+	/// Add task from the form.
+	/// </summary>
 	public void addTask(){
 		//add task into db
 		//TODO: toggle for privacy
@@ -433,13 +541,23 @@ public class Profile : MonoBehaviour {
 		}
 		dbinterface.createTask("addedTask", this.createTaskForm, int.Parse(taskpublic.GetComponent<Text>().text), userid, subject_id, type, gameObject); 
 	}
-				
+
+	/// <summary>
+	/// Confirm delete of class.
+	/// </summary>
+	///
+	/// <param name="class_id">class_id.</param>
 	public void confirmDeleteClass(int class_id){
 		Debug.Log ("button clicked, try to delete class");	
 		main.activateDialogbox ("Do you want to delete this class?", class_id, gameObject, "deleteClass");
 
 	}
 
+	/// <summary>
+	/// Delete a class.
+	/// </summary>
+	///
+	/// <param name="temp">answer and class id.</param>
 	public void deleteClass(int[] temp){
 		int answer = temp [0];
 		int id = temp [1];
@@ -448,11 +566,21 @@ public class Profile : MonoBehaviour {
 		}
 	}
 
-	public void confirmDeleteTask(int topic_id){
+	/// <summary>
+	/// Confirm delete of task.
+	/// </summary>
+	///
+	/// <param name="task_id">task_id.</param>
+	public void confirmDeleteTask(int task_id){
 		Debug.Log ("button clicked, try to delete task");	
-		main.activateDialogbox ("Do you want to delete this task?", topic_id, gameObject, "deleteTask");
+		main.activateDialogbox ("Do you want to delete this task?", task_id, gameObject, "deleteTask");
 	}
 
+	/// <summary>
+	/// Delete a task.
+	/// </summary>
+	///
+	/// <param name="temp">answer and task id.</param>
 	public void deleteTask(int[] temp){
 		int answer = temp [0];
 		int id = temp [1];
@@ -460,19 +588,30 @@ public class Profile : MonoBehaviour {
 			dbinterface.deleteTask("deletedTask", id, gameObject);
 		}
 	}
-	
+
+	/// <summary>
+	/// Show panel with registration form.
+	/// </summary>
 	public void showRegisterToClassForm(){
 		Debug.Log ("button clicked, show registration form");	
 		panelRegistration.SetActive(true);
 		main.addToPanelStack (panelRegistration);
 		//wait until button "register" is clicked (button calls register) 
 	}
-	
+
+	/// <summary>
+	/// Register to class.
+	/// </summary>
 	public void register(){
 		Debug.Log ("button clicked, try to register");	
 		dbinterface.registerUserToClass("registered", userid, classcode.GetComponent<Text>().text, gameObject);	
 	}
-	
+
+	/// <summary>
+	/// Set userid.
+	/// </summary>
+	/// 
+	/// <param name="id">user id.</param>
 	public void setUserId(int id){
 		userid = id;
 	}

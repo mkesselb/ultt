@@ -5,26 +5,75 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelTaskAssignment : MonoBehaviour {
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
-	
+
+	/// <summary>
+	/// The left toggle prefab.
+	/// </summary>
 	public GameObject assignmentToggleLeft;
+
+	/// <summary>
+	/// The right toggle prefab.
+	/// </summary>
 	public GameObject assignmentToggleRight;
-	//public GameObject statusText;
+
+	/// <summary>
+	/// The next button.
+	/// </summary>
 	public GameObject btnNextAssignment;
-	//public GameObject btnRelease;
-	
+
+	/// <summary>
+	/// The assignment data.
+	/// </summary>
 	private AssignmentData assData;
+
+	/// <summary>
+	/// The user answers.
+	/// </summary>
 	private AssignmentData userAnswer;
-	
+
+	/// <summary>
+	/// The list of correct flags.
+	/// </summary>
 	public List<int> correctFlag;
-	
+
+	/// <summary>
+	/// The number of answers.
+	/// </summary>
 	private double answers;
+
+	/// <summary>
+	/// The number of points.
+	/// </summary>
 	private double points;
-	
+
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
+
+	/// <summary>
+	/// The task_for_class_id.
+	/// </summary>
 	public int task_for_class_id;
+
+	/// <summary>
+	/// The user_id.
+	/// </summary>
 	public int user_id;
+
+	/// <summary>
+	/// The teacher flag.
+	/// </summary>
 	public bool isTeacher;
 	
 	void Start () {
@@ -53,7 +102,12 @@ public class PanelTaskAssignment : MonoBehaviour {
 
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
-	
+
+	// <summary>
+	/// Goes to next assignment.
+	/// </summary>
+	/// 
+	/// <param name="first">flag for first assignment.</param>
 	public void nextAssignment(bool first = false){
 		//check current assignment
 		string selectedAssLeft = "";
@@ -113,7 +167,12 @@ public class PanelTaskAssignment : MonoBehaviour {
 			}
 		}
 	}
-	
+
+	/// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelFormAssignment");
 		string target = response [0];
@@ -131,10 +190,18 @@ public class PanelTaskAssignment : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Finishes task.
+	/// </summary>
 	public void finishTask(){
 		main.eventHandler ("finishTask", task_id);
 	}
-	
+
+	// <summary>
+	/// Loads saved assigments to form.
+	/// </summary>
+	/// 
+	/// <param name="csv">saved assignment data.</param>
 	public void loadAssignmentsFromTask(string csv){
 		this.assData = new AssignmentData (csv);
 		this.userAnswer = new AssignmentData ("");
@@ -167,15 +234,30 @@ public class PanelTaskAssignment : MonoBehaviour {
 			assRight.GetComponent<Toggle>().group = assRight.transform.parent.GetComponent<ToggleGroup>();
 		}
 	}
-	
+
+	// <summary>
+	/// Set task id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id of currently edited task.</param>
 	public void setTaskId(int id){
 		task_id = id;
 	}
-	
+
+	// <summary>
+	/// Set task_for_class_id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task_for_class_id.</param>
 	public void setTaskForClassId(int id){
 		task_for_class_id = id;
 	}
-	
+
+	// <summary>
+	/// Set user id.
+	/// </summary>
+	/// 
+	/// <param name="id">user id.</param>
 	public void setUserId(int id){
 		user_id = id;
 	}

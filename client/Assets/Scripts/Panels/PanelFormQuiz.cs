@@ -5,20 +5,55 @@ using System.Collections.Generic;
 using SimpleJSON;
 
 public class PanelFormQuiz : MonoBehaviour {
+
+	/// <summary>
+	/// The database interface.
+	/// </summary>
 	private DBInterface dbinterface;
+
+	/// <summary>
+	/// The main class.
+	/// </summary>
 	private Main main;
 
+	/// <summary>
+	/// The question prefab.
+	/// </summary>
 	public GameObject question;
+
+	/// <summary>
+	/// The answer prefab.
+	/// </summary>
 	public GameObject answer;
 
+	/// <summary>
+	/// The task_id.
+	/// </summary>
 	public int task_id;
 
+	/// <summary>
+	/// The list of questions.
+	/// </summary>
 	public List<GameObject> questions;
+
+	/// <summary>
+	/// The question_id.
+	/// </summary>
 	public int question_id;
 
-	//text fields
+	/// <summary>
+	/// The list of answers.
+	/// </summary>
 	public List<List<GameObject>> answers;
+
+	/// <summary>
+	/// The button to add a new question
+	/// </summary>
 	public GameObject btnAddQuestion;
+
+	/// <summary>
+	/// The button for saving the form.
+	/// </summary>
 	public GameObject btnSave;
 
 	// Use this for initialization
@@ -56,6 +91,11 @@ public class PanelFormQuiz : MonoBehaviour {
 		dbinterface.getTask ("taskData", task_id, gameObject);
 	}
 
+	// <summary>
+	/// Handles incoming data from the database
+	/// </summary>
+	/// 
+	/// <param name="response">response data from the database.</param>
 	public void dbInputHandler(string[] response){
 		Debug.Log ("in dbinputhandler of PanelFormQuiz");
 		string target = response [0];
@@ -77,6 +117,11 @@ public class PanelFormQuiz : MonoBehaviour {
 		}
 	}
 
+	// <summary>
+	/// Loads saved questions to form.
+	/// </summary>
+	/// 
+	/// <param name="csv">already saved question data.</param>
 	public void loadQuestionsFromTask(string csv){
 		QuizData qu = new QuizData (csv);
 		if (qu.getQuestions ().Count == 0) {
@@ -93,6 +138,14 @@ public class PanelFormQuiz : MonoBehaviour {
 		}
 	}
 
+	/// <summary>
+	/// Adds answer to form.
+	/// </summary>
+	/// 
+	/// <param name="questionName">name of the question.</param>
+	/// <param name="id">id of the question.</param>
+	/// <param name="answerText">text of answer.</param>
+	/// <param name="correct">flag for correct answer.</param>
 	public void addAnswerForm(string questionName, int id, string answerText = "Neue Antwort", bool correct = false){
 		GameObject generatedAnswer = Instantiate (answer, Vector3.zero, Quaternion.identity) as GameObject;
 		generatedAnswer.transform.parent = GameObject.Find(questionName+"/answers").transform;
@@ -101,6 +154,12 @@ public class PanelFormQuiz : MonoBehaviour {
 		answers [id].Add (generatedAnswer);
 	}
 
+	/// <summary>
+	/// Adds question to form.
+	/// </summary>
+	/// 
+	/// <param name="qname">question name.</param>
+	/// <param name="load">flag for adding answers to question.</param>
 	public void addQuestionForm(string qname = "Neue Frage", bool load = false){
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
@@ -119,6 +178,9 @@ public class PanelFormQuiz : MonoBehaviour {
 		question_id++;
 	}
 
+	/// <summary>
+	/// Saves question data from form.
+	/// </summary>
 	public void saveQuestions(){
 		QuizData quizData = new QuizData ("");
 		for (int i = 0; i < questions.Count; i++){
@@ -142,6 +204,11 @@ public class PanelFormQuiz : MonoBehaviour {
 		dbinterface.editTask ("editTask", task_id, "", quizData.getCSV(), gameObject);
 	}
 
+	/// <summary>
+	/// Set task id of currently edited task.
+	/// </summary>
+	/// 
+	/// <param name="id">task id of currently edited task.</param>
 	public void setTaskId(int id){
 		task_id = id;
 	}
