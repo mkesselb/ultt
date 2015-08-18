@@ -52,7 +52,7 @@ function getClassTasks(dbConnection, requestData, callback){
 	logger.log(logger.logLevels["debug"], "get tasks of class with id: " + requestData.class_id);
 	
 	//tasktype_id + type_name in table tasktype
-	var fetchTasks = "select t.task_id, t.taskname, tt.type_name, tc.class_topic_id "
+	var fetchTasks = "select t.task_id, t.taskname, tt.type_name, tc.class_topic_id, tc.obligatory "
 		+ "from task t, tasktype tt, task_for_class tc "
 		+ "where tc.class_id = " + requestData.class_id + " and tc.task_id = t.task_id "
 		+ "and t.tasktype_id = tt.tasktype_id and tc.deleted = 0 and t.deleted = 0";

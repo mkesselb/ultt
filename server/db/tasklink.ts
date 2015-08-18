@@ -277,7 +277,8 @@ function getResultOfTask(dbConnection, requestData, callback){
 	
 	//first, fetch all task_for_class_id's for this class.
 	dbConnection.query("select task_for_class_id from task_for_class where class_id = " + requestData.class_id 
-			+ " and task_id = " + requestData.task_id + " and obligatory = " + requestData.obligatory 
+			+ " and task_id = " + requestData.task_id 
+			//+ " and obligatory = " + requestData.obligatory 
 			+ " and deleted = 0", function(err, ids){
 		if(err){
 			return callback(err);
@@ -299,7 +300,7 @@ function getResultOfTask(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["debug"], inIds);
 		
-		dbConnection.query("select u.user_id, u.fulfill_time, u.results, u.task_for_class_id, t.task_id " +
+		dbConnection.query("select u.user_id, u.fulfill_time, u.results, u.task_for_class_id, t.task_id, t.obligatory " +
 				"from user_fulfill_task u, task_for_class t " +
 				"where u.task_for_class_id in " + inIds +  " and u.task_for_class_id = t.task_for_class_id",
 				function(error, result){
@@ -325,7 +326,8 @@ function getResultOfTasks(dbConnection, requestData, callback){
 	
 	//first, fetch all task_for_class_id's for this class.
 	dbConnection.query("select task_for_class_id from task_for_class where class_id = " + requestData.class_id 
-			+ " and obligatory = " + requestData.obligatory + " and deleted = 0", function(err, ids){
+			//+ " and obligatory = " + requestData.obligatory 
+			+ " and deleted = 0", function(err, ids){
 		if(err){
 			return callback(err);
 		}
@@ -346,7 +348,7 @@ function getResultOfTasks(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["debug"], inIds);
 		
-		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
+		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id, t.obligatory " +
 				"from user_fulfill_task f, task_for_class t " +
 				"where f.task_for_class_id in " + inIds + " and f.task_for_class_id = t.task_for_class_id",
 				function(error, result){
@@ -371,7 +373,7 @@ function getTaskForClass(dbConnection, requestData, callback){
 	}
 	logger.log(logger.logLevels["debug"], "fetching task in class relation");
 	
-	var fetchTask = "select t.taskname, t.public, t.user_id, t.data_file, s.subject_name, tt.type_name, t.description, tc.task_for_class_id " 
+	var fetchTask = "select t.taskname, t.public, t.user_id, t.data_file, s.subject_name, tt.type_name, t.description, tc.task_for_class_id, tc.obligatory " 
 		+ "from task t, subject s, tasktype tt, task_for_class tc "
 		+ "where t.task_id = " + requestData.task_id + " and t.subject_id = s.subject_id "
 		+ "and t.tasktype_id = tt.tasktype_id and t.deleted = 0 "

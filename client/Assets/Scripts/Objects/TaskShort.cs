@@ -28,6 +28,11 @@ public class TaskShort{
 	private string task_type;
 
 	/// <summary>
+	/// The obligatory flag.
+	/// </summary>
+	private int obligatory = -1;
+
+	/// <summary>
 	/// Alternative constructor, should be avoided if possible.
 	/// Initializes a new instance of the <see cref="TaskShort"/> class, by extracting the attribute values from the parameter string array.
 	/// </summary>
@@ -72,5 +77,17 @@ public class TaskShort{
 	/// <returns>The string name of the task type.</returns>
 	public string getTaskType(){
 		return task_type;	
+	}
+
+	/// <summary>
+	/// Sets the obligatory flag.
+	/// </summary>
+	public void setObligatory(int obligatory){
+		this.obligatory = obligatory;
+	}
+
+	/// <returns>The obligatory flag.</returns>
+	public int getObligatory(){
+		return obligatory;
 	}
 }

@@ -215,7 +215,7 @@ public class PanelQuiz : MonoBehaviour {
 						//textQuestion.GetComponent<Text> ().text = correctAnswers+"/"+totalAnswers;
 
 						//save results
-						int p = (int)(100 * (double)correctAnswers / quizData.getFullPoints());
+						int p = (quizData.getFullPoints() == 0 ? 0 : (int)(100 * (double)correctAnswers / quizData.getFullPoints()));
 						string results = p + "\n";
 						foreach(string key in cAns.Keys){
 							results += key + ",";

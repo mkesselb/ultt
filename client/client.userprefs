@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\TeacherClass.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelTeacherClass.cs">
     <Files>
-      <File FileName="Assets\Scripts\Objects\TeacherClass.cs" Line="17" Column="19" />
+      <File FileName="Assets\Scripts\Panels\PanelTeacherClass.cs" Line="618" Column="34" />
+      <File FileName="Assets\Scripts\Objects\TeacherClass.cs" Line="223" Column="21" />
+      <File FileName="Assets\Scripts\Main.cs" Line="104" Column="6" />
+      <File FileName="Assets\Scripts\Panels\Profile.cs" Line="468" Column="8" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

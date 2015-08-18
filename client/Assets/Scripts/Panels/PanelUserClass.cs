@@ -106,6 +106,7 @@ public class PanelUserClass : MonoBehaviour {
 								for(int i = 0; i < parsedData.Count; i++){
 									JSONNode n = parsedData[i];
 									TaskShort task = new TaskShort(n);
+									task.setObligatory(int.Parse (n["obligatory"]));
 									userClass.addTask(task);
 								}
 							}
@@ -126,7 +127,7 @@ public class PanelUserClass : MonoBehaviour {
 												//generate task, add it to hierarchy and change shown text
 												generatedButton = Instantiate(btnTask, Vector3.zero, Quaternion.identity) as GameObject;
 												generatedButton.transform.parent = generatedTopic.transform;
-												generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = ts.getTaskName();
+												generatedButton.transform.FindChild("ButtonTask/Text").GetComponent<Text>().text = userClass.getTaskName(ts.getTaskId());
 												//define button actions: start task and delete task
 												int taskId = ts.getTaskId();
 												generatedButton.transform.FindChild("ButtonTask").GetComponent<Button>().onClick.AddListener(()=> {startTask(taskId, topicId);});

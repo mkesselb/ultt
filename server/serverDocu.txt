@@ -60,4 +60,3 @@ zum login:
 	beispielhafte Rückmeldung an den User könnte dann sein: "username or password was incorrect"
 	bitte zum testen einen test-user mit password anlegen
 	das password ist nun noch plain gespeichert, im nächsten Sprint möcht ich das angehen und hashen+salten mitnehmen
-	

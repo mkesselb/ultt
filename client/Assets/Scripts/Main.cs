@@ -101,7 +101,7 @@ public class Main : MonoBehaviour {
 								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
 								panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (true);
 								panelProfile.SetActive(true);
-			panelStack.Clear();
+			//panelStack.Clear();
 								panelStack.Add(panelProfile);
 								panelProfile.GetComponent<Profile>().setUserId(id);
 								this.setUserId(id);
@@ -190,6 +190,7 @@ public class Main : MonoBehaviour {
 	}
 	
 	public void back(){	
+		//TODO: investigate panel stack. sometimes, the last panel is tried to be popped...
 		int c = panelStack.Count-1;
 		panelStack [c].SetActive (false);
 		panelStack.RemoveAt (c);

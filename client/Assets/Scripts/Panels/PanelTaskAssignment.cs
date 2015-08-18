@@ -152,7 +152,7 @@ public class PanelTaskAssignment : MonoBehaviour {
 		//leave task after the last couple
 		if (answers == 0) {
 			//call to saveTask
-			int p = (int)(100 * (double)points / assData.getFullPoints());
+			int p = (assData.getFullPoints() == 0 ? 0 : (int)(100 * (double)points / assData.getFullPoints()));
 			string results = p + "\n";
 			foreach(int i in correctFlag){
 				results += i + ",";

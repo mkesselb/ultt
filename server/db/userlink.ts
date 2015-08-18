@@ -253,7 +253,8 @@ function getResultOfStudent(dbConnection, requestData, callback){
 	
 	//first, fetch all task_for_class_id's for this class.
 	dbConnection.query("select task_for_class_id from task_for_class where class_id = " + requestData.class_id 
-			+ " and obligatory = " + requestData.obligatory + " and deleted = 0", function(err, ids){
+			//+ " and obligatory = " + requestData.obligatory 
+			+ " and deleted = 0", function(err, ids){
 		if(err){
 			return callback(err);
 		}
@@ -274,7 +275,7 @@ function getResultOfStudent(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["debug"], inIds);
 		
-		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
+		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id, t.obligatory " +
 				"from user_fulfill_task f, task_for_class t " +
 				"where f.user_id = " + requestData.user_id + 
 				" and f.task_for_class_id in " + inIds + " and f.task_for_class_id = t.task_for_class_id",
@@ -301,7 +302,8 @@ function getResultOfStudents(dbConnection, requestData, callback){
 	
 	//first, fetch all task_for_class_id's for this class.
 	dbConnection.query("select task_for_class_id from task_for_class where class_id = " + requestData.class_id 
-			+ " and obligatory = " + requestData.obligatory + " and deleted = 0", function(err, ids){
+			//+ " and obligatory = " + requestData.obligatory 
+			+ " and deleted = 0", function(err, ids){
 		if(err){
 			return callback(err);
 		}
@@ -322,7 +324,7 @@ function getResultOfStudents(dbConnection, requestData, callback){
 		}
 		logger.log(logger.logLevels["debug"], inIds);
 		
-		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id " +
+		dbConnection.query("select f.user_id, f.fulfill_time, f.results, t.task_id, t.task_for_class_id, t.obligatory " +
 				"from user_fulfill_task f, task_for_class t " +
 				"where f.task_for_class_id in " + inIds + " and f.task_for_class_id = t.task_for_class_id",
 				function(error, result){

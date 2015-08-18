@@ -30,7 +30,8 @@ public class ResultContainer{
 			JSONNode result = results[i];
 			resultList.Add(new Result(int.Parse(result["user_id"]), DateTime.Parse(result["fulfill_time"]), 
 			                          result["results"], int.Parse(result["task_for_class_id"]), 
-			                          int.Parse(result["task_id"])));
+			                          int.Parse(result["task_id"]),
+			                          int.Parse(result["obligatory"])));
 		}
 	}
 
@@ -144,12 +145,31 @@ public class ResultContainer{
 	/// 
 	/// <param name="user_id">the user id.</param>
 	public int getAverageResultOfStudent(int user_id){
+		//for each task_for_class, only the best result for the student should be counted
+		//map task_for_class_id to results
+		Dictionary<int, int> bestResults = new Dictionary<int, int>();
+		foreach(Result r in getResultOfStudent(user_id)){
+			//for student average results, only count exams:
+			if(r.getObligatory() != 1){
+				continue;
+			}
+
+			int res = r.getResult();
+			int task_for_class_id = r.getTaskForClassId();
+			if(bestResults.ContainsKey(task_for_class_id)){
+				int val = bestResults[task_for_class_id];
+				bestResults[task_for_class_id] = (res > val ? res : val);
+			} else{
+				bestResults.Add(task_for_class_id, res);
+			}
+		}
+
 		int averageResult = 0;
-		if (getResultOfStudent (user_id).Count != 0) {
-						foreach (Result r in getResultOfStudent (user_id)) {
-								averageResult += r.getResult ();
+		if (bestResults.Count != 0) {
+						foreach (int r in bestResults.Values){
+								averageResult += r;
 						}
-						averageResult = averageResult / getResultOfStudent (user_id).Count;
+						averageResult = averageResult / bestResults.Count;
 				}
 		return averageResult;
 	}
@@ -161,13 +181,27 @@ public class ResultContainer{
 	/// <returns>The average result for a task.</returns>
 	/// 
 	/// <param name="task_id">the task id.</param>
-	public int getAverageResultOfTask(int task_id){
+	public int getAverageResultOfTask(int task_id, int numStudents){
+		//for each user, only the best result should be counted
+		//map user_id to results
+		Dictionary<int, int> bestResults = new Dictionary<int, int> ();
+		foreach (Result r in getResultOfTask(task_id)){
+			int res = r.getResult();
+			int user_id = r.getUserId();
+			if(bestResults.ContainsKey(user_id)){
+				int val = bestResults[user_id];
+				bestResults[user_id] = (res > val ? res : val);
+			} else{
+				bestResults.Add(user_id, res);
+			}
+		}
+
 		int averageResult = 0;
-		if (getResultOfTask (task_id).Count != 0) {
-						foreach (Result r in getResultOfTask (task_id)) {
-								averageResult += r.getResult ();
+		if (bestResults.Count != 0 && numStudents != 0) {
+						foreach (int r in bestResults.Values) {
+								averageResult += r;
 						}
-						averageResult = averageResult / getResultOfTask (task_id).Count;
+				averageResult = averageResult / numStudents;
 		}
 		return averageResult;
 	}

@@ -151,7 +151,7 @@ public class PanelTaskCategory : MonoBehaviour {
 
 			//btnNextPhrase.transform.Find ("Text").GetComponent<Text> ().text = LocaleHandler.getText ("button-cat-end", main.getLang());
 			//automatic handing-in?
-			int p = (int)(100 * (double)points / catData.getFullPoints());
+			int p = (catData.getFullPoints() == 0 ? 0 : (int)(100 * (double)points / catData.getFullPoints()));
 			string results = p + "\n";
 			foreach(string key in correctAnswers.Keys){
 				results += key + ",";

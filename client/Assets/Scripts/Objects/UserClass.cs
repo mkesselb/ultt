@@ -169,4 +169,31 @@ public class UserClass {
 	public List<TaskShort> getTaskList(){
 		return tasks;	
 	}
+
+	/// <summary>
+	/// Gets the name of the task which matches the parameter task_id.
+	/// </summary>
+	/// 
+	/// <returns>The task name matching the parameter task_id.</returns>
+	/// 
+	/// <param name="task_id">task_id to be matched.</param>
+	public string getTaskName(int task_id){
+		string name = "";
+		foreach(TaskShort task in tasks){
+			if(task.getTaskId() == task_id){
+				name = task.getTaskName();
+				if(task.getObligatory() >= 0){
+					switch(task.getObligatory()){
+					case 0: //TODO: translate...!
+						name += " (exercise)";
+						break;
+					case 1: 
+						name += " (exam)";
+						break;
+					}
+				}
+			}
+		}
+		return name;
+	}
 }

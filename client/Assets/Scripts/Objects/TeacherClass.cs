@@ -186,6 +186,16 @@ public class TeacherClass{
 		foreach(TaskShort task in tasks){
 			if(task.getTaskId() == task_id){
 				name = task.getTaskName();
+				if(task.getObligatory() >= 0){
+					switch(task.getObligatory()){
+					case 0: //TODO: translate...!
+						name += " (exercise)";
+						break;
+					case 1: 
+						name += " (exam)";
+						break;
+					}
+				}
 			}
 		}
 		return name;
@@ -206,5 +216,15 @@ public class TeacherClass{
 			}
 		}
 		return name;
+	}
+
+	public TaskShort getTask(int task_id){
+		foreach (TaskShort task in tasks){
+			if(task.getTaskId() == task_id){
+				return task;
+			}
+		}
+
+		return null;
 	}
 }

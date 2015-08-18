@@ -446,7 +446,8 @@ public class Profile : MonoBehaviour {
 							}
 							break;
 		case "addedClass":	//TODO check if successfull, else: call main.dberrorhandler
-							panelCreateClass.SetActive(false);
+							//panelCreateClass.SetActive(false);
+							main.back();
 							dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 							break;
 		case "deletedTask": 
@@ -458,10 +459,13 @@ public class Profile : MonoBehaviour {
 							}
 							break;
 		case "addedTask":	
-							panelCreateTask.SetActive(false);
+							//panelCreateTask.SetActive(false);
+							main.back();
 							dbinterface.getMeineTasks("Tasks", userid, gameObject);
 							break;
-		case "registered": 	panelRegistration.SetActive(false);
+		case "registered": 	
+							//panelRegistration.SetActive(false);
+							main.back();
 							//TODO check if successfull, else: call main.dberrorhandler
 							dbinterface.getMeineKurse("Kurse", userid, gameObject);
 							break;
