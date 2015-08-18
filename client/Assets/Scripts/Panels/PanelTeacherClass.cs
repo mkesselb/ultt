@@ -263,7 +263,7 @@ public class PanelTeacherClass : MonoBehaviour {
 									//define button actions: add task and delete topic
 									int topicId = t.getId();
 									generatedTopic.transform.FindChild("btnAddTask").GetComponent<Button>().onClick.AddListener(()=> {showTasks(topicId);});
-									generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {deleteTopic(topicId);});
+									generatedTopic.transform.FindChild("TopicHeadline/ButtonDelete").GetComponent<Button>().onClick.AddListener(()=> {confirmDeleteTopic(topicId);});
 									topics.Add(generatedTopic);
 									if(teacherClass.getTaskList().Count>0){
 										foreach(TaskShort ts in teacherClass.getTaskList()){
@@ -566,7 +566,8 @@ public class PanelTeacherClass : MonoBehaviour {
 		}
 		Debug.Log ("--------------- "+panelAddTask.transform.FindChild("InputField/Text").GetComponent<Text>().text);
 		if (dbinterface.assignTaskToTopic ("addedTaskToClass", class_id, taskId, topicId, obligatory, System.DateTime.Now.ToString (), addTaskForm, gameObject)) {
-			panelAddTask.SetActive (false);
+			main.back();
+			//panelAddTask.SetActive (false);
 		}
 	}
 		
@@ -600,7 +601,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	/// Delete a task.
 	/// </summary>
 	/// 
-	/// <param name="temp">answer and topic id</param>
+	/// <param name="temp">answer and task id</param>
 	public void deleteTask(int[] temp){
 		int answer = temp [0];
 		int id = temp [1];
@@ -626,22 +627,37 @@ public class PanelTeacherClass : MonoBehaviour {
 		string name = fieldTopicToAdd.GetComponent<Text> ().text;
 		Debug.Log ("Button clicked, try to add Topic: "+name);
 		if (dbinterface.createClassTopic ("addedTopic", class_id, topicForm, gameObject)) {
-			panelAddTopic.SetActive (false);
+			//panelAddTopic.SetActive (false);
+			main.back();
 		}
 	}
 
 	/// <summary>
-	/// Delete a topic.
+	/// Confirmation dialog whether to delete topic.
 	/// </summary>
 	/// 
-	/// <param name="id">topic id</param>
-	public void deleteTopic(int id){
-		Debug.Log ("Button clicked, try to delete Topic with id "+id);	
-		dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
+	/// <param name="id">topic id.</param>
+	public void confirmDeleteTopic(int id){
+		Debug.Log ("button clicked, try to delete topic");
+		this.task_id = task_id;
+		main.activateDialogbox ("Do you want to delete this topic?", id, gameObject, "deleteTopic");
 	}
 
 	/// <summary>
-	/// Show lis of students.
+	/// Deletes a topic.
+	/// </summary>
+	/// 
+	/// <param name="id">answer and topic id</param>
+	public void deleteTopic(int[] temp){
+		int answer = temp [0];
+		int id = temp [1];
+		if (answer == 1){
+			dbinterface.deleteClassTopic ("deletedTopic", id, gameObject);
+		}
+	}
+
+	/// <summary>
+	/// Shows list of students.
 	/// </summary>
 	public void showStudentList(){
 		Debug.Log ("Button clicked, show panel studentList");	

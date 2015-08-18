@@ -234,6 +234,10 @@ public class Main : MonoBehaviour {
 
 	public void activateDialogbox(string question, int idOfObjectToDelete, GameObject receiver, string receiverMethod){
 		dialogbox.SetActive (true);
+		//first, remove all previous listeners (e.g. to prevent multiple deletion
+		dialogbox.transform.FindChild ("ButtonNo").GetComponent<Button> ().onClick.RemoveAllListeners ();
+		dialogbox.transform.FindChild ("ButtonYes").GetComponent<Button> ().onClick.RemoveAllListeners ();
+
 		dialogbox.transform.FindChild ("Text").GetComponent<Text> ().text = question;
 		dialogbox.transform.FindChild ("ButtonNo/Text").GetComponent<Text> ().text = LocaleHandler.getText("dialog-no", lang);
 		dialogbox.transform.FindChild ("ButtonYes/Text").GetComponent<Text> ().text = LocaleHandler.getText("dialog-yes", lang);
