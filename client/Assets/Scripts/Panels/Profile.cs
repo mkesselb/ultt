@@ -173,8 +173,8 @@ public class Profile : MonoBehaviour {
 			= LocaleHandler.getText ("task-add-info", main.getLang());
 		gameObject.transform.FindChild("panelCreateTask/textName").GetComponent<Text> ().text 
 			= LocaleHandler.getText ("task-name", main.getLang());
-		gameObject.transform.FindChild("panelCreateTask/textPrivacy").GetComponent<Text> ().text 
-			= LocaleHandler.getText ("task-privacy", main.getLang());
+		//privacy not supported now
+		//gameObject.transform.FindChild("panelCreateTask/textPrivacy").GetComponent<Text> ().text = LocaleHandler.getText ("task-privacy", main.getLang());
 		gameObject.transform.FindChild("panelCreateTask/textSubject").GetComponent<Text> ().text 
 			= LocaleHandler.getText ("task-subject", main.getLang());
 		gameObject.transform.FindChild("panelCreateTask/textType").GetComponent<Text> ().text 
@@ -194,6 +194,17 @@ public class Profile : MonoBehaviour {
 		dbinterface.getUserData("userData", userid, gameObject);
 		initCreateClassForm ();
 		initCreateTaskForm ();
+	}
+
+	public void initPanel(){
+		//shows a default class view
+		overviewKlassen.SetActive(true);
+		overviewKurse.SetActive(false);
+		overviewTasks.SetActive(false);
+		menuTeacherClass.GetComponent<Button> ().interactable = false;
+		menuUserClass.GetComponent<Button> ().interactable = true;
+		menuTasks.GetComponent<Button> ().interactable = true;
+		dbinterface.getMeineKlassen("Klassen", userid, gameObject);
 	}
 
 	// <summary>
@@ -543,7 +554,9 @@ public class Profile : MonoBehaviour {
 				subject_id = idhandler.getFromName(tr.Find ("Label").GetComponent<Text>().text, "subjects");
 			}
 		}
-		dbinterface.createTask("addedTask", this.createTaskForm, int.Parse(taskpublic.GetComponent<Text>().text), userid, subject_id, type, gameObject); 
+		//public toggle not supported now
+		int publicToggle = 1;//int.Parse (taskpublic.GetComponent<Text> ().text);
+		dbinterface.createTask("addedTask", this.createTaskForm, publicToggle, userid, subject_id, type, gameObject); 
 	}
 
 	/// <summary>
@@ -618,5 +631,9 @@ public class Profile : MonoBehaviour {
 	/// <param name="id">user id.</param>
 	public void setUserId(int id){
 		userid = id;
+	}
+
+	public void setDBInterface(DBInterface dbInterface){
+		this.dbinterface = dbInterface;
 	}
 }

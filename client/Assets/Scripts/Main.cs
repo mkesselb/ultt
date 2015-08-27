@@ -64,6 +64,7 @@ public class Main : MonoBehaviour {
 		CSVHelper.addSwap (",", "#csw");
 		errorhandler = new ErrorHandler (lang);
 		LocaleHandler.setupMapping (lang);
+		LocaleHandler.setLang (lang);
 
 		//activate logInScreen, deactivate others
 		panelLogInScreen.SetActive(true);
@@ -87,9 +88,6 @@ public class Main : MonoBehaviour {
 
 		panelStack = new List<GameObject> ();
 		panelStack.Add (panelLogInScreen);
-
-
-
 		//dbinterface.getResultOfStudent("studentlistDetail", 15, student_id, 0, gameObject);
 		//dbinterface.getResultOfStudents ("examResults", teacherClass.getClassId (), 0, gameObject);
 
@@ -101,9 +99,11 @@ public class Main : MonoBehaviour {
 								panelHeader.transform.FindChild ("Top").gameObject.SetActive (true);
 								panelHeader.transform.FindChild ("btnBack").gameObject.SetActive (true);
 								panelProfile.SetActive(true);
-			//panelStack.Clear();
+								//panelStack.Clear();
 								panelStack.Add(panelProfile);
 								panelProfile.GetComponent<Profile>().setUserId(id);
+								panelProfile.GetComponent<Profile>().setDBInterface(dbinterface);
+								panelProfile.GetComponent<Profile>().initPanel();
 								this.setUserId(id);
 								break;	
 		case "register":		//panelLogInScreen.SetActive(false);

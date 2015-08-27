@@ -184,11 +184,11 @@ public class UserClass {
 				name = task.getTaskName();
 				if(task.getObligatory() >= 0){
 					switch(task.getObligatory()){
-					case 0: //TODO: translate...!
-						name += " (exercise)";
+					case 0:
+						name += LocaleHandler.getText("task-exercise");
 						break;
 					case 1: 
-						name += " (exam)";
+						name += LocaleHandler.getText("task-exam");
 						break;
 					}
 				}

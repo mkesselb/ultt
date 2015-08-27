@@ -43,7 +43,7 @@ public class PanelTeacherClass : MonoBehaviour {
 	/// <summary>
 	/// The list of tasks.
 	/// </summary>
-	public List<TaskShort> tasks;
+
 	public List<TaskOverview> tasksOverview;
 
 	/// <summary>
@@ -359,15 +359,7 @@ public class PanelTeacherClass : MonoBehaviour {
 							}
 
 							break;
-		case "studentlistDetail": /*TODO 	
-											generate exam entries with result lists
-											add entries to list of exam entries
-											
-											use ResultContainer: call getResultOfStudent/s; getResultOfTask/s
-											give the returned jsonNode object into ResultContainer constructor
-											-> then call methods to receive list of results of it
-							*/
-
+		case "studentlistDetail":
 							//delete old studentDetailEntry objects
 							foreach (GameObject s in studentDetailEntries){
 								Destroy(s);	
@@ -501,15 +493,24 @@ public class PanelTeacherClass : MonoBehaviour {
 
 							for(int i = 0; i < parsedData.Count; i++){
 								JSONNode n = parsedData[i];
-								if(n.Count > 0){	
+								if(n.Count > 0){
+									//only add the tasks that are not yet added
+									bool alreadyLinked = false;
 									TaskOverview temp = new TaskOverview(n);
-									tasksOverview.Add(temp);
-									generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
-									generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
-									generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getTaskName();
-									tasksBtns.Add(generatedBtn);
-									//set method to be called at onclick event
-									generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId(), currentTopic);});
+									foreach(TaskShort t in teacherClass.getTaskList()){
+										if(t.getTaskId() == temp.getTaskId()){
+											alreadyLinked = true;
+										}
+									}
+									if(!alreadyLinked){
+										tasksOverview.Add(temp);
+										generatedBtn = Instantiate(buttonTasks, Vector3.zero, Quaternion.identity) as GameObject;
+										generatedBtn.transform.parent = GameObject.Find("ContentTasks").transform;
+										generatedBtn.transform.FindChild("Text").GetComponent<Text>().text = temp.getTaskName();
+										tasksBtns.Add(generatedBtn);
+										//set method to be called at onclick event
+										generatedBtn.GetComponent<Button>().onClick.AddListener(() => {addTask (temp.getTaskId(), currentTopic);});
+									}
 								}
 							}	
 							break;

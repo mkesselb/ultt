@@ -3,6 +3,7 @@
 #text-identifier;translated text in target language
 
 #dialog and other messages
+general-problem;Es gab ein undefiniertes Problem
 dialog-yes;Ja
 dialog-no;Nein
 noserver-connection;Es konnte keine Verbindung zum Server hergstellt werden.
@@ -33,6 +34,8 @@ button-add-topic;Thema hinzufügen
 button-add-topicok;OK
 topicname-info;Themenname eintragen
 button-add-tasktotopic;Aufgabe hinzufügen
+task-exercise; (Übung)
+task-exam; (Prüfung)
 #add task to topic
 info-select-task;Aufgabe auswählen
 info-task-maxattempts;maximale Anzahl der Versuche
@@ -79,3 +82,26 @@ info-cat-num-answers;Bearbeitet:
 info-cat-num-correct;Richtig: 
 button-cat-next;nächstes Wort
 button-cat-end;Ergebnisse prüfen
+
+#validator messages
+date-invalid;Das gewählte Datum passt nicht zum Format: 
+num-invalid;Dies ist keine Nummer: 
+num-invalid-range;Die Nummer ist nicht im folgenden Bereich: 
+text-empty;Der Text darf nicht leer sein
+text-range;Die Länge des Textes muss im folgenden Bereich sein: 
+text-specialChar;Das Zeichen " ist nicht erlaubt
+valid-errors;Eingabefehler:
+
+#form keys
+taskname;Aufgabenname
+classname;Klassenname
+school_year;Schuljahr
+topic_name;Themaname
+max_attempts;Versuche
+firstname;Vorname
+lastname;Nachname
+username;Benutzername
+password;Passwort
+password2;Passwort2
+email;Email
+school;Schule

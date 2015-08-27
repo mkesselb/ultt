@@ -10,6 +10,8 @@ using System.Collections;
 /// </summary>
 public class LocaleHandler
 {
+	private static string lang = "";
+
 	/// <summary>
 	/// A nested localization dict. The outer dict represents the mapping from locale-string to a dict of actual localized messages.
 	/// The inner dict represents the mapping of the message-identifier strings to the actual localization, of the outer language.
@@ -41,6 +43,10 @@ public class LocaleHandler
 		localeTranslation.Add (locale, dict);
 	}
 
+	public static void setLang(string newLang){
+		lang = newLang;
+	}
+
 	/// <summary>
 	/// Returns the localized text for the parameter message-identifier and locale strings.
 	/// 
@@ -51,7 +57,11 @@ public class LocaleHandler
 	/// 
 	/// <param name="ident">The message-identifier to be localized.</param>
 	/// <param name="locale">The locale string.</param>
-	public static string getText(string ident, string locale){
+	public static string getText(string ident, string locale=""){
+		if (locale == "") {
+			locale = lang;
+		}
+
 		if (localeTranslation.ContainsKey (locale) && localeTranslation [locale].ContainsKey (ident)) {
 			return localeTranslation[locale][ident];
 		}

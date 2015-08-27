@@ -62,6 +62,6 @@ public class ErrorHandler
 		}
 
 		//default
-		return "Sorry, there was a problem";
+		return LocaleHandler.getText("general-problem");
 	}
 }

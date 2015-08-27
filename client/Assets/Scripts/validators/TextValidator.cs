@@ -41,15 +41,18 @@ public class TextValidator : IValidator
 	public string validateInput(string input){
 		//text input shall be non-empty and shall not contain a \" character
 		if (input.Contains ("\"")) {
-			return "No \" input character allowed!";
+			//return "No \" input character allowed!";
+			return LocaleHandler.getText("text-specialChar");
 		}
 
 		int n = input.Length;
 		if (n <= 0) {
-			return "Empty input is not allowed!";
+			//return "Empty input is not allowed!";
+			return LocaleHandler.getText("text-empty");
 		}
 		if (n < this.min || n > this.max) {
-			return "Input not between length bounds of " + this.min + " - " + this.max + "!";
+			//return "Input not between length bounds of " + this.min + " - " + this.max + "!";
+			return LocaleHandler.getText("text-range") + this.min + "-" + this.max;
 		}
 		return "";
 	}

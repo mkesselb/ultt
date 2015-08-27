@@ -10,7 +10,7 @@
 301;Keine Klasse kann zum Klassencode gefunden werden
 302;Benutzer ist bereits zur gewählten Klasse registriert
 303;Benutzer ist nicht in der gewählten Klasse registriert
-304;Die Aufgaben kann nicht zu einer Klasse und Inhalt doppelt verknüpft werden
+304;Die Aufgabe kann nicht doppelt zu einer Klasse verknüpft werden
 
 400;Es ist ein Fehler mit der Datenbank aufgetreten
 401;Es ist ein Fehler beim Einloggen aufgetregen

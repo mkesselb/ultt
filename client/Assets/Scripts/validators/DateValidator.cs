@@ -39,7 +39,8 @@ public class DateValidator : IValidator
 		if (result) {
 			return "";
 		} else {
-			return "Input '" + input + "' is not a date in format: " + this.format;
+			//return "Input '" + input + "' is not a date in format: " + this.format;
+			return LocaleHandler.getText("date-invalid") + input + " / " + this.format;
 		}
 	}
 

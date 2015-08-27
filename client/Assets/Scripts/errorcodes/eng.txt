@@ -10,7 +10,7 @@
 301;No class could be found for the provided classcode
 302;User is already registered to selected class
 303;User is not registered to selected class
-304;A Task cannot be linked to one class and topic twice
+304;A Task cannot be linked to one class twice
 
 400;A database error occured
 401;A login error occured

@@ -373,9 +373,9 @@ public class DBInterface : MonoBehaviour {
 		if (validate.Count == 0) {
 			return true;
 		} else {
-			string errors = "Validation errors\n";
+			string errors = LocaleHandler.getText("valid-errors")+ "\n";
 			foreach(string s in validate.Keys){
-				errors += s + ": " + validate[s] + "\n";
+				errors += LocaleHandler.getText(s) + ": " + validate[s] + "\n";
 			}
 			Debug.Log(errors);
 			main.writeToMessagebox(errors);

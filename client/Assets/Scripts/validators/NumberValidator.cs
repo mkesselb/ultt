@@ -60,10 +60,12 @@ public class NumberValidator : IValidator
 			if(this.min < num && num < this.max){
 				return "";
 			} else{
-				return "Input '" + input + "' is not in the range " + min + "-" + max + "!";
+				//return "Input '" + input + "' is not in the range " + min + "-" + max + "!";
+				return LocaleHandler.getText("num-invalid-range") + min + "-" + max;
 			}
 		} else {
-		return "Input '" + input + "' is not a valid number!";
+			//return "Input '" + input + "' is not a valid number!";
+			return LocaleHandler.getText("num-invalid") + input;
 		}
 	}
 }
