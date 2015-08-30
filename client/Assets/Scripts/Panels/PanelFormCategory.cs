@@ -130,6 +130,7 @@ public class PanelFormCategory : MonoBehaviour {
 		GameObject generatedMember = Instantiate (member, Vector3.zero, Quaternion.identity) as GameObject;
 		generatedMember.transform.parent = GameObject.Find(memberName+"/members").transform;
 		generatedMember.transform.FindChild ("InputField").GetComponent<InputField> ().text = memberText;
+		generatedMember.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener (() => {deleteMemberForm(generatedMember, id);});	
 		members [id].Add (generatedMember);
 	}
 
@@ -146,6 +147,7 @@ public class PanelFormCategory : MonoBehaviour {
 		generatedCat.name = "category" + id;
 		generatedCat.transform.parent = GameObject.Find ("panelCategories/categories").transform;
 		generatedCat.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener (() => {addMemberForm(generatedCat.name, id);});	
+		generatedCat.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener (() => {deleteCategoryForm(generatedCat);});	
 		generatedCat.transform.FindChild ("catName").GetComponent<InputField> ().text = catName;
 		categories.Add (generatedCat);
 		List<GameObject> membersForCat = new List<GameObject> ();
@@ -154,6 +156,28 @@ public class PanelFormCategory : MonoBehaviour {
 			addMemberForm (generatedCat.name, id);
 		}
 		category_id++;
+	}
+
+
+	/// <summary>
+	/// Deletes category from form.
+	/// </summary>
+	///
+	/// <param name="generatedCat">category to delete.</param>
+	public void deleteCategoryForm(GameObject generatedCat){
+		categories.RemoveAt (categories.IndexOf (generatedCat));
+		Destroy (generatedCat);
+	}
+
+	/// <summary>
+	/// Deletes member from form.
+	/// </summary>
+	///
+	/// <param name="generatedMember">member to delete.</param>
+	/// <param name="id">id of category.</param>
+	public void deleteMemberForm(GameObject generatedMember, int id){
+		members [id].RemoveAt (members[id].IndexOf (generatedMember));
+		Destroy (generatedMember);
 	}
 
 	/// <summary>

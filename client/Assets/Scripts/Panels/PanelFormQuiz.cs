@@ -151,6 +151,7 @@ public class PanelFormQuiz : MonoBehaviour {
 		generatedAnswer.transform.parent = GameObject.Find(questionName+"/answers").transform;
 		generatedAnswer.transform.FindChild ("InputField").GetComponent<InputField> ().text = answerText;
 		generatedAnswer.transform.FindChild ("Toggle").GetComponent<Toggle> ().isOn = correct;
+		generatedAnswer.transform.FindChild("ButtonDelete").GetComponent<Button>().onClick.AddListener (() => {deleteAnswerElement(generatedAnswer, id);});
 		answers [id].Add (generatedAnswer);
 	}
 
@@ -164,19 +165,39 @@ public class PanelFormQuiz : MonoBehaviour {
 		GameObject generatedQuestion = Instantiate (question, Vector3.zero, Quaternion.identity) as GameObject;
 
 		int id = question_id;
+		question_id++;
 		generatedQuestion.name = "question" + id;
 		generatedQuestion.transform.parent = GameObject.Find ("panelQuestions/questions").transform;
-		generatedQuestion.transform.FindChild("ButtonAdd").GetComponent<Button>().onClick.AddListener (() => {addAnswerForm(generatedQuestion.name, id);});	
+		generatedQuestion.transform.FindChild("panelButtons/ButtonAddAnswer").GetComponent<Button>().onClick.AddListener (() => {addAnswerForm(generatedQuestion.name, id);});
+		generatedQuestion.transform.FindChild("panelButtons/ButtonDeleteQuestion").GetComponent<Button>().onClick.AddListener (() => {deleteQuestionElement(generatedQuestion);});
 		generatedQuestion.transform.FindChild ("InputField").GetComponent<InputField> ().text = qname;
 		questions.Add (generatedQuestion);
+	
 		List<GameObject> answersForQuestion = new List<GameObject> ();
 		answers.Add (answersForQuestion);
 		if (!load) {
 			addAnswerForm (generatedQuestion.name, id);
 			addAnswerForm (generatedQuestion.name, id);
 		}
-		question_id++;
 	}
+
+	/// <summary>
+	/// Delete generated question field from form.
+	/// </summary>
+	public void deleteQuestionElement(GameObject generatedQuestion){
+		questions.RemoveAt(questions.IndexOf (generatedQuestion));
+		Destroy (generatedQuestion);
+	}
+
+	/// <summary>
+	/// Delete generated answer field from form.
+	/// </summary>
+	public void deleteAnswerElement(GameObject generatedAnswer, int id){
+		answers [id].RemoveAt (answers [id].IndexOf (generatedAnswer));
+		Destroy (generatedAnswer);
+	}
+
+
 
 	/// <summary>
 	/// Saves question data from form.

@@ -118,6 +118,7 @@ public class PanelFormAssignment : MonoBehaviour {
 		generatedAssignment.transform.parent = GameObject.Find ("panelAssignment/assignments").transform;
 		generatedAssignment.transform.FindChild ("formAssign/InputField1").GetComponent<InputField> ().text = aname;
 		generatedAssignment.transform.FindChild ("formAssign/InputField2").GetComponent<InputField> ().text = bname;
+		generatedAssignment.transform.FindChild ("formAssign/ButtonDelete").GetComponent<Button> ().onClick.AddListener (() => {deleteAssignments(generatedAssignment);});
 		assignments.Add (generatedAssignment);
 	
 		assignment_id++;
@@ -138,6 +139,16 @@ public class PanelFormAssignment : MonoBehaviour {
 		}
 		//TODO fill in description
 		dbinterface.editTask ("editTask", task_id, "", assignmentData.getCSV(), gameObject);
+	}
+
+	/// <summary>
+	/// Delete assignment from form.
+	/// </summary>
+	/// 
+	/// <param name="assignment">assignment gameobject to be deleted.</param>
+	public void deleteAssignments(GameObject generatedAssignment){
+		assignments.RemoveAt(assignments.IndexOf(generatedAssignment));
+		Destroy (generatedAssignment);
 	}
 
 	/// <summary>
