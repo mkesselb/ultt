@@ -142,6 +142,11 @@ public class UserClass {
 		return class_id;	
 	}
 
+	/// <returns>the user identifier.</returns>
+	public int getUserId(){
+		return user_id;
+	}
+
 	/// <summary>
 	/// Adds the parameter topic to the list of class topics.
 	/// </summary>

@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\locales\de.txt">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Panels\PanelUserClass.cs">
     <Files>
-      <File FileName="Assets\Scripts\locales\de.txt" Line="17" Column="1" />
+      <File FileName="Assets\Scripts\Panels\PanelUserClass.cs" Line="183" Column="114" />
+      <File FileName="Assets\Scripts\Objects\UserClass.cs" Line="163" Column="47" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

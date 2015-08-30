@@ -17,6 +17,11 @@ public class PanelUserClass : MonoBehaviour {
 	private DBInterface dbinterface;
 
 	/// <summary>
+	/// The panel for the student results.
+	/// </summary>
+	public GameObject panelStudentResults;
+
+	/// <summary>
 	/// The topic prefab.
 	/// </summary>
 	public GameObject topic;
@@ -25,6 +30,11 @@ public class PanelUserClass : MonoBehaviour {
 	/// The task button prefab.
 	/// </summary>
 	public GameObject btnTask;
+
+	/// <summary>
+	/// The student result prefab.
+	/// </summary>
+	public GameObject studentResult;
 
 	/// <summary>
 	/// The class_id.
@@ -50,6 +60,11 @@ public class PanelUserClass : MonoBehaviour {
 	/// The list of topic objects.
 	/// </summary>
 	public List<GameObject> topics;
+
+	/// <summary>
+	/// The list of student detail objects.
+	/// </summary>
+	public List<GameObject> results;
 
 	void Start () {
 		main = GameObject.Find ("Scripts").GetComponent<Main>();
@@ -84,6 +99,7 @@ public class PanelUserClass : MonoBehaviour {
 		GameObject generatedButton;
 		GameObject generatedTopic;
 		GameObject generatedStudentInList;
+		GameObject generatedStudentResult;
 		JSONNode parsedData = JSONParser.JSONparse(data);
 		switch(target){	
 		case "classData": 	
@@ -151,6 +167,35 @@ public class PanelUserClass : MonoBehaviour {
 								main.eventHandler("startTaskQuiz", task_id, task_for_class_id);
 							}
 							break;
+		case "results":		foreach (GameObject s in results){
+				Destroy(s);	
+			}
+			results.Clear();
+			
+			panelStudentResults.SetActive(true);
+			main.addToPanelStack(panelStudentResults);
+			
+			ResultContainer resultContainerStudent = new ResultContainer(parsedData);
+			
+			
+			foreach(TaskShort t in userClass.getTaskList()){
+				generatedStudentResult = Instantiate(studentResult, Vector3.zero, Quaternion.identity) as GameObject;
+				generatedStudentResult.transform.parent = gameObject.transform.FindChild("StudentResult/ContentStudentsDetail").transform;
+				generatedStudentResult.transform.FindChild("fieldExamName").GetComponent<Text>().text = userClass.getTaskName(t.getTaskId());
+				string resultString = "";
+				
+				foreach(int result in resultContainerStudent.getResultOfStudentOfTask(userClass.getUserId(), t.getTaskId())){
+					resultString += result+"%, ";
+				}
+				if(resultString == ""){
+					resultString = "-";
+				}
+				
+				generatedStudentResult.transform.FindChild("Text").GetComponent<Text>().text = resultString;
+				results.Add (generatedStudentResult);
+				
+			}
+			break;
 		}	
 	}
 
@@ -182,6 +227,13 @@ public class PanelUserClass : MonoBehaviour {
 		task_id = id;
 		//dbinterface.getTask ("startTask", id, gameObject);
 		dbinterface.getTaskForClass ("startTask", id, class_id, topicId, gameObject);
+	}
+
+	/// <summary>
+	/// Show results of the tasks.
+	/// </summary>
+	public void showResults(){
+		dbinterface.getResultOfStudent("results", class_id, userClass.getUserId(), 0, gameObject);
 	}
 		
 	/// <summary>
