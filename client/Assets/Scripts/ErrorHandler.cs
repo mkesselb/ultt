@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Utility class, providing means to display localized error messages to the user.
@@ -33,6 +35,42 @@ public class ErrorHandler
 		//read from ./errorcodes/lang.txt into the dict of errorcodes
 		Dictionary<int, string> dict = new Dictionary<int, string> ();
 
+		if (lang == "de") {
+			dict.Add (100, "Benutzer ist nicht eingetragen");
+			dict.Add (101, "Benutzername oder Passwort ist falsch");
+			dict.Add (200, "Länge des Passworts muss zwischen 6-12 Zeichen sein");
+			dict.Add (201, "Länge des Passworts muss zwischen 6-12 Zeichen sein");
+			dict.Add (202, "Benutername ist leer");
+			dict.Add (203, "Benutzer ist bereits registriert");
+			dict.Add (300, "malformed id");
+			dict.Add (301, "Keine Klasse kann zum Klassencode gefunden werden");
+			dict.Add (302, "Benutzer ist bereits zur gewählten Klasse registriert");
+			dict.Add (303, "Benutzer ist nicht in der gewählten Klasse registriert");
+			dict.Add (304, "Die Aufgabe kann nicht doppelt zu einer Klasse verknüpft werden");
+			dict.Add (400, "Es ist ein Fehler mit der Datenbank aufgetreten");
+			dict.Add (401, "Es ist ein Fehler beim Einloggen aufgetregen");
+			dict.Add (402, "Es ist ein Fehler beim Registrieren aufgetreten");
+			dict.Add (403, "Es ist ein Fehler mit der Datenbank aufgetreten");
+		}
+		if (lang == "en") {
+			dict.Add (100, "Username cannot be found");
+			dict.Add (101, "Username or password not correct");
+			dict.Add (200, "Password length must be between 6-12 characters");
+			dict.Add (201, "Password length must be between 6-12 characters");
+			dict.Add (202, "Username is empty");
+			dict.Add (203, "User is already registered");
+			dict.Add (300, "malformed id");
+			dict.Add (301, "No class could be found for the provided classcode");
+			dict.Add (302, "User is already registered to selected class");
+			dict.Add (303, "User is not registered to selected class");
+			dict.Add (304, "A Task cannot be linked to one class twice");
+			dict.Add (400, "A database error occured");
+			dict.Add (401, "A login error occured");
+			dict.Add (402, "A registration error occured");
+			dict.Add (403, "A database error occured");
+		}
+
+		/*
 		string line = "";
 		System.IO.StreamReader file = new System.IO.StreamReader("./Assets/Scripts/errorcodes/" + lang + ".txt");
 		while((line = file.ReadLine()) != null)
@@ -42,6 +80,7 @@ public class ErrorHandler
 				dict.Add(int.Parse(parts[0]), parts[1]);
 			}
 		}
+		*/
 
 		errorcodes.Add (lang, dict);
 	}

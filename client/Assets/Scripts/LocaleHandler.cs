@@ -29,8 +29,88 @@ public class LocaleHandler
 	public static void setupMapping(string locale){
 		//read from ./locales/locale.txt into the dict of errorcodes
 		Dictionary<string, string> dict = new Dictionary<string, string> ();
-		
+
+		if (locale == "de") {
+			dict.Add("dialog-yes", "Ja");
+			dict.Add("dialog-no", "Nein");
+			dict.Add("noserver-connection", "Es konnte keine Verbindung zum Server hergstellt werden.");
+			dict.Add("back-button", "zurück");
+			dict.Add("logout-button", "ausloggen");
+			dict.Add("login-button", "einloggen");
+			dict.Add("register-button", "anmelden");
+			dict.Add("register-info", "Bitte Anmeldedaten eingeben");
+			dict.Add("class-tab", "Meine Klassen");
+			dict.Add("course-tab", "Meine Kurse");
+			dict.Add("task-tab", "Meine Aufgaben");
+			dict.Add("add-class", "Klasse hinzufügen");
+			dict.Add("class-add-info", "Bitte Klassendaten eingeben:");
+			dict.Add("class-name", "Klassenname");
+			dict.Add("class-year", "Schuljahr");
+			dict.Add("class-subject", "Fach");
+			dict.Add("button-add-class", "erstellen");
+			dict.Add("student-results", "Schülerinnen-ergebnisse");
+			dict.Add("button-add-topic", "Thema hinzufügen");
+			dict.Add("button-add-topicok", "OK");
+			dict.Add("topicname-info", "Themenname eintragen");
+			dict.Add("button-add-tasktotopic", "Aufgabe hinzufügen");
+			dict.Add("task-exercise", " (Übung)");
+			dict.Add("task-exam", " (Prüfung)");
+			dict.Add("info-select-task", "Aufgabe auswählen");
+			dict.Add("info-task-maxattempts", "maximale Anzahl der Versuche");
+			dict.Add("info-notobligatory", "Übung");
+			dict.Add("info-obligatory", "Überprüfung");
+			dict.Add("add-course", "Kursregistrierung");
+			dict.Add("course-info1", "Um dich zu einem Kurs anmelden zu können, benötigst du den Anmeldungscode des Kurses. Diesen bekommst du vom Lehrer des Kurses.");
+			dict.Add("course-info2", "Wenn du den Code in das untenstehende Feld eingibst und bestätigst, bist du in diesem Kurs angemeldet. ");
+			dict.Add("course-info3", "Der Lehrer entscheidet, ob er dich in den Kurs aufnehmen will. Du kannst den Kurs dann in deinem Profil unter \"Meine Kurse\" finden.");
+			dict.Add("course-code-info", "Code eingeben:");
+			dict.Add("button-add-course", "registrieren");
+			dict.Add("add-task", "Aufgabenerstellung");
+			dict.Add("task-add-info", "Bitte Daten der Aufgabe eingeben:");
+			dict.Add("task-name", "Name");
+			dict.Add("task-privacy", "öffentlich?");
+			dict.Add("task-subject", "Fach");
+			dict.Add("tasktype", "Aufgabentyp");
+			dict.Add("button-add-task", "erstellen");
+			dict.Add("quiz-info", "Bearbeite das Quiz, indem du Fragen und Antworten hinzufügst. Markiere die richtigen Antworten.");
+			dict.Add("button-quiz-add-answer", "Antwort hinzufügen");
+			dict.Add("button-quiz-add-question", "Frage hinzufügen");
+			dict.Add("button-quiz-save", "speichern");
+			dict.Add("cat-info", "");
+			dict.Add("button-cat-addphrase", "Phrase hinzufügen");
+			dict.Add("button-cat-addcat", "Kategorie hinzufügen");
+			dict.Add("button-cat-save", "speichern");
+			dict.Add("assig-info", "");
+			dict.Add("button-assig-add", "Zuordnung hinzufügen");
+			dict.Add("button-assig-save", "speichern");
+			dict.Add("info-nextword", "Nächstes Wort");
+			dict.Add("info-cat-num-answers", "Bearbeitet: ");
+			dict.Add("info-cat-num-correct", "Richtig: ");
+			dict.Add("button-cat-next", "nächstes Wort");
+			dict.Add("button-cat-end", "Ergebnisse prüfen");
+			dict.Add("date-invalid", "Das gewählte Datum passt nicht zum Format: ");
+			dict.Add("num-invalid", "Dies ist keine Nummer: ");
+			dict.Add("num-invalid-range", "Die Nummer ist nicht im folgenden Bereich: ");
+			dict.Add("text-empty", "Der Text darf nicht leer sein");
+			dict.Add("text-range", "Die Länge des Textes muss im folgenden Bereich sein: ");
+			dict.Add("text-specialChar", "Das Zeichen \" ist nicht erlaubt");
+			dict.Add("valid-errors", "Eingabefehler:");
+			dict.Add("taskname", "Aufgabenname");
+			dict.Add("classname", "Klassenname");
+			dict.Add("school_year", "Schuljahr");
+			dict.Add("topic_name", "Themaname");
+			dict.Add("max_attempts", "Versuche");
+			dict.Add("firstname", "Vorname");
+			dict.Add("lastname", "Nachname");
+			dict.Add("username", "Benutzername");
+			dict.Add("password", "Passwort");
+			dict.Add("password2", "Passwort2");
+			dict.Add("email", "Email");
+			dict.Add("school", "Schule");
+		}
+		/*
 		string line = "";
+
 		System.IO.StreamReader file = new System.IO.StreamReader("./Assets/Scripts/locales/" + locale + ".txt");
 		while((line = file.ReadLine()) != null)
 		{
@@ -39,7 +119,7 @@ public class LocaleHandler
 				dict.Add(parts[0], parts[1]);
 			}
 		}
-		
+		*/
 		localeTranslation.Add (locale, dict);
 	}
 
