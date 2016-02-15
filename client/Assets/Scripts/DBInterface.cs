@@ -16,11 +16,15 @@ public class DBInterface : MonoBehaviour {
 			//set db url
 			baseUrl = "";
 		} else{
-			baseUrl = "127.0.0.1/";
-		}
-		url = baseUrl + "unity/db";
-		//url = "127.0.0.1/unity/db";
-		//baseUrl = "127.0.0.1/";
+            //https support
+            baseUrl = "https://ultt.aau.at/";
+
+            //local testing:
+            /*
+            baseUrl = "127.0.0.1/";
+            */
+        }
+        url = baseUrl + "unity/db";
 		Debug.Log (url + ";" + baseUrl);
 		main = gameObject.GetComponent<Main>();
 	}
