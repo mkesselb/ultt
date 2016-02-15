@@ -34,19 +34,40 @@ if(process.argv.length > 2){
 	port = process.argv[2];
 }
 var ultt = express();
-var server = ultt.listen(port, function(err){
+
+if(port == 443){
+	//set https server
+	//arguments on index 3-path to private key and 4-path to server certificate
+	var https = require('https');
+	var privateKey  = fs.readFileSync(process.argv[3]/*'sslcert/server.key'*/, 'utf8');
+	var certificate = fs.readFileSync(process.argv[4]/*'sslcert/server.crt'*/, 'utf8');
+	
+	var credentials = {key: privateKey, cert: certificate};
+	var httpsServer = https.createServer(credentials, ultt);
+	
+	httpsServer.listen(port, function(err){
+	if(err){
+		logger.log(logger.logLevels["error"], "error listening on port "
+				+ port + ": " + err.toString());
+		return;
+	}
+	
+	logger.log(logger.logLevels["info"], "https: listening on port " + port)});
+	
+} else{
+	//set http server
+	var server = ultt.listen(port, function(err){
 	if(err){
 		logger.log(logger.logLevels["error"], "error listening on port "
 				+ server.address().port + ": " + err.toString());
 		return;
 	}
 	
-	logger.log(logger.logLevels["info"], "listening on port " + server.address().port);
+	logger.log(logger.logLevels["info"], "http: listening on port " + server.address().port);
 });
-
+}
 
 /* defining routes */
-
 
 /* get routes */
 ultt.get('/', function(req, res){
@@ -68,7 +89,6 @@ ultt.get('/info', function(req, res){
 	logger.log(logger.logLevels["info"], "serving request to /info");
 	res.send('sp mkesselb, comoessl, stoffl1024');
 });
-
 
 /* post routes */
 //full db handling is done in this post route
