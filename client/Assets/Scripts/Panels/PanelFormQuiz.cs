@@ -82,8 +82,11 @@ public class PanelFormQuiz : MonoBehaviour {
 			= LocaleHandler.getText ("button-quiz-add-question", main.getLang());
 		btnSave.transform.FindChild("Text").GetComponent<Text>().text
 			= LocaleHandler.getText ("button-quiz-save", main.getLang());
+
+		/* TODO: this code fragment gives nullpointer...disabling it seems fine
 		question.transform.FindChild("ButtonAdd/Text").GetComponent<Text>().text
 			= LocaleHandler.getText ("button-quiz-add-answer", main.getLang());
+		*/
 
 		questions = new List<GameObject> ();
 		answers = new List<List<GameObject>> ();
